@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0" version="27.1.5">
+  <diagram name="Página-1" id="1f0ELAvN3aSWhIqKfsOz">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yDA1QNW94nW4_V0DOe6r-1" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="110" y="210" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yDA1QNW94nW4_V0DOe6r-7" value="Buscar pelo formulário" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="250" y="240" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="yDA1QNW94nW4_V0DOe6r-11" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;startFill=0;strokeWidth=2;fontStyle=1" edge="1" parent="1" source="yDA1QNW94nW4_V0DOe6r-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="250" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yDA1QNW94nW4_V0DOe6r-26" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.422;entryY=0.014;entryDx=0;entryDy=0;dashed=1;endArrow=open;endFill=0;strokeWidth=2;fontStyle=1;entryPerimeter=0;" edge="1" parent="1" source="yDA1QNW94nW4_V0DOe6r-18" target="BX4bzAzIHX8VgoCKPoSf-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="175" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yDA1QNW94nW4_V0DOe6r-36" value="&lt;font&gt;&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="yDA1QNW94nW4_V0DOe6r-26">
+          <mxGeometry x="0.0215" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yDA1QNW94nW4_V0DOe6r-18" value="Selecionar viagem" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="505" y="140" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="BX4bzAzIHX8VgoCKPoSf-1" value="API de&amp;nbsp;&lt;div&gt;viagens&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="280" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BX4bzAzIHX8VgoCKPoSf-22" value="Consultar dados" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="290" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="BX4bzAzIHX8VgoCKPoSf-23" value="" style="endArrow=none;html=1;rounded=0;exitX=0.983;exitY=0.644;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;fontStyle=1" edge="1" parent="1" source="BX4bzAzIHX8VgoCKPoSf-22" target="BX4bzAzIHX8VgoCKPoSf-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="540" y="270" as="sourcePoint" />
+            <mxPoint x="680" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX4bzAzIHX8VgoCKPoSf-27" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.011;entryY=0.34;entryDx=0;entryDy=0;exitX=0.956;exitY=0.7;exitDx=0;exitDy=0;dashed=1;entryPerimeter=0;exitPerimeter=0;endArrow=open;endFill=0;strokeWidth=2;fontStyle=1" edge="1" parent="1" source="yDA1QNW94nW4_V0DOe6r-7" target="BX4bzAzIHX8VgoCKPoSf-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="244" as="sourcePoint" />
+            <mxPoint x="420" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX4bzAzIHX8VgoCKPoSf-28" value="&lt;font&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" connectable="0" vertex="1" parent="BX4bzAzIHX8VgoCKPoSf-27">
+          <mxGeometry x="0.0413" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HXo4Sst546qTcKS0ilAi-3" value="Definir dados de viagem" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HXo4Sst546qTcKS0ilAi-9" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;dashed=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=open;endFill=0;strokeWidth=2;fontStyle=1" edge="1" parent="1" source="yDA1QNW94nW4_V0DOe6r-7" target="HXo4Sst546qTcKS0ilAi-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="351" y="150" as="sourcePoint" />
+            <mxPoint x="490" y="219" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HXo4Sst546qTcKS0ilAi-10" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" connectable="0" vertex="1" parent="HXo4Sst546qTcKS0ilAi-9">
+          <mxGeometry x="0.0413" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lusH6UJEIYTryQgws4bf-1" value="Buscar pelo formulário" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=140;height=30;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="170" y="30" width="500" height="430" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

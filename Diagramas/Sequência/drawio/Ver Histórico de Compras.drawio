@@ -1,0 +1,117 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0" version="27.1.4">
+  <diagram name="Página-1" id="JDGRNFPOSLMUrqeBPpCN">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-1" value=":Historico" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="270" y="1050" width="130" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-2" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;fontStyle=1" vertex="1" parent="BqJJ9dFHIq1TASMny_WH-1">
+          <mxGeometry x="60" y="89" width="10" height="381" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-5" value="Ver Histórico de Compras" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=195;height=30;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="10" y="1000" width="480" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-8" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=2;fontStyle=1;endFill=0;" edge="1" parent="1" target="BqJJ9dFHIq1TASMny_WH-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190.75" y="1152" as="sourcePoint" />
+            <mxPoint x="335.25" y="1152" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="130" y="1152" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-9" value="1: acessarHistoricoCompra()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="140" y="1122" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-26" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="110" y="1040" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-27" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;fontStyle=1;exitX=0.251;exitY=1.007;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="129" y="1550" as="sourcePoint" />
+            <mxPoint x="129" y="1126" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-28" value="Alt" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;recursiveResize=0;container=1;collapsible=0;width=43;height=15;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="27.5" y="1240" width="405" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-29" value="[histórico vazio]" style="text;html=1;strokeWidth=2;fontStyle=1" vertex="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry width="100" height="20" relative="1" as="geometry">
+            <mxPoint x="7" y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-30" value="[else]" style="line;strokeWidth=2;dashed=1;labelPosition=center;verticalLabelPosition=bottom;align=left;verticalAlign=top;spacingLeft=20;spacingTop=15;html=1;whiteSpace=wrap;fontStyle=1" vertex="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry x="2.5" y="40" width="400" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-37" value="2.2: ListaCompras" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;fontStyle=1;endFill=0;" edge="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="302.5" y="70" as="sourcePoint" />
+            <mxPoint x="102.5" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-38" value="2.1: Erro" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;fontStyle=1;endFill=0;" edge="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="302.75" y="21" as="sourcePoint" />
+            <mxPoint x="102.25" y="21" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-41" value="3: filtrarBusca()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontStyle=1" vertex="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry x="152.5" y="81" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-42" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=2;fontStyle=1;endFill=0;" edge="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="163.25" y="108" as="sourcePoint" />
+            <mxPoint x="302.5" y="108" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="102.5" y="108" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-43" value="3.1: ListaComprasFiltradas" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;strokeWidth=2;fontStyle=1;endFill=0;" edge="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="302.5" y="150" as="sourcePoint" />
+            <mxPoint x="102.5" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-44" value="4: emitirCompra()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontStyle=1" vertex="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry x="142.5" y="163" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-45" value="" style="endArrow=open;html=1;rounded=0;strokeWidth=2;fontStyle=1;endFill=0;" edge="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="163.25" y="195" as="sourcePoint" />
+            <mxPoint x="302.5" y="195" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="102.5" y="195" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-46" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;fontStyle=1" vertex="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry x="308.5" y="226" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-48" value="5: exportarCompra()" style="html=1;align=left;spacingLeft=2;endArrow=open;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;strokeWidth=2;fontStyle=1;endFill=0;" edge="1" parent="BqJJ9dFHIq1TASMny_WH-28">
+          <mxGeometry x="-0.0021" relative="1" as="geometry">
+            <mxPoint x="313.5" y="205" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="343.5" y="235" />
+            </Array>
+            <mxPoint x="318.5" y="235" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-39" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="335" y="1180" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BqJJ9dFHIq1TASMny_WH-40" value="2: exibirHistorico()" style="html=1;align=left;spacingLeft=2;endArrow=open;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;strokeWidth=2;fontStyle=1;endFill=0;" edge="1" parent="1" target="BqJJ9dFHIq1TASMny_WH-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1160" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="370" y="1190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
