@@ -1,0 +1,4 @@
+# arquivos que serão ignorados por parte do backend
+
+.env
+.venv

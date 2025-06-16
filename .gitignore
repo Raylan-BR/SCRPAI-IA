@@ -7,7 +7,6 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-codigo/backend/.venv
 codigo/frontend/node_modules
 dist
 dist-ssr
