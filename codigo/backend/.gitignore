@@ -1,4 +1,6 @@
-# arquivos que serão ignorados por parte do backend
-
+#ignorar o arquivo .env para dados sensíveis
 .env
+#ignorar a pasta .venv que é o ambiente virtual
 .venv
+#ignorar os arquivos compilados pelo python
+__pycache__/
