@@ -87,3 +87,8 @@ Observação: caso seja necessário reconhecimento dos pacotes, esteja no diret�
 ```
 python -m backend.chatbot.mainChat
 ```
+Atualização de versão do LangChain >= 0.2.7
+```
+pip install --upgrade langchain
+```
+
