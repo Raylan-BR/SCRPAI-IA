@@ -1,0 +1,3 @@
+flask
+amadeus
+python-dotenv
