@@ -83,12 +83,13 @@ para o framework langChain, instale:
 ```
 pip install langchain langchain-google-genai google-generativeai python-dotenv
 ```
-Observação: caso seja necessário reconhecimento dos pacotes, esteja no diretório 'codigo' e rode:
-```
-python -m backend.chatbot.mainChat
-```
 Atualização de versão do LangChain >= 0.2.7
 ```
 pip install --upgrade langchain
 ```
-
+## Acessar o chat Gemini+LangChain 
+Observação: caso seja necessário reconhecimento dos pacotes, esteja no diretório 'codigo' e rode:
+```
+python -m backend.chatbot.mainChat
+```
+## Como acessar a API Amadeus 
