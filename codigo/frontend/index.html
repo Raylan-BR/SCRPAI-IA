@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/busca_chat.css">
     <link rel="stylesheet" href="css/busca_form.css">
+    <link rel="stylesheet" href="css/passagens.css">
     <!--icone do robozinho-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=smart_toy" />
     <title>Document</title>
@@ -87,7 +88,99 @@
 
                 <button type="submit" class="btn">Buscar Passagens</button>
             </form>
+        </div>
     </div>
+
+    <div class="container-result">
+    
+    <header class="search-header">
+      <div class="route-tab">São Paulo ⮕ Rio de Janeiro</div>
+      <div class="ia-notification">IA encontrou 2 opções</div>
+    </header>
+
+    <section class="results-section">
+      <h1>Voos de ida</h1>
+
+      <div class="voo">
+        <div class="info-principal">
+          <p class="companhia">LATAM</p>
+          <p class="aeronave">Aeronave: A320 Assentos disponíveis: 12</p>
+        </div>
+        
+        <div class="detalhes-voo">
+          <div class="trecho">
+            <strong>08:30</strong>
+            <div class="linha-icone">
+              <span>GRU - Rio de Janeiro</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+          <div class="trecho duracao">
+            <div class="linha-icone">
+              <strong>1h15m</strong>
+              <img src="./img/relogio.png" alt="Relógio" class="icon">
+            </div>
+            <span>Direto</span>
+          </div>
+          <div class="trecho">
+            <strong>09:45</strong>
+            <div class="linha-icone">
+              <span>GIG - Guarulhos</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+        </div>
+        
+        <div class="acao">
+          <div class="preco">
+            R$ 299,90
+            <small>por pessoa</small>
+          </div>
+          <button class="selecionar">Selecionar</button>
+        </div>
+      </div>
+
+      <div class="voo">
+        <div class="info-principal">
+          <p class="companhia">GOL</p>
+          <p class="aeronave">Aeronave: Boeing 737 Assentos disponíveis: 8</p>
+        </div>
+        
+        <div class="detalhes-voo">
+          <div class="trecho">
+            <strong>14:20</strong>
+            <div class="linha-icone">
+              <span>GRU - Rio de Janeiro</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+          <div class="trecho duracao">
+            <div class="linha-icone">
+              <strong>1h15m</strong>
+              <img src="./img/relogio.png" alt="Relógio" class="icon">
+            </div>
+            <span>Direto</span>
+          </div>
+          <div class="trecho">
+            <strong>15:35</strong>
+            <div class="linha-icone">
+              <span>GIG - Guarulhos</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+        </div>
+        
+        <div class="acao">
+          <div class="preco">
+            R$ 259,90
+            <small>por pessoa</small>
+          </div>
+          <button class="selecionar">Selecionar</button>
+        </div>
+      </div>
+    </section>
+
+</div>
 </body>
 <script src="js/busca_chat.js"></script>
 <script src="js/busca_form.js"></script>
