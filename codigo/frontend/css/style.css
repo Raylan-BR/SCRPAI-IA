@@ -1,0 +1,134 @@
+/* RESET BÁSICO – Tira espaçamentos padrões do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CORPO DA PÁGINA */
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 4;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CABEÇALHO */
+.header {
+  background-color: #005792;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-icon{
+    height: 40px;
+    width: auto;
+
+}
+
+.header nav a {
+  color: white;
+  margin-left: 20px;
+  margin-right: 50px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.main-content {
+  padding: 100px 20px 40px 20px;
+  min-height: 300px;
+}
+
+/* RODAPÉ */
+.footer {
+  background-color: #D1F4FA; /* azul claro */
+  padding: 40px 20px 20px;
+  font-size: 14px;
+  color: #000;
+  position: static;
+  width: 100%;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer-column p {
+  margin-bottom: 8px;
+}
+
+/* ÍCONES DE REDES E PAGAMENTO */
+.social-icons img {
+  width: 32px;
+  height: auto;
+  margin-right: 10px;
+}
+.payment-icons img {
+  width: 32px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* PARTE INFERIOR DO RODAPÉ */
+.footer-bottom {
+  border-top: 1px solid #aaa;
+  padding-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #444;
+  line-height: 1.5
+}
+
+/* TORNAR RESPONSIVO */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-column {
+    margin-bottom: 20px;
+  }
+
+  .header nav a {
+    margin: 10px;
+  }
+}
