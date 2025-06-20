@@ -13,21 +13,25 @@
     
 </head>
 <body>
-
+  
   <!-- CABEÇALHO -->
-  <header class="header">
+  <header class="header"> 
+    <nav class="nav-bar">
     <div class="logo">
     <img src="./img/logo2.png" alt="Ícone SkAI" class="logo-icon" />
     <h1>SkAI</h1>
     </div>
-    <nav>
-      <a href="#">Início</a>
-      <a href="#">Sobre nós</a>
-      <a href="autenticacao/login.html">Login</a>
-    </nav>
-  </header>
+<nav>
+  <a href="#">Início</a>
+  <a href="#">Sobre nós</a>
+  <a href="autenticacao/login.html">Login</a>
 
-  
+  <div class="nav-links">
+    <a href="#">pt-BR</a>
+    <a href="#">Login</a>
+  </div>
+</nav>
+</header>
   <!-- CONTEÚDO -->
   <main class="main-content">
     <div class="componente_chatbot">
@@ -111,14 +115,12 @@
     </div>
 
     <div class="container-result">
-    
+    <section class="results-section">
+      <h1>Voos de ida</h1>
     <header class="search-header">
       <div class="route-tab">São Paulo ⮕ Rio de Janeiro</div>
       <div class="ia-notification">IA encontrou 2 opções</div>
     </header>
-
-    <section class="results-section">
-      <h1>Voos de ida</h1>
 
       <div class="voo">
         <div class="info-principal">
@@ -199,9 +201,8 @@
       </div>
     </section>
 
-</div>
+    </div>
   </main>
-
   <!-- RODAPÉ -->
   <footer class="footer">
     <div class="footer-top">
@@ -216,7 +217,7 @@
       <div class="footer-column">
         <h4>Formas de pagamento</h4>
         <div class="payment-icons">
-          <img src="./img/cartao.png" alt="Cartões" />
+          <img src="./img/image.png" alt="Cartões" />
         </div>
       </div>
 
@@ -239,7 +240,7 @@
   </footer>
 
 
-<script src="js/busca_chat.js"></script>
-<script src="js/busca_form.js"></script>
+<script src="./js/busca_chat.js"></script>
+<script src="./js/busca_form.js"></script>
 </body>
 </html>
