@@ -7,8 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Backend
 codigo/backend/.venv
 codigo/frontend/node_modules
+
+codigo/backend/api/venv
+codigo/backend/api/.env
+
 dist
 dist-ssr
 *.local
