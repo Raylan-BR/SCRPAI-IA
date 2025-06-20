@@ -1,0 +1,120 @@
+/* LOGIN */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #005792;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+}
+
+.logo {
+    height: 50px;
+    margin-bottom: 0px;
+    margin-top: -10px;
+}
+
+.login-title {
+    font-size: 34px;
+    margin-bottom: 30px;
+    color: #005792;
+    font-weight:700 ;
+    margin-top: 0;
+    
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #000;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #005792;
+    background-color: #005792;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.input-group input::placeholder {
+    color: #ffff;
+    font-weight: 700;
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #005792;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #3367d6;
+}
+
+.social-login {
+    margin-bottom: 20px;
+    color: #005792;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.google-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    gap: 5px;
+    cursor: pointer;
+    margin-top: -18px;
+   
+}
+
+
+
+.google-icon {
+    height: 20px;
+    transform: translateY(-2px);;
+    
+}
+
+.register-link {
+    color: #005792;
+    text-decoration: none;
+    font-weight: bold;
+}
