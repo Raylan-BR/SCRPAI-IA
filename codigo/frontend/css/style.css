@@ -8,14 +8,14 @@
 /* CORPO DA PÁGINA */
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #f4f4f4;
+  background-color: #005792;
   color: #333;
   line-height: 4;
   height: 100%;
+  width: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 /* CABEÇALHO */
@@ -23,11 +23,13 @@ body {
   background-color: #005792;
   color: white;
   padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: fixed;
   width: 100%;
+  top: 0;
+  left:0;
+  z-index:1000;
+  min-height: 60px;
+  display: flex;
 }
 .logo {
     display: flex;
@@ -39,33 +41,75 @@ body {
     width: auto;
 
 }
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
-.header nav a {
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
   color: white;
   margin-left: 20px;
-  margin-right: 50px;
   text-decoration: none;
   font-weight: bold;
 }
 
+
+
 .header nav a:hover {
   text-decoration: underline;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 1200px; /* largura máxima desejada */
+  margin: 0 auto; /* centraliza horizontalmente */
+  padding: 20px; /* espaçamento lateral */
+  flex: 1 0 auto;
+  flex-grow: 1; /* para crescer e empurrar o footer pra baixo */
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 50px;
 }
 
 /* CONTEÚDO PRINCIPAL */
 .main-content {
   padding: 100px 20px 40px 20px;
   min-height: 300px;
+  gap: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.main-content .container-result{
+  padding: 80px 20px 10px 20px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+
 }
 
 /* RODAPÉ */
 .footer {
   background-color: #D1F4FA; /* azul claro */
-  padding: 40px 20px 20px;
+  padding: 40px 40px 20px;
   font-size: 14px;
   color: #000;
   position: static;
+  margin: 0;
   width: 100%;
+  min-height: 60px;
+  align-self: stretch;
+  flex-shrink: 0;
+  line-height: 1.5;
+
 }
 
 .footer-top {
@@ -98,7 +142,7 @@ body {
   margin-right: 10px;
 }
 .payment-icons img {
-  width: 32px;
+  width: 180px;
   height: auto;
   margin-right: 10px;
 }
