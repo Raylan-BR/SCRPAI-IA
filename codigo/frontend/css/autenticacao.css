@@ -1,15 +1,14 @@
-/* LOGIN */
-
+/* FONTE E RESET */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
+/* ESTILOS GERAIS (COMUNS A AMBOS) */
 body {
     background-color: #005792;
     display: flex;
@@ -28,8 +27,8 @@ body {
 }
 
 .logo {
-    height: 50px;
-    margin-bottom: 0px;
+    height: 70px;
+    margin-bottom: 0;
     margin-top: -10px;
 }
 
@@ -37,9 +36,8 @@ body {
     font-size: 34px;
     margin-bottom: 30px;
     color: #005792;
-    font-weight:700 ;
+    font-weight: 700;
     margin-top: 0;
-    
 }
 
 .input-group {
@@ -50,7 +48,7 @@ body {
 .input-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
+    font-weight: 600;
     color: #000;
 }
 
@@ -61,11 +59,12 @@ body {
     background-color: #005792;
     border-radius: 8px;
     font-size: 16px;
+    color: white;
 }
 
 .input-group input::placeholder {
-    color: #ffff;
-    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
 }
 
 .login-button {
@@ -76,7 +75,7 @@ body {
     border: none;
     border-radius: 8px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -84,7 +83,12 @@ body {
 }
 
 .login-button:hover {
-    background-color: #3367d6;
+    background-color: #003d66;
+}
+
+/* ESTILOS ESPECÍFICOS PARA LOGIN */
+#loginForm {
+    margin-bottom: 20px;
 }
 
 .social-login {
@@ -101,20 +105,49 @@ body {
     padding: 8px 10px;
     gap: 5px;
     cursor: pointer;
-    margin-top: -18px;
-   
+    margin-top: -10px;
 }
 
-
-
 .google-icon {
-    height: 20px;
-    transform: translateY(-2px);;
-    
+    height: 24px;
+    transform: translateY(-2px);
+}
+
+/* ESTILOS ESPECÍFICOS PARA CADASTRO */
+#registerForm {
+    margin-bottom: 20px;
 }
 
 .register-link {
     color: #005792;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    transition: color 0.3s;
 }
+
+.register-link:hover {
+    color: #003d66;
+    text-decoration: underline;
+}
+
+/* Ajustes específicos para o card de cadastro */
+body.cadastro-page .login-container {
+    width: 450px;        
+    padding: 15px 40px;   
+   
+}
+
+body.cadastro-page .input-group {
+    margin-bottom: 10px;
+}
+
+body.cadastro-page .login-title {
+    margin-bottom: 20px; 
+}
+
+
+body.cadastro-page .login-button {
+    margin: 6px 0 12px;       
+}
+
+
