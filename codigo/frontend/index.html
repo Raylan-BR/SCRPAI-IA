@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/busca_chat.css">
+    <link rel="stylesheet" href="css/busca_form.css">
     <!--icone do robozinho-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=smart_toy" />
     <title>Document</title>
@@ -46,6 +47,48 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h2>Busca de Passagens</h2>
+            </div>
+
+            <form class="form">
+                <div class="bolinhas">
+                    <label><input type="radio" name="tipo" id="ida" /> Só ida</label>
+                    <label><input type="radio" name="tipo" id="ida-e-volta" /> Ida e volta</label>
+                </div>
+
+                <div class="inputs">
+                    <div class="input-div">
+                        <label>Origem</label>
+                        <input type="text" placeholder="Ex: São Paulo (GRU)" required />
+                    </div>
+
+                    <div class="input-div">
+                        <label>Destino</label>
+                        <input type="text" placeholder="Ex: Rio de Janeiro (GIG)" required />
+                    </div>
+                    <div class="input-div">
+                        <label>Data de ida</label>
+                        <input type="date" required />
+                    </div>
+                
+                    <div class="input-div escondido" id="data-volta-div">
+                        <label>Data de volta</label>
+                        <input type="date" id="data-volta" />
+                    </div>
+
+                    <div class="input-div">
+                        <label>Passageiros</label>
+                        <input type="number" placeholder="1" min="1" max="5" required />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Buscar Passagens</button>
+            </form>
+    </div>
 </body>
 <script src="js/busca_chat.js"></script>
+<script src="js/busca_form.js"></script>
 </html>
