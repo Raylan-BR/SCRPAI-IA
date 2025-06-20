@@ -1,21 +1,18 @@
-/* RESET BÁSICO – Tira espaçamentos padrões do navegador */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
-
-/* CORPO DA PÁGINA */
-body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #005792;
-  color: #333;
-  line-height: 4;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+/*CORPO DA PÁGINA*/
+body{
+    background-color: #005792;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* CABEÇALHO */
@@ -59,9 +56,6 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
-
-
-
 .header nav a:hover {
   text-decoration: underline;
 }
@@ -83,12 +77,12 @@ body {
 .main-content {
   padding: 100px 20px 40px 20px;
   min-height: 300px;
-  gap: 50px;
+  gap: 30px;
   display: flex;
   flex-direction: column;
 }
 .main-content .container-result{
-  padding: 80px 20px 10px 20px;
+  padding: 20px;
   min-height: 300px;
   display: flex;
   flex-direction: column;
