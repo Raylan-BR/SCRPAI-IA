@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    background-color: #005792;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.componente_chatbot{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    padding-bottom: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.conteudo_cabecalho{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 20px 20px 0px 0px;
+    border: none;
+    background-color: #fff;
+}
+.texto_cabecalho{
+    font-size: 13pt;
+}
+#conversa{
+    display: flex;
+    flex-direction: column;
+}
+#conteudo_historico{
+    height: 0px;
+    overflow: auto;
+    margin: 0px 20px 20px 20px;
+    transition: height 0.5s ease;
+    font-weight: 500;
+}
+.minha_mensagem{
+    display: flex;
+    justify-content: right;
+}
+.minha_mensagem p, .estiloMensagem{
+    background-color: #005792;
+    color: #fff;
+    max-width: 350px;
+    word-wrap: break-word;
+    padding: 15px;
+    border-radius: 10px 0px 10px 10px;
+    margin-bottom: 3px;
+}
+.chatbot_mensagem{
+    display: flex;
+    justify-content: left;
+}
+.chatbot_mensagem p{
+    background-color: #005792;
+    color: #fff;
+    width: 350px;
+    padding: 15px;
+    border-radius: 0px 10px 10px 10px;
+}
+.conteudo_rodape{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.conteudo_rodape input{
+    margin-left: 20px;
+    padding: 10px;
+    width: 100%;
+    font-size: 12pt;
+}
+.conteudo_rodape button{
+    margin-right: 20px;
+    width: 100px;
+    color: #fff;
+    background-color: #005792;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: bold;
+}
