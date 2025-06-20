@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKAI - Cadastro</title>
+    <link rel="stylesheet" href="../../css/autenticacao.css">
+</head>
+<body class="cadastro-page">
+    <div class="login-container">
+        <img src="../../img/logo.png" alt="SKAI Logo" class="logo">
+        <div class="login-title">CADASTRA-SE</div>
+        
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" placeholder="Digite o seu nome" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" placeholder="Digite o seu telefone" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Digite o seu email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" placeholder="Digite sua senha" required>
+            </div>
+            
+            <button type="submit" class="login-button">CADASTRAR</button>
+        </form>
+        
+        <div>Já tem conta? <a href="login.html" class="register-link">Faça login</a></div>
+    </div>
+
+    <script src="../../js/autenticacao.js"></script>
+</body>
+</html>
