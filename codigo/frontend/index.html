@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/src/index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/busca_chat.css">
+    <!--icone do robozinho-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=smart_toy" />
+    <title>Document</title>
 </head>
 <body>
-  <h1 class="bg-amber-100 text-3xl font-bold">
-    Hello world!
-  </h1>
+    <div class="componente_chatbot">
+        <button onclick="abrirChatbot()"  class="conteudo_cabecalho">
+            <span class="material-symbols-outlined">
+                smart_toy
+            </span>
+            <div class="texto_cabecalho">
+                <strong>Botfly - Assistente de Viagens</strong>
+                <p>Receba ajuda no planejamento da sua viagem.</p>
+            </div> 
+        </button>
+        <div class="conversa">
+            <div id="conteudo_historico">
+                <div class="minha_mensagem">
+                    <p>1 Quero viajar para São Paulo,</p>
+                </div>
+                <div class="chatbot_mensagem">
+                    <p>2Para ajudar no seu planejamento preciso de mais informações. Me fale a data, a cidade de ida e a cidade de destino.</p>
+                </div>
+                <div class="minha_mensagem">
+                    <p>3Quero viajar para São Paulo</p>
+                </div>
+                <div class="chatbot_mensagem">
+                    <p>4Para ajudar no seu planejamento preciso de mais informações. Me fale a data, a cidade de ida e a cidade de destino.</p>
+                </div>
+                <div class="minha_mensagem">
+                    <p>4Quero viajar para São Paulo</p>
+                </div>
+                <div class="chatbot_mensagem">
+                    <p>5Para ajudar no seu planejamento preciso de mais informações. Me fale a data, a cidade de ida e a cidade de destino.</p>
+                </div>
+            </div>
+            <div class="conteudo_rodape">
+                <input id="conteudo_campo" type="text" placeholder="Digite sua mensagem">
+                <button onclick="enviar()">Enviar</button>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="js/busca_chat.js"></script>
 </html>
