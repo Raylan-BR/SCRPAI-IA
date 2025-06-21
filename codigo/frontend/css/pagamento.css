@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #005792;
+  color: white;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #005792;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+
+.carregando{
+ height: 150px;
+  width: auto;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.logo h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #ffffff20;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.lang img {
+  width: 20px;
+  height: auto;
+}
+
+.dropdown-icon {
+  font-size: 12px;
+}
+
+.perfil-btn {
+  background-color: #ffffff20;
+  border: none;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.perfil-btn img {
+  width: 20px;
+  height: auto;
+}
+
+.content {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.content h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.destino {
+  font-size: 14px;
+  margin-bottom: 40px;
+  color: #e0e0e0;
+}
+
+.content h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.botoes.oculto {
+  display: none;
+}
+
+
+.btn {
+  background-color: white;
+  color: #005792;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+
+
+.cartao-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#cartaoForm {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  color: #005792;
+  width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.processar-btn {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  background-color: #005792;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.processar-btn:hover {
+  transform: scale(1.05);
+}
+
+.pix-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.pix-box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 500px;
+  color: #000;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pix-box img {
+  margin: 20px auto;
+}
+
+.pix-box input {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  color: black;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 400px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.modal-content button {
+  margin-top: 15px;
+  background-color: #005792;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
