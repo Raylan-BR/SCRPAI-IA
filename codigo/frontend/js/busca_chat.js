@@ -11,19 +11,31 @@ function abrirChatbot(){
 
   chatAberto = !chatAberto; // inverte o estado
 }
+function dataEnvioMensagem(){
+    const hoje = new Date();
+
+  const dia = String(hoje.getDate()).padStart(2, "0");
+  const mes = String(hoje.getMonth() + 1).padStart(2, "0"); // mês começa do zero
+  const ano = String(hoje.getFullYear()).slice(-2); // pega só os dois últimos dígitos
+
+  return `${dia}/${mes}/${ano}`;
+}
 
 function gerarMinhaMensagem(mensagem){
     const conversa = document.getElementById("conteudo_historico");
+    const agora = new Date();
 
+    //caixa da mensagem
     var caixaMensagem = document.createElement('div');
-    caixaMensagem.className = 'minha_mensagem';
-
+    caixaMensagem.className = 'minhaMensagem';
+    //mensagem 
     var dadoMensagem = document.createElement('p');
-    dadoMensagem.className = 'estiloMensagem';
 
+    //adicionar mensagem na caixa
     caixaMensagem.appendChild(dadoMensagem);
+    //adicionar a caixa na conversa
     conversa.appendChild(caixaMensagem);
-    dadoMensagem.innerText = mensagem.value;
+    dadoMensagem.innerHTML = `${mensagem.value}<span>${dataEnvioMensagem()}</span>`;
     mensagem.value = "";
     conversa.scrollTop = conversa.scrollHeight;
 }

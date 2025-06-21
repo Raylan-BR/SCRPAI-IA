@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkIA: Passagens aéreas</title>
     <link rel="stylesheet" href="css/busca_chat.css">
     <link rel="stylesheet" href="css/busca_form.css">
     <link rel="stylesheet" href="css/passagens.css">
+    <link rel="stylesheet" href="css/style.css" />
     <!--icone do robozinho-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=smart_toy" />
-    <title>Document</title>
+    
 </head>
 <body>
+  
+  <!-- CABEÇALHO -->
+  <header class="header"> 
+    <nav class="nav-bar">
+    <div class="logo">
+    <img src="./img/logo2.png" alt="Ícone SkAI" class="logo-icon" />
+    <h1>SkAI</h1>
+    </div>
+<nav>
+  <a href="#">Início</a>
+  <a href="#">Sobre nós</a>
+  <a href="autenticacao/login.html">Login</a>
+
+  <div class="nav-links">
+    <a href="#">pt-BR</a>
+    <a href="#">Login</a>
+  </div>
+</nav>
+</header>
+  <!-- CONTEÚDO -->
+  <main class="main-content">
     <div class="componente_chatbot">
         <button onclick="abrirChatbot()"  class="conteudo_cabecalho">
             <span class="material-symbols-outlined">
@@ -23,23 +46,11 @@
         </button>
         <div class="conversa">
             <div id="conteudo_historico">
-                <div class="minha_mensagem">
-                    <p>1 Quero viajar para São Paulo,</p>
+                <div class="minhaMensagem">
+                  <p>Quero viajar para são paulo <span>20/06/2025</span></p>
                 </div>
-                <div class="chatbot_mensagem">
-                    <p>2Para ajudar no seu planejamento preciso de mais informações. Me fale a data, a cidade de ida e a cidade de destino.</p>
-                </div>
-                <div class="minha_mensagem">
-                    <p>3Quero viajar para São Paulo</p>
-                </div>
-                <div class="chatbot_mensagem">
-                    <p>4Para ajudar no seu planejamento preciso de mais informações. Me fale a data, a cidade de ida e a cidade de destino.</p>
-                </div>
-                <div class="minha_mensagem">
-                    <p>4Quero viajar para São Paulo</p>
-                </div>
-                <div class="chatbot_mensagem">
-                    <p>5Para ajudar no seu planejamento preciso de mais informações. Me fale a data, a cidade de ida e a cidade de destino.</p>
+                <div class="chatbotMensagem">
+                    <p>2Para ajudar no seu planejamento preciso de mais informações. Me fale a data, a cidade de ida e a cidade de destino. <span>20/06/2025</span></p>
                 </div>
             </div>
             <div class="conteudo_rodape">
@@ -50,7 +61,7 @@
     </div>
     <div class="container">
         <div class="card">
-            <div class="header">
+          <div class="form-header">
                 <h2>Busca de Passagens</h2>
             </div>
 
@@ -92,14 +103,12 @@
     </div>
 
     <div class="container-result">
-    
+    <section class="results-section">
+      <h1>Voos de ida</h1>
     <header class="search-header">
       <div class="route-tab">São Paulo ⮕ Rio de Janeiro</div>
       <div class="ia-notification">IA encontrou 2 opções</div>
     </header>
-
-    <section class="results-section">
-      <h1>Voos de ida</h1>
 
       <div class="voo">
         <div class="info-principal">
@@ -180,8 +189,46 @@
       </div>
     </section>
 
-</div>
+    </div>
+  </main>
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-column">
+        <h4>Nossas redes sociais</h4>
+        <div class="social-icons">
+          <img src="./img/facebook.png" alt="Facebook" />
+          <img src="./img/instagram.png" alt="Instagram" />
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Formas de pagamento</h4>
+        <div class="payment-icons">
+          <img src="./img/image.png" alt="Cartões" />
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Precisa falar conosco?</h4>
+        <p>Fale com a gente pelo<br />email: contato@skaivoos.com.br</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contatos</h4>
+        <p><strong>4040 5555</strong><br />Capitais e regiões metropolitanas</p>
+        <p><strong>0800 123 890</strong><br />Demais localidades (ligação gratuita)</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Av. Litorânea, 1230, Ed. Atlântico Corporate, Torre Sul, Sala 1502, Ponta D'Areia, São Luís - MA, 65077-870, CNPJ: 12.345.678/0001-90</p>
+      <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+<script src="./js/busca_chat.js"></script>
+<script src="./js/busca_form.js"></script>
 </body>
-<script src="js/busca_chat.js"></script>
-<script src="js/busca_form.js"></script>
 </html>

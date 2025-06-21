@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkAI - Pagamento</title>
+  <link rel="stylesheet" href="../../css/pagamento.css"/>
+  <script src="https://unpkg.com/imask"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="../../img/logo2.png" alt="Logo SkAI"/>
+      <h1>SkAI</h1>
+    </div>
+    <div class="header-right">
+      <div class="lang">
+        <img src="../../img/bandeira.png" alt="Bandeira Brasil" />
+        <span>PT | BR</span>
+        <div class="dropdown-icon">▼</div>
+      </div>
+      <div class="perfil">
+        <button class="perfil-btn">
+          <img src="../../img/perfil.png" alt="Ícone Perfil" />
+          Perfil
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <h2>OPAAA, SUA VIAGEM ESTÁ QUASE FINALIZADA!</h2>
+    <p class="destino">São Luís → Rio de Janeiro</p>
+    <h3>ESCOLHA SEU MÉTODO DE PAGAMENTO:</h3>
+    <div class="botoes">
+      <button class="btn">CARTÃO</button>
+      <button class="btn">PIX</button>
+    </div>
+
+    <div id="form-cartao" class="cartao-form" style="display: none;">
+      <form id="cartaoForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome do Titular*:</label>
+            <input type="text" id="nome" name="nome"  placeholder="Insira seu nome" required>
+          </div>
+          <div class="form-group">
+            <label for="numero">Número do cartão*:</label>
+            <input type="text" id="numero" name="numero"  placeholder="0000 0000 0000 0000" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cpf">CPF do Titular*:</label>
+            <input type="text" id="cpf" name="cpf"  placeholder="000.000.000-00" required>
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV*:</label>
+            <input type="text" id="cvv" name="cvv"  placeholder="000" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="validade">Validade*:</label>
+            <input type="text" id="validade" name="validade" placeholder="ex: 12/29" required>
+          </div>
+
+          <div class="form-group">
+             <label for="validade">Parcelamento*:</label>
+            <input type="text" id="parcelamento" name="parcelamento" placeholder="1x a 10x sem juros" required>
+          </div>
+        </div>
+
+        <button type="submit" class="processar-btn">Processar</button>
+      </form>
+    </div>
+
+    <div id="pix-container" class="pix-area" style="display: none;">
+  <div class="pix-box">
+    <p id="pix-status">Gerando QRCode...</p>
+    <img id="loading-img" class="carregando" src="../../img/carregando.png" alt="Carregando..." width="40" />
+    
+    <div id="pix-content" style="display: none;">
+      <img id="qr-img" src="" alt="QR Code Pix" width="180" />
+      <p><strong>PIX Copia e Cola:</strong></p>
+      <input type="text" id="codigo-pix" readonly />
+      <p id="expira-em">Expira em: <span id="tempo">02:00</span></p>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <div id="modal-sucesso" class="modal" style="display: none;">
+  <div class="modal-content">
+    <h3>Oba! Sua compra foi realizada com sucesso!</h3>
+    <img src="../../img/verificacao.png" alt="Sucesso" width="70" />
+    <p>Baixe aqui abaixo o comprovante:</p>
+    <button onclick="baixarComprovante()">Baixar PDF</button>
+  </div>
+</div>
+
+<!-- Modal de Erro -->
+<div id="modal-erro" class="modal" style="display: none;">
+  <div class="modal-content">
+    <h3>Ops! Parece que deu errado sua compra!</h3>
+    <img src="../../img/falha.png" alt="Erro" width="70" />
+  </div>
+</div>
+
+  <script src="../../js/pagamento.js"></script>
+  <script src="https://unpkg.com/imask"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
