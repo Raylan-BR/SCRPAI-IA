@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #005792;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container-perfil {
+  width: 100%;
+  max-width: 600px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+h1 {
+  font-size: 32px;
+  color: #005792;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* FOTO DE PERFIL CENTRALIZADA */
+.photo-field {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.photo-label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.photo-wrapper img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.photo-wrapper input[type="file"] {
+  display: none;
+}
+
+.photo-wrapper button {
+  background: #D4E4E6;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #005792;
+}
+
+/* CAMPOS DE TEXTO */
+.field {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.field label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"] {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #005792;
+  color: #ffffff;
+  font-size: 14px;
+  flex: 1;
+}
+
+.input-group input::placeholder {
+  color: #ffffff;
+}
+
+.input-group button {
+  margin-left: 10px;
+  background:#D4E4E6;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #005792;
+}
+
+/* BOTÕES DE AÇÃO */
+.actions {
+  display: flex;
+  flex-direction:column;
+  padding: 8px 50px;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.main-btn, .logout-btn {
+  background-color: #005792;
+  color: #ffffff;
+  border: none;
+  padding: 8px ;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background-color: #005792;
+}
+
+.main-btn:hover,
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .card {
+    padding: 20px 15px;
+  }
+
+  .logo {
+    width: 60px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .input-group input {
+    font-size: 13px;
+  }
+
+  .input-group button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .main-btn, .logout-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
