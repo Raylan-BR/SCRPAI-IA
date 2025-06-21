@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #005792;
+}
+
+.container-hist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+}
+
+.history-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  flex: 1 1 auto;
+}
+
+.filter-button {
+  background-color: #005792;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+}
+
+.logo-text {
+  color: #005792;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.card {
+  border: 1px solid #D6D3D1;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.route-date {
+  max-width: 60%;
+}
+
+.route-date .date {
+  color: #000000;
+  font-size: 14px;
+  font-weight: lighter;
+  margin-top: 5px;
+}
+
+.price-actions {
+  text-align: right;
+}
+
+.price-actions .total {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.details-button,
+.download-button {
+  background-color: #005792;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.details-button:hover,
+.download-button:hover,
+.filter-button:hover {
+  opacity: 0.9;
+}
+
+/* Responsivo para tablets e celulares */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .route-date {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .price-actions {
+    width: 100%;
+    text-align: left;
+  }
+
+  .details-button,
+  .download-button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .history-box {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .filter-button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .logo img {
+    width: 35px;
+  }
+
+  .logo-text {
+    font-size: 13px;
+  }
+
+  .details-button,
+  .download-button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .price-actions .total {
+    font-size: 13px;
+  }
+
+  .route-date .date {
+    font-size: 13px;
+  }
+}
