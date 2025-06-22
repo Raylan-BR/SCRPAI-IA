@@ -51,17 +51,6 @@ body {
   white-space: nowrap;
 }
 
-.logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo img {
-  width: 100px;
-  height: 100px;
-}
-
 .logo-text {
   color: #005792;
   font-weight: bold;
@@ -118,6 +107,66 @@ body {
 .download-button:hover,
 .filter-button:hover {
   opacity: 0.9;
+}
+/* RODAPÉ */
+.footer {
+  background-color: #D1F4FA; /* azul claro */
+  padding: 40px 40px 20px;
+  font-size: 14px;
+  color: #000;
+  position: static;
+  margin: 0;
+  width: 100%;
+  min-height: 60px;
+  align-self: stretch;
+  flex-shrink: 0;
+  line-height: 1.5;
+
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer-column p {
+  margin-bottom: 8px;
+}
+
+/* ÍCONES DE REDES E PAGAMENTO */
+.social-icons img {
+  width: 32px;
+  height: auto;
+  margin-right: 10px;
+}
+.payment-icons img {
+  width: 180px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* PARTE INFERIOR DO RODAPÉ */
+.footer-bottom {
+  border-top: 1px solid #aaa;
+  padding-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #444;
+  line-height: 1.5
 }
 
 /* Responsivo para tablets e celulares */
