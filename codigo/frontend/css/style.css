@@ -31,10 +31,10 @@ body{
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 .logo-icon{
-    height: 40px;
+    height: 80px;
     width: auto;
 
 }
@@ -45,11 +45,58 @@ body{
   width: 100%;
 }
 
-.nav-links {
+.nav-links,
+.header-right {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px 24px;; /* espaço interno da direita */
+  min-width: 300px; /* aumenta o tamanho mínimo do container */
+  width: 100%;
+}
+.dropdown-icon {
+  font-size: 12px;
 }
 
+.perfil-btn {
+  background-color: #ffffff20;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  min-width: 80px;
+  display: flex; 
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+  justify-content: center;
+}
+.perfil-btn:hover {
+  background-color: #ffffff40;
+}
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #ffffff20;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  min-width: 80px;
+  cursor: pointer;
+}
+
+.lang img {
+  width: 24px;
+  height: auto;
+}
+.lang:hover {
+  background-color: #ffffff40;
+}
 .nav-links a {
   color: white;
   margin-left: 20px;
@@ -74,6 +121,24 @@ body{
 }
 
 /* CONTEÚDO PRINCIPAL */
+
+.inicio-text {
+  text-align: center;
+  margin-top: 50px;
+  padding: 10px 20px;
+}
+
+.inicio-text h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.inicio-text p {
+  font-size: 14px;
+  color: #cde8f7;
+}
 .main-content {
   padding: 100px 20px 40px 20px;
   min-height: 300px;
