@@ -7,10 +7,24 @@
 
 body {
   background-color: #005792;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   padding: 20px;
 }
 
@@ -123,30 +137,80 @@ h1 {
 /* BOTÕES DE AÇÃO */
 .actions {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   padding: 8px 50px;
   gap: 10px;
   margin-top: 20px;
 }
 
-.main-btn, .logout-btn {
+.salve-btn {
   background-color: #005792;
   color: #ffffff;
   border: none;
-  padding: 8px ;
+  padding: 8px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 15px;
   cursor: pointer;
 }
 
-.logout-btn {
-  background-color: #005792;
+.salve-btn:hover {
+  opacity: 0.9;
 }
 
-.main-btn:hover,
-.logout-btn:hover {
-  opacity: 0.9;
+/* RODAPÉ */
+.footer {
+  background-color: #D1F4FA;
+  padding: 40px 40px 20px;
+  font-size: 14px;
+  color: #000;
+  width: 100%;
+  min-height: 60px;
+  line-height: 1.5;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer-column p {
+  margin-bottom: 8px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.payment-icons img {
+  width: 180px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #aaa;
+  padding-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #444;
+  line-height: 1.5;
 }
 
 /* RESPONSIVO */
