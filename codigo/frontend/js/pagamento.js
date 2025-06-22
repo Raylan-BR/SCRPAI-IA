@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const btnPix = document.querySelector('.btn:nth-child(2)');
   const formCartao = document.getElementById('form-cartao');
   const form = document.getElementById('cartaoForm');
+  const botoesMetodo = document.querySelector('.botoes');
+  const pixContainer = document.getElementById('pix-container');
 
   // Máscaras para os campos
   const numero = document.getElementById('numero');
@@ -18,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // Exibe o formulário do cartão ao clicar
   btnCartao.addEventListener('click', () => {
     formCartao.style.display = 'flex';
-    document.querySelector('.botoes').classList.add('oculto');
+    pixContainer.style.display = 'none';
+    botoesMetodo.classList.add('oculto');
   });
 
   // Dados simulados da viagem — serão dinâmicos depois
@@ -46,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // SIMULAÇÃO — Trocar por fetch real depois
     setTimeout(() => {
-      const sucesso = true; // <-- Aqui virá a resposta real do backend
+      const sucesso = true;
       if (sucesso) {
         mostrarModalSucesso();
       } else {
@@ -55,12 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 2000);
   });
 
-  // SUBSTITUIR ESTA LÓGICA PELO BACKEND REAL
+  // Exibe a área do Pix
   btnPix.addEventListener('click', () => {
     formCartao.style.display = 'none';
-    document.querySelector('.botoes').classList.add('oculto');
+    pixContainer.style.display = 'flex';
+    botoesMetodo.classList.add('oculto');
 
-    const pixContainer = document.getElementById('pix-container');
     const pixContent = document.getElementById('pix-content');
     const status = document.getElementById('pix-status');
     const loading = document.getElementById('loading-img');
@@ -68,12 +71,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const copiaCola = document.getElementById('codigo-pix');
     const tempoSpan = document.getElementById('tempo');
 
-    pixContainer.style.display = 'flex';
     pixContent.style.display = 'none';
     status.textContent = 'Gerando QRCode...';
     loading.style.display = 'block';
 
-    // SIMULAÇÃO — Trocar por fetch para gerar o Pix
     setTimeout(() => {
       qrImg.src = '../../img/qrcode.png';
       copiaCola.value = '00020126580014BR.GOV.BCB.PIX0136pix-exemplo@banco.com.br...';
@@ -82,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
       loading.style.display = 'none';
       pixContent.style.display = 'block';
 
-      // Contagem regressiva
       let segundos = 120;
       const timer = setInterval(() => {
         segundos--;
@@ -96,9 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }, 1000);
 
-      // SIMULAÇÃO — Aqui será onde o backend confirmará o pagamento via Pix
       setTimeout(() => {
-        mostrarModalSucesso(); // <- No futuro: só se o backend confirmar
+        mostrarModalSucesso();
       }, 5000);
     }, 2000);
   });
@@ -127,5 +126,12 @@ document.addEventListener('DOMContentLoaded', function () {
     doc.text(`Valor Pago: ${dadosViagem.preco}`, 20, 90);
     doc.text("Status: Pagamento Confirmado", 20, 110);
     doc.save("comprovante-pagamento.pdf");
+  };
+
+  // ✅ Função para voltar à escolha de métodos
+  window.voltarMetodo = function () {
+    formCartao.style.display = 'none';
+    pixContainer.style.display = 'none';
+    botoesMetodo.classList.remove('oculto');
   };
 });

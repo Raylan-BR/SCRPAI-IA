@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SkAI - Pagamento</title>
   <link rel="stylesheet" href="../../css/pagamento.css"/>
+  
+
+  
   <script src="https://unpkg.com/imask"></script>
 </head>
 <body>
@@ -24,6 +27,12 @@
           <img src="../../img/perfil.png" alt="Ícone Perfil" />
           Perfil
         </button>
+      </div>
+
+       <div class="perfil">
+        <button class="perfil-btn" onclick="window.location.href='../../index.html'">
+  Home
+</button>
       </div>
     </div>
   </header>
@@ -74,11 +83,13 @@
         </div>
 
         <button type="submit" class="processar-btn">Processar</button>
+        <button type="button" class="voltar-btn" onclick="voltarMetodo()">Voltar</button>
       </form>
     </div>
 
     <div id="pix-container" class="pix-area" style="display: none;">
   <div class="pix-box">
+    <button type="button" class="voltar-btn" onclick="voltarMetodo()">Voltar</button>
     <p id="pix-status">Gerando QRCode...</p>
     <img id="loading-img" class="carregando" src="../../img/carregando.png" alt="Carregando..." width="40" />
     
@@ -108,6 +119,41 @@
     <img src="../../img/falha.png" alt="Erro" width="70" />
   </div>
 </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-column">
+        <h4>Nossas redes sociais</h4>
+        <div class="social-icons">
+          <img src="../../img/facebook.png" alt="Facebook" />
+          <img src="../../img/instagram.png" alt="Instagram" />
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Formas de pagamento</h4>
+        <div class="payment-icons">
+          <img src="../../img/image.png" alt="Cartões" />
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Precisa falar conosco?</h4>
+        <p>Fale com a gente pelo<br />email: contato@skaivoos.com.br</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contatos</h4>
+        <p><strong>4040 5555</strong><br />Capitais e regiões metropolitanas</p>
+        <p><strong>0800 123 890</strong><br />Demais localidades (ligação gratuita)</p>
+      </div>
+    </div>
+
+      <div class="footer-bottom">
+        <p>Av. Litorânea, 1230, Ed. Atlântico Corporate, Torre Sul, Sala 1502, Ponta D'Areia, São Luís - MA, 65077-870, CNPJ: 12.345.678/0001-90</p>
+        <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
+      </div>
+    </footer>
 
   <script src="../../js/pagamento.js"></script>
   <script src="https://unpkg.com/imask"></script>
