@@ -25,7 +25,7 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   
 }
 
@@ -36,7 +36,7 @@ body {
 }
 
 .logo img {
-  height: 50px;
+  height: 80px;
   width: auto;
 }
 
@@ -48,7 +48,7 @@ body {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .lang {
@@ -56,16 +56,18 @@ body {
   align-items: center;
   gap: 5px;
   background-color: #ffffff20;
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .lang img {
-  width: 20px;
+  width: 23px;
   height: auto;
 }
-
+.lang:hover {
+  background-color: #ffffff40;
+}
 .dropdown-icon {
   font-size: 12px;
 }
@@ -74,7 +76,7 @@ body {
   background-color: #ffffff20;
   border: none;
   color: white;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
@@ -84,8 +86,11 @@ body {
 }
 
 .perfil-btn img {
-  width: 20px;
+  width: 23px;
   height: auto;
+}
+.perfil-btn:hover {
+  background-color: #ffffff40;
 }
 
 .content {
