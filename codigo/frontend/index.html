@@ -72,25 +72,25 @@
                 <h2>Busca de Passagens</h2>
             </div>
 
-            <form class="form">
+            <form class="form" onsubmit="buscarVoos()">
                 <div class="bolinhas">
-                    <label><input type="radio" name="tipo" id="ida" /> Só ida</label>
+                    <label><input type="radio" name="tipo" id="ida" checked/> Só ida</label>
                     <label><input type="radio" name="tipo" id="ida-e-volta" /> Ida e volta</label>
                 </div>
 
                 <div class="inputs">
                     <div class="input-div">
                         <label>Origem</label>
-                        <input type="text" placeholder="Ex: São Paulo (GRU)" required />
+                        <input type="text" id="origem" placeholder="Ex: São Paulo (GRU)" required />
                     </div>
 
                     <div class="input-div">
                         <label>Destino</label>
-                        <input type="text" placeholder="Ex: Rio de Janeiro (GIG)" required />
+                        <input type="text" id="destino" placeholder="Ex: Rio de Janeiro (GIG)" required />
                     </div>
                     <div class="input-div">
                         <label>Data de ida</label>
-                        <input type="date" required />
+                        <input type="date" id="dataIda" required />
                     </div>
                 
                     <div class="input-div escondido" id="data-volta-div">
@@ -100,7 +100,7 @@
 
                     <div class="input-div">
                         <label>Passageiros</label>
-                        <input type="number" placeholder="1" min="1" max="5" required />
+                        <input type="number" placeholder="1" min="1" max="5" id="adultos" required />
                     </div>
                 </div>
 
@@ -108,7 +108,9 @@
             </form>
         </div>
     </div>
-
+    <!-- TESTE DE RESULTADOS -->
+    <div id="resultado-voos" class="voos-container"></div>
+    
     <div class="container-result">
     <section class="results-section">
       <h1>Voos de ida</h1>
@@ -234,6 +236,56 @@
     </div>
   </footer>
 
+<script>
+  async function buscarVoos() {
+    event.preventDefault(); // evita o recarregamento da página
+
+    const origem = document.getElementById("origem").value;
+    const destino = document.getElementById("destino").value;
+    const data = document.getElementById("dataIda").value;
+    const adultos = document.getElementById("adultos").value;
+
+    const resultadoDiv = document.getElementById("resultado-voos");
+    resultadoDiv.innerHTML = "<p>Buscando voos...</p>";
+
+    try {
+      const response = await fetch(`http://localhost:5000/api/voos?origem=${origem}&destino=${destino}&data=${data}&adultos=${adultos}`);
+      if (!response.ok) throw new Error("Erro ao buscar voos");
+
+      const voos = await response.json();
+      resultadoDiv.innerHTML = ""; // limpa antes de renderizar
+
+      if (voos.length === 0) {
+        resultadoDiv.innerHTML = "<p>Nenhum voo encontrado.</p>";
+        return;
+      }
+
+      voos.forEach(voo => {
+        const div = document.createElement("div");
+        div.className = "voo";
+        div.innerHTML = `
+          <div class="info-principal">
+            <p class="companhia">${voo.companhia}</p>
+            <p class="aeronave">Aeronave: ${voo.aeronave} - Assentos: ${voo.assentos}</p>
+          </div>
+          <div class="detalhes-voo">
+            <div class="trecho"><strong>${voo.horario_saida}</strong><div class="linha-icone"><span>${voo.origem} → ${voo.destino}</span></div></div>
+            <div class="trecho duracao"><strong>${voo.duracao}</strong></div>
+            <div class="trecho"><strong>${voo.horario_chegada}</strong></div>
+          </div>
+          <div class="acao">
+            <div class="preco">R$ ${voo.preco}<small> por pessoa</small></div>
+            <button class="selecionar">Selecionar</button>
+          </div>
+        `;
+        resultadoDiv.appendChild(div);
+      });
+
+    } catch (erro) {
+      resultadoDiv.innerHTML = `<p style="color: red;">Erro: ${erro.message}</p>`;
+    }
+  }
+</script>
 
 <script src="./js/busca_chat.js"></script>
 <script src="./js/busca_form.js"></script>
