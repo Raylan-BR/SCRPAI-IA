@@ -92,4 +92,8 @@ Observação: caso seja necessário reconhecimento dos pacotes, esteja no diret�
 ```
 python -m backend.chatbot.mainChat
 ```
-## Como acessar a API Amadeus 
+## dependencia langgraph
+
+```
+pip install langgraph
+```

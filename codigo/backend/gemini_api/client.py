@@ -1,6 +1,8 @@
-import google.generativeai as genai
-from config.settings import GOOGLE_API_KEY
+from codigo.backend.config.settings import GOOGLE_API_KEY
+from langchain_google_genai import ChatGoogleGenerativeAI
 
-genai.configure(api_key=GOOGLE_API_KEY)
-
-model = genai.GenerativeModel("gemini-2.0-flash")
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash", 
+    google_api_key= GOOGLE_API_KEY,
+    temperature=0.2
+    )
