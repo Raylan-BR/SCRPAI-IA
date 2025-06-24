@@ -10,7 +10,19 @@
     <link rel="stylesheet" href="css/style.css" />
     <!--icone do robozinho-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=smart_toy" />
-    
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAlhgKReGb2X2CIQpy5M95hs0RRVJzbD20",
+    authDomain: "scrpai-ia.firebaseapp.com",
+    projectId: "scrpai-ia",
+    storageBucket: "scrpai-ia.appspot.com",
+    messagingSenderId: "1030430015808",
+    appId: "1:1030430015808:web:0cdac65a5607825e68faa5"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
 </head>
 <body>
   
@@ -233,6 +245,26 @@
       <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
     </div>
   </footer>
+  <script>
+  firebase.auth().onAuthStateChanged(function(user) {
+    console.log("Estado de autenticação mudou:", user); // Debug
+    
+    const perfilBtn = document.querySelector('.perfil-btn');
+
+    if (user) {
+        console.log("Usuário logado:", user.displayName, user.email); // Debug
+        // Mostra displayName, email ou "Usuário" como fallback
+        perfilBtn.textContent = user.displayName || user.email || "Usuário"; 
+        perfilBtn.href = "pages/autenticacao/perfil.html"; // Mude para página de perfil
+        perfilBtn.style.pointerEvents = "auto"; // Mantém clicável para ir ao perfil
+    } else {
+        console.log("Nenhum usuário logado"); // Debug
+        perfilBtn.textContent = "Entrar";
+        perfilBtn.href = "pages/autenticacao/login.html";
+        perfilBtn.style.pointerEvents = "auto";
+    }
+});
+</script>
 
 
 <script src="./js/busca_chat.js"></script>
