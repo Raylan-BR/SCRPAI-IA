@@ -76,13 +76,15 @@
 }
 
 /* Resultados */
-.voos-container {
-  margin-top: 2rem;
+/* Estilo específico para a seção de volta */
+#container-volta {
+    margin-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
 }
-.voo-card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+
+#container-volta h1 {
+    color: #555;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
 }
