@@ -74,3 +74,15 @@
 .escondido {
   display: none;
 }
+
+/* Resultados */
+.voos-container {
+  margin-top: 2rem;
+}
+.voo-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
