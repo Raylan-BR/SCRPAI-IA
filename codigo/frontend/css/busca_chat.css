@@ -33,12 +33,12 @@
     transition: height 0.5s ease;
     font-weight: 500;
 }
-.minha_mensagem{
+.minhaMensagem{
     display: flex;
     justify-content: right;
 }
-.minha_mensagem p, .estiloMensagem{
-    background-color: #005792;
+.minhaMensagem p{
+    background-color: #8dc5eb;
     color: #fff;
     max-width: 350px;
     word-wrap: break-word;
@@ -46,16 +46,23 @@
     border-radius: 10px 0px 10px 10px;
     margin-bottom: 3px;
 }
-.chatbot_mensagem{
+.minhaMensagem span{
+    font-size: 7pt;
+    margin-left: 4px;
+}
+.chatbotMensagem{
     display: flex;
     justify-content: left;
 }
-.chatbot_mensagem p{
-    background-color: #005792;
+.chatbotMensagem p{
+    background-color: #2b91d4;
     color: #fff;
     width: 350px;
     padding: 15px;
     border-radius: 0px 10px 10px 10px;
+}
+.chatbotMensagem span{
+    font-size: 7pt;
 }
 .conteudo_rodape{
     display: flex;

@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ESTILOS GERAIS */
+body {
+  background-color: #005792;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 .login-container {
     background-color: white;
     border-radius: 10px;
@@ -5,7 +22,7 @@
     padding: 40px;
     width: 400px;
     text-align: center;
-}
+}     
 
 .logo {
     height: 70px;
@@ -14,7 +31,7 @@
 }
 
 .login-title {
-    font-size: 34px;
+    font-size: 30px;
     margin-bottom: 30px;
     color: #005792;
     font-weight: 700;
@@ -73,20 +90,23 @@
 }
 
 .social-login {
-    margin-bottom: 20px;
-    color: #005792;
-    font-size: 20px;
-    font-weight: 600;
+  color: #005792;
+  font-size: 15 px;
+  font-weight: 600;
 }
 
 .google-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 10px;
-    gap: 5px;
-    cursor: pointer;
-    margin-top: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;     /* espaço acima */
+  margin-bottom: 12px;  /* espaço abaixo */
+}
+
+.login-container > div:last-child,
+.login-container > div:nth-last-child(2) {
+  margin-top: 8px;
 }
 
 .google-icon {
@@ -113,22 +133,44 @@
 
 /* Ajustes específicos para o card de cadastro */
 body.cadastro-page .login-container {
-    width: 450px;        
-    padding: 15px 40px;   
-   
+    width: 380px;
+    padding: 10px 30px;
 }
 
 body.cadastro-page .input-group {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 body.cadastro-page .login-title {
-    margin-bottom: 20px; 
+    margin-bottom: 10px;
 }
-
 
 body.cadastro-page .login-button {
-    margin: 6px 0 12px;       
+    margin: 4px 0 8px;
+    padding: 10px;
 }
+
+.input-group input {
+    padding: 8px 12px;
+}
+
+
+.esqueci-senha {
+  font-size: 13px;
+  color: #000;
+  margin-top: 6px;
+}
+
+.esqueci-senha a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.esqueci-senha a:hover {
+  color: #333;
+}
+
 
 

@@ -41,4 +41,19 @@ document.querySelectorAll('.register-link').forEach(link => {
         console.log('Navigation to:', target);
         window.location.href = target;
     });
+
+    /* FUNCIONALIDADES DE RECUPERAÇÃO DE SENHA */
+document.getElementById('resetPasswordForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const novaSenha = document.getElementById('novaSenha').value;
+
+    console.log('Senha atualizada para:', novaSenha);
+    alert('Senha atualizada com sucesso!\nRedirecionando para login...');
+
+    setTimeout(() => {
+        window.location.href = 'login.html';
+    }, 1500);
+});
+
 });
