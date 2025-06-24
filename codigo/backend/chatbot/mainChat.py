@@ -1,6 +1,6 @@
 from backend.config.settings import GOOGLE_API_KEY
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.chat_history import BaseChatMessageHistory 
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain.memory import ConversationBufferMemory
 from datetime import date
 
