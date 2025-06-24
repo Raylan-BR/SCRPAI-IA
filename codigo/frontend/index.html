@@ -108,10 +108,20 @@
             </form>
         </div>
     </div>
-    <!-- TESTE DE RESULTADOS -->
-    <div id="resultado-voos" class="voos-container"></div>
     
     <div class="container-result">
+      <section class="results-section">
+        <h1>Voos de ida</h1>
+        <header class="search-header">
+          <div class="route-tab" id="rota-info">Rota</div>
+          <div class="ia-notification" id="contador-voos">IA encontrou X opções</div>
+        </header>
+        
+        <div id="lista-voos"></div> <!-- Aqui será preenchido dinamicamente -->
+      </section>
+    </div>
+
+    <!-- <div class="container-result">
     <section class="results-section">
       <h1>Voos de ida</h1>
     <header class="search-header">
@@ -198,7 +208,7 @@
       </div>
     </section>
 
-    </div>
+    </div> -->
   </main>
   <!-- RODAPÉ -->
   <footer class="footer">
@@ -235,57 +245,6 @@
       <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
     </div>
   </footer>
-
-<script>
-  async function buscarVoos() {
-    event.preventDefault(); // evita o recarregamento da página
-
-    const origem = document.getElementById("origem").value;
-    const destino = document.getElementById("destino").value;
-    const data = document.getElementById("dataIda").value;
-    const adultos = document.getElementById("adultos").value;
-
-    const resultadoDiv = document.getElementById("resultado-voos");
-    resultadoDiv.innerHTML = "<p>Buscando voos...</p>";
-
-    try {
-      const response = await fetch(`http://localhost:5000/api/voos?origem=${origem}&destino=${destino}&data=${data}&adultos=${adultos}`);
-      if (!response.ok) throw new Error("Erro ao buscar voos");
-
-      const voos = await response.json();
-      resultadoDiv.innerHTML = ""; // limpa antes de renderizar
-
-      if (voos.length === 0) {
-        resultadoDiv.innerHTML = "<p>Nenhum voo encontrado.</p>";
-        return;
-      }
-
-      voos.forEach(voo => {
-        const div = document.createElement("div");
-        div.className = "voo";
-        div.innerHTML = `
-          <div class="info-principal">
-            <p class="companhia">${voo.companhia}</p>
-            <p class="aeronave">Aeronave: ${voo.aeronave} - Assentos: ${voo.assentos}</p>
-          </div>
-          <div class="detalhes-voo">
-            <div class="trecho"><strong>${voo.horario_saida}</strong><div class="linha-icone"><span>${voo.origem} → ${voo.destino}</span></div></div>
-            <div class="trecho duracao"><strong>${voo.duracao}</strong></div>
-            <div class="trecho"><strong>${voo.horario_chegada}</strong></div>
-          </div>
-          <div class="acao">
-            <div class="preco">R$ ${voo.preco}<small> por pessoa</small></div>
-            <button class="selecionar">Selecionar</button>
-          </div>
-        `;
-        resultadoDiv.appendChild(div);
-      });
-
-    } catch (erro) {
-      resultadoDiv.innerHTML = `<p style="color: red;">Erro: ${erro.message}</p>`;
-    }
-  }
-</script>
 
 <script src="./js/busca_chat.js"></script>
 <script src="./js/busca_form.js"></script>
