@@ -72,25 +72,25 @@
                 <h2>Busca de Passagens</h2>
             </div>
 
-            <form class="form">
+            <form class="form" onsubmit="buscarVoos()">
                 <div class="bolinhas">
-                    <label><input type="radio" name="tipo" id="ida" /> Só ida</label>
+                    <label><input type="radio" name="tipo" id="ida" checked/> Só ida</label>
                     <label><input type="radio" name="tipo" id="ida-e-volta" /> Ida e volta</label>
                 </div>
 
                 <div class="inputs">
                     <div class="input-div">
                         <label>Origem</label>
-                        <input type="text" placeholder="Ex: São Paulo (GRU)" required />
+                        <input type="text" id="origem" placeholder="Ex: São Paulo (GRU)" required />
                     </div>
 
                     <div class="input-div">
                         <label>Destino</label>
-                        <input type="text" placeholder="Ex: Rio de Janeiro (GIG)" required />
+                        <input type="text" id="destino" placeholder="Ex: Rio de Janeiro (GIG)" required />
                     </div>
                     <div class="input-div">
                         <label>Data de ida</label>
-                        <input type="date" required />
+                        <input type="date" id="dataIda" required />
                     </div>
                 
                     <div class="input-div escondido" id="data-volta-div">
@@ -100,7 +100,7 @@
 
                     <div class="input-div">
                         <label>Passageiros</label>
-                        <input type="number" placeholder="1" min="1" max="5" required />
+                        <input type="number" placeholder="1" min="1" max="5" id="adultos" required />
                     </div>
                 </div>
 
@@ -108,8 +108,32 @@
             </form>
         </div>
     </div>
-
+    
     <div class="container-result">
+      <section class="results-section">
+        <h1>Voos de ida</h1>
+        <header class="search-header">
+          <div class="route-tab" id="rota-info">Rota</div>
+          <div class="ia-notification" id="contador-voos">IA encontrou X opções</div>
+        </header>
+        
+        <div id="lista-voos"></div> <!-- Aqui será preenchido dinamicamente -->
+      </section>
+    </div>
+
+    <div class="container-result" id="container-volta" style="display: none;">
+      <section class="results-section">
+        <h1>Voos de volta</h1>
+        <header class="search-header">
+          <div class="route-tab" id="rota-info-volta">Rota de volta</div>
+          <div class="ia-notification" id="contador-voos-volta"></div>
+        </header>
+        
+        <div id="lista-voos-volta"></div> <!-- Aqui será preenchido dinamicamente -->
+      </section>
+    </div>
+
+    <!-- <div class="container-result">
     <section class="results-section">
       <h1>Voos de ida</h1>
     <header class="search-header">
@@ -196,7 +220,7 @@
       </div>
     </section>
 
-    </div>
+    </div> -->
   </main>
   <!-- RODAPÉ -->
   <footer class="footer">
@@ -233,7 +257,6 @@
       <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
     </div>
   </footer>
-
 
 <script src="./js/busca_chat.js"></script>
 <script src="./js/busca_form.js"></script>
