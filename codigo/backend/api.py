@@ -13,7 +13,7 @@ client = MongoClient(os.getenv("MONGO_URI"))
 db = client.scrpai_ia  # nome do banco
 
 # importa as rotas de autenticação
-from backend.auth import auth_bp
+from auth import auth_bp
 app.register_blueprint(auth_bp)
 
 @app.route('/')
@@ -22,4 +22,3 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
