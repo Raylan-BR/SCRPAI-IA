@@ -68,15 +68,7 @@ function enviarServidor(mensagem) {
     })
     .then(res => res.json())
     .then(data => {
-        if(data.tipo==1){
-            console.log("chat buscou passagens...");
-            gerarMensagemChatbot("Veja minhas sugestões aí embaixo...")
-            //criando um card de voo
-            criarCardVoo2(data);
-        }else {
-            console.log("chat precisa de mais info");
-            gerarMensagemChatbot(data.response)
-        }
+        tratarResultado(data)
     });
 }
 function enviar(){
@@ -92,11 +84,62 @@ function enviar(){
     }
 }
 
-function criarCardVoo2(voo){
-    console.log("a função criarCardVoo foi chamada");
-    const resultsSection = document.querySelector('.results-section');
-    const divVoo = document.createElement('div');
-    divVoo.classList.add('voo');
-    divVoo.innerHTML = `<p>voo de: ${voo.partida} para: ${voo.destino} na data: ${voo.data}</p>`; 
-    resultsSection.appendChild(divVoo);
+function tratarResultado(resultado){
+    if(resultado.tipo ==1){
+        gerarMensagemChatbot("Veja minha recomendações abaixo...");
+        renderizarPassagens(resultado.voo)
+    }else if(resultado.tipo == 0){
+        gerarMensagemChatbot(resultado.response);
+    }
+    else {
+        console.error("erro na resposta do servidor");
+    }
+}
+function renderizarPassagens(passagens) {
+  const container = document.querySelector(".results-section");
+  container.innerHTML = ""; // limpa resultados anteriores
+
+  passagens.forEach((voo) => {
+    const card = `
+      <div class="voo">
+        <div class="info-principal">
+          <p class="companhia">${voo.companhia.toUpperCase()}</p>
+          <p class="aeronave">Aeronave: A320 Assentos disponíveis: 12</p>
+        </div>
+        
+        <div class="detalhes-voo">
+          <div class="trecho">
+            <strong>${voo.hora_partida}</strong>
+            <div class="linha-icone">
+              <span>${voo.origem} - ${voo.destino}</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+          <div class="trecho duracao">
+            <div class="linha-icone">
+              <strong>${voo.duracao}</strong>
+              <img src="./img/relogio.png" alt="Relógio" class="icon">
+            </div>
+            <span>${voo.paradas === 0 ? "Direto" : `${voo.paradas} parada(s)`}</span>
+          </div>
+          <div class="trecho">
+            <strong>${voo.hora_chegada}</strong>
+            <div class="linha-icone">
+              <span>${voo.destino} - ${voo.origem}</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+        </div>
+        
+        <div class="acao">
+          <div class="preco">
+            R$ ${voo.preco.toFixed(2).replace(".", ",")}
+            <small>por pessoa</small>
+          </div>
+          <button class="selecionar" data-voo-id="${voo.voo_id}">Selecionar</button>
+        </div>
+      </div>
+    `;
+    container.innerHTML += card;
+  });
 }
