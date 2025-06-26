@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from amadeus_client import buscar_voos
-from formatador import filtrar_voo
+from formatador import formatar_voo
 
 from flask_cors import CORS
 app = Flask(__name__)
@@ -22,7 +22,7 @@ def voos():
         return jsonify(resultado_bruto), 500
 
     # Filtrar os dados
-    resultado_filtrado = filtrar_voo(resultado_bruto)
+    resultado_filtrado = formatar_voo(resultado_bruto)
     return jsonify(resultado_filtrado)
 
 if __name__ == "__main__":
