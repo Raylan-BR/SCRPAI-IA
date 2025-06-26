@@ -57,12 +57,13 @@
 .chatbotMensagem p{
     background-color: #2b91d4;
     color: #fff;
-    width: 350px;
+    max-width: 350px;
     padding: 15px;
     border-radius: 0px 10px 10px 10px;
 }
 .chatbotMensagem span{
     font-size: 7pt;
+    margin-left: 4px;
 }
 .conteudo_rodape{
     display: flex;
