@@ -24,12 +24,13 @@ function criarCardVoo(voo) {
     div.innerHTML = `
         <div class="info-principal">
             <p class="companhia">${voo.companhia}</p>
-            <p class="aeronave">Aeronave: ${voo.aeronave} | Assentos disponíveis: ${voo.assentos}</p>
+            <p class="aeronave">Aeronave: ${voo.aeronave}</p>
+            <p class="assentos">Assentos disponíveis: ${voo.assentosDisponiveis}</p>    
         </div>
 
         <div class="detalhes-voo">
             <div class="trecho">
-                <strong>${voo.horario_saida}</strong>
+                <strong>${voo.partida}</strong>
                 <div class="linha-icone">
                     <span>${voo.origem} → ${voo.destino}</span>
                     <img src="./img/localizacao.png" class="icon" alt="Localização" />
@@ -40,10 +41,10 @@ function criarCardVoo(voo) {
                     <strong>${voo.duracao}</strong>
                     <img src="./img/relogio.png" class="icon" alt="Duração" />
                 </div>
-                <span>${voo.tipo_voo || 'Direto'}</span>
+                <span>${voo.escalas}</span>
             </div>
             <div class="trecho">
-                <strong>${voo.horario_chegada}</strong>
+                <strong>${voo.chegada}</strong>
                 <div class="linha-icone">
                     <span>${voo.destino}</span>
                     <img src="./img/localizacao.png" class="icon" alt="Localização" />
