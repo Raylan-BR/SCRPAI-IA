@@ -31,13 +31,13 @@ def chat():
     pergunta = data.get("message", "")
     try:
         #chama o gemini para responder
-        resposta = responder(pergunta)
+        resposta = responder(pergunta, True)
         print(resposta)
         #return jsonify({"tipo": "0", "response": resposta})
         if verificar_resposta_modelo(resposta):
             dados_viagem = extrair_dados_viagem(resposta)
             #print(dados_viagem["partida"],dados_viagem["destino"],dados_viagem["data"])
-            return jsonify(buscar_voo(dados_viagem))
+            return buscar_voo(dados_viagem)
         #se não, então...
         return jsonify({"tipo": 0, "response": resposta})
     except Exception as e:

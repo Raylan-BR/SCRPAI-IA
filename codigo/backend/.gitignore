@@ -2,3 +2,5 @@
 .env
 #ignorar a pasta .venv que é o ambiente virtual
 .venv
+
+historico.json

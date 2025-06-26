@@ -96,49 +96,62 @@ function tratarResultado(resultado){
     }
 }
 function renderizarPassagens(passagens) {
-  const container = document.querySelector(".results-section");
-  container.innerHTML = ""; // limpa resultados anteriores
+  const container = document.querySelector("#lista-voos");
+  container.innerHTML = `<h1>Voos de ida</h1>
+    <header class="search-header">
+      <div class="ia-notification">IA encontrou ${passagens.length} opções</div>
+    </header>`; // adiciona um cabeçalho nos resultados
 
   passagens.forEach((voo) => {
     const card = `
-      <div class="voo">
-        <div class="info-principal">
-          <p class="companhia">${voo.companhia.toUpperCase()}</p>
-          <p class="aeronave">Aeronave: A320 Assentos disponíveis: 12</p>
-        </div>
-        
-        <div class="detalhes-voo">
-          <div class="trecho">
-            <strong>${voo.hora_partida}</strong>
-            <div class="linha-icone">
-              <span>${voo.origem} - ${voo.destino}</span>
-              <img src="./img/localizacao.png" alt="Localização" class="icon">
+                <div class="voo">
+            <div class="info-principal">
+                <p class="companhia">${voo.companhia.toUpperCase()}</p>
+                <p class="aeronave">Aeronave: A320 Assentos disponíveis: 12</p>
             </div>
-          </div>
-          <div class="trecho duracao">
-            <div class="linha-icone">
-              <strong>${voo.duracao}</strong>
-              <img src="./img/relogio.png" alt="Relógio" class="icon">
+
+            <div class="detalhes-voo">
+                <div class="trecho">
+                <strong>${voo.hora_partida}</strong>
+                <div class="linha-icone">
+                    <span>${voo.origem}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 25px" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                    </svg>
+                </div>
+                </div>
+
+                <div class="trecho duracao">
+                <div class="linha-icone">
+                    <strong>${voo.duracao}</strong>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                </div>
+                <span>${voo.paradas === 0 ? "Direto" : `${voo.paradas} parada(s)`}</span>
+                </div>
+
+                <div class="trecho">
+                <strong>${voo.hora_chegada}</strong>
+                <div class="linha-icone">
+                    <span>${voo.destino}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 25px" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                    </svg>
+                </div>
+                </div>
             </div>
-            <span>${voo.paradas === 0 ? "Direto" : `${voo.paradas} parada(s)`}</span>
-          </div>
-          <div class="trecho">
-            <strong>${voo.hora_chegada}</strong>
-            <div class="linha-icone">
-              <span>${voo.destino} - ${voo.origem}</span>
-              <img src="./img/localizacao.png" alt="Localização" class="icon">
+
+            <div class="acao">
+                <div class="preco">
+                R$ ${voo.preco.toFixed(2).replace(".", ",")}
+                <small>por pessoa</small>
+                </div>
+                <button class="selecionar" data-voo-id="${voo.voo_id}">Selecionar</button>
             </div>
-          </div>
-        </div>
-        
-        <div class="acao">
-          <div class="preco">
-            R$ ${voo.preco.toFixed(2).replace(".", ",")}
-            <small>por pessoa</small>
-          </div>
-          <button class="selecionar" data-voo-id="${voo.voo_id}">Selecionar</button>
-        </div>
-      </div>
+            </div>
     `;
     container.innerHTML += card;
   });

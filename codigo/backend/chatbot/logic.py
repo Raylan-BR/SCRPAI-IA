@@ -3,6 +3,8 @@ import re
 import os
 from datetime import datetime
 import json
+from flask import jsonify
+from mock.passagens_mock import gerar_passagens_mock
 
 # Caminho do arquivo de histórico
 CAMINHO_HISTORICO = "historico.json"
@@ -14,7 +16,7 @@ def carregar_historico():
             return json.load(f)
     else:
         # Se não existir, cria com a mensagem de sistema
-        hoje = datetime.now().strftime("%d/%m/%Y")
+        hoje = datetime.now().strftime("%d-%m-%Y")
         historico_inicial = [
             {
                 "role": "user",
@@ -24,7 +26,7 @@ def carregar_historico():
                             f"Hoje é {hoje}. Você é um assistente de viagens inteligente. "
                             "Seu objetivo é descobrir a cidade de origem, destino e data da viagem do usuário. "
                             "Ajude o usuário com recomendações de cidades interessantes ao longo da conversa. "
-                            "Somente quando descobrir todas as três informações, responda: partida: cidade-partida, destino: cidade-destino, data: dd/mm/aa. "
+                            "Somente quando descobrir todas as três informações, responda: origem: codigo iata da cidade de origem, destino: codigo iata da cidade de destino, data: d-m-y "
                             "Pergunte e responda de forma simples e curta."
                         )
                     }
@@ -42,45 +44,46 @@ def salvar_historico(historico):
     print("salvo no historico")
 
 # Função principal
-def responder(mensagem_usuario):
+def responder(mensagem_usuario, salvar:bool):
     historico = carregar_historico()
     
     chat = model.start_chat(history=historico)
     resposta = chat.send_message(mensagem_usuario)
 
-    # Adiciona a nova troca ao histórico
-    historico.append({
-        "role": "user",
-        "parts": [{"text": mensagem_usuario}]
-    })
-    historico.append({
-        "role": "model",
-        "parts": [{"text": resposta.text}]
-    })
+    if(salvar == True):
+        # Adiciona a nova troca ao histórico
+        historico.append({
+            "role": "user",
+            "parts": [{"text": mensagem_usuario}]
+        })
+        historico.append({
+            "role": "model",
+            "parts": [{"text": resposta.text}]
+        })
 
-    salvar_historico(historico)
+        salvar_historico(historico)
 
     return resposta.text
 
 def verificar_resposta_modelo(frase: str) -> bool:
     print("verificando resposta...")
     frase = frase.lower()
-    if "partida" in frase and "destino" in frase and "data" in frase:
+    if "origem" in frase and "destino" in frase and "data" in frase:
         return True
     else:
         return False
 
 def extrair_dados_viagem(frase: str):
     print("extraindo dados...")
-    padrao = r"partida:\s*(.+?),\s*destino:\s*(.+?),\s*data:\s*(\d{2}/\d{2}/\d{2})"
+    padrao = r"origem:\s*(.+?),\s*destino:\s*(.+?),\s*data:\s*(\d{2}-\d{2}-\d{4})"
     match = re.search(padrao, frase, re.IGNORECASE)
 
     if match:
-        partida = match.group(1).strip().title()
-        destino = match.group(2).strip().title()
+        origem = match.group(1).strip()
+        destino = match.group(2).strip()
         data = match.group(3).strip()
         return {
-            "partida": partida,
+            "origem": origem,
             "destino": destino,
             "data": data
         }
@@ -88,10 +91,9 @@ def extrair_dados_viagem(frase: str):
         return False
 
 def buscar_voo(dados_viagem):
-    print("buscando voos")
-    return {
+    passagens = gerar_passagens_mock(dados_viagem['origem'], dados_viagem['destino'], dados_viagem['data'])
+    resultado = {
         "tipo": 1,
-        "partida": dados_viagem["partida"],
-        "destino": dados_viagem["destino"],
-        "data": dados_viagem["data"]
+        "voo": passagens
     }
+    return jsonify(resultado)
