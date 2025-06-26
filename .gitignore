@@ -9,8 +9,15 @@ lerna-debug.log*
 
 codigo/frontend/node_modules
 
-codigo/backend/api/venv
+codigo/backend/venv
 codigo/backend/api/.env
+codigo/backend/.env
+codigo/backend/routes/__pycache__
+codigo/backend/routes/__init__.py
+codigo/backend/chatbot/__pycache__
+codigo/backend/chatbot/__init__.py
+codigo/backend/config/__pycache__/
+codigo/backend/config/__init__.py
 
 dist
 dist-ssr

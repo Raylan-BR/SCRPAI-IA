@@ -1,9 +1,13 @@
-from chatbot.logic import responder
+from flask import Flask
+from flask_cors import CORS
+from routes.chatbot_route import chatbot_bp
+from routes.historico import historico_bp
 
-while True:
-    msg = input("Você: ")
-    if msg.lower() in ["sair", "exit"]:
-        break
-    resposta = responder(msg)
-    print("Bot:", resposta)
 
+app = Flask(__name__)
+CORS(app)
+app.register_blueprint(chatbot_bp)
+app.register_blueprint(historico_bp)
+
+if __name__ == '__main__':
+    app.run(debug=True)
