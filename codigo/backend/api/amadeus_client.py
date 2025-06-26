@@ -5,8 +5,8 @@ import os
 load_dotenv()
 
 amadeus = Client(
-    client_id=os.getenv("AMADEUS_CLIENT_ID"),
-    client_secret=os.getenv("AMADEUS_CLIENT_SECRET")
+    client_id=os.getenv("Tnmlpf1ahFUOTvarigqiwbyArmF64c4j"),
+    client_secret=os.getenv("YfTgcGmfjOGJ8iqI")
 )
 
 def buscar_voos(origem, destino, data, adultos):
