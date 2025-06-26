@@ -42,13 +42,20 @@ body {
 
 .filter-button {
   background-color: #005792;
-  color: #ffffff;
+  color: #ffffff;       
   border: none;
   padding: 8px 18px;
   border-radius: 16px;
-  cursor: pointer;
+  cursor: text;       
   font-weight: 600;
   white-space: nowrap;
+  outline: none;
+}
+
+
+.filter-button::placeholder {
+  color: #ffffff;
+  opacity: 0.8;
 }
 
 .logo-text {

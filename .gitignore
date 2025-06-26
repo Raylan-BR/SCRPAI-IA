@@ -9,7 +9,7 @@ lerna-debug.log*
 
 codigo/frontend/node_modules
 
-codigo/backend/api/venv
+codigo/backend/venv
 codigo/backend/api/.env
 codigo/backend/.env
 codigo/backend/routes/__pycache__
