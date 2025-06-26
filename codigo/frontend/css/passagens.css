@@ -1,0 +1,156 @@
+/* CONTAINER BRANCO PRINCIPAL */
+.container-result {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* CABEÇALHO DENTRO DO CONTAINER */
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.route-tab {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.ia-notification {
+  background-color: #D9D9D9;
+  color: #000000;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.results-section h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* --- ESTILOS DO CARD DE VOO --- */
+.voo {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px; /* Espaço entre os cards */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.voo:last-child {
+  margin-bottom: 0;
+}
+
+/* Coluna 1 */
+.info-principal {
+  flex: 1.5;
+}
+.companhia {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+.aeronave {
+  font-size: 0.8em;
+  color: #000000;
+}
+
+/* Coluna 2 */
+.detalhes-voo {
+  flex: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.trecho {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.trecho strong {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.trecho span {
+  font-size: 0.85em;
+  color: #000000;
+}
+.linha-icone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+/* Estilo para os ícones PNG */
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Coluna 3 */
+.acao {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.preco {
+  font-weight: bold;
+  font-size: 1.3em;
+  color: #559C3F;
+  text-align: right;
+}
+.preco small {
+  display: block;
+  font-size: 0.75em;
+  font-weight: 500;
+  color: #000000;
+}
+.selecionar {
+  background-color: #005792;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.selecionar:hover {
+  background-color: #004370;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+  .voo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .detalhes-voo {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  .acao {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

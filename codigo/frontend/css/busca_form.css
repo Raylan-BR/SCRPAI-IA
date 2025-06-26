@@ -1,0 +1,90 @@
+.container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header .icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.header h2 {
+  font-size: 1.3rem;
+  color: #000;
+}
+
+.bolinhas {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-div label {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.input-div input {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.btn {
+  width: 100%;
+  background-color: #005792;
+  color: white;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #004a82;
+}
+
+.escondido {
+  display: none;
+}
+
+/* Resultados */
+/* Estilo específico para a seção de volta */
+#container-volta {
+    margin-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+#container-volta h1 {
+    color: #555;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}

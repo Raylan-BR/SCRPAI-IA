@@ -2,5 +2,3 @@
 .env
 #ignorar a pasta .venv que é o ambiente virtual
 .venv
-#ignorar os arquivos compilados pelo python
-__pycache__/
