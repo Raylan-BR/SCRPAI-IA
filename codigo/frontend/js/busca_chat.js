@@ -34,9 +34,8 @@ function gerarMinhaMensagem(mensagem){
     caixaMensagem.appendChild(dadoMensagem);
     //adicionar a caixa na conversa
     conversa.appendChild(caixaMensagem);
-    dadoMensagem.innerHTML = `${mensagem.value}<span>${dataEnvioMensagem()}</span>`;
+    dadoMensagem.innerHTML = `${mensagem}<span>${dataEnvioMensagem()}</span>`;
 
-    mensagem.value = "";
     conversa.scrollTop = conversa.scrollHeight;
 }
 //gerar a mensagem do chatbot na tela
@@ -58,13 +57,14 @@ function gerarMensagemChatbot(resposta){
 }
 //requisição para servidor
 function enviarServidor(mensagem) {
+    userEmail = localStorage.getItem('userEmail');
     console.log("mensagem enviada pro chat");
     fetch("/chat", {
         method: "POST",
         headers: {
         "Content-Type": "application/json"
         },
-        body: JSON.stringify({ message: mensagem})
+        body: JSON.stringify({ message: mensagem, email: userEmail})
     })
     .then(res => res.json())
     .then(data => {
@@ -77,7 +77,8 @@ function enviar(){
     if(conteudo_campo.value){
         conteudo_campo.style.border = "";
         enviarServidor(conteudo_campo.value);
-        gerarMinhaMensagem(conteudo_campo);
+        gerarMinhaMensagem(conteudo_campo.value);
+        conteudo_campo.value = '';
     } else {
         conteudo_campo.style.border = "2px solid red";
         console.log("digite alguma mensagem");
@@ -152,5 +153,25 @@ function renderizarPassagens(passagens) {
             </div>
     `;
     container.innerHTML += card;
+  });
+}
+//renderizar histórico de conversas no chatbot
+document.addEventListener('DOMContentLoaded', () => {
+  // Supondo que o email está no localStorage
+const email = localStorage.getItem("userEmail");
+
+fetch(`/conversa_chat?email=${encodeURIComponent(email)}`)
+  .then(response => response.json())
+  .then(conversas => renderizarConversas(conversas))
+  .catch(error => console.error("Erro ao carregar conversa:", error));
+});
+function renderizarConversas(conversas) {
+  conversas.slice(1).forEach(mensagem => {
+    const texto = mensagem.parts.map(p => p.text);
+    if (mensagem.role === "user") {
+      gerarMinhaMensagem(texto);
+    } else {
+      gerarMensagemChatbot(texto);
+    }
   });
 }

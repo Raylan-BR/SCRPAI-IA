@@ -69,12 +69,11 @@ nav{
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
-  min-width: 80px;
-  display: flex; 
-  align-items: center;
-  width: 100%;
-  gap: 5px;
-  justify-content: center;
+  width: 120px;
+
+  /* Truncar texto que excede o limite */
+  white-space: nowrap;
+  overflow: hidden;
 }
 .perfil-btn:hover {
   background-color: #ffffff40;
@@ -141,8 +140,6 @@ nav{
   color: #000;
 }
 .main-content {
-  padding: 100px 20px 40px 20px;
-  min-height: 300px;
   gap: 30px;
   display: flex;
   flex-direction: column;
@@ -163,7 +160,7 @@ nav{
   font-size: 14px;
   color: #000;
   position: static;
-  margin: 0;
+  margin-top: 20px;
   width: 100%;
   min-height: 60px;
   align-self: stretch;

@@ -62,9 +62,7 @@
   </div>  
     <div class="componente_chatbot">
         <button onclick="abrirChatbot()"  class="conteudo_cabecalho">
-            <span class="material-symbols-outlined">
-                smart_toy
-            </span>
+            <img src="img/botfly.jpeg" alt="imagem de um robô" style="width: 80px;">
             <div class="texto_cabecalho">
                 <strong>Botfly - Assistente de Viagens</strong>
                 <p>Receba ajuda no planejamento da sua viagem.</p>
@@ -193,13 +191,13 @@
     if (user) {
         console.log("Usuário logado:", user.displayName, user.email); // Debug
         // Mostra displayName, email ou "Usuário" como fallback
-        perfilBtn.textContent = user.displayName || user.email || "Usuário"; 
-        perfilBtn.href = "pages/autenticacao/perfil.html"; // Mude para página de perfil
+        perfilBtn.textContent = "Perfil"; 
+        perfilBtn.href = "/perfil.html"; // Mude para página de perfil
         perfilBtn.style.pointerEvents = "auto"; // Mantém clicável para ir ao perfil
     } else {
         console.log("Nenhum usuário logado"); // Debug
         perfilBtn.textContent = "Entrar";
-        perfilBtn.href = "pages/autenticacao/login.html";
+        perfilBtn.href = "/pages/autenticacao/login.html";
         perfilBtn.style.pointerEvents = "auto";
     }
 });
