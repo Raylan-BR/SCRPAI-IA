@@ -19,6 +19,9 @@
     border: none;
     background-color: #fff;
 }
+.iconeRobo img{
+    width: 75px;
+}
 .texto_cabecalho{
     font-size: 13pt;
 }

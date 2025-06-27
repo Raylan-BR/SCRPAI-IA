@@ -28,28 +28,31 @@
 
 </head>
 <body>
-  
-  <!-- CABEÇALHO -->
-  <header class="header"> 
-    <nav class="nav-bar">
-    <div class="logo">
-    <img src="./img/logo2.png" alt="Ícone SkAI" class="logo-icon" />
-    <h1>SkAI</h1>
-    </div>
-    <nav>
-  <div class="nav-links">
-    <div class="header-right">
-      <div class="lang">
-        <img src="img/bandeira.png" alt="Bandeira Brasil" />
-        <span>PT | BR</span>
-        <div class="dropdown-icon">▼</div>
-      </div>
-        <div class="perfil">
-        <a href="pages/autenticacao/login.html" class="perfil-btn">Entrar</a>
-        </div>
-    </div>
-  </div>
-  </header>
+     <!--CABEÇALHO-->
+      <header>
+        <nav>
+            <div class="conteudo_projeto">
+                <img src="../img/logo_aviao.png" alt="logo de um avião">
+                <h1>SkAI</h1>
+            </div>
+            <div class="menu_navegacao">
+                <li>
+                    <ul><a href="/index.html">Inicio</a></ul>
+                    <ul><a href="/historico.html">Histórico</a></ul>
+                    <ul><a href="/perfil.html">Perfil</a></ul>
+                </li>
+                <div class="header-right">
+                    <div class="lang">
+                        <img src="../img/bandeira.png" alt="Bandeira Brasil" />
+                        <span>PT | BR</span>
+                        <div class="dropdown-icon">▼</div>
+                    </div>
+                    <div class="perfil">
+                    <a href="pages/autenticacao/login.html" class="perfil-btn">Entrar</a>
+                    </div>
+                </div>
+        </nav>
+    </header>
   <!-- CONTEÚDO -->
   <main class="main-content">
      <div class="inicio-text">
@@ -58,9 +61,7 @@
   </div>  
     <div class="componente_chatbot">
         <button onclick="abrirChatbot()"  class="conteudo_cabecalho">
-            <span class="material-symbols-outlined">
-                smart_toy
-            </span>
+            <div class="iconeRobo"><img src="img/botfly.jpeg" alt="imagem de robô"></div>
             <div class="texto_cabecalho">
                 <strong>Botfly - Assistente de Viagens</strong>
                 <p>Receba ajuda no planejamento da sua viagem.</p>
