@@ -369,4 +369,26 @@ main.content {
   display: none !important;
 }
 
+/* Estilos para validação */
+.mensagem-erro {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+  height: 15px;
+}
+
+input.invalido {
+  border-color: #ff0000 !important;
+}
+
+/* Melhorias no formulário */
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.processar-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
 
