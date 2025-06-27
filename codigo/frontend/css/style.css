@@ -132,13 +132,13 @@ nav{
 .inicio-text h2 {
   font-size: 18px;
   font-weight: 600;
-  color: white;
+  color: #000;
   margin-bottom: 5px;
 }
 
 .inicio-text p {
   font-size: 14px;
-  color: #cde8f7;
+  color: #000;
 }
 .main-content {
   padding: 100px 20px 40px 20px;

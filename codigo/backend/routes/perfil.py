@@ -5,7 +5,7 @@ perfil_bp = Blueprint("perfil",__name__)
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-@perfil_bp.route('/pages/autenticacao/perfil.html')
+@perfil_bp.route('/perfil.html')
 def perfil_html():
     caminho_html = os.path.join(BASE_DIR, 'frontend', 'pages','autenticacao')
     return send_from_directory(caminho_html, 'perfil.html')

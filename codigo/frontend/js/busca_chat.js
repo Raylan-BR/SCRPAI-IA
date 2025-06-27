@@ -96,13 +96,11 @@ function tratarResultado(resultado){
     }
 }
 function renderizarPassagens(passagens) {
-  const container = document.querySelector("#lista-voos");
-  container.innerHTML = `<h1>Voos de ida</h1>
-    <header class="search-header">
-      <div class="ia-notification">IA encontrou ${passagens.length} opções</div>
-    </header>`; // adiciona um cabeçalho nos resultados
-
-  passagens.forEach((voo) => {
+     //limpar conteúdo
+    const container = document.querySelector("#lista-voos");
+    container.innerHTML = '';
+    document.querySelector(".container-result").classList.remove("escondido");
+    passagens.forEach((voo) => {
     const card = `
                 <div class="voo">
             <div class="info-principal">
