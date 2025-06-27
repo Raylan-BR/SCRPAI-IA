@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
 from pymongo import MongoClient
 import os
@@ -117,3 +117,28 @@ def reset_password():
     )
 
     return jsonify({"message": "Senha atualizada com sucesso"}), 200
+
+
+#renderizar as páginas html do login e do cadastro
+BASE_DIRETORIO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+#renderizar login pagina
+@auth_bp.route('/pages/autenticacao/login.html')
+def login_html():
+    caminho_html = os.path.join(BASE_DIRETORIO, 'frontend', 'pages', 'autenticacao')
+    return send_from_directory(caminho_html, 'login.html')
+#renderizar cadastro pagina
+@auth_bp.route('/render-cadastro')
+def cadastro_html():
+    caminho_html = os.path.join(BASE_DIRETORIO, 'frontend', 'pages', 'autenticacao')
+    return send_from_directory(caminho_html, 'cadastro.html')
+# Rota para o CSS
+@auth_bp.route('/frontend/css/autenticacao.css')
+def login_css():
+    caminho_css = os.path.join(BASE_DIRETORIO, 'frontend', 'css')
+    return send_from_directory(caminho_css, 'autenticacao.css')
+# Rota para o JS
+@auth_bp.route('/frontend/js/autenticacao.js')
+def login_js():
+    caminho_js = os.path.join(BASE_DIRETORIO, 'frontend', 'js')
+    return send_from_directory(caminho_js, 'autenticacao.js')

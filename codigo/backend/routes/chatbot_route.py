@@ -8,7 +8,7 @@ FRONTEND_DIR = os.path.abspath(
 
 chatbot_bp = Blueprint('chatbot_route',__name__)
 # Rota principal - carrega o HTML
-@chatbot_bp.route("/")
+@chatbot_bp.route("/index.html")
 def index():
     return send_file(os.path.join(FRONTEND_DIR, 'index.html'))
 # Rota para o CSS
