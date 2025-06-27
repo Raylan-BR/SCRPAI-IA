@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     formCartao.style.display = 'flex';
     pixContainer.style.display = 'none';
     botoesMetodo.classList.add('oculto');
+    atualizarTituloPagamento('CARTÃO');
   });
 
   // Dados simulados da viagem
@@ -213,12 +214,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Restante do código permanece igual...
+  
   // Exibe a área do Pix
   btnPix.addEventListener('click', () => {
     formCartao.style.display = 'none';
     pixContainer.style.display = 'flex';
     botoesMetodo.classList.add('oculto');
+    atualizarTituloPagamento('PIX');
 
     const pixContent = document.getElementById('pix-content');
     const status = document.getElementById('pix-status');
@@ -289,5 +291,23 @@ document.addEventListener('DOMContentLoaded', function () {
     formCartao.style.display = 'none';
     pixContainer.style.display = 'none';
     botoesMetodo.classList.remove('oculto');
+  };
+
+  // Função para atualizar o título
+  function atualizarTituloPagamento(metodo) {
+    const titulo = document.getElementById('metodo-pagamento-titulo');
+    titulo.textContent = `PAGAMENTO COM ${metodo}`;
+    titulo.classList.add('titulo-metodo-selecionado');
+  }
+
+  // Função para voltar à escolha de métodos
+  window.voltarMetodo = function() {
+    formCartao.style.display = 'none';
+    pixContainer.style.display = 'none';
+    botoesMetodo.classList.remove('oculto');
+    
+    const titulo = document.getElementById('metodo-pagamento-titulo');
+    titulo.textContent = "ESCOLHA SEU MÉTODO DE PAGAMENTO:";
+    titulo.classList.remove('titulo-metodo-selecionado');
   };
 });

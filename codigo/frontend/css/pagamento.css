@@ -95,8 +95,9 @@ body {
 
 .content {
   text-align: center;
-  margin-top: 40px; /* ou até 20px, teste como preferir */
-  padding-bottom: 40px; /* garante que o conteúdo não encoste no footer */
+  margin-top: 100px; /* ou até 20px, teste como preferir */
+  /* padding-bottom: 40px; garante que o conteúdo não encoste no footer */
+  min-height: 100vh;
 }
 
 main.content {
@@ -391,4 +392,3 @@ input.invalido {
   background-color: #cccccc;
   cursor: not-allowed;
 }
-
