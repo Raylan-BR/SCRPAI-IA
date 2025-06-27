@@ -11,9 +11,7 @@ body {
   background-color: #005792;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  flex-direction: column;
 }
 
 .container-reserva {
@@ -23,6 +21,7 @@ body {
   max-width: 600px;
   width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 20px auto;
 }
 
 header h1 {
@@ -71,23 +70,7 @@ header h1 {
   padding: 10px;
   text-align: center;
   border-radius: 6px;
-  cursor: pointer;
   user-select: none;
-  transition: background-color 0.3s;
-}
-
-.assento:hover {
-  background-color: #a5d4f2;
-}
-
-.assento.selecionado {
-  background-color: #005792;
-  color: #fff;
-}
-
-.assento.ocupado {
-  background-color: #999;
-  cursor: not-allowed;
 }
 
 .assento.corredor {
@@ -138,9 +121,63 @@ button:hover {
   background-color: #003d66;
 }
 
-/* Responsividade */
+/* FOOTER */
+.footer {
+  background-color: #D1F4FA;
+  padding: 40px 40px 20px;
+  font-size: 14px;
+  color: #000;
+  width: 100%;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer-column p {
+  margin-bottom: 8px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.payment-icons img {
+  width: 180px;
+  height: auto;
+}
+
+.footer-bottom {
+  border-top: 1px solid #aaa;
+  padding-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* RESPONSIVIDADE */
 @media (max-width: 600px) {
-  .container {
+  .container-reserva {
     padding: 20px;
   }
 
@@ -169,6 +206,19 @@ button:hover {
   button {
     font-size: 15px;
   }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-column {
+    width: 100%;
+  }
+
+  .payment-icons img {
+    width: 150px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -180,4 +230,5 @@ button:hover {
     padding: 6px;
     font-size: 11px;
   }
-}
+
+  .so
