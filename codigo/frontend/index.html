@@ -88,14 +88,51 @@
 
                 <div class="inputs">
                     <div class="input-div">
-                        <label>Origem</label>
-                        <input type="text" id="origem" placeholder="Ex: São Paulo (GRU)" required />
+                        <!-- <label>Origem</label> -->
+                        <!-- <input type="text" id="origem" placeholder="Ex: São Paulo (GRU)" required /> -->
+                        
+                        <!-- <label>Origem</label>
+                        <input type="text" id="origem" list="lista-origem" placeholder="Digite a cidade" required>
+                        <datalist id="lista-origem"></datalist>
+                        <input type="hidden" id="origem-iata"> -->
+
+
+                        <!-- <label>Origem</label>
+                        <input type="text" id="origem" placeholder="Ex: São Paulo" required autocomplete="off" />
+                        <div class="autocomplete-dropdown" id="origem-dropdown"></div> -->
+                    
+                      <label for="origem">Origem</label>
+                      <input type="text" id="origem" placeholder="Ex: São Paulo (GRU)" autocomplete="off" required>
+                      <div id="sugestoes-origem" class="sugestoes-dropdown"></div>
+                      
                     </div>
 
+
+
+
                     <div class="input-div">
-                        <label>Destino</label>
-                        <input type="text" id="destino" placeholder="Ex: Rio de Janeiro (GIG)" required />
+                        <!-- <label>Destino</label> -->
+                        <!-- <input type="text" id="destino" placeholder="Ex: Rio de Janeiro (GIG)" required /> -->
+                    
+                        <!-- <label>Destino</label>
+                        <input type="text" id="destino" list="lista-destino" placeholder="Digite a cidade" required>
+                        <datalist id="lista-destino"></datalist>
+                        <input type="hidden" id="destino-iata"> -->
+                    
+                      <!-- <label>Destino</label>
+                      <input type="text" id="destino" placeholder="Ex: Rio de Janeiro" required autocomplete="off" />
+                      <div class="autocomplete-dropdown" id="destino-dropdown"></div> -->
+                    
+                      <label for="destino">Destino</label>
+                      <input type="text" id="destino" placeholder="Ex: Rio de Janeiro (GIG)" autocomplete="off" required>
+                      <div id="sugestoes-destino" class="sugestoes-dropdown"></div>
+                    
                     </div>
+
+
+
+
+    
                     <div class="input-div">
                         <label>Data de ida</label>
                         <input type="date" id="dataIda" required />
@@ -116,11 +153,20 @@
             </form>
         </div>
     </div>
+
+
+    <div class="container-result">
+
+    
     <div class="container-result">
       <section class="results-section">
-        <div id="lista-voos">
-
-        </div> <!-- Aqui será preenchido dinamicamente -->
+        <h1>Voos de ida</h1>
+        <header class="search-header">
+          <div class="route-tab" id="rota-info">Rota</div>
+          <div class="ia-notification" id="contador-voos">IA encontrou X opções</div>
+        </header>
+        
+        <div id="lista-voos"></div> <!-- Aqui será preenchido dinamicamente -->
       </section>
     </div>
 
@@ -135,6 +181,98 @@
         <div id="lista-voos-volta"></div> <!-- Aqui será preenchido dinamicamente -->
       </section>
     </div>
+
+
+    <section class="results-section">
+      <h1>Voos de ida</h1>
+    <header class="search-header">
+      <div class="route-tab">São Paulo ⮕ Rio de Janeiro</div>
+      <div class="ia-notification">IA encontrou 2 opções</div>
+    </header>
+
+      <div class="voo">
+        <div class="info-principal">
+          <p class="companhia">LATAM</p>
+          <p class="aeronave">Aeronave: A320 Assentos disponíveis: 12</p>
+        </div>
+        
+        <div class="detalhes-voo">
+          <div class="trecho">
+            <strong>08:30</strong>
+            <div class="linha-icone">
+              <span>GRU - Rio de Janeiro</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+          <div class="trecho duracao">
+            <div class="linha-icone">
+              <strong>1h15m</strong>
+              <img src="./img/relogio.png" alt="Relógio" class="icon">
+            </div>
+            <span>Direto</span>
+          </div>
+          <div class="trecho">
+            <strong>09:45</strong>
+            <div class="linha-icone">
+              <span>GIG - Guarulhos</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+        </div>
+        
+        <div class="acao">
+          <div class="preco">
+            R$ 299,90
+            <small>por pessoa</small>
+          </div>
+          <button class="selecionar">Selecionar</button>
+        </div>
+      </div>
+
+      <div class="voo">
+        <div class="info-principal">
+          <p class="companhia">GOL</p>
+          <p class="aeronave">Aeronave: Boeing 737 Assentos disponíveis: 8</p>
+        </div>
+        
+        <div class="detalhes-voo">
+          <div class="trecho">
+            <strong>14:20</strong>
+            <div class="linha-icone">
+              <span>GRU - Rio de Janeiro</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+          <div class="trecho duracao">
+            <div class="linha-icone">
+              <strong>1h15m</strong>
+              <img src="./img/relogio.png" alt="Relógio" class="icon">
+            </div>
+            <span>Direto</span>
+          </div>
+          <div class="trecho">
+            <strong>15:35</strong>
+            <div class="linha-icone">
+              <span>GIG - Guarulhos</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+        </div>
+        
+        <div class="acao">
+          <div class="preco">
+            R$ 259,90
+            <small>por pessoa</small>
+          </div>
+          <button class="selecionar">Selecionar</button>
+        </div>
+      </div>
+    </section>
+
+    </div>
+
+    </div> -->
+
   </main>
   <!-- RODAPÉ -->
   <footer class="footer">
@@ -173,14 +311,6 @@
     </div>
   </footer>
 
-
-    </div>
-
-    <div class="footer-bottom">
-      <p>Av. Litorânea, 1230, Ed. Atlântico Corporate, Torre Sul, Sala 1502, Ponta D'Areia, São Luís - MA, 65077-870, CNPJ: 12.345.678/0001-90</p>
-      <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
-    </div>
-  </footer>
   <script>
   firebase.auth().onAuthStateChanged(function(user) {
     console.log("Estado de autenticação mudou:", user); // Debug
