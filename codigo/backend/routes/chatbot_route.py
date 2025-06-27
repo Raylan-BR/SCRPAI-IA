@@ -1,6 +1,7 @@
 import os
 from flask import Blueprint, jsonify, send_file, request
-from chatbot.logic import responder, verificar_resposta_modelo,extrair_dados_viagem, buscar_voo
+from chatbot.logic import responder, verificar_resposta_modelo,extrair_dados_viagem, buscar_voo, gerar_id_email
+import json
 
 FRONTEND_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), '..', '..', 'frontend')
@@ -29,9 +30,13 @@ def img(filename):
 def chat():
     data = request.json
     pergunta = data.get("message", "")
+    userEmail = data.get("email", "")
     try:
         #chama o gemini para responder
-        resposta = responder(pergunta, True)
+        if userEmail == "":
+            resposta = responder(userEmail, pergunta, False)
+        else:
+            resposta = responder(userEmail, pergunta, True)
         print(resposta)
         #return jsonify({"tipo": "0", "response": resposta})
         if verificar_resposta_modelo(resposta):
@@ -44,3 +49,15 @@ def chat():
         print("\n\n\nERRO AO CHAMAR GEMINI: ", e,"\n\n\n")  # Mostra o erro real
         return jsonify({"response": "No momento estamos com problema no servidor"}), 500
     
+@chatbot_bp.route("/conversa_chat", methods=["GET"])
+def conversa_chat():
+    email = request.args.get("email")
+    if not email:
+        return jsonify({"erro": "Email não fornecido"}), 400
+    nome_arquivo = gerar_id_email(email)
+    caminho_json = os.path.join(os.path.dirname(__file__), "..", "historico", nome_arquivo)
+    if not os.path.exists(caminho_json):
+        return jsonify([])  # ou 404 se quiser: return jsonify({"erro": "Histórico não encontrado"}), 404
+    with open(caminho_json, "r", encoding="utf-8") as f:
+        dados = json.load(f)
+    return jsonify(dados)
