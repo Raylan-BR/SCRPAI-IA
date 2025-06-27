@@ -231,4 +231,11 @@ button:hover {
     font-size: 11px;
   }
 
-  .so
+  .social-icons img {
+    width: 28px;
+  }
+
+  .payment-icons img {
+    width: 130px;
+  }
+}
