@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #005792;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container-reserva {
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.etapas {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.etapa.ativa {
+  font-weight: bold;
+  color: #005792;
+}
+
+.dados-voo {
+  background-color: #e6f2fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.form-reserva h2 {
+  color: #000000;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.mapa-assentos {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.assento {
+  background-color: #d0e7f9;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.assento:hover {
+  background-color: #a5d4f2;
+}
+
+.assento.selecionado {
+  background-color: #005792;
+  color: #fff;
+}
+
+.assento.ocupado {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.assento.corredor {
+  background: transparent;
+  pointer-events: none;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+  font-size: 14px;
+}
+
+select:focus {
+  border-color: #005792;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #005792;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #003d66;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .form-reserva h2 {
+    font-size: 16px;
+  }
+
+  .mapa-assentos {
+    grid-template-columns: repeat(5, 40px);
+    gap: 8px;
+  }
+
+  .assento {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  select {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mapa-assentos {
+    grid-template-columns: repeat(5, 35px);
+  }
+
+  .assento {
+    padding: 6px;
+    font-size: 11px;
+  }
+}
