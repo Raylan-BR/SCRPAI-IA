@@ -79,7 +79,7 @@
           <div class="form-header">
                 <h2>Busca de Passagens</h2>
             </div>
-
+            <div id="lista-passagens"><!--Aqui irá receber as passagens enviada s pelo chatbot--></div>
             <form class="form" onsubmit="buscarVoos()">
                 <div class="bolinhas">
                     <label><input type="radio" name="tipo" id="ida" checked/> Só ida</label>
@@ -153,31 +153,22 @@
             </form>
         </div>
     </div>
+
+
+    <div class="container-result">
+
     
-    <!-- <div class="container-result">
+    <div class="container-result">
       <section class="results-section">
         <h1>Voos de ida</h1>
         <header class="search-header">
           <div class="route-tab" id="rota-info">Rota</div>
           <div class="ia-notification" id="contador-voos">IA encontrou X opções</div>
-        </header> -->
-        <!-- Aqui será preenchido dinamicamente -->
-        <!-- <div id="lista-voos"></div> 
+        </header>
+        
+        <div id="lista-voos"></div> <!-- Aqui será preenchido dinamicamente -->
       </section>
-    </div> -->
-
-
-    <div class="container-result escondido" id="container-ida">
-      <section class="results-section">
-      <h1>Voos de ida</h1>
-      <header class="search-header">
-        <div class="route-tab" id="rota-info">Rota</div>
-        <div class="ia-notification" id="contador-voos">IA encontrou X opções</div>
-      </header>
-    
-    <div id="lista-voos"></div>
-  </section>
-</div>
+    </div>
 
     <div class="container-result" id="container-volta" style="display: none;">
       <section class="results-section">
@@ -190,6 +181,97 @@
         <div id="lista-voos-volta"></div> <!-- Aqui será preenchido dinamicamente -->
       </section>
     </div>
+
+
+    <section class="results-section">
+      <h1>Voos de ida</h1>
+    <header class="search-header">
+      <div class="route-tab">São Paulo ⮕ Rio de Janeiro</div>
+      <div class="ia-notification">IA encontrou 2 opções</div>
+    </header>
+
+      <div class="voo">
+        <div class="info-principal">
+          <p class="companhia">LATAM</p>
+          <p class="aeronave">Aeronave: A320 Assentos disponíveis: 12</p>
+        </div>
+        
+        <div class="detalhes-voo">
+          <div class="trecho">
+            <strong>08:30</strong>
+            <div class="linha-icone">
+              <span>GRU - Rio de Janeiro</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+          <div class="trecho duracao">
+            <div class="linha-icone">
+              <strong>1h15m</strong>
+              <img src="./img/relogio.png" alt="Relógio" class="icon">
+            </div>
+            <span>Direto</span>
+          </div>
+          <div class="trecho">
+            <strong>09:45</strong>
+            <div class="linha-icone">
+              <span>GIG - Guarulhos</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+        </div>
+        
+        <div class="acao">
+          <div class="preco">
+            R$ 299,90
+            <small>por pessoa</small>
+          </div>
+          <button class="selecionar">Selecionar</button>
+        </div>
+      </div>
+
+      <div class="voo">
+        <div class="info-principal">
+          <p class="companhia">GOL</p>
+          <p class="aeronave">Aeronave: Boeing 737 Assentos disponíveis: 8</p>
+        </div>
+        
+        <div class="detalhes-voo">
+          <div class="trecho">
+            <strong>14:20</strong>
+            <div class="linha-icone">
+              <span>GRU - Rio de Janeiro</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+          <div class="trecho duracao">
+            <div class="linha-icone">
+              <strong>1h15m</strong>
+              <img src="./img/relogio.png" alt="Relógio" class="icon">
+            </div>
+            <span>Direto</span>
+          </div>
+          <div class="trecho">
+            <strong>15:35</strong>
+            <div class="linha-icone">
+              <span>GIG - Guarulhos</span>
+              <img src="./img/localizacao.png" alt="Localização" class="icon">
+            </div>
+          </div>
+        </div>
+        
+        <div class="acao">
+          <div class="preco">
+            R$ 259,90
+            <small>por pessoa</small>
+          </div>
+          <button class="selecionar">Selecionar</button>
+        </div>
+      </div>
+    </section>
+
+    </div>
+
+    </div> -->
 
   </main>
   <!-- RODAPÉ -->
