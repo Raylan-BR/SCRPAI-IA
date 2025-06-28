@@ -87,7 +87,7 @@ function enviar(){
 
 function tratarResultado(resultado){
     if(resultado.tipo ==1){
-        gerarMensagemChatbot("Veja minha recomendações abaixo...");
+        gerarMensagemChatbot(resultado.motivo);
         renderizarPassagens(resultado.voo)
     }else if(resultado.tipo == 0){
         gerarMensagemChatbot(resultado.response);
