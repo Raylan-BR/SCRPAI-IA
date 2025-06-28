@@ -57,7 +57,7 @@ function gerarMensagemChatbot(resposta){
 }
 //requisição para servidor
 function enviarServidor(mensagem) {
-    userEmail = localStorage.getItem('userEmail');
+    let userEmail = localStorage.getItem('userEmail') || "";
     console.log("mensagem enviada pro chat");
     fetch("/chat", {
         method: "POST",
