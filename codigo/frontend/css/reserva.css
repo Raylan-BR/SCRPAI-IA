@@ -383,3 +383,149 @@ button:disabled {
     width: 130px;
   }
 }
+
+
+
+/* Fonte geral */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* HEADER */
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #005792;
+  width: 100vw;
+  padding: 6px 20px;
+}
+
+/* Logo + Título */
+.conteudo_projeto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.conteudo_projeto img {
+  height: 80px;
+  width: auto;
+}
+
+.conteudo_projeto h1 {
+  color: white;
+  margin-left: 10px;
+}
+
+/* Navegação principal */
+.menu_navegacao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Links de navegação */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Lado direito: idioma e login */
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-width: 300px;
+}
+
+/* Botão de idioma */
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff20;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.lang img {
+  width: 24px;
+  height: auto;
+}
+
+.lang:hover {
+  background-color: #ffffff40;
+}
+
+.dropdown-icon {
+  font-size: 12px;
+}
+
+/* Botão de login */
+.perfil-btn {
+  background-color: #ffffff20;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perfil-btn:hover {
+  background-color: #ffffff40;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .menu_navegacao {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
