@@ -113,7 +113,7 @@ document.querySelector('.google-login')?.addEventListener('click', async functio
 });
 
 /* ===================== LINKS E RECUPERAÇÃO ===================== */
-document.getElementById('resetPasswordForm')?.addEventListener('submit', async function (e) {
+document.getElementById('reosetPasswordFrm')?.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const email = document.getElementById('email').value;

@@ -3,6 +3,10 @@
 #ignorar a pasta .venv que é o ambiente virtual
 .venv
 
-historico.json
+historico
 
 firebase-adminsdk.json
+
+chatbot/__pycache__
+
+mock/__pycache__

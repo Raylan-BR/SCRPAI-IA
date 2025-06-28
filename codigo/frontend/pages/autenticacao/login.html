@@ -6,55 +6,49 @@
     <title>SKAI - Login</title>
     <link rel="stylesheet" href="../../css/autenticacao.css">
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAlhgKReGb2X2CIQpy5M95hs0RRVJzbD20",
+            authDomain: "scrpai-ia.firebaseapp.com",
+            projectId: "scrpai-ia",
+            storageBucket: "scrpai-ia.appspot.com",
+            messagingSenderId: "1030430015808",
+            appId: "1:1030430015808:web:0cdac65a5607825e68faa5"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
 
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyAlhgKReGb2X2CIQpy5M95hs0RRVJzbD20",
-    authDomain: "scrpai-ia.firebaseapp.com",
-    projectId: "scrpai-ia",
-    storageBucket: "scrpai-ia.appspot.com",
-    messagingSenderId: "1030430015808",
-    appId: "1:1030430015808:web:0cdac65a5607825e68faa5"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-      
+<body>
+    <div class="login-container">
         <div class="login-title">ENTRAR</div>
-       
+
         <form id="loginForm">
             <div class="input-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" placeholder="Digite o seu email" required>
             </div>
-           
+
             <div class="input-group">
                 <label for="password">Senha:</label>
                 <input type="password" id="password" placeholder="Digite sua senha" required>
             </div>
-           
+
             <button type="submit" class="login-button">ENTRAR</button>
         </form>
-       
-            <div class="google-login">
 
-</head>
-<body>
-    <div class="login-container">
-  <span class="social-login">Conecte-se com o</span>
+        <div class="google-login">
+            <span class="social-login">Conecte-se com o</span>
+            <img src="../../img/icone-google.png" alt="Google Icon" class="google-icon" style="cursor: pointer;">
+        </div>
 
-  <img src="../../img/icone-google.png" alt="Google Icon" class="google-icon" style="cursor: pointer;">
-
-  
-</div>
-       
-        <div>Não tem conta? <a href="cadastro.html" class="register-link">Cadastra-se</a></div>
-         <div class="esqueci-senha">
-  Esqueceu a senha? <a href="esqueceu-senha.html" class="register-link">Clique aqui</a>
-</div>
+        <div>Não tem conta? <a href="/render-cadastro" class="register-link">Cadastra-se</a></div>
+        <div class="esqueci-senha">
+            Esqueceu a senha? <a href="esqueceu-senha.html" class="register-link">Clique aqui</a>
+        </div>
     </div>
 
     <script src="../../js/autenticacao.js"></script>

@@ -6,16 +6,26 @@ import json
 from flask import jsonify
 from mock.passagens_mock import gerar_passagens_mock
 
-# Caminho do arquivo de histórico
-CAMINHO_HISTORICO = "historico.json"
+# Caminho da pasta onde os históricos ficarão salvos
+PASTA_HISTORICOS = os.path.join(os.path.dirname(__file__), "..", "historico")
+os.makedirs(PASTA_HISTORICOS, exist_ok=True)
 
-# Função para carregar o histórico do arquivo
-def carregar_historico():
-    if os.path.exists(CAMINHO_HISTORICO):
-        with open(CAMINHO_HISTORICO, "r", encoding="utf-8") as f:
+# Função para gerar nome de arquivo a partir do e-mail
+def gerar_id_email(email):
+    return email.replace("@", "_at_").replace(".", "_dot_") + ".json"
+
+# Caminho completo para o arquivo do usuário
+def caminho_do_historico(email):
+    return os.path.join(PASTA_HISTORICOS, gerar_id_email(email))
+
+# Carregar o histórico com base no e-mail
+def carregar_historico(email):
+    caminho = caminho_do_historico(email)
+
+    if os.path.exists(caminho):
+        with open(caminho, "r", encoding="utf-8") as f:
             return json.load(f)
     else:
-        # Se não existir, cria com a mensagem de sistema
         hoje = datetime.now().strftime("%d-%m-%Y")
         historico_inicial = [
             {
@@ -33,25 +43,32 @@ def carregar_historico():
                 ]
             }
         ]
-        salvar_historico(historico_inicial)
-        print("carregado no historico")
+        salvar_historico(email, historico_inicial)
+        print(f"Arquivo criado: {caminho}")
         return historico_inicial
 
-# Função para salvar o histórico no arquivo
-def salvar_historico(historico):
-    with open(CAMINHO_HISTORICO, "w", encoding="utf-8") as f:
+# Salvar histórico com base no e-mail
+def salvar_historico(email, historico):
+    caminho = caminho_do_historico(email)
+    with open(caminho, "w", encoding="utf-8") as f:
         json.dump(historico, f, ensure_ascii=False, indent=2)
-    print("salvo no historico")
+    print(f"Histórico salvo: {caminho}")
 
-# Função principal
-def responder(mensagem_usuario, salvar:bool):
-    historico = carregar_historico()
+# Função principal adaptada
+def responder(email, mensagem_usuario, salvar=True):
+    # Se o email for vazio, apenas responde sem salvar nada
+    if email == "":
+        chat = model.start_chat(history=[])
+        resposta = chat.send_message(mensagem_usuario)
+        return resposta.text
+
+    # Caso contrário, carregar e salvar histórico normalmente
+    historico = carregar_historico(email)
     
     chat = model.start_chat(history=historico)
     resposta = chat.send_message(mensagem_usuario)
 
-    if(salvar == True):
-        # Adiciona a nova troca ao histórico
+    if salvar:
         historico.append({
             "role": "user",
             "parts": [{"text": mensagem_usuario}]
@@ -60,8 +77,7 @@ def responder(mensagem_usuario, salvar:bool):
             "role": "model",
             "parts": [{"text": resposta.text}]
         })
-
-        salvar_historico(historico)
+        salvar_historico(email, historico)
 
     return resposta.text
 

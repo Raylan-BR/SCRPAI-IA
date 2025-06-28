@@ -18,7 +18,10 @@ idaVoltaBolinha.addEventListener('change', () => {
 });
 
 // Função para criar card de voo (mantido igual)
-function criarCardVoo(voo) {
+function criarCardVoo(voo, index, tipo = "ida") {
+    voo.id = `${tipo}-${index}`; // Adiciona um ID único
+
+
     const div = document.createElement("div");
     div.className = "voo";
     div.innerHTML = `
@@ -60,7 +63,10 @@ function criarCardVoo(voo) {
     
     const btnSelecionar = div.querySelector('.selecionar');
     btnSelecionar.addEventListener('click', () => {
-        alert(`Voo ${voo.companhia} selecionado!`);
+        // Salva o voo selecionado
+        localStorage.setItem('voo_selecionado', JSON.stringify(voo));
+        // Redireciona para a página de reserva
+        window.location.href = './pages/compra/reserva.html';
     });
     
     return div;
@@ -356,6 +362,11 @@ async function buscarVoos(event) {
             listaVoosVolta.innerHTML = `<p style="color: red;">Erro ao buscar voos de volta.</p>`;
         }
     }
+
+    localStorage.setItem('voos_disponiveis', JSON.stringify({
+        voosIda,
+        voosVolta: isIdaVolta && dataVolta ? voosVolta : []
+    }));
 }
 
 // Listener no formulário (mantido igual)
