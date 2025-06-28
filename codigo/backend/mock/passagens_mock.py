@@ -4,17 +4,19 @@ import random
 
 def gerar_passagens_mock(origem, destino, data_str):
     data_base = datetime.strptime(data_str, "%d-%m-%Y")
-    datas_possiveis = [
-        data_base + timedelta(days=delta)
-        for delta in random.choices(range(0, 8), k=15)
-    ]
 
     passagens = []
 
-    for i in range(15):
-        # Gera horários de partida e chegada aleatórios
-        hora_partida_str = f"{random.randint(0, 23):02d}:{random.choice([0, 15, 30, 45]):02d}"
-        hora_chegada_str = f"{random.randint(0, 23):02d}:{random.choice([0, 15, 30, 45]):02d}"
+    for i in range(10):
+        # Gerar hora de partida
+        hora_partida_dt = datetime.strptime(f"{random.randint(0, 23):02d}:{random.choice([0, 15, 30, 45]):02d}", "%H:%M")
+        hora_partida_str = hora_partida_dt.strftime("%H:%M")
+
+        # Gerar duração entre 15 minutos e 4 horas (em múltiplos de 15 min)
+        duracao_minutos = random.choice([105, 120, 135, 150, 165, 195, 240])
+        hora_chegada_dt = hora_partida_dt + timedelta(minutes=duracao_minutos)
+        hora_chegada_str = hora_chegada_dt.strftime("%H:%M")
+
 
         # Converte para objetos datetime (usando uma data base qualquer)
         hora_partida = datetime.strptime(hora_partida_str, "%H:%M")
@@ -36,7 +38,7 @@ def gerar_passagens_mock(origem, destino, data_str):
             "companhia": random.choice(["Azul", "Gol", "Latam", "Iberia", "Delta"]),
             "origem": origem,
             "destino": destino,
-            "data_partida": datas_possiveis[i].strftime("%d-%m-%Y"),
+            "data_partida": data_base,
             "hora_partida": hora_partida_str,
             "hora_chegada": hora_chegada_str,
             "preco": round(random.uniform(250, 900), 2),
@@ -47,11 +49,5 @@ def gerar_passagens_mock(origem, destino, data_str):
         }
 
         passagens.append(passagem)
-
+    print("10 passagens foram geradas...")
     return passagens
-
-
-def filtrar_por_preco(passagens, preco_maximo):
-    return [p for p in passagens if p["preco"] <= preco_maximo]
-def limitar_resultados(passagens, limite=5):
-    return passagens[:limite]
