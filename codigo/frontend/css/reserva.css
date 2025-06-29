@@ -472,6 +472,22 @@ nav {
   cursor: pointer;
 }
 
+
+.menu_navegacao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.menu_navegacao li{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.menu_navegacao a{
+    color: white;
+    text-decoration: none;
+}
+
 .lang img {
   width: 24px;
   height: auto;
