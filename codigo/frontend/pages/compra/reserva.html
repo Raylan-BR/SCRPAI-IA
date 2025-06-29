@@ -57,6 +57,57 @@
   </div>
 
   <form class="form-reserva">
+
+    <div class="selecao-classe">
+      <h2>Selecione sua Classe</h2>
+      <p>Escolha o tipo de classe que melhor atende às suas necessidades:</p>
+      
+      <div class="classes-container">
+        <!-- Classe Econômica -->
+        <div class="classe-option" data-classe="economica" onclick="selecionarClasse(this)">
+          <div class="classe-nome">Econômica</div>
+          <div class="classe-preco">+ R$ 0,00</div>
+          <ul class="classe-beneficios">
+            <li>Assento padrão</li>
+            <li>1 bagagem de mão</li>
+            <li>Serviço de bordo básico</li>
+            <li>Espaço para pernas padrão</li>
+          </ul>
+        </div>
+        
+        <!-- Classe Executiva -->
+        <div class="classe-option" data-classe="executiva" onclick="selecionarClasse(this)">
+          <div class="classe-nome">Executiva</div>
+          <div class="classe-preco">+ R$ 350,00</div>
+          <ul class="classe-beneficios">
+            <li>Assentos mais confortáveis</li>
+            <li>2 bagagens de mão</li>
+            <li>1 bagagem despachada</li>
+            <li>Serviço de bordo premium</li>
+            <li>Mais espaço para pernas</li>
+            <li>Prioridade no embarque</li>
+          </ul>
+        </div>
+        
+        <!-- Classe Premium -->
+        <div class="classe-option" data-classe="premium" onclick="selecionarClasse(this)">
+          <div class="classe-nome">Premium</div>
+          <div class="classe-preco">+ R$ 700,00</div>
+          <ul class="classe-beneficios">
+            <li>Assentos reclináveis premium</li>
+            <li>2 bagagens de mão</li>
+            <li>2 bagagens despachadas</li>
+            <li>Serviço de bordo exclusivo</li>
+            <li>Máximo espaço para pernas</li>
+            <li>Embarque prioritário</li>
+            <li>Acesso à sala VIP</li>
+          </ul>
+        </div>
+      </div>
+      
+      <input type="hidden" id="classe-selecionada" name="classe" required>
+    </div>
+
     <h2>Selecione seu Assento</h2>
     <div class="mapa-assentos">
       <!-- Assentos serão renderizados dinamicamente -->

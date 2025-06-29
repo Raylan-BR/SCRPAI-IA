@@ -162,3 +162,20 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = `pagamento.html?reserva_id=${reserva.id}`;
     });
 });
+
+// Função para selecionar a classe
+  function selecionarClasse(elemento) {
+    // Remove a classe 'selecionada' de todas as opções
+    document.querySelectorAll('.classe-option').forEach(opt => {
+      opt.classList.remove('selecionada');
+    });
+    
+    // Adiciona a classe 'selecionada' à opção clicada
+    elemento.classList.add('selecionada');
+    
+    // Atualiza o campo hidden com o valor selecionado
+    document.getElementById('classe-selecionada').value = elemento.getAttribute('data-classe');
+    
+    // Aqui você pode adicionar lógica para atualizar o preço total, etc.
+    console.log('Classe selecionada:', elemento.getAttribute('data-classe'));
+  }
