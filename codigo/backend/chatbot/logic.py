@@ -111,6 +111,7 @@ def extrair_dados_viagem(frase: str):
 def buscar_voo(dados_viagem):
     print("buscando voos...")
     passagens = gerar_passagens_mock(dados_viagem['origem'], dados_viagem['destino'], dados_viagem['data'])
+    print("\n\n\nquantidade total: ", len(passagens), "\n\n\n")
     if dados_viagem['tipo'] == "Turismo":
         passagens = filtrar_para_turistas(passagens)
         resultado = {
@@ -118,14 +119,19 @@ def buscar_voo(dados_viagem):
         "tipo": 1,
         "voo": passagens
     }
+        print("\n\n\nquantidade filtrada: ", len(passagens), "\n\n\n")
+        salvar_passagens_em_json(passagens)
+        return jsonify(resultado)
     elif dados_viagem['tipo']== "Trabalho":
         passagens = filtrar_para_corporativos(passagens)
         resultado = {
             "motivo": "Busquei as passagens de classe executiva, voos diretos em horários comerciais.",
             "tipo": 1,
             "voo": passagens
-        }
-    return jsonify(resultado)
+    }
+        print("\n\n\nquantidade filtrada: ", len(passagens), "\n\n\n")
+        salvar_passagens_em_json(passagens)
+        return jsonify(resultado)
 
 def filtrar_para_turistas(passagens):
     print("Filtrando para turistas...")
@@ -135,7 +141,7 @@ def filtrar_para_turistas(passagens):
         p for p in passagens
         if p["preco"] <= 600
         and p["classe"] == "Econômica"
-        and p["paradas"] <= 1
+        and p["escalas"] <= 2
     ]
 
     # 2. Ordenar por preço crescente
@@ -145,9 +151,6 @@ from datetime import datetime
 
 def filtrar_para_corporativos(passagens):
     print("Filtrando para corporativos...")
-    def horario_comercial(hora_str):
-        hora = datetime.strptime(hora_str, "%H:%M").hour
-        return 7 <= hora <= 10 or 17 <= hora <= 20
 
     def duracao_em_minutos(duracao_str):
         # Exemplo: "2h30min" → 150 minutos
@@ -162,9 +165,16 @@ def filtrar_para_corporativos(passagens):
     filtradas = [
         p for p in passagens
         if p["classe"] == "Executiva"
-        and p["paradas"] == 0
-        and horario_comercial(p["hora_partida"])
+        and p["escalas"] == 0
     ]
 
     # 2. Ordenar por menor duração
     return sorted(filtradas, key=lambda p: duracao_em_minutos(p["duracao"]))
+
+def salvar_passagens_em_json(lista_passagens):
+    try:
+        with open('passagens.json', 'w', encoding='utf-8') as f:
+            json.dump(lista_passagens, f, indent=4, ensure_ascii=False)
+        print(f"Passagens salvas em 'passagens.json'.")
+    except Exception as e:
+        print(f"Erro ao salvar passagens: {e}")

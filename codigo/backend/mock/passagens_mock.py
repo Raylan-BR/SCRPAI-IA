@@ -1,53 +1,49 @@
-# Lista inicial de passagens (serão geradas a partir dos dados do usuário)
-from datetime import datetime, timedelta
 import random
+from datetime import datetime, timedelta
 
 def gerar_passagens_mock(origem, destino, data_str):
     data_base = datetime.strptime(data_str, "%d-%m-%Y")
-
     passagens = []
 
-    for i in range(10):
-        # Gerar hora de partida
+    companhias = ["Azul", "Gol", "Latam", "Iberia", "Delta"]
+    aeronaves = ["Airbus A320", "Boeing 737", "Embraer 195", "Boeing 787", "Airbus A350"]
+
+    for i in range(20):
+        # Hora de partida
         hora_partida_dt = datetime.strptime(f"{random.randint(0, 23):02d}:{random.choice([0, 15, 30, 45]):02d}", "%H:%M")
         hora_partida_str = hora_partida_dt.strftime("%H:%M")
 
-        # Gerar duração entre 15 minutos e 4 horas (em múltiplos de 15 min)
+        # Duração do voo em minutos
         duracao_minutos = random.choice([105, 120, 135, 150, 165, 195, 240])
         hora_chegada_dt = hora_partida_dt + timedelta(minutes=duracao_minutos)
         hora_chegada_str = hora_chegada_dt.strftime("%H:%M")
 
+        # Ajuste para cálculo de duração
+        partida_dt = datetime.strptime(hora_partida_str, "%H:%M")
+        chegada_dt = datetime.strptime(hora_chegada_str, "%H:%M")
+        if chegada_dt <= partida_dt:
+            chegada_dt += timedelta(days=1)
 
-        # Converte para objetos datetime (usando uma data base qualquer)
-        hora_partida = datetime.strptime(hora_partida_str, "%H:%M")
-        hora_chegada = datetime.strptime(hora_chegada_str, "%H:%M")
-
-        # Ajusta caso o voo passe da meia-noite
-        if hora_chegada <= hora_partida:
-            hora_chegada += timedelta(days=1)
-
-        # Calcula duração
-        duracao = hora_chegada - hora_partida
+        duracao = chegada_dt - partida_dt
         horas = duracao.seconds // 3600
         minutos = (duracao.seconds % 3600) // 60
         duracao_str = f"{horas}h{minutos:02d}min"
 
-        # Monta o dicionário da passagem
         passagem = {
-            "voo_id": f"AZ{100+i}",
-            "companhia": random.choice(["Azul", "Gol", "Latam", "Iberia", "Delta"]),
+            "companhia": (companhia := random.choice(companhias)),
+            "aeronave": random.choice(aeronaves),
+            "assentosDisponiveis": random.randint(1, 30),
+            "partida": f"{hora_partida_str}",
+            "chegada": f"{hora_chegada_str}",
             "origem": origem,
             "destino": destino,
-            "data_partida": data_base,
-            "hora_partida": hora_partida_str,
-            "hora_chegada": hora_chegada_str,
+            "duracao": duracao_str,
+            "escalas": random.choice([0, 1, 2]),
             "preco": round(random.uniform(250, 900), 2),
             "moeda": "BRL",
-            "classe": random.choice(["Econômica", "Executiva"]),
-            "duracao": duracao_str,
-            "paradas": random.choice([0, 1])
+            "classe": random.choice(["Econômica", "Executiva"])
         }
 
         passagens.append(passagem)
-    print("10 passagens foram geradas...")
+
     return passagens

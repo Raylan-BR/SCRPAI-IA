@@ -61,3 +61,16 @@ def conversa_chat():
     with open(caminho_json, "r", encoding="utf-8") as f:
         dados = json.load(f)
     return jsonify(dados)
+@chatbot_bp.route('/card-selecionado/<int:indice>', methods=['GET'])
+def get_passagem_por_indice(indice):
+    try:
+        with open('passagens.json', 'r', encoding='utf-8') as f:
+            passagens = json.load(f)
+
+        if 0 <= indice < len(passagens):
+            return jsonify(passagens[indice]), 200
+        else:
+            return jsonify({'erro': 'Índice fora do intervalo'}), 404
+
+    except Exception as e:
+        return jsonify({'erro': str(e)}), 500
