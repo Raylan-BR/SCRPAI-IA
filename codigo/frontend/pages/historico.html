@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Histórico de Compras - SkAI</title>
-  <link rel="stylesheet" href="../css/historico.css">
+  <link rel="stylesheet" href="../css/historico.css" />
 </head>
 <body>
+
+  <!-- HEADER DINÂMICO -->
+  <div id="header-container"></div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
   <div class="container-hist">
     <div class="history-box">
       <div class="header">
         <h1>Histórico de Compras</h1>
-         <input   class="filter-button"type="text" id="filtroDestino" placeholder="Filtrar por destino">
+        <input class="filter-button" type="text" id="filtroDestino" placeholder="Filtrar por destino">
       </div>
-
-      
     </div>
   </div>
-    <!-- RODAPÉ -->
+
+  <!-- RODAPÉ -->
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-column">
@@ -52,6 +56,9 @@
       <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <!-- SCRIPTS -->
+  <script src="../js/header.js"></script>
+  <script src="../js/historico.js"></script>
 </body>
-<script src="js/historico.js"></script>
 </html>

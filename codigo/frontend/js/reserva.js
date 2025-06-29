@@ -160,6 +160,31 @@ document.addEventListener('DOMContentLoaded', () => {
     formReserva.addEventListener('submit', (e) => {
         e.preventDefault();
         
+        // Validar dados do passageiro
+        const nome = document.getElementById('nome').value.trim();
+        const cpf = document.getElementById('cpf').value.trim();
+        const dataNascimento = document.getElementById('data-nascimento').value;
+        const telefone = document.getElementById('telefone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const passaporte = document.getElementById('passaporte').value.trim();
+
+        if (!nome || !cpf || !dataNascimento || !telefone || !email) {
+            alert('Por favor, preencha todos os campos obrigatórios do passageiro');
+            return;
+        }
+
+        // Validar formato do CPF (apenas básico)
+        if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
+            alert('Por favor, insira um CPF válido no formato 000.000.000-00');
+            return;
+        }
+
+        // Validar formato do telefone (apenas básico)
+        if (!/^\(\d{2}\) \d{5}-\d{4}$/.test(telefone)) {
+            alert('Por favor, insira um telefone válido no formato (00) 00000-0000');
+            return;
+        }
+
         const assentosSelecionados = Array.from(document.querySelectorAll('.assento.selecionado'))
             .map(assento => assento.dataset.numero);
         const bagagem = selectBagagem.value;
@@ -199,6 +224,14 @@ document.addEventListener('DOMContentLoaded', () => {
             classe: classeSelecionada,
             assentos: assentosSelecionados,
             bagagem: bagagem,
+            passageiro: {
+                nome: nome,
+                cpf: cpf,
+                data_nascimento: dataNascimento,
+                telefone: telefone,
+                email: email,
+                passaporte: passaporte  || null
+            },
             total: total,
             usuario_email: usuario.email,
             data_reserva: new Date().toISOString(),
@@ -238,3 +271,33 @@ function selecionarClasse(elemento) {
     // Atualiza o resumo
     atualizarResumo();
 }
+
+// Máscaras para CPF e Telefone
+document.getElementById('cpf').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    
+    if (value.length > 3) {
+        value = value.substring(0, 3) + '.' + value.substring(3);
+    }
+    if (value.length > 7) {
+        value = value.substring(0, 7) + '.' + value.substring(7);
+    }
+    if (value.length > 11) {
+        value = value.substring(0, 11) + '-' + value.substring(11);
+    }
+    
+    e.target.value = value.substring(0, 14);
+});
+
+document.getElementById('telefone').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    
+    if (value.length > 0) {
+        value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+    }
+    if (value.length > 10) {
+        value = value.substring(0, 10) + '-' + value.substring(10);
+    }
+    
+    e.target.value = value.substring(0, 15);
+});

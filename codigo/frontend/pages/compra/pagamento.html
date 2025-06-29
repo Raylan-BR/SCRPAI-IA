@@ -11,31 +11,7 @@
   <script src="https://unpkg.com/imask"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">
-      <img src="../../img/logo2.png" alt="Logo SkAI"/>
-      <h1>SkAI</h1>
-    </div>
-    <div class="header-right">
-      <div class="lang">
-        <img src="../../img/bandeira.png" alt="Bandeira Brasil" />
-        <span>PT | BR</span>
-        <div class="dropdown-icon">▼</div>
-      </div>
-      <div class="perfil">
-        <button class="perfil-btn" onclick="window.location.href='../autenticacao/login.html'">
-          <img src="../../img/perfil.png" alt="Ícone Perfil" />
-          Perfil
-        </button>
-      </div>
-
-       <div class="perfil">
-        <button class="perfil-btn" onclick="window.location.href='../../index.html'">
-  Home
-</button>
-      </div>
-    </div>
-  </header>
+  <div id="header-container"></div>
 
   <main class="content">
     <h2>SUA COMPRA ESTÁ QUASE FINALIZADA!</h2>
@@ -105,6 +81,7 @@
 
   <div id="modal-sucesso" class="modal" style="display: none;">
   <div class="modal-content">
+    <button id="fechar-modal" class="fechar-btn">&times;</button>
     <h3>Oba! Sua compra foi realizada com sucesso!</h3>
     <img src="../../img/verificacao.png" alt="Sucesso" width="70" />
     <p>Baixe aqui abaixo o comprovante:</p>
@@ -115,6 +92,7 @@
 <!-- Modal de Erro -->
 <div id="modal-erro" class="modal" style="display: none;">
   <div class="modal-content">
+    <button id="fechar-modal" class="fechar-btn">&times;</button>
     <h3>Ops! Parece que deu errado sua compra!</h3>
     <img src="../../img/falha.png" alt="Erro" width="70" />
   </div>
@@ -156,6 +134,7 @@
     </footer>
 
   <script src="../../js/pagamento.js"></script>
+  <script src="../../js/header.js"></script>
   <script src="https://unpkg.com/imask"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>

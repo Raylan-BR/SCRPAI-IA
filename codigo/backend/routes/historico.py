@@ -67,7 +67,7 @@ def salvar_compra_route():
     return jsonify({"message": "Compra salva com sucesso"})
 
 # Rota para buscar o histórico de compras de um usuário pelo email via GET
-@historico_bp.route('/historico', methods=['GET'])
+@historico_bp.route('/loadHistorico', methods=['GET'])
 def get_historico():
     # Pega o parâmetro 'email' passado na URL (?email=usuario@exemplo.com)
     user_email = request.args.get('email')

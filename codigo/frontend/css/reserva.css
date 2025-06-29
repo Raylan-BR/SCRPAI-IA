@@ -472,6 +472,22 @@ nav {
   cursor: pointer;
 }
 
+
+.menu_navegacao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.menu_navegacao li{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.menu_navegacao a{
+    color: white;
+    text-decoration: none;
+}
+
 .lang img {
   width: 24px;
   height: auto;
@@ -596,4 +612,48 @@ nav {
   color: #0066cc;
   position: absolute;
   left: 0;
+}
+
+/* Estilos para o formulário de dados do passageiro */
+.form-dados-passageiro {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.form-dados-passageiro h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.form-dados-passageiro .form-group {
+    margin-bottom: 15px;
+}
+
+.form-dados-passageiro label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-dados-passageiro input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-dados-passageiro input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Adiciona máscara visual para campos específicos */
+input[placeholder] {
+    font-size: 14px;
 }
