@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -115,6 +117,108 @@ body {
 .filter-button:hover {
   opacity: 0.9;
 }
+
+
+
+nav {
+  display: flex;
+  flex-direction: row;
+  background-color: #005792;
+  width: 100vw;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+.conteudo_projeto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.conteudo_projeto img {
+  height: 80px;
+  width: auto;
+}
+
+.conteudo_projeto h1 {
+  color: white;
+}
+
+.menu_navegacao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu_navegacao li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.menu_navegacao a {
+  color: white;
+  text-decoration: none;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px 24px;
+  min-width: 300px;
+  width: 100%;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #ffffff20;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  min-width: 80px;
+  cursor: pointer;
+  color: white;
+}
+
+.lang img {
+  width: 24px;
+  height: auto;
+}
+
+.lang:hover {
+  background-color: #ffffff40;
+}
+
+.dropdown-icon {
+  font-size: 12px;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header nav a {
+    margin: 10px;
+  }
+}
+
 /* RODAPÉ */
 .footer {
   background-color: #D1F4FA; /* azul claro */

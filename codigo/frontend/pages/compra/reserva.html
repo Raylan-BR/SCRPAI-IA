@@ -1,122 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reserva de Passagem - SkAI</title>
-  <link rel="stylesheet" href="../../css/reserva.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../../css/reserva.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
-<!--CABEÇALHO-->
-   <header>
-        <nav>
-            <div class="conteudo_projeto">
-                <img src="../../img/logo_aviao.png" alt="logo de um avião">
-                <h1>SkAI</h1>
-            </div>
-            <div class="menu_navegacao">
-                <li>
-                    <ul><a href="/index.html">Inicio</a></ul>
-                    <ul><a href="/historico.html">Histórico</a></ul>
-                </li>
-                <div class="header-right">
-                    <div class="lang">
-                        <img src="../../img/bandeira.png" alt="Bandeira Brasil" />
-                        <span>PT | BR</span>
-                        <div class="dropdown-icon">▼</div>
-                    </div>
-                    <div class="perfil">
-                    <a href="pages/autenticacao/login.html" class="perfil-btn">Entrar</a>
-                    </div>
-                </div>
-              </div>
-        </nav>
+
+  <!-- HEADER PADRÃO -->
+  <div id="header-container"></div>
+
+  <div class="container-reserva">
+    <div class="etapas">
+      <span class="etapa ativa">1. Escolha do voo</span>
+      <span class="etapa ativa">→ 2. Reserva</span>
+      <span class="etapa">→ 3. Pagamento</span>
+    </div>
+
+    <header>
+      <h1>Reserva de Passagem</h1>
     </header>
 
-<div class="container-reserva">
-  <div class="etapas">
-    <span class="etapa ativa">1. Escolha do voo</span>
-    <span class="etapa ativa">→ 2. Reserva</span>
-    <span class="etapa">→ 3. Pagamento</span>
-  </div>
-
-  <header>
-    <h1>Reserva de Passagem</h1>
-  </header>
-
-  <div class="dados-voo">
-    <!-- Dados serão preenchidos dinamicamente pelo JavaScript -->
-    <div class="loading">
-      <i class="fas fa-spinner fa-spin"></i> Carregando informações do voo...
-    </div>
-  </div>
-
-  <div id="resumo-reserva" style="display: none;">
-    <!-- Resumo será preenchido dinamicamente -->
-  </div>
-
-  <form class="form-reserva">
-    <h2>Selecione seu Assento</h2>
-    <div class="mapa-assentos">
-      <!-- Assentos serão renderizados dinamicamente -->
-      <div class="loading-assentos">
-        <i class="fas fa-spinner fa-spin"></i> Carregando mapa de assentos...
+    <div class="dados-voo">
+      <!-- Dados serão preenchidos dinamicamente pelo JavaScript -->
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin"></i> Carregando informações do voo...
       </div>
     </div>
 
-    <h2>Bagagem</h2>
-    <div class="form-group">
-      <label for="bagagem">Escolha sua bagagem:</label>
-      <select id="bagagem" required disabled>
-        <option value="">Carregando opções...</option>
-      </select>
+    <div id="resumo-reserva" style="display: none;">
+      <!-- Resumo será preenchido dinamicamente -->
     </div>
 
-    <button type="submit" disabled>
-      <span id="button-text">Prosseguir para Pagamento</span>
-      <span id="button-loading" style="display: none;">
-        <i class="fas fa-spinner fa-spin"></i> Processando...
-      </span>
-    </button>
-  </form>
-</div>
+    <form class="form-reserva">
+      <h2>Selecione seu Assento</h2>
+      <div class="mapa-assentos">
+        <!-- Assentos serão renderizados dinamicamente -->
+        <div class="loading-assentos">
+          <i class="fas fa-spinner fa-spin"></i> Carregando mapa de assentos...
+        </div>
+      </div>
 
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-column">
-      <h4>Nossas redes sociais</h4>
-      <div class="social-icons">
-        <img src="../../img/facebook.png" alt="Facebook" />
-        <img src="../../img/instagram.png" alt="Instagram" />
+      <h2>Bagagem</h2>
+      <div class="form-group">
+        <label for="bagagem">Escolha sua bagagem:</label>
+        <select id="bagagem" required disabled>
+          <option value="">Carregando opções...</option>
+        </select>
+      </div>
+
+      <button type="submit" disabled>
+        <span id="button-text">Prosseguir para Pagamento</span>
+        <span id="button-loading" style="display: none;">
+          <i class="fas fa-spinner fa-spin"></i> Processando...
+        </span>
+      </button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-column">
+        <h4>Nossas redes sociais</h4>
+        <div class="social-icons">
+          <img src="../../img/facebook.png" alt="Facebook" />
+          <img src="../../img/instagram.png" alt="Instagram" />
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Formas de pagamento</h4>
+        <div class="payment-icons">
+          <img src="../../img/image.png" alt="Cartões" />
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Precisa falar conosco?</h4>
+        <p>Fale com a gente pelo<br />email: contato@skaivoos.com.br</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Contatos</h4>
+        <p><strong>4040 5555</strong><br />Capitais e regiões metropolitanas</p>
+        <p><strong>0800 123 890</strong><br />Demais localidades (ligação gratuita)</p>
       </div>
     </div>
 
-    <div class="footer-column">
-      <h4>Formas de pagamento</h4>
-      <div class="payment-icons">
-        <img src="../../img/image.png" alt="Cartões" />
-      </div>
+    <div class="footer-bottom">
+      <p>Av. Litorânea, 1230, Ed. Atlântico Corporate, Torre Sul, Sala 1502, Ponta D'Areia, São Luís - MA, 65077-870, CNPJ: 12.345.678/0001-90</p>
+      <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
     </div>
+  </footer>
 
-    <div class="footer-column">
-      <h4>Precisa falar conosco?</h4>
-      <p>Fale com a gente pelo<br />email: contato@skaivoos.com.br</p>
-    </div>
-
-    <div class="footer-column">
-      <h4>Contatos</h4>
-      <p><strong>4040 5555</strong><br />Capitais e regiões metropolitanas</p>
-      <p><strong>0800 123 890</strong><br />Demais localidades (ligação gratuita)</p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>Av. Litorânea, 1230, Ed. Atlântico Corporate, Torre Sul, Sala 1502, Ponta D'Areia, São Luís - MA, 65077-870, CNPJ: 12.345.678/0001-90</p>
-    <p>&copy; 2025 SkAI. Desenvolvido por CodeS. Todos os direitos reservados.</p>
-  </div>
-</footer>
-
-<script src="../../js/reserva.js"></script>
+  <!-- Scripts -->
+  <script src="../../js/header.js"></script>
+  <script src="../../js/reserva.js"></script>
 </body>
 </html>
