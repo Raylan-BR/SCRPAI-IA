@@ -115,14 +115,41 @@ document.addEventListener('DOMContentLoaded', () => {
             .map(assento => assento.dataset.numero);
         const bagagem = selectBagagem.value;
         const resumoDiv = document.getElementById('resumo-reserva');
+
+        const classeSelecionada = document.getElementById('classe-selecionada').value;
+
+        // Obter valor adicional da classe
+        let valorClasse = 0;
+        let nomeClasse = 'Não selecionada';
+        
+        if (classeSelecionada === 'economica') {
+            nomeClasse = 'Econômica';
+        } else if (classeSelecionada === 'executiva') {
+            valorClasse = 350;
+            nomeClasse = 'Executiva';
+        } else if (classeSelecionada === 'premium') {
+            valorClasse = 700;
+            nomeClasse = 'Premium';
+        }
+        
+        // Obter valor adicional da bagagem
+        let valorBagagem = 0;
+        if (bagagem.includes('23kg')) {
+            valorBagagem = 100;
+        } else if (bagagem.includes('32kg')) {
+            valorBagagem = 180;
+        }
+
+        const total = voo.preco + valorClasse + valorBagagem;
         
         if (assentosSelecionados.length > 0 || bagagem) {
             resumoDiv.style.display = 'block';
             resumoDiv.innerHTML = `
                 <h4>Resumo da Reserva</h4>
+                <p><strong>Classe:</strong> ${nomeClasse}</p>
                 <p><strong>Assentos:</strong> ${assentosSelecionados.join(', ') || 'Nenhum selecionado'}</p>
                 <p><strong>Bagagem:</strong> ${bagagem || 'Não selecionada'}</p>
-                <p><strong>Total:</strong> R$ ${voo.preco.toFixed(2)}</p>
+                <p><strong>Total:</strong> R$ ${total.toFixed(2)}</p>
             `;
         } else {
             resumoDiv.style.display = 'none';
@@ -136,21 +163,46 @@ document.addEventListener('DOMContentLoaded', () => {
         const assentosSelecionados = Array.from(document.querySelectorAll('.assento.selecionado'))
             .map(assento => assento.dataset.numero);
         const bagagem = selectBagagem.value;
+        const classeSelecionada = document.getElementById('classe-selecionada').value;
 
         if (assentosSelecionados.length === 0) {
             alert('Selecione pelo menos um assento');
             return;
         }
 
+        if (!classeSelecionada) {
+            alert('Selecione uma classe');
+            return;
+        }
+
+        // Calcular valores adicionais
+        let valorClasse = 0;
+        if (classeSelecionada === 'executiva') {
+            valorClasse = 350;
+        } else if (classeSelecionada === 'premium') {
+            valorClasse = 700;
+        }
+        
+        let valorBagagem = 0;
+        if (bagagem.includes('23kg')) {
+            valorBagagem = 100;
+        } else if (bagagem.includes('32kg')) {
+            valorBagagem = 180;
+        }
+
+        const total = voo.preco + valorClasse + valorBagagem;
+
         // Criar objeto de reserva
         const reserva = {
             id: Date.now().toString(),
             voo: voo,
+            classe: classeSelecionada,
             assentos: assentosSelecionados,
             bagagem: bagagem,
+            total: total,
             usuario_email: usuario.email,
             data_reserva: new Date().toISOString(),
-            status: 'pendente'
+            // status: 'pendente'
         };
 
         // Salvar reserva no LocalStorage
@@ -164,18 +216,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Função para selecionar a classe
-  function selecionarClasse(elemento) {
+function selecionarClasse(elemento) {
     // Remove a classe 'selecionada' de todas as opções
     document.querySelectorAll('.classe-option').forEach(opt => {
-      opt.classList.remove('selecionada');
+        opt.classList.remove('selecionada');
     });
-    
+
     // Adiciona a classe 'selecionada' à opção clicada
     elemento.classList.add('selecionada');
-    
+
     // Atualiza o campo hidden com o valor selecionado
     document.getElementById('classe-selecionada').value = elemento.getAttribute('data-classe');
-    
+
     // Aqui você pode adicionar lógica para atualizar o preço total, etc.
     console.log('Classe selecionada:', elemento.getAttribute('data-classe'));
-  }
+
+    // Forçar a exibição do resumo e atualizá-lo
+    const resumoDiv = document.getElementById('resumo-reserva');
+    resumoDiv.style.display = 'block';
+
+    // Atualiza o resumo
+    atualizarResumo();
+}
