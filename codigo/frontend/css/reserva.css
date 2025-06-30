@@ -545,3 +545,115 @@ nav {
     gap: 10px;
   }
 }
+
+/* Estilos adicionais para a seção de classes */
+.selecao-classe {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.classes-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.classe-option {
+  flex: 1;
+  margin: 0 10px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.classe-option:hover {
+  border-color: #0066cc;
+}
+
+.classe-option.selecionada {
+  border-color: #0066cc;
+  background-color: #e6f2ff;
+}
+
+.classe-nome {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.classe-preco {
+  color: #0066cc;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.classe-beneficios {
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.classe-beneficios li {
+  margin-bottom: 5px;
+  list-style-type: none;
+  position: relative;
+  padding-left: 20px;
+}
+
+.classe-beneficios li:before {
+  content: "✓";
+  color: #0066cc;
+  position: absolute;
+  left: 0;
+}
+
+/* Estilos para o formulário de dados do passageiro */
+.form-dados-passageiro {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.form-dados-passageiro h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.form-dados-passageiro .form-group {
+    margin-bottom: 15px;
+}
+
+.form-dados-passageiro label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-dados-passageiro input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-dados-passageiro input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Adiciona máscara visual para campos específicos */
+input[placeholder] {
+    font-size: 14px;
+}
