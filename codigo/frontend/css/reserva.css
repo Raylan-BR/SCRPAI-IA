@@ -558,8 +558,11 @@ nav {
 .classes-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
   margin-top: 15px;
 }
+
 
 .classe-option {
   flex: 1;
@@ -678,11 +681,21 @@ input[placeholder] {
   margin-top: 4px; /* Ajuste fino opcional */
 }
 
-
 .perfil {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+@media (max-width: 768px) {
+  .classes-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .classe-option {
+    margin: 0;
+    width: 100%;
+  }
+}
 
