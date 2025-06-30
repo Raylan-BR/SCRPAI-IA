@@ -1,39 +1,79 @@
+"""@file historico.py
+@brief Blueprint para gerenciamento de histórico de compras
+@author Seu Nome <seu.email@exemplo.com>
+
+Módulo responsável por operações relacionadas ao histórico de compras de viagens:
+- Armazenamento de novas compras
+- Recuperação do histórico de compras
+- Gerenciamento de dados de transações
+"""
+
 from flask import Blueprint, request, jsonify
 from datetime import datetime
-from database import db  
+from database import db
 
-
+# Cria blueprint para rotas de histórico
 historico_bp = Blueprint('historico', __name__)
+"""@var historico_bp
+@brief Blueprint para rotas de histórico de compras
+@details Agrupa endpoints relacionados ao gerenciamento de:
+- Registro de novas compras
+- Consulta de histórico
+- Dados transacionais
+"""
 
-# Função para salvar uma compra no banco de dados
 def salvar_compra(user_email, origin, destination, travel_date, total_price, purchase_source, details, receipt_url=None):
+    """Armazena uma nova compra no banco de dados.
+    
+    :param user_email: (str) Email do usuário que realizou a compra
+    :param origin: (str) Cidade de origem da viagem
+    :param destination: (str) Cidade de destino da viagem
+    :param travel_date: (str) Data da viagem no formato 'dd-mm-aaaa'
+    :param total_price: (float) Valor total da compra
+    :param purchase_source: (str) Fonte da compra ('formulario' ou 'chat')
+    :param details: (dict) Detalhes adicionais da compra
+    :param receipt_url: (str, optional) URL do comprovante da compra
+    :return: None
+    """
     compra = {
-        "user_email": user_email,              # Email do usuário que fez a compra
-        "origin": origin,                      # Origem da viagem
-        "destination": destination,            # Destino da viagem
-        "travel_date": travel_date,            # Data da viagem
-        "purchase_date": datetime.utcnow(),   # Data/hora atual da compra (registro do momento da compra)
-        "total_price": float(total_price),    # Valor total da compra (convertido para float)
-        "purchase_source": purchase_source,   # Fonte da compra (ex: 'formulario' ou 'chat')
-        "details": details,                    # Detalhes extras da compra (passageiros, voo, etc)
-        "receipt_url": receipt_url             # URL para o comprovante da compra (opcional)
+        "user_email": user_email,
+        "origin": origin,
+        "destination": destination,
+        "travel_date": travel_date,
+        "purchase_date": datetime.utcnow(),
+        "total_price": float(total_price),
+        "purchase_source": purchase_source,
+        "details": details,
+        "receipt_url": receipt_url
     }
-    # Insere o documento da compra na coleção "compras" do MongoDB
     db.compras.insert_one(compra)
 
-# Rota para salvar a compra via requisição POST
 @historico_bp.route('/salvar-compra', methods=['POST'])
 def salvar_compra_route():
-    data = request.json  # Recebe os dados enviados no corpo da requisição em JSON
+    """Endpoint para registro de novas compras via POST.
+    
+    :return: JSON com resultado da operação
+    :rtype: flask.Response
+    :raises HTTPException: 400 se dados estiverem incompletos
+    
+    Estrutura do JSON esperado:
+    {
+        "user_email": "email@exemplo.com",
+        "origin": "São Paulo",
+        "destination": "Rio de Janeiro",
+        "travel_date": "15-07-2023",
+        "total_price": 599.99,
+        "purchase_source": "formulario",
+        "details": {...},
+        "receipt_url": "http://..."
+    }
+    """
+    data = request.json
 
-    # Campos obrigatórios que devem existir no JSON recebido
     required_fields = ["user_email", "origin", "destination", "travel_date", "total_price", "purchase_source", "details"]
-    # Verifica se todos os campos obrigatórios estão presentes nos dados recebidos
     if not all(field in data for field in required_fields):
-        # Se algum campo estiver faltando, retorna erro 400 com mensagem
         return jsonify({"error": "Dados incompletos"}), 400
     
-    # Chama a função salvar_compra para inserir os dados no banco
     salvar_compra(
         user_email=data["user_email"],
         origin=data["origin"],
@@ -42,24 +82,27 @@ def salvar_compra_route():
         total_price=data["total_price"],
         purchase_source=data["purchase_source"],
         details=data["details"],
-        receipt_url=data.get("receipt_url")  # Pega o campo receipt_url se existir, senão None
+        receipt_url=data.get("receipt_url")
     )
-    # Retorna uma mensagem de sucesso para o cliente
     return jsonify({"message": "Compra salva com sucesso"})
 
-# Rota para buscar o histórico de compras de um usuário pelo email via GET
 @historico_bp.route('/loadHistorico', methods=['GET'])
 def get_historico():
-    # Pega o parâmetro 'email' passado na URL (?email=usuario@exemplo.com)
+    """Endpoint para consulta de histórico de compras via GET.
+    
+    :query email: (str) Email do usuário para filtrar as compras
+    :return: JSON com lista de compras do usuário
+    :rtype: flask.Response
+    :raises HTTPException: 400 se email não for fornecido
+    
+    Exemplo de chamada:
+    GET /loadHistorico?email=usuario@exemplo.com
+    """
     user_email = request.args.get('email')
-    # Se não passar o email, retorna erro 400 com mensagem
     if not user_email:
         return jsonify({"error": "Email do usuário é obrigatório"}), 400
     
-    # Busca todas as compras no banco feitas pelo email do usuário
     compras = list(db.compras.find({"user_email": user_email}))
-    # O _id do MongoDB é um objeto, aqui convertemos para string para facilitar o uso no frontend
     for compra in compras:
         compra["_id"] = str(compra["_id"])
-    # Retorna a lista de compras como JSON para o cliente
     return jsonify(compras)
