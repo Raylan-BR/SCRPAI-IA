@@ -3,7 +3,9 @@
   border-radius: 10px;
   padding: 2rem;
   width: 800px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%; /* para não ultrapassar a tela */
+  box-shadow: 0 4px 15px rgba(0, 87, 146, 0.3);
+  margin: 0 auto; /* centraliza horizontalmente */
 }
 
 .header {
@@ -27,6 +29,7 @@
   display: flex;
   gap: 1rem;
   margin-bottom: 1.2rem;
+  flex-wrap: wrap; /* para que quebrem em telas pequenas */
 }
 
 .inputs {
@@ -87,4 +90,41 @@
     color: #555;
     font-size: 1.5rem;
     margin-bottom: 15px;
+}
+
+/* Media queries para responsividade */
+
+@media (max-width: 850px) {
+  .container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .inputs {
+    grid-template-columns: 1fr; /* só uma coluna em telas menores */
+  }
+
+  .bolinhas {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 400px) {
+  .header h2 {
+    font-size: 1.1rem;
+  }
+
+  .header .icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .input-div input {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
 }
