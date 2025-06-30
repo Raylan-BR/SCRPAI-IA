@@ -39,15 +39,15 @@
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <div class="menu_navegacao" id="menu">
                 <ul>
-                    <li><a href="/historico.html">Histórico</a></li>
+                    <li id="historicoLink"><a href="/historico.html">Histórico</a></li>
                 </ul>
                 <div class="header-right">
 
-                    <div class="perfil-btn">
-  <span id="userNameDisplay">Entrar</span>
-  <button id="logoutBtn" class="perfil-btn" style="display: none; margin-left: 10px;">Sair</button>
+                  <div class="perfil-wrapper">
+  <span id="userNameDisplay" class="perfil-btn">Entrar</span>
+  <button id="logoutBtn" class="logout-btn" style="display: none;">Sair</button>
 </div>
-                </div>
+
               </div>
         </nav>
     </header>
@@ -183,6 +183,7 @@
 firebase.auth().onAuthStateChanged(function(user) {
     const userNameDisplay = document.getElementById('userNameDisplay');
     const logoutBtn = document.getElementById('logoutBtn');
+     const historicoLink = document.getElementById('historicoLink');
 
     if (user) {
         const userName = localStorage.getItem('userName') || user.displayName || 'Usuário';
@@ -193,12 +194,17 @@ firebase.auth().onAuthStateChanged(function(user) {
         userNameDisplay.style.color = 'white';
         logoutBtn.style.display = 'inline-block';
         userNameDisplay.onclick = null; // Remove qualquer ação de clique
+
+        
+        if (historicoLink) historicoLink.style.display = 'inline-block';
     } else {
         userNameDisplay.textContent = 'Entrar';
         userNameDisplay.style.cursor = 'pointer';
         userNameDisplay.style.color = 'white';
         userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
         logoutBtn.style.display = 'none';
+
+            if (historicoLink) historicoLink.style.display = 'none'; 
     }
 });
 
