@@ -83,24 +83,41 @@
     };
     firebase.initializeApp(firebaseConfig);
 
-  firebase.auth().onAuthStateChanged(function(user) {
-    const userName = localStorage.getItem('userName') || user?.displayName || 'Usuário';
-    const primeiroNome = userName.split(' ')[0]; // Pegando só o primeiro nome
+
+firebase.auth().onAuthStateChanged(function(user) {
     const userNameDisplay = document.getElementById('userNameDisplay');
     const logoutBtn = document.getElementById('logoutBtn');
 
-    if (user || userName) {
+    if (user) {
+        const userName = localStorage.getItem('userName') || user.displayName || 'Usuário';
+        const primeiroNome = userName.split(' ')[0]; // Primeiro nome
+
         userNameDisplay.textContent = primeiroNome;
         userNameDisplay.style.cursor = 'default';
-        userNameDisplay.style.color = 'white'; // Força a cor branca
+        userNameDisplay.style.color = 'white';
         logoutBtn.style.display = 'inline-block';
+        userNameDisplay.onclick = null; // Remove qualquer ação de clique
     } else {
         userNameDisplay.textContent = 'Entrar';
         userNameDisplay.style.cursor = 'pointer';
+        userNameDisplay.style.color = 'white';
         userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
         logoutBtn.style.display = 'none';
     }
 });
+
+// Botão de logout
+document.getElementById('logoutBtn')?.addEventListener('click', () => {
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+
+    if (firebase?.auth().currentUser) {
+        firebase.auth().signOut();
+    }
+
+    window.location.href = '/pages/autenticacao/login.html';
+});
+
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>

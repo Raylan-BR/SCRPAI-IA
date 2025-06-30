@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const userName = localStorage.getItem('userName');
   const userEmail = localStorage.getItem('userEmail');
+  const isLoggedIn = !!userEmail;
 
-  if (!userEmail) {
-    alert('Usuário não está logado. Por favor, faça login.');
-    window.location.href = '/pages/autenticacao/login.html';
-    return;
-  }
+  // Extrair o primeiro nome ou mostrar "Entrar"
+  const primeiroNome = userName ? userName.split(' ')[0] : 'Entrar';
 
   const headerHTML = `
     <header>
@@ -27,9 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="dropdown-icon">▼</div>
             </div>
             <div class="perfil">
-              <span class="perfil-nome">${userName || 'Usuário'}</span>
-              
-  <button id="logoutBtn" class="perfil-btn" style="display: none; margin-left: 10px;">Sair</button>
+              <span id="userNameDisplay"
+                class="perfil-nome"
+                style="color: white; font-weight: bold; cursor: ${isLoggedIn ? 'default' : 'pointer'};"
+              >
+                ${primeiroNome}
+              </span>
+              <button
+                id="logoutBtn"
+                class="perfil-btn"
+                style="display: ${isLoggedIn ? 'inline-block' : 'none'};"
+              >
+                Sair
+              </button>
             </div>
           </div>
         </div>
@@ -37,6 +45,29 @@ document.addEventListener('DOMContentLoaded', () => {
     </header>
   `;
 
+  // Inserir o header na página
   const container = document.getElementById('header-container');
   if (container) container.innerHTML = headerHTML;
+
+  // Eventos após o header ser inserido
+  const userNameDisplay = document.getElementById('userNameDisplay');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  if (!isLoggedIn && userNameDisplay) {
+    userNameDisplay.addEventListener('click', () => {
+      window.location.href = '/pages/autenticacao/login.html';
+    });
+  }
+
+  // Botão sair
+  logoutBtn?.addEventListener('click', () => {
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+
+    if (firebase?.auth().currentUser) {
+      firebase.auth().signOut();
+    }
+
+    window.location.href = '/pages/autenticacao/login.html';
+  });
 });
