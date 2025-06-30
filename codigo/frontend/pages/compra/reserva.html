@@ -12,36 +12,91 @@
   <!-- HEADER PADRÃO -->
   <div id="header-container"></div>
 
-  <div class="container-reserva">
-    <div class="etapas">
-      <span class="etapa ativa">1. Escolha do voo</span>
-      <span class="etapa ativa">→ 2. Reserva</span>
-      <span class="etapa">→ 3. Pagamento</span>
+<div class="container-reserva">
+  <div class="etapas">
+    <span class="etapa ativa">1. Escolha do voo</span>
+    <span class="etapa ativa">→ 2. Reserva</span>
+    <span class="etapa">→ 3. Pagamento</span>
+  </div>
+
+  <header>
+    <h1>Reserva de Passagem</h1>
+  </header>
+
+  <div class="dados-voo">
+    <!-- Dados serão preenchidos dinamicamente pelo JavaScript -->
+    <div class="loading">
+      <i class="fas fa-spinner fa-spin"></i> Carregando informações do voo...
+    </div>
+  </div>
+
+  <div id="resumo-reserva" style="display: none;">
+    <!-- Resumo será preenchido dinamicamente -->
+  </div>
+
+  <form class="form-reserva">
+
+    <div class="selecao-classe">
+      <h2>Selecione sua Classe</h2>
+      <p>Escolha o tipo de classe que melhor atende às suas necessidades:</p>
+      
+      <div class="classes-container">
+        <!-- Classe Econômica -->
+        <div class="classe-option" data-classe="economica" onclick="selecionarClasse(this)">
+          <div class="classe-nome">Econômica</div>
+          <div class="classe-preco">+ R$ 0,00</div>
+          <ul class="classe-beneficios">
+            <li>Assento padrão</li>
+            <li>1 bagagem de mão</li>
+            <li>Serviço de bordo básico</li>
+            <li>Espaço para pernas padrão</li>
+          </ul>
+        </div>
+        
+        <!-- Classe Executiva -->
+        <div class="classe-option" data-classe="executiva" onclick="selecionarClasse(this)">
+          <div class="classe-nome">Executiva</div>
+          <div class="classe-preco">+ R$ 350,00</div>
+          <ul class="classe-beneficios">
+            <li>Assentos mais confortáveis</li>
+            <li>2 bagagens de mão</li>
+            <li>1 bagagem despachada</li>
+            <li>Serviço de bordo premium</li>
+            <li>Mais espaço para pernas</li>
+            <li>Prioridade no embarque</li>
+          </ul>
+        </div>
+        
+        <!-- Classe Premium -->
+        <div class="classe-option" data-classe="premium" onclick="selecionarClasse(this)">
+          <div class="classe-nome">Premium</div>
+          <div class="classe-preco">+ R$ 700,00</div>
+          <ul class="classe-beneficios">
+            <li>Assentos reclináveis premium</li>
+            <li>2 bagagens de mão</li>
+            <li>2 bagagens despachadas</li>
+            <li>Serviço de bordo exclusivo</li>
+            <li>Máximo espaço para pernas</li>
+            <li>Embarque prioritário</li>
+            <li>Acesso à sala VIP</li>
+          </ul>
+        </div>
+      </div>
+      
+      <input type="hidden" id="classe-selecionada" name="classe" required>
     </div>
 
-    <header>
-      <h1>Reserva de Passagem</h1>
-    </header>
-
-    <div class="dados-voo">
-      <!-- Dados serão preenchidos dinamicamente pelo JavaScript -->
-      <div class="loading">
-        <i class="fas fa-spinner fa-spin"></i> Carregando informações do voo...
+    <h2>Selecione seu Assento</h2>
+    <div class="mapa-assentos">
+      <!-- Assentos serão renderizados dinamicamente -->
+      <div class="loading-assentos">
+        <i class="fas fa-spinner fa-spin"></i> Carregando mapa de assentos...
       </div>
     </div>
 
     <div id="resumo-reserva" style="display: none;">
       <!-- Resumo será preenchido dinamicamente -->
     </div>
-
-    <form class="form-reserva">
-      <h2>Selecione seu Assento</h2>
-      <div class="mapa-assentos">
-        <!-- Assentos serão renderizados dinamicamente -->
-        <div class="loading-assentos">
-          <i class="fas fa-spinner fa-spin"></i> Carregando mapa de assentos...
-        </div>
-      </div>
 
       <h2>Bagagem</h2>
       <div class="form-group">
@@ -50,6 +105,40 @@
           <option value="">Carregando opções...</option>
         </select>
       </div>
+
+      <!-- Adicione isso após a seção de bagagem e antes do botão de submit -->
+<h2>Dados do Passageiro</h2>
+<div class="form-dados-passageiro">
+    <div class="form-group">
+        <label for="nome">Nome Completo*</label>
+        <input type="text" id="nome" name="nome" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="cpf">CPF*</label>
+        <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00">
+    </div>
+    
+    <div class="form-group">
+        <label for="data-nascimento">Data de Nascimento*</label>
+        <input type="date" id="data-nascimento" name="data-nascimento" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="telefone">Telefone*</label>
+        <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+    </div>
+    
+    <div class="form-group">
+        <label for="email">E-mail*</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="passaporte">Passaporte (para voos internacionais)</label>
+        <input type="text" id="passaporte" name="passaporte">
+    </div>
+</div>
 
       <button type="submit" disabled>
         <span id="button-text">Prosseguir para Pagamento</span>
@@ -98,5 +187,37 @@
   <!-- Scripts -->
   <script src="../../js/header.js"></script>
   <script src="../../js/reserva.js"></script>
+  <!-- Script para controlar o botão "Sair" -->
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAlhgKReGb2X2CIQpy5M95hs0RRVJzbD20",
+    authDomain: "scrpai-ia.firebaseapp.com",
+    projectId: "scrpai-ia",
+    storageBucket: "scrpai-ia.appspot.com",
+    messagingSenderId: "1030430015808",
+    appId: "1:1030430015808:web:0cdac65a5607825e68faa5"
+  };
+  firebase.initializeApp(firebaseConfig);
+firebase.auth().onAuthStateChanged(function(user) {
+    const userName = localStorage.getItem('userName') || user?.displayName || 'Usuário';
+    const primeiroNome = userName.split(' ')[0]; // Pegando só o primeiro nome
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (user || userName) {
+        userNameDisplay.textContent = primeiroNome;
+        userNameDisplay.style.cursor = 'default';
+        userNameDisplay.style.color = 'white'; // Força a cor branca
+        logoutBtn.style.display = 'inline-block';
+    } else {
+        userNameDisplay.textContent = 'Entrar';
+        userNameDisplay.style.cursor = 'pointer';
+        userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
+        logoutBtn.style.display = 'none';
+    }
+});
+</script>
 </body>
 </html>

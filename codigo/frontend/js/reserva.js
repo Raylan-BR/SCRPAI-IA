@@ -115,14 +115,41 @@ document.addEventListener('DOMContentLoaded', () => {
             .map(assento => assento.dataset.numero);
         const bagagem = selectBagagem.value;
         const resumoDiv = document.getElementById('resumo-reserva');
+
+        const classeSelecionada = document.getElementById('classe-selecionada').value;
+
+        // Obter valor adicional da classe
+        let valorClasse = 0;
+        let nomeClasse = 'Não selecionada';
+        
+        if (classeSelecionada === 'economica') {
+            nomeClasse = 'Econômica';
+        } else if (classeSelecionada === 'executiva') {
+            valorClasse = 350;
+            nomeClasse = 'Executiva';
+        } else if (classeSelecionada === 'premium') {
+            valorClasse = 700;
+            nomeClasse = 'Premium';
+        }
+        
+        // Obter valor adicional da bagagem
+        let valorBagagem = 0;
+        if (bagagem.includes('23kg')) {
+            valorBagagem = 100;
+        } else if (bagagem.includes('32kg')) {
+            valorBagagem = 180;
+        }
+
+        const total = voo.preco + valorClasse + valorBagagem;
         
         if (assentosSelecionados.length > 0 || bagagem) {
             resumoDiv.style.display = 'block';
             resumoDiv.innerHTML = `
                 <h4>Resumo da Reserva</h4>
+                <p><strong>Classe:</strong> ${nomeClasse}</p>
                 <p><strong>Assentos:</strong> ${assentosSelecionados.join(', ') || 'Nenhum selecionado'}</p>
                 <p><strong>Bagagem:</strong> ${bagagem || 'Não selecionada'}</p>
-                <p><strong>Total:</strong> R$ ${voo.preco.toFixed(2)}</p>
+                <p><strong>Total:</strong> R$ ${total.toFixed(2)}</p>
             `;
         } else {
             resumoDiv.style.display = 'none';
@@ -133,24 +160,82 @@ document.addEventListener('DOMContentLoaded', () => {
     formReserva.addEventListener('submit', (e) => {
         e.preventDefault();
         
+        // Validar dados do passageiro
+        const nome = document.getElementById('nome').value.trim();
+        const cpf = document.getElementById('cpf').value.trim();
+        const dataNascimento = document.getElementById('data-nascimento').value;
+        const telefone = document.getElementById('telefone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const passaporte = document.getElementById('passaporte').value.trim();
+
+        if (!nome || !cpf || !dataNascimento || !telefone || !email) {
+            alert('Por favor, preencha todos os campos obrigatórios do passageiro');
+            return;
+        }
+
+        // Validar formato do CPF (apenas básico)
+        if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
+            alert('Por favor, insira um CPF válido no formato 000.000.000-00');
+            return;
+        }
+
+        // Validar formato do telefone (apenas básico)
+        if (!/^\(\d{2}\) \d{5}-\d{4}$/.test(telefone)) {
+            alert('Por favor, insira um telefone válido no formato (00) 00000-0000');
+            return;
+        }
+
         const assentosSelecionados = Array.from(document.querySelectorAll('.assento.selecionado'))
             .map(assento => assento.dataset.numero);
         const bagagem = selectBagagem.value;
+        const classeSelecionada = document.getElementById('classe-selecionada').value;
 
         if (assentosSelecionados.length === 0) {
             alert('Selecione pelo menos um assento');
             return;
         }
 
+        if (!classeSelecionada) {
+            alert('Selecione uma classe');
+            return;
+        }
+
+        // Calcular valores adicionais
+        let valorClasse = 0;
+        if (classeSelecionada === 'executiva') {
+            valorClasse = 350;
+        } else if (classeSelecionada === 'premium') {
+            valorClasse = 700;
+        }
+        
+        let valorBagagem = 0;
+        if (bagagem.includes('23kg')) {
+            valorBagagem = 100;
+        } else if (bagagem.includes('32kg')) {
+            valorBagagem = 180;
+        }
+
+        const total = voo.preco + valorClasse + valorBagagem;
+
         // Criar objeto de reserva
         const reserva = {
             id: Date.now().toString(),
             voo: voo,
+            classe: classeSelecionada,
             assentos: assentosSelecionados,
             bagagem: bagagem,
+            passageiro: {
+                nome: nome,
+                cpf: cpf,
+                data_nascimento: dataNascimento,
+                telefone: telefone,
+                email: email,
+                passaporte: passaporte  || null
+            },
+            total: total,
             usuario_email: usuario.email,
             data_reserva: new Date().toISOString(),
-            status: 'pendente'
+            // status: 'pendente'
         };
 
         // Salvar reserva no LocalStorage
@@ -161,4 +246,58 @@ document.addEventListener('DOMContentLoaded', () => {
         // Redirecionar para pagamento
         window.location.href = `pagamento.html?reserva_id=${reserva.id}`;
     });
+});
+
+// Função para selecionar a classe
+function selecionarClasse(elemento) {
+    // Remove a classe 'selecionada' de todas as opções
+    document.querySelectorAll('.classe-option').forEach(opt => {
+        opt.classList.remove('selecionada');
+    });
+
+    // Adiciona a classe 'selecionada' à opção clicada
+    elemento.classList.add('selecionada');
+
+    // Atualiza o campo hidden com o valor selecionado
+    document.getElementById('classe-selecionada').value = elemento.getAttribute('data-classe');
+
+    // Aqui você pode adicionar lógica para atualizar o preço total, etc.
+    console.log('Classe selecionada:', elemento.getAttribute('data-classe'));
+
+    // Forçar a exibição do resumo e atualizá-lo
+    const resumoDiv = document.getElementById('resumo-reserva');
+    resumoDiv.style.display = 'block';
+
+    // Atualiza o resumo
+    atualizarResumo();
+}
+
+// Máscaras para CPF e Telefone
+document.getElementById('cpf').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    
+    if (value.length > 3) {
+        value = value.substring(0, 3) + '.' + value.substring(3);
+    }
+    if (value.length > 7) {
+        value = value.substring(0, 7) + '.' + value.substring(7);
+    }
+    if (value.length > 11) {
+        value = value.substring(0, 11) + '-' + value.substring(11);
+    }
+    
+    e.target.value = value.substring(0, 14);
+});
+
+document.getElementById('telefone').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    
+    if (value.length > 0) {
+        value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+    }
+    if (value.length > 10) {
+        value = value.substring(0, 10) + '-' + value.substring(10);
+    }
+    
+    e.target.value = value.substring(0, 15);
 });

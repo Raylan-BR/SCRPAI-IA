@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="perfil">
               <span class="perfil-nome">${userName || 'Usuário'}</span>
+              
+  <button id="logoutBtn" class="perfil-btn" style="display: none; margin-left: 10px;">Sair</button>
             </div>
           </div>
         </div>

@@ -280,6 +280,74 @@ nav {
   line-height: 1.5
 }
 
+
+.perfil-btn {
+  background-color: #ffffff20;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  width: 120px;
+
+  /* Truncar texto que excede o limite */
+  white-space: nowrap;
+  overflow: hidden;
+}
+.perfil-btn:hover {
+  background-color: #ffffff40;
+}
+
+
+/* Modal fundo escurecido */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Caixa de conteúdo do modal */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* Botão de fechar (X) */
+.modal .close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal .close:hover {
+  color: #000;
+}
+
+/* Estilo do <pre> */
+#detalhes-compra {
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  margin-top: 20px;
+}
+
+
 /* Responsivo para tablets e celulares */
 @media (max-width: 768px) {
   .header {

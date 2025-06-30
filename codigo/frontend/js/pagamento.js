@@ -243,30 +243,42 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
   // Função para gerar PDF com os dados da reserva
-  window.baixarComprovante = function () {
-    if (!dadosReserva) {
-      alert("Não foi possível gerar o comprovante. Dados da reserva ausentes.");
-      return;
-    }
+ window.baixarComprovante = function () {
+  if (!dadosReserva) {
+    alert("Não foi possível gerar o comprovante. Dados da reserva ausentes.");
+    return;
+  }
 
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
 
-    doc.setFont("Helvetica", "bold");
-    doc.text("Comprovante de Pagamento - SkAI", 20, 20);
+  doc.setFont("Helvetica", "bold");
+  doc.text("Comprovante de Pagamento - SkAI", 20, 20);
 
-    doc.setFont("Helvetica", "normal");
-    doc.text(`Origem: ${dadosReserva.voo.origem}`, 20, 50);
-    doc.text(`Destino: ${dadosReserva.voo.destino}`, 20, 60);
-    doc.text(`Partida: ${dadosReserva.voo.partida}`, 20, 70);
-    doc.text(`Chegada: ${dadosReserva.voo.chegada}`, 20, 80);
-    doc.text(`Assentos: ${dadosReserva.assentos.join(', ')}`, 20, 90);
-    doc.text(`Bagagem: ${dadosReserva.bagagem}`, 20, 100);
-    doc.text(`Preço Total: R$ ${dadosReserva.voo.preco.toFixed(2)}`, 20, 110);
-    doc.text("Status: Pagamento Confirmado", 20, 120);
+  doc.setFont("Helvetica", "normal");
 
-    doc.save("comprovante-pagamento.pdf");
-  };
+  // Voo
+  doc.text(`Origem: ${dadosReserva.voo.origem}`, 20, 40);
+  doc.text(`Destino: ${dadosReserva.voo.destino}`, 20, 50);
+  doc.text(`Partida: ${dadosReserva.voo.partida}`, 20, 60);
+  doc.text(`Chegada: ${dadosReserva.voo.chegada}`, 20, 70);
+  doc.text(`Classe: ${dadosReserva.classe.charAt(0).toUpperCase() + dadosReserva.classe.slice(1)}`, 20, 80);
+  doc.text(`Assentos: ${dadosReserva.assentos.join(', ')}`, 20, 90);
+  doc.text(`Bagagem: ${dadosReserva.bagagem}`, 20, 100);
+
+  // Passageiro
+  doc.text(`Passageiro: ${dadosReserva.passageiro.nome}`, 20, 115);
+  doc.text(`CPF: ${dadosReserva.passageiro.cpf}`, 20, 125);
+  doc.text(`Telefone: ${dadosReserva.passageiro.telefone}`, 20, 135);
+  doc.text(`Email: ${dadosReserva.passageiro.email}`, 20, 145);
+
+  // Preço e status
+  doc.text(`Preço Total: R$ ${dadosReserva.total.toFixed(2)}`, 20, 160);
+  doc.text("Status: Pagamento Confirmado", 20, 170);
+
+  doc.save("comprovante-pagamento.pdf");
+};
+
 
   // Função para voltar à escolha de métodos
   window.voltarMetodo = function () {
