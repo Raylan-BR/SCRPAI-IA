@@ -657,3 +657,23 @@ nav {
 input[placeholder] {
     font-size: 14px;
 }
+
+
+.perfil-btn {
+  background-color: #ffffff20;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  width: 120px;
+
+  /* Truncar texto que excede o limite */
+  white-space: nowrap;
+  overflow: hidden;
+}
+.perfil-btn:hover {
+  background-color: #ffffff40;
+}
