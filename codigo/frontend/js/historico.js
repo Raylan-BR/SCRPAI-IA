@@ -6,22 +6,45 @@ if (!userEmail) {
 }
 
 function formatarData(dataStr) {
-  const data = new Date(dataStr);
+  const data = new Date(Date.parse(dataStr));
+  if (isNaN(data.getTime())) return "Data inválida";
   return data.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
 }
 
-// 2. CARREGA HISTÓRICO
+// MODAL
+function abrirModal(detalhes) {
+  document.getElementById("detalhes-compra").textContent = detalhes;
+  document.getElementById("modal-detalhes").style.display = "flex";
+}
+
+function fecharModal() {
+  document.getElementById("modal-detalhes").style.display = "none";
+}
+
+// INICIALIZAÇÃO DO MODAL
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById("fecharModal")?.addEventListener("click", fecharModal);
+  carregarHistorico();
+});
+
+// FILTRO POR DESTINO
+document.getElementById("filtroDestino")?.addEventListener("input", function () {
+  const termo = this.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const rota = card.querySelector(".route-date p strong").innerText.toLowerCase();
+    card.style.display = rota.includes(termo) ? "block" : "none";
+  });
+});
+
+// CARREGAR HISTÓRICO DE COMPRAS
 async function carregarHistorico() {
   try {
-    // Corrigida URL para seu backend Flask
-    console.log('Buscando histórico:', `http://localhost:5000/loadHistorico?email=${encodeURIComponent(userEmail)}`);
-
     const response = await fetch(`http://localhost:5000/loadHistorico?email=${encodeURIComponent(userEmail)}`);
     const compras = await response.json();
 
     const container = document.querySelector('.history-box');
-
-    // mantém o header
     const header = container.querySelector('.header');
     container.innerHTML = '';
     if (header) container.appendChild(header);
@@ -47,27 +70,28 @@ async function carregarHistorico() {
         </div>
       `;
 
-      // Detalhes
+      // ABRIR MODAL COM DETALHES
       card.querySelector('.details-button').addEventListener('click', () => {
         const detalhes = `
 Origem: ${compra.origin}
 Destino: ${compra.destination}
 Data da Viagem: ${formatarData(compra.travel_date)}
 Preço: R$ ${compra.total_price.toFixed(2)}
-Fonte da Compra: ${compra.purchase_source}
 Passageiros: ${compra.details?.passengers ?? 'N/A'}
 Código do Voo: ${compra.details?.flight_code ?? 'N/A'}
-        `;
-        alert(detalhes);
+Tipo de Pagamento: ${compra.details?.payment_type ?? 'N/A'}
+        `.trim();
+        abrirModal(detalhes);
       });
 
-      // 3. PDF COMPROVANTE
-      card.querySelector('.download-button').addEventListener('click', async () => {
-        const { jsPDF } = await import("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js");
+      // GERAR PDF
+      card.querySelector('.download-button').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
         doc.setFontSize(14);
         doc.text("Comprovante de Compra - SkAI", 20, 20);
+
         doc.setFontSize(12);
         doc.text(`Nome: ${localStorage.getItem("userName") || "Usuário"}`, 20, 35);
         doc.text(`Email: ${userEmail}`, 20, 45);
@@ -75,10 +99,10 @@ Código do Voo: ${compra.details?.flight_code ?? 'N/A'}
         doc.text(`Destino: ${compra.destination}`, 20, 65);
         doc.text(`Data da Viagem: ${formatarData(compra.travel_date)}`, 20, 75);
         doc.text(`Preço: R$ ${compra.total_price.toFixed(2)}`, 20, 85);
-        doc.text(`Fonte da Compra: ${compra.purchase_source}`, 20, 95);
         doc.text(`Passageiros: ${compra.details?.passengers ?? "N/A"}`, 20, 105);
         doc.text(`Código do Voo: ${compra.details?.flight_code ?? "N/A"}`, 20, 115);
-        doc.text(`Emitido em: ${formatarData(new Date())}`, 20, 125);
+        doc.text(`Tipo de Pagamento: ${compra.details?.payment_type ?? "N/A"}`, 20, 125);
+        doc.text(`Emitido em: ${formatarData(new Date())}`, 20, 135);
 
         doc.save("comprovante-viagem.pdf");
       });
@@ -91,17 +115,3 @@ Código do Voo: ${compra.details?.flight_code ?? 'N/A'}
     alert('Erro ao carregar histórico. Tente novamente.');
   }
 }
-
-// 4. FILTRO POR DESTINO
-document.getElementById("filtroDestino")?.addEventListener("input", function () {
-  const termo = this.value.toLowerCase();
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card => {
-    const rota = card.querySelector(".route-date p strong").innerText.toLowerCase();
-    card.style.display = rota.includes(termo) ? "block" : "none";
-  });
-});
-
-// Chama o carregamento assim que abrir a página
-window.addEventListener('DOMContentLoaded', carregarHistorico);

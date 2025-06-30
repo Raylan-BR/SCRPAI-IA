@@ -137,5 +137,37 @@
   <script src="../../js/header.js"></script>
   <script src="https://unpkg.com/imask"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Script para controlar o botão "Sair" -->
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAlhgKReGb2X2CIQpy5M95hs0RRVJzbD20",
+    authDomain: "scrpai-ia.firebaseapp.com",
+    projectId: "scrpai-ia",
+    storageBucket: "scrpai-ia.appspot.com",
+    messagingSenderId: "1030430015808",
+    appId: "1:1030430015808:web:0cdac65a5607825e68faa5"
+  };
+  firebase.initializeApp(firebaseConfig);
+firebase.auth().onAuthStateChanged(function(user) {
+    const userName = localStorage.getItem('userName') || user?.displayName || 'Usuário';
+    const primeiroNome = userName.split(' ')[0]; // Pegando só o primeiro nome
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (user || userName) {
+        userNameDisplay.textContent = primeiroNome;
+        userNameDisplay.style.cursor = 'default';
+        userNameDisplay.style.color = 'white'; // Força a cor branca
+        logoutBtn.style.display = 'inline-block';
+    } else {
+        userNameDisplay.textContent = 'Entrar';
+        userNameDisplay.style.cursor = 'pointer';
+        userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
+        logoutBtn.style.display = 'none';
+    }
+});
+</script>
 </body>
 </html>

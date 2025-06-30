@@ -185,25 +185,20 @@
 
   <script>
 firebase.auth().onAuthStateChanged(function(user) {
-    const userName = localStorage.getItem('userName');
+    const userName = localStorage.getItem('userName') || user?.displayName || 'Usuário';
+    const primeiroNome = userName.split(' ')[0]; // Pegando só o primeiro nome
     const userNameDisplay = document.getElementById('userNameDisplay');
     const logoutBtn = document.getElementById('logoutBtn');
 
     if (user || userName) {
-        // Mostra o nome do usuário
-        userNameDisplay.textContent = userName || user.displayName || 'Usuário';
+        userNameDisplay.textContent = primeiroNome;
         userNameDisplay.style.cursor = 'default';
-        userNameDisplay.onclick = null;
-
-        // Mostra botão de sair
+        userNameDisplay.style.color = 'white'; // Força a cor branca
         logoutBtn.style.display = 'inline-block';
     } else {
-        // Usuário não logado
         userNameDisplay.textContent = 'Entrar';
         userNameDisplay.style.cursor = 'pointer';
         userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
-
-        // Esconde botão de sair
         logoutBtn.style.display = 'none';
     }
 });
