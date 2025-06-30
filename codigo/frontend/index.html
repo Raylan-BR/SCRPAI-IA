@@ -36,18 +36,14 @@
                 <img src="img/logo_aviao.png" alt="logo de um avião">
                 <h1>SkAI</h1>
             </div>
-            <div class="menu_navegacao">
-                <li>
-                    <ul><a href="/index.html">Inicio</a></ul>
-                    <ul><a href="/historico.html">Histórico</a></ul>
-                </li>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <div class="menu_navegacao" id="menu">
+                <ul>
+                    <li><a href="/historico.html">Histórico</a></li>
+                </ul>
                 <div class="header-right">
-                    <div class="lang">
-                        <img src="img/bandeira.png" alt="Bandeira Brasil" />
-                        <span>PT | BR</span>
-                        <div class="dropdown-icon">▼</div>
-                    </div>
-                    <div class="perfil">
+
+                    <div class="perfil-btn">
   <span id="userNameDisplay">Entrar</span>
   <button id="logoutBtn" class="perfil-btn" style="display: none; margin-left: 10px;">Sair</button>
 </div>
@@ -222,5 +218,13 @@ document.getElementById('logoutBtn')?.addEventListener('click', () => {
 
 <script src="./js/busca_chat.js"></script>
 <script src="./js/busca_form.js"></script>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("show");
+    }
+</script>
+
 </body>
 </html>

@@ -74,6 +74,10 @@ function enviarServidor(mensagem) {
 function enviar(){
     var conteudo_campo = document.getElementById("conteudo_campo");
     
+    if(!chatAberto){
+        document.getElementById("conteudo_historico").style.height = "300px";
+    }
+
     if(conteudo_campo.value){
         conteudo_campo.style.border = "";
         enviarServidor(conteudo_campo.value);
@@ -84,7 +88,12 @@ function enviar(){
         console.log("digite alguma mensagem");
     }
 }
-
+document.getElementById('conteudo_campo').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault(); // evita quebra de linha se for textarea
+    enviar();
+  }
+});
 function tratarResultado(resultado){
     if(resultado.tipo ==1){
         gerarMensagemChatbot(resultado.motivo);

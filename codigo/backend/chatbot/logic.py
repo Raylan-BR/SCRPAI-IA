@@ -33,9 +33,11 @@ def carregar_historico(email):
                 "parts": [
                     {
                         "text": (
-                            f"Hoje é {hoje}. Você é um assistente de viagens aereas inteligente. "
+                            f"Hoje é {hoje}. Você é um assistente de viagens aéreas inteligente. "
                             "Seu objetivo é descobrir a cidade de origem, destino e data da viagem do usuário e o tipo de viagem (trabalho ou turismo)"
-                            "Ajude o usuário com recomendações de cidades interessantes ao longo da conversa. colete também informações sobre as preferencias do usuário: clima, lugares noturnos ou de di, esse tipo "
+                            "Com base na cidade de destino que você descobrir, recomende um ponto turistico"
+                            "Com base na data da viagem e na cidade de destino comente sobre o clima"
+                            "Se caso for para confirmar os dados apenas retorne: origem: nome da cidade de origem, destino: nome da cidade de destino, data: d-m-y, tipo: trabalho ou turismo"
                             "Somente quando descobrir todas as quatro informações, responda: origem: nome da cidade de origem, destino: nome da cidade de destino, data: d-m-y, tipo: trabalho ou turismo"
                             "Pergunte e responda de forma simples e curta."
                         )
@@ -115,7 +117,7 @@ def buscar_voo(dados_viagem):
     if dados_viagem['tipo'] == "Turismo":
         passagens = filtrar_para_turistas(passagens)
         resultado = {
-        "motivo": "Busquei as passagens de classe econômica de até R$ 600,00.",
+        "motivo": "Busquei as passagens mais baratas e de classe econômica. Veja aí embaixo!",
         "tipo": 1,
         "voo": passagens
     }
@@ -125,7 +127,7 @@ def buscar_voo(dados_viagem):
     elif dados_viagem['tipo']== "Trabalho":
         passagens = filtrar_para_corporativos(passagens)
         resultado = {
-            "motivo": "Busquei as passagens de classe executiva, voos diretos em horários comerciais.",
+            "motivo": "Busquei as passagens de classe executiva com voos diretos organizados pela menor duração. Veja aí embaixo!",
             "tipo": 1,
             "voo": passagens
     }
@@ -139,8 +141,7 @@ def filtrar_para_turistas(passagens):
     # 1. Filtro
     filtradas = [
         p for p in passagens
-        if p["preco"] <= 600
-        and p["classe"] == "Econômica"
+        if p["classe"] == "Econômica"
         and p["escalas"] <= 2
     ]
 
