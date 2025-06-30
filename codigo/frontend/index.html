@@ -183,21 +183,24 @@
     </div>
   </footer>
 
-  <script>
+ <script>
 firebase.auth().onAuthStateChanged(function(user) {
-    const userName = localStorage.getItem('userName') || user?.displayName || 'Usuário';
-    const primeiroNome = userName.split(' ')[0]; // Pegando só o primeiro nome
     const userNameDisplay = document.getElementById('userNameDisplay');
     const logoutBtn = document.getElementById('logoutBtn');
 
-    if (user || userName) {
+    if (user) {
+        const userName = localStorage.getItem('userName') || user.displayName || 'Usuário';
+        const primeiroNome = userName.split(' ')[0]; // Primeiro nome
+
         userNameDisplay.textContent = primeiroNome;
         userNameDisplay.style.cursor = 'default';
-        userNameDisplay.style.color = 'white'; // Força a cor branca
+        userNameDisplay.style.color = 'white';
         logoutBtn.style.display = 'inline-block';
+        userNameDisplay.onclick = null; // Remove qualquer ação de clique
     } else {
         userNameDisplay.textContent = 'Entrar';
         userNameDisplay.style.cursor = 'pointer';
+        userNameDisplay.style.color = 'white';
         userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
         logoutBtn.style.display = 'none';
     }
@@ -215,6 +218,7 @@ document.getElementById('logoutBtn')?.addEventListener('click', () => {
     window.location.href = '/pages/autenticacao/login.html';
 });
 </script>
+
 
 <script src="./js/busca_chat.js"></script>
 <script src="./js/busca_form.js"></script>
