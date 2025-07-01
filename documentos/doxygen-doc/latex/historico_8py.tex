@@ -1,0 +1,40 @@
+\doxysection{codigo/backend/historico.py File Reference}
+\hypertarget{historico_8py}{}\label{historico_8py}\index{codigo/backend/historico.py@{codigo/backend/historico.py}}
+
+
+Blueprint para gerenciamento de histórico de compras.  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacehistorico}{historico}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacehistorico_a8c389fa8c3ebb888c9e40cb060cb3b23}{historico.\+salvar\+\_\+compra}} (user\+\_\+email, origin, destination, travel\+\_\+date, total\+\_\+price, purchase\+\_\+source, details, receipt\+\_\+url=None)
+\begin{DoxyCompactList}\small\item\em Armazena uma nova compra no banco de dados. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacehistorico_ac495e519aebad4fd28ef10c415aa9d90}{historico.\+salvar\+\_\+compra\+\_\+route}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para registro de novas compras via POST. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacehistorico_a41c2c10dec570703c4d620000ab7deb1}{historico.\+get\+\_\+historico}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para consulta de histórico de compras via GET. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacehistorico_a37c23d835c32d5a4017c197a174d808f}{historico.\+historico\+\_\+bp}} = Blueprint(\textquotesingle{}historico\textquotesingle{}, \+\_\+\+\_\+name\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Blueprint para gerenciamento de histórico de compras. 
+
+\begin{DoxyAuthor}{Author}
+Seu Nome \href{mailto:seu.email@exemplo.com}{\texttt{seu.\+email@exemplo.\+com}}
+\end{DoxyAuthor}
+Módulo responsável por operações relacionadas ao histórico de compras de viagens\+:
+\begin{DoxyItemize}
+\item Armazenamento de novas compras
+\item Recuperação do histórico de compras
+\item Gerenciamento de dados de transações 
+\end{DoxyItemize}
