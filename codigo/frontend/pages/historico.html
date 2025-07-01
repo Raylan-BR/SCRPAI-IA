@@ -87,22 +87,40 @@
 firebase.auth().onAuthStateChanged(function(user) {
     const userNameDisplay = document.getElementById('userNameDisplay');
     const logoutBtn = document.getElementById('logoutBtn');
+    const historicoLink = document.getElementById('historicoLink');
 
-    if (user) {
-        const userName = localStorage.getItem('userName') || user.displayName || 'Usuário';
-        const primeiroNome = userName.split(' ')[0]; // Primeiro nome
+    let userName = 'Usuário';
 
-        userNameDisplay.textContent = primeiroNome;
+    // Se o usuário estiver logado pelo Firebase com displayName
+    if (user && user.displayName) {
+        userName = user.displayName;
+    }
+
+    // Se tiver nome salvo no localStorage (login manual)
+    const nomeSalvo = localStorage.getItem('userName');
+    if (nomeSalvo) {
+        userName = nomeSalvo;
+    }
+
+    // Pega os dois primeiros nomes
+    const nomeFormatado = userName.split(' ').slice(0, 2).join(' ');
+
+    if (user || nomeSalvo) {
+        userNameDisplay.textContent = nomeFormatado;
         userNameDisplay.style.cursor = 'default';
         userNameDisplay.style.color = 'white';
         logoutBtn.style.display = 'inline-block';
-        userNameDisplay.onclick = null; // Remove qualquer ação de clique
+        userNameDisplay.onclick = null;
+
+        if (historicoLink) historicoLink.style.display = 'inline-block';
     } else {
         userNameDisplay.textContent = 'Entrar';
         userNameDisplay.style.cursor = 'pointer';
         userNameDisplay.style.color = 'white';
         userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
         logoutBtn.style.display = 'none';
+
+        if (historicoLink) historicoLink.style.display = 'none';
     }
 });
 
