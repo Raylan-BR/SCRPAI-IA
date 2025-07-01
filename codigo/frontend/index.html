@@ -30,27 +30,29 @@
 <body>
   
   <!-- CABEÇALHO -->
-   <header>
-        <nav>
-            <div class="conteudo_projeto">
-                <img src="img/logo_aviao.png" alt="logo de um avião">
-                <h1>SkAI</h1>
-            </div>
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
-            <div class="menu_navegacao" id="menu">
-                <ul>
-                    <li id="historicoLink"><a href="/historico.html">Histórico</a></li>
-                </ul>
-                <div class="header-right">
+ <header>
+  <nav>
+    <div class="conteudo_projeto">
+      <img src="img/logo_aviao.png" alt="logo de um avião">
+      <h1>SkAI</h1>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="menu_navegacao" id="menu">
+      <div class="header-right">
+        <div class="perfil-wrapper" style="display: flex; align-items: center; gap: 10px;">
+          <span id="userNameDisplay" class="perfil-btn">Entrar</span>
 
-                  <div class="perfil-wrapper">
-  <span id="userNameDisplay" class="perfil-btn">Entrar</span>
-  <button id="logoutBtn" class="logout-btn" style="display: none;">Sair</button>
-</div>
+          <!-- Botão "Histórico" com o mesmo estilo de logout-btn -->
+          <a href="/historico.html" id="historicoLink" class="logout-btn" style="display: none;">Histórico</a>
 
-              </div>
-        </nav>
-    </header>
+          <button id="logoutBtn" class="logout-btn" style="display: none;">Sair</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
   <!-- CONTEÚDO -->
   <main class="main-content">
      <div class="inicio-text">
