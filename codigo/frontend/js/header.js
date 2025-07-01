@@ -13,32 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="../../img/logo_aviao.png" alt="logo de um avião">
           <h1>SkAI</h1>
         </div>
-        <div class="menu_navegacao">
-          <li>
-            <ul><a href="/index.html">Início</a></ul>
-            <ul><a href="/historico.html">Histórico</a></ul>
-          </li>
-          <div class="header-right">
-            <div class="lang">
-              <img src="../../img/bandeira.png" alt="Bandeira Brasil" />
-              <span>PT | BR</span>
-              <div class="dropdown-icon">▼</div>
-            </div>
-            <div class="perfil">
-              <span id="userNameDisplay"
-                class="perfil-nome"
-                style="color: white; font-weight: bold; cursor: ${isLoggedIn ? 'default' : 'pointer'};"
-              >
-                ${primeiroNome}
-              </span>
-              <button
-                id="logoutBtn"
-                class="perfil-btn"
-                style="display: ${isLoggedIn ? 'inline-block' : 'none'};"
-              >
-                Sair
-              </button>
-            </div>
+
+        <div class="menu-direita">
+          <div class="user-name-top">
+            <span id="userNameDisplay"
+              class="perfil-nome"
+              style="color: white; font-weight: bold; cursor: ${isLoggedIn ? 'default' : 'pointer'};"
+            >
+              ${primeiroNome}
+            </span>
+          </div>
+
+          <!-- Botão de menu hamburguer -->
+          <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+          <div class="menu_navegacao" id="menu">
+            <ul>
+              <li><a href="/index.html"><button class="perfil-btn">Início</button></a></li>
+              <li><a href="/historico.html"><button class="perfil-btn">Histórico</button></a></li>
+              <li>
+                <button
+                  id="logoutBtn"
+                  class="perfil-btn"
+                  style="display: ${isLoggedIn ? 'inline-block' : 'none'};"
+                >
+                  Sair
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -70,4 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.location.href = '/pages/autenticacao/login.html';
   });
+  // Essa função mostra ou esconde o menu quando o botão ☰ é clicado
+window.toggleMenu = function () {
+  const menu = document.getElementById('menu');
+  if (menu) {
+    menu.classList.toggle('ativo');
+  }
+};
 });

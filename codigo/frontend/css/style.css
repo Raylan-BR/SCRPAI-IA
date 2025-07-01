@@ -58,6 +58,8 @@ nav {
     list-style: none;
 }
 
+
+
 .menu_navegacao a {
     color: white;
     text-decoration: none;
@@ -95,6 +97,10 @@ nav {
 .perfil-btn:hover {
     background-color: #ffffff40;
 }
+.historico-link {
+  display: none;
+}
+
 
 .lang {
     display: flex;
@@ -216,7 +222,9 @@ nav {
 
 .container-busca button:hover {
     background-color: #003d5c;
-}
+} 
+
+
 
 /* RODAPÉ */
 .footer {

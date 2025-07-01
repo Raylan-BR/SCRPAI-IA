@@ -115,3 +115,14 @@ Tipo de Pagamento: ${compra.details?.payment_type ?? 'N/A'}
     alert('Erro ao carregar histórico. Tente novamente.');
   }
 }
+document.addEventListener('DOMContentLoaded', () => {
+  // Seu código atual:
+  document.getElementById("fecharModal")?.addEventListener("click", fecharModal);
+  carregarHistorico();
+
+  // NOVO: esconder botão "Histórico" no menu
+  const historicoBtn = document.querySelector('a[href="/historico.html"] > button.perfil-btn');
+  if (historicoBtn) {
+    historicoBtn.style.display = 'none';
+  }
+});
