@@ -1,28 +1,28 @@
 /**
  * @file pagamento.js
- * @brief Script de processamento de pagamentos para reservas de voos
- * @description Gerencia formulários de pagamento, validações e geração de comprovantes
- * @author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
- * @author KAUAN GUILHERME ALVES PINHEIRO SANTOS <kauan.santos@discente.ufma.br>
-
+ * @descrição Implementa a lógica de pagamento para reservas de voo (cartão e PIX)
+ * @author Seu Nome <seu.email@example.com>
+ * @version 1.0
+ * @data 2023-11-20
  */
 
 document.addEventListener('DOMContentLoaded', function () {
   /**
-   * @var {Object|null} dadosReserva - Armazena os dados da reserva atual
+   * Variável para guardar os dados da reserva atual
+   * @type {Object}
    */
   let dadosReserva = null;
 
   /**
-   * Carrega os dados da reserva atual da URL ou localStorage
-   * @function carregarReservaAtual
+   * Carrega a reserva atual a partir da URL ou localStorage
+   * @returns {void}
    */
   function carregarReservaAtual() {
     const params = new URLSearchParams(window.location.search);
     let reservaId = params.get("reserva_id");
 
     if (!reservaId) {
-      reservaId = localStorage.getItem("reserva_atual_id"); // fallback
+      reservaId = localStorage.getItem("reserva_atual_id");
     }
 
     if (reservaId) {
@@ -35,10 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Inicialização
+  // Carrega a reserva ao iniciar
   carregarReservaAtual();
 
-  // Elementos DOM
+  // Elementos do DOM
   const btnCartao = document.querySelector('.btn:nth-child(1)');
   const btnPix = document.querySelector('.btn:nth-child(2)');
   const formCartao = document.getElementById('form-cartao');
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const botoesMetodo = document.querySelector('.botoes');
   const pixContainer = document.getElementById('pix-container');
 
-  // Configuração de máscaras de entrada
+  // Configura máscaras dos campos
   const numero = document.getElementById('numero');
   const cpf = document.getElementById('cpf');
   const cvv = document.getElementById('cvv');
@@ -69,10 +69,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /**
+   * Mostra formulário do cartão e oculta outros métodos
+   * @listens click
+   */
+  btnCartao.addEventListener('click', () => {
+    formCartao.style.display = 'flex';
+    pixContainer.style.display = 'none';
+    botoesMetodo.classList.add('oculto');
+    atualizarTituloPagamento('CARTÃO');
+  });
+
+  /**
    * Valida número do cartão usando algoritmo de Luhn
-   * @function validarNumeroCartao
    * @param {string} numero - Número do cartão
-   * @return {Object} {valido: boolean, mensagem: string}
+   * @returns {{valido: boolean, mensagem: string}}
    */
   function validarNumeroCartao(numero) {
     const numeroLimpo = numero.replace(/\s+/g, '');
@@ -96,9 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /**
    * Valida data de validade do cartão
-   * @function validarValidade
    * @param {string} validade - Data no formato MM/AA
-   * @return {Object} {valido: boolean, mensagem: string}
+   * @returns {{valido: boolean, mensagem: string}}
    */
   function validarValidade(validade) {
     if (!/^\d{2}\/\d{2}$/.test(validade)) return { valido: false, mensagem: "Formato inválido (use MM/AA)" };
@@ -115,13 +124,50 @@ document.addEventListener('DOMContentLoaded', function () {
     return { valido: true, mensagem: "" };
   }
 
-  // ... (other validation functions similarly documented)
+  /**
+   * Valida código CVV do cartão
+   * @param {string} cvv - Código de segurança
+   * @returns {{valido: boolean, mensagem: string}}
+   */
+  function validarCVV(cvv) {
+    return /^\d{3,4}$/.test(cvv) ? { valido: true, mensagem: "" } : { valido: false, mensagem: "CVV deve ter 3 ou 4 dígitos" };
+  }
 
   /**
-   * Processa pagamento com cartão
-   * @event form#submit
-   * @listens form#submit
+   * Valida nome do titular do cartão
+   * @param {string} nome - Nome a validar
+   * @returns {{valido: boolean, mensagem: string}}
    */
+  function validarNome(nome) {
+    return nome.trim().length >= 3 && /^[a-zA-Z\sÀ-ÿ]+$/.test(nome)
+      ? { valido: true, mensagem: "" }
+      : { valido: false, mensagem: "Nome inválido (mínimo 3 letras)" };
+  }
+
+  /**
+   * Valida CPF usando dígito verificador
+   * @param {string} cpf - CPF a validar
+   * @returns {{valido: boolean, mensagem: string}}
+   */
+  function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]/g, '');
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return { valido: false, mensagem: "CPF inválido" };
+
+    let soma = 0;
+    for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+    let resto = 11 - (soma % 11);
+    const digito1 = resto >= 10 ? 0 : resto;
+
+    soma = 0;
+    for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+    resto = 11 - (soma % 11);
+    const digito2 = resto >= 10 ? 0 : resto;
+
+    const valido = parseInt(cpf.charAt(9)) === digito1 && parseInt(cpf.charAt(10)) === digito2;
+    return { valido, mensagem: valido ? "" : "CPF inválido" };
+  }
+
+  // Validação do formulário de cartão
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -167,10 +213,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Limpar erros ao digitar
+  form.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', () => {
+      input.classList.remove('invalido');
+      const mensagemErro = input.nextElementSibling;
+      if (mensagemErro && mensagemErro.classList.contains('mensagem-erro')) {
+        mensagemErro.textContent = '';
+      }
+    });
+  });
+
   /**
-   * Processa pagamento com PIX
-   * @event btnPix#click
-   * @listens btnPix#click
+   * Exibe área do PIX e simula processamento
+   * @listens click
    */
   btnPix.addEventListener('click', () => {
     formCartao.style.display = 'none';
@@ -185,7 +241,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const copiaCola = document.getElementById('codigo-pix');
     const tempoSpan = document.getElementById('tempo');
 
-    // Simulação de geração de PIX
     pixContent.style.display = 'none';
     status.textContent = 'Gerando QRCode...';
     loading.style.display = 'block';
@@ -198,7 +253,6 @@ document.addEventListener('DOMContentLoaded', function () {
       loading.style.display = 'none';
       pixContent.style.display = 'block';
 
-      // Contador regressivo
       let segundos = 120;
       const timer = setInterval(() => {
         segundos--;
@@ -212,18 +266,36 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }, 1000);
 
-      // Simulação de pagamento concluído
       setTimeout(() => {
-        salvarCompraNoHistorico();
+          salvarCompraNoHistorico();
         mostrarModalSucesso();
       }, 5000);
     }, 2000);
   });
 
   /**
-   * Gera comprovante de pagamento em PDF
+   * Mostra modal de sucesso no pagamento
+   * @function mostrarModalSucesso
+   */
+  window.mostrarModalSucesso = function () {
+    document.getElementById('modal-sucesso').style.display = 'flex';
+  };
+
+  /**
+   * Mostra modal de erro no pagamento
+   * @function mostrarModalErro
+   */
+  window.mostrarModalErro = function () {
+    document.getElementById('modal-erro').style.display = 'flex';
+  };
+
+  document.getElementById('fechar-modal').addEventListener('click', function() {
+    document.getElementById('modal-sucesso').style.display = 'none';
+  });
+
+  /**
+   * Gera PDF com os dados da reserva
    * @function baixarComprovante
-   * @global
    */
   window.baixarComprovante = function () {
     if (!dadosReserva) {
@@ -234,23 +306,62 @@ document.addEventListener('DOMContentLoaded', function () {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // Cabeçalho
     doc.setFont("Helvetica", "bold");
     doc.text("Comprovante de Pagamento - SkAI", 20, 20);
 
-    // Detalhes da reserva
     doc.setFont("Helvetica", "normal");
+
+    // Voo
     doc.text(`Origem: ${dadosReserva.voo.origem}`, 20, 40);
     doc.text(`Destino: ${dadosReserva.voo.destino}`, 20, 50);
-    // ... (rest of the PDF generation code)
-    
+    doc.text(`Partida: ${dadosReserva.voo.partida}`, 20, 60);
+    doc.text(`Chegada: ${dadosReserva.voo.chegada}`, 20, 70);
+    doc.text(`Classe: ${dadosReserva.classe.charAt(0).toUpperCase() + dadosReserva.classe.slice(1)}`, 20, 80);
+    doc.text(`Assentos: ${dadosReserva.assentos.join(', ')}`, 20, 90);
+    doc.text(`Bagagem: ${dadosReserva.bagagem}`, 20, 100);
+
+    // Passageiro
+    doc.text(`Passageiro: ${dadosReserva.passageiro.nome}`, 20, 115);
+    doc.text(`CPF: ${dadosReserva.passageiro.cpf}`, 20, 125);
+    doc.text(`Telefone: ${dadosReserva.passageiro.telefone}`, 20, 135);
+    doc.text(`Email: ${dadosReserva.passageiro.email}`, 20, 145);
+
+    // Preço e status
+    doc.text(`Preço Total: R$ ${dadosReserva.total.toFixed(2)}`, 20, 160);
+    doc.text("Status: Pagamento Confirmado", 20, 170);
+
     doc.save("comprovante-pagamento.pdf");
   };
 
   /**
-   * Salva a compra no histórico do usuário
+   * Volta à escolha de métodos de pagamento
+   * @function voltarMetodo
+   */
+  window.voltarMetodo = function () {
+    formCartao.style.display = 'none';
+    pixContainer.style.display = 'none';
+    botoesMetodo.classList.remove('oculto');
+
+    const titulo = document.getElementById('metodo-pagamento-titulo');
+    titulo.textContent = "ESCOLHA SEU MÉTODO DE PAGAMENTO:";
+    titulo.classList.remove('titulo-metodo-selecionado');
+  };
+
+  /**
+   * Atualiza o título do método selecionado
+   * @param {string} metodo - Método de pagamento selecionado
+   */
+  function atualizarTituloPagamento(metodo) {
+    const titulo = document.getElementById('metodo-pagamento-titulo');
+    titulo.textContent = `PAGAMENTO COM ${metodo}`;
+    titulo.classList.add('titulo-metodo-selecionado');
+  }
+
+  /**
+   * Salva a compra no histórico no servidor
    * @async
    * @function salvarCompraNoHistorico
+   * @returns {Promise<void>}
    */
   async function salvarCompraNoHistorico() {
     if (!dadosReserva) return;
@@ -275,10 +386,12 @@ document.addEventListener('DOMContentLoaded', function () {
         body: JSON.stringify(compra)
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         console.log("✅ Compra salva no histórico com sucesso.");
       } else {
-        console.error("Erro ao salvar compra:", await response.json());
+        console.error("Erro ao salvar compra:", data.error);
       }
     } catch (error) {
       console.error("Erro de rede ao salvar compra:", error);

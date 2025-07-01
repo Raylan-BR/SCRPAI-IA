@@ -3,7 +3,7 @@
  * @brief Sistema completo de busca e seleção de voos aéreos
  * @description Gerencia todo o fluxo de busca, exibição e seleção de voos,
  *              incluindo filtros por tipo de viagem (ida/volta) e geração de dados mockados realísticos
- * @author Seu Nome <seu.email@exemplo.com>
+ * @author KAUAN GUILHERME ALVES PINHEIRO SANTOS <kauan.santos@discente.ufma.br>
  * @version 1.0.0
  */
 
