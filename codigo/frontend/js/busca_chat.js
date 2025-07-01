@@ -164,8 +164,7 @@ function renderizarPassagens(passagens) {
     // Garante que o container de resultados está visível
     document.querySelector(".container-result").classList.remove("escondido");
 
-    document.querySelector("#rota-info").textContent = `${passagens["voo"].origem} ⮕ ${passagens["voo"].destino}`;
-    document.querySelector("#contador-voos").textContent = `A IA encontrou ${voo.length} opções.`;
+    document.querySelector("#contador-voos").textContent = `A IA encontrou ${passagens.length} opções.`;
 
     passagens.forEach((voo,index) => {
         // Cria o card principal
