@@ -1,0 +1,210 @@
+\doxysection{auth Namespace Reference}
+\hypertarget{namespaceauth}{}\label{namespaceauth}\index{auth@{auth}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceauth_ad01e6349933b8fb8409229c64c993686}{register}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para cadastro tradicional de usuários. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceauth_ae2d8675ca6590793f1739608712a0e1c}{login}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para login tradicional com email e senha. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceauth_a790c3d6fafbeadb2f278331676f1566d}{google\+\_\+login}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para autenticação com conta Google. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceauth_a03616d96df05749ce36da4554cb7ce11}{reset\+\_\+password}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para redefinição de senha. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceauth_a94d6f43517ae042c613c5ce54e6fdb5e}{login\+\_\+html}} ()
+\begin{DoxyCompactList}\small\item\em Serve a página HTML de login. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceauth_a28f382be1096bbe064b189743e28c08a}{cadastro\+\_\+html}} ()
+\begin{DoxyCompactList}\small\item\em Serve a página HTML de cadastro. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceauth_aa1db855c8feff2c1bc93d301ef54a010}{login\+\_\+css}} ()
+\begin{DoxyCompactList}\small\item\em Serve o arquivo CSS para páginas de autenticação. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceauth_aba44641f60abfd90f83c0636dced4ce8}{login\+\_\+js}} ()
+\begin{DoxyCompactList}\small\item\em Serve o arquivo Java\+Script para páginas de autenticação. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceauth_ae1ef2da92022bf90512bdc94dd50fc2e}{auth\+\_\+bp}} = Blueprint(\textquotesingle{}auth\textquotesingle{}, \+\_\+\+\_\+name\+\_\+\+\_\+)
+\item 
+\mbox{\hyperlink{namespaceauth_a73507522401137515553130b6fbd4442}{client}} = Mongo\+Client(os.\+getenv("{}MONGO\+\_\+\+URI"{}))
+\item 
+\mbox{\hyperlink{namespaceauth_a613bd219064ddc4a8bc7ba26f72f982d}{db}} = client.\+scrpai\+\_\+ia
+\item 
+\mbox{\hyperlink{namespaceauth_ae890bab1d30be7c0109d5ff0c0741180}{users}} = db.\+users
+\item 
+\mbox{\hyperlink{namespaceauth_a2f47cda8fe40c9dea8954eb36f094fd1}{cred\+\_\+path}} = os.\+getenv("{}FIREBASE\+\_\+\+ADMIN\+\_\+\+CREDENTIALS\+\_\+\+PATH"{})
+\item 
+\mbox{\hyperlink{namespaceauth_a97faab25db2565aef62827fb6216b424}{cred}} = credentials.\+Certificate(\mbox{\hyperlink{namespaceauth_a2f47cda8fe40c9dea8954eb36f094fd1}{cred\+\_\+path}})
+\item 
+\mbox{\hyperlink{namespaceauth_adc495cfe6ccfd84a4de9db10c7231e6a}{BASE\+\_\+\+DIRETORIO}} = os.\+path.\+abspath(os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \textquotesingle{}..\textquotesingle{}))
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceauth_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceauth_a28f382be1096bbe064b189743e28c08a}\index{auth@{auth}!cadastro\_html@{cadastro\_html}}
+\index{cadastro\_html@{cadastro\_html}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{cadastro\_html()}{cadastro\_html()}}
+{\footnotesize\ttfamily \label{namespaceauth_a28f382be1096bbe064b189743e28c08a} 
+auth.\+cadastro\+\_\+html (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Serve a página HTML de cadastro. 
+
+\begin{DoxyReturn}{Returns}
+Arquivo HTML renderizado ~\newline
+ return type of \+: flask.\+Response 
+\end{DoxyReturn}
+\Hypertarget{namespaceauth_a790c3d6fafbeadb2f278331676f1566d}\index{auth@{auth}!google\_login@{google\_login}}
+\index{google\_login@{google\_login}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{google\_login()}{google\_login()}}
+{\footnotesize\ttfamily \label{namespaceauth_a790c3d6fafbeadb2f278331676f1566d} 
+auth.\+google\+\_\+login (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Endpoint para autenticação com conta Google. 
+
+\begin{DoxyReturn}{Returns}
+JSON com dados do usuário ~\newline
+ return type of \+: flask.\+Response \+:raises HTTPException\+:
+\begin{DoxyItemize}
+\item 400 se token não for fornecido
+\item 401 se token for inválido
+\end{DoxyItemize}
+\end{DoxyReturn}
+Estrutura do JSON esperado\+: \{ "{}token"{}\+: "{}token\+\_\+jwt\+\_\+do\+\_\+firebase"{} \} \Hypertarget{namespaceauth_ae2d8675ca6590793f1739608712a0e1c}\index{auth@{auth}!login@{login}}
+\index{login@{login}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \label{namespaceauth_ae2d8675ca6590793f1739608712a0e1c} 
+auth.\+login (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Endpoint para login tradicional com email e senha. 
+
+\begin{DoxyReturn}{Returns}
+JSON com dados do usuário autenticado ~\newline
+ return type of \+: flask.\+Response \+:raises HTTPException\+: 401 se credenciais forem inválidas
+\end{DoxyReturn}
+Estrutura do JSON esperado\+: \{ "{}email"{}\+: "{}email@exemplo.\+com"{}, "{}password"{}\+: "{}senha\+\_\+secreta"{} \} \Hypertarget{namespaceauth_aa1db855c8feff2c1bc93d301ef54a010}\index{auth@{auth}!login\_css@{login\_css}}
+\index{login\_css@{login\_css}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{login\_css()}{login\_css()}}
+{\footnotesize\ttfamily \label{namespaceauth_aa1db855c8feff2c1bc93d301ef54a010} 
+auth.\+login\+\_\+css (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Serve o arquivo CSS para páginas de autenticação. 
+
+\begin{DoxyReturn}{Returns}
+Arquivo CSS ~\newline
+ return type of \+: flask.\+Response 
+\end{DoxyReturn}
+\Hypertarget{namespaceauth_a94d6f43517ae042c613c5ce54e6fdb5e}\index{auth@{auth}!login\_html@{login\_html}}
+\index{login\_html@{login\_html}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{login\_html()}{login\_html()}}
+{\footnotesize\ttfamily \label{namespaceauth_a94d6f43517ae042c613c5ce54e6fdb5e} 
+auth.\+login\+\_\+html (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Serve a página HTML de login. 
+
+\begin{DoxyReturn}{Returns}
+Arquivo HTML renderizado ~\newline
+ return type of \+: flask.\+Response 
+\end{DoxyReturn}
+\Hypertarget{namespaceauth_aba44641f60abfd90f83c0636dced4ce8}\index{auth@{auth}!login\_js@{login\_js}}
+\index{login\_js@{login\_js}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{login\_js()}{login\_js()}}
+{\footnotesize\ttfamily \label{namespaceauth_aba44641f60abfd90f83c0636dced4ce8} 
+auth.\+login\+\_\+js (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Serve o arquivo Java\+Script para páginas de autenticação. 
+
+\begin{DoxyReturn}{Returns}
+Arquivo JS ~\newline
+ return type of \+: flask.\+Response 
+\end{DoxyReturn}
+\Hypertarget{namespaceauth_ad01e6349933b8fb8409229c64c993686}\index{auth@{auth}!register@{register}}
+\index{register@{register}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily \label{namespaceauth_ad01e6349933b8fb8409229c64c993686} 
+auth.\+register (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Endpoint para cadastro tradicional de usuários. 
+
+\begin{DoxyReturn}{Returns}
+JSON com resultado da operação ~\newline
+ return type of \+: flask.\+Response \+:raises HTTPException\+: 409 se email já estiver cadastrado
+\end{DoxyReturn}
+Estrutura do JSON esperado\+: \{ "{}name"{}\+: "{}\+Nome do usuário"{}, "{}email"{}\+: "{}email@exemplo.\+com"{}, "{}password"{}\+: "{}senha\+\_\+secreta"{} \} \Hypertarget{namespaceauth_a03616d96df05749ce36da4554cb7ce11}\index{auth@{auth}!reset\_password@{reset\_password}}
+\index{reset\_password@{reset\_password}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{reset\_password()}{reset\_password()}}
+{\footnotesize\ttfamily \label{namespaceauth_a03616d96df05749ce36da4554cb7ce11} 
+auth.\+reset\+\_\+password (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Endpoint para redefinição de senha. 
+
+\begin{DoxyReturn}{Returns}
+JSON com resultado da operação ~\newline
+ return type of \+: flask.\+Response \+:raises HTTPException\+:
+\begin{DoxyItemize}
+\item 400 se dados estiverem incompletos
+\item 404 se usuário não for encontrado
+\end{DoxyItemize}
+\end{DoxyReturn}
+Estrutura do JSON esperado\+: \{ "{}email"{}\+: "{}email@exemplo.\+com"{}, "{}new\+\_\+password"{}\+: "{}nova\+\_\+senha\+\_\+secreta"{} \} 
+
+\label{doc-var-members}
+\Hypertarget{namespaceauth_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceauth_ae1ef2da92022bf90512bdc94dd50fc2e}\index{auth@{auth}!auth\_bp@{auth\_bp}}
+\index{auth\_bp@{auth\_bp}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{auth\_bp}{auth\_bp}}
+{\footnotesize\ttfamily \label{namespaceauth_ae1ef2da92022bf90512bdc94dd50fc2e} 
+auth.\+auth\+\_\+bp = Blueprint(\textquotesingle{}auth\textquotesingle{}, \+\_\+\+\_\+name\+\_\+\+\_\+)}
+
+\Hypertarget{namespaceauth_adc495cfe6ccfd84a4de9db10c7231e6a}\index{auth@{auth}!BASE\_DIRETORIO@{BASE\_DIRETORIO}}
+\index{BASE\_DIRETORIO@{BASE\_DIRETORIO}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{BASE\_DIRETORIO}{BASE\_DIRETORIO}}
+{\footnotesize\ttfamily \label{namespaceauth_adc495cfe6ccfd84a4de9db10c7231e6a} 
+auth.\+BASE\+\_\+\+DIRETORIO = os.\+path.\+abspath(os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \textquotesingle{}..\textquotesingle{}))}
+
+\Hypertarget{namespaceauth_a73507522401137515553130b6fbd4442}\index{auth@{auth}!client@{client}}
+\index{client@{client}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily \label{namespaceauth_a73507522401137515553130b6fbd4442} 
+auth.\+client = Mongo\+Client(os.\+getenv("{}MONGO\+\_\+\+URI"{}))}
+
+\Hypertarget{namespaceauth_a97faab25db2565aef62827fb6216b424}\index{auth@{auth}!cred@{cred}}
+\index{cred@{cred}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{cred}{cred}}
+{\footnotesize\ttfamily \label{namespaceauth_a97faab25db2565aef62827fb6216b424} 
+auth.\+cred = credentials.\+Certificate(\mbox{\hyperlink{namespaceauth_a2f47cda8fe40c9dea8954eb36f094fd1}{cred\+\_\+path}})}
+
+\Hypertarget{namespaceauth_a2f47cda8fe40c9dea8954eb36f094fd1}\index{auth@{auth}!cred\_path@{cred\_path}}
+\index{cred\_path@{cred\_path}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{cred\_path}{cred\_path}}
+{\footnotesize\ttfamily \label{namespaceauth_a2f47cda8fe40c9dea8954eb36f094fd1} 
+auth.\+cred\+\_\+path = os.\+getenv("{}FIREBASE\+\_\+\+ADMIN\+\_\+\+CREDENTIALS\+\_\+\+PATH"{})}
+
+\Hypertarget{namespaceauth_a613bd219064ddc4a8bc7ba26f72f982d}\index{auth@{auth}!db@{db}}
+\index{db@{db}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{db}{db}}
+{\footnotesize\ttfamily \label{namespaceauth_a613bd219064ddc4a8bc7ba26f72f982d} 
+auth.\+db = client.\+scrpai\+\_\+ia}
+
+\Hypertarget{namespaceauth_ae890bab1d30be7c0109d5ff0c0741180}\index{auth@{auth}!users@{users}}
+\index{users@{users}!auth@{auth}}
+\doxysubsubsection{\texorpdfstring{users}{users}}
+{\footnotesize\ttfamily \label{namespaceauth_ae890bab1d30be7c0109d5ff0c0741180} 
+auth.\+users = db.\+users}
+

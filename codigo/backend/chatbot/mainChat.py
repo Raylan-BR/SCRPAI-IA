@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file mainChat.py
 @brief Módulo de chat interativo para planejamento de viagens usando Google Gemini
 @author Seu Nome <seu.email@exemplo.com>

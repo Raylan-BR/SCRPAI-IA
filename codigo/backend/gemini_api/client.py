@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file client.py
 @brief Configuração do modelo generativo Gemini para aplicações de IA
 @author Seu Nome <seu.email@exemplo.com>

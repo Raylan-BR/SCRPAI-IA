@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file logic.py
 @brief Módulo principal do Assistente de Viagens - Gerencia histórico de conversas, busca de voos e filtros personalizados
 @author Seu Nome <seu.email@exemplo.com>

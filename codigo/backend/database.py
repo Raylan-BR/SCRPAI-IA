@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file database.py
 @brief Configuração da conexão com o banco de dados MongoDB
 @author Seu Nome <seu.email@exemplo.com>

@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file main.py
 @brief Aplicação principal da API de gerenciamento de viagens
 @author Seu Nome <seu.email@exemplo.com>
@@ -22,7 +25,7 @@ from auth import auth_bp
 
 # Cria instância principal da aplicação Flask
 app = Flask(__name__)
-"""@var app
+"""var app
 @brief Instância principal da aplicação Flask
 @details Configuração base para toda a API com:
 - Registro de blueprints

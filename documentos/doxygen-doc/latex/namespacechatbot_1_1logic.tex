@@ -1,0 +1,278 @@
+\doxysection{chatbot.\+logic Namespace Reference}
+\hypertarget{namespacechatbot_1_1logic}{}\label{namespacechatbot_1_1logic}\index{chatbot.logic@{chatbot.logic}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_a44dd94ce0a5dbd577cfe540bc664a27d}{gerar\+\_\+id\+\_\+email}} (email)
+\begin{DoxyCompactList}\small\item\em Gera um ID de arquivo válido a partir de um e-\/mail. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_a8b8c40e4f34009c7f7af36296252363c}{caminho\+\_\+do\+\_\+historico}} (email)
+\begin{DoxyCompactList}\small\item\em Retorna o caminho completo do arquivo de histórico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_a43589eab560197ab2b3ef96161612b86}{carregar\+\_\+historico}} (email)
+\begin{DoxyCompactList}\small\item\em Carrega o histórico de conversas de um usuário ou cria um novo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_ac4bfe979a0e5711fb4573f6e079bf413}{salvar\+\_\+historico}} (email, historico)
+\begin{DoxyCompactList}\small\item\em Salva o histórico de conversas em um arquivo JSON. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_a535af3aea2404c35b1db63613a7233e3}{responder}} (email, mensagem\+\_\+usuario, salvar=True)
+\begin{DoxyCompactList}\small\item\em Função principal que processa mensagens do usuário e retorna respostas. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacechatbot_1_1logic_a3d8dc9ba49b9cedd84e67ae85ec0bda4}{verificar\+\_\+resposta\+\_\+modelo}} (str frase)
+\begin{DoxyCompactList}\small\item\em Verifica se a resposta do modelo contém todos os dados necessários. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_a2c1ac9f6151a0efa20412a2589159d61}{extrair\+\_\+dados\+\_\+viagem}} (str frase)
+\begin{DoxyCompactList}\small\item\em Extrai dados estruturados da resposta do modelo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_aa43557bcf456c6b13137e591de7d9e1f}{buscar\+\_\+voo}} (dados\+\_\+viagem)
+\begin{DoxyCompactList}\small\item\em Busca voos com base nos dados do usuário e aplica filtros. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_a200917bb6607f33f62fbad338dcbe40f}{filtrar\+\_\+para\+\_\+turistas}} (passagens)
+\begin{DoxyCompactList}\small\item\em Filtra passagens para perfil de turista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_a6403be83574b55358901b8728414663c}{filtrar\+\_\+para\+\_\+corporativos}} (passagens)
+\begin{DoxyCompactList}\small\item\em Filtra passagens para perfil corporativo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_aff7fa65af85f775a76ee192ed97824a1}{salvar\+\_\+passagens\+\_\+em\+\_\+json}} (lista\+\_\+passagens)
+\begin{DoxyCompactList}\small\item\em Salva a lista de passagens em um arquivo JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_a0ed4e2f8e000198b8a3a99d46f6e0b84}{PASTA\+\_\+\+HISTORICOS}} = os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), "{}.."{}, "{}historico"{})
+\item 
+\mbox{\hyperlink{namespacechatbot_1_1logic_aa9738bb47e9fa0ad112d9a9ffed39595}{exist\+\_\+ok}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespacechatbot_1_1logic_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacechatbot_1_1logic_aa43557bcf456c6b13137e591de7d9e1f}\index{chatbot.logic@{chatbot.logic}!buscar\_voo@{buscar\_voo}}
+\index{buscar\_voo@{buscar\_voo}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{buscar\_voo()}{buscar\_voo()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_aa43557bcf456c6b13137e591de7d9e1f} 
+chatbot.\+logic.\+buscar\+\_\+voo (\begin{DoxyParamCaption}\item[{}]{dados\+\_\+viagem}{}\end{DoxyParamCaption})}
+
+
+
+Busca voos com base nos dados do usuário e aplica filtros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dados\+\_\+viagem} & (dict) Dicionário com \{origem, destino, data, tipo\} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(flask.\+Response) Resposta JSON com voos filtrados e motivo da filtragem 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 0
+\Hypertarget{namespacechatbot_1_1logic_a8b8c40e4f34009c7f7af36296252363c}\index{chatbot.logic@{chatbot.logic}!caminho\_do\_historico@{caminho\_do\_historico}}
+\index{caminho\_do\_historico@{caminho\_do\_historico}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{caminho\_do\_historico()}{caminho\_do\_historico()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a8b8c40e4f34009c7f7af36296252363c} 
+chatbot.\+logic.\+caminho\+\_\+do\+\_\+historico (\begin{DoxyParamCaption}\item[{}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Retorna o caminho completo do arquivo de histórico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & (str) E-\/mail do usuário \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(str) Caminho absoluto do arquivo JSON de histórico 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{namespacechatbot_1_1logic_a43589eab560197ab2b3ef96161612b86}\index{chatbot.logic@{chatbot.logic}!carregar\_historico@{carregar\_historico}}
+\index{carregar\_historico@{carregar\_historico}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{carregar\_historico()}{carregar\_historico()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a43589eab560197ab2b3ef96161612b86} 
+chatbot.\+logic.\+carregar\+\_\+historico (\begin{DoxyParamCaption}\item[{}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Carrega o histórico de conversas de um usuário ou cria um novo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & (str) E-\/mail do usuário \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(list) Lista com o histórico de mensagens (formato Gemini API) \+:note\+: Se o arquivo não existir, cria um histórico inicial com instruções para o modelo 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\Hypertarget{namespacechatbot_1_1logic_a2c1ac9f6151a0efa20412a2589159d61}\index{chatbot.logic@{chatbot.logic}!extrair\_dados\_viagem@{extrair\_dados\_viagem}}
+\index{extrair\_dados\_viagem@{extrair\_dados\_viagem}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{extrair\_dados\_viagem()}{extrair\_dados\_viagem()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a2c1ac9f6151a0efa20412a2589159d61} 
+chatbot.\+logic.\+extrair\+\_\+dados\+\_\+viagem (\begin{DoxyParamCaption}\item[{str}]{frase}{}\end{DoxyParamCaption})}
+
+
+
+Extrai dados estruturados da resposta do modelo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frase} & (str) Texto contendo os dados (ex\+: "{}\+Origem\+: São Paulo, Destino\+: Rio..."{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(dict\texorpdfstring{$\vert$}{|}bool) Dicionário com \{origem, destino, data, tipo\} ou False se inválido 
+\end{DoxyReturn}
+\Hypertarget{namespacechatbot_1_1logic_a6403be83574b55358901b8728414663c}\index{chatbot.logic@{chatbot.logic}!filtrar\_para\_corporativos@{filtrar\_para\_corporativos}}
+\index{filtrar\_para\_corporativos@{filtrar\_para\_corporativos}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{filtrar\_para\_corporativos()}{filtrar\_para\_corporativos()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a6403be83574b55358901b8728414663c} 
+chatbot.\+logic.\+filtrar\+\_\+para\+\_\+corporativos (\begin{DoxyParamCaption}\item[{}]{passagens}{}\end{DoxyParamCaption})}
+
+
+
+Filtra passagens para perfil corporativo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em passagens} & (list) Lista de passagens brutas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(list)\+: Lista filtrada por classe Executiva, voos diretos, ordenada por duração 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{namespacechatbot_1_1logic_a200917bb6607f33f62fbad338dcbe40f}\index{chatbot.logic@{chatbot.logic}!filtrar\_para\_turistas@{filtrar\_para\_turistas}}
+\index{filtrar\_para\_turistas@{filtrar\_para\_turistas}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{filtrar\_para\_turistas()}{filtrar\_para\_turistas()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a200917bb6607f33f62fbad338dcbe40f} 
+chatbot.\+logic.\+filtrar\+\_\+para\+\_\+turistas (\begin{DoxyParamCaption}\item[{}]{passagens}{}\end{DoxyParamCaption})}
+
+
+
+Filtra passagens para perfil de turista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em passagens} & (list) Lista de passagens brutas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(list)\+: Lista filtrada por preço \texorpdfstring{$<$}{<}= R\$600, classe Econômica, \texorpdfstring{$<$}{<}=2 escalas 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 6
+\Hypertarget{namespacechatbot_1_1logic_a44dd94ce0a5dbd577cfe540bc664a27d}\index{chatbot.logic@{chatbot.logic}!gerar\_id\_email@{gerar\_id\_email}}
+\index{gerar\_id\_email@{gerar\_id\_email}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{gerar\_id\_email()}{gerar\_id\_email()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a44dd94ce0a5dbd577cfe540bc664a27d} 
+chatbot.\+logic.\+gerar\+\_\+id\+\_\+email (\begin{DoxyParamCaption}\item[{}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Gera um ID de arquivo válido a partir de um e-\/mail. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & (str) E-\/mail do usuário (ex\+: "{}usuario@exemplo.\+com"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(str)\+: String com o e-\/mail formatado (ex "{}usuario\+\_\+at\+\_\+exemplo\+\_\+dot\+\_\+com.\+json"{}) 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{namespacechatbot_1_1logic_a535af3aea2404c35b1db63613a7233e3}\index{chatbot.logic@{chatbot.logic}!responder@{responder}}
+\index{responder@{responder}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{responder()}{responder()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a535af3aea2404c35b1db63613a7233e3} 
+chatbot.\+logic.\+responder (\begin{DoxyParamCaption}\item[{}]{email}{, }\item[{}]{mensagem\+\_\+usuario}{, }\item[{}]{salvar}{ = {\ttfamily True}}\end{DoxyParamCaption})}
+
+
+
+Função principal que processa mensagens do usuário e retorna respostas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & (str) E-\/mail do usuário (string vazia para sessões anônimas) \\
+\hline
+{\em mensagem\+\_\+usuario} & (str) Texto enviado pelo usuário \\
+\hline
+{\em salvar} & (bool) Se False, não atualiza o histórico (opcional, padrão=True) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(str) Resposta do modelo Gemini 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 8
+\Hypertarget{namespacechatbot_1_1logic_ac4bfe979a0e5711fb4573f6e079bf413}\index{chatbot.logic@{chatbot.logic}!salvar\_historico@{salvar\_historico}}
+\index{salvar\_historico@{salvar\_historico}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{salvar\_historico()}{salvar\_historico()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_ac4bfe979a0e5711fb4573f6e079bf413} 
+chatbot.\+logic.\+salvar\+\_\+historico (\begin{DoxyParamCaption}\item[{}]{email}{, }\item[{}]{historico}{}\end{DoxyParamCaption})}
+
+
+
+Salva o histórico de conversas em um arquivo JSON. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & (str) E-\/mail do usuário \\
+\hline
+{\em historico} & (list) Lista de mensagens no formato Gemini API \+:return None\+: \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{namespacechatbot_1_1logic_aff7fa65af85f775a76ee192ed97824a1}\index{chatbot.logic@{chatbot.logic}!salvar\_passagens\_em\_json@{salvar\_passagens\_em\_json}}
+\index{salvar\_passagens\_em\_json@{salvar\_passagens\_em\_json}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{salvar\_passagens\_em\_json()}{salvar\_passagens\_em\_json()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_aff7fa65af85f775a76ee192ed97824a1} 
+chatbot.\+logic.\+salvar\+\_\+passagens\+\_\+em\+\_\+json (\begin{DoxyParamCaption}\item[{}]{lista\+\_\+passagens}{}\end{DoxyParamCaption})}
+
+
+
+Salva a lista de passagens em um arquivo JSON. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+passagens} & (list) Lista de dicionários com dados de voos \+:return None\+: \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 11
+\Hypertarget{namespacechatbot_1_1logic_a3d8dc9ba49b9cedd84e67ae85ec0bda4}\index{chatbot.logic@{chatbot.logic}!verificar\_resposta\_modelo@{verificar\_resposta\_modelo}}
+\index{verificar\_resposta\_modelo@{verificar\_resposta\_modelo}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{verificar\_resposta\_modelo()}{verificar\_resposta\_modelo()}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a3d8dc9ba49b9cedd84e67ae85ec0bda4} 
+ bool chatbot.\+logic.\+verificar\+\_\+resposta\+\_\+modelo (\begin{DoxyParamCaption}\item[{str}]{frase}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se a resposta do modelo contém todos os dados necessários. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frase} & (str) Texto da resposta do modelo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(bool) True se contém origem, destino, data e tipo 
+\end{DoxyReturn}
+
+
+\label{doc-var-members}
+\Hypertarget{namespacechatbot_1_1logic_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacechatbot_1_1logic_aa9738bb47e9fa0ad112d9a9ffed39595}\index{chatbot.logic@{chatbot.logic}!exist\_ok@{exist\_ok}}
+\index{exist\_ok@{exist\_ok}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{exist\_ok}{exist\_ok}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_aa9738bb47e9fa0ad112d9a9ffed39595} 
+chatbot.\+logic.\+exist\+\_\+ok}
+
+\Hypertarget{namespacechatbot_1_1logic_a0ed4e2f8e000198b8a3a99d46f6e0b84}\index{chatbot.logic@{chatbot.logic}!PASTA\_HISTORICOS@{PASTA\_HISTORICOS}}
+\index{PASTA\_HISTORICOS@{PASTA\_HISTORICOS}!chatbot.logic@{chatbot.logic}}
+\doxysubsubsection{\texorpdfstring{PASTA\_HISTORICOS}{PASTA\_HISTORICOS}}
+{\footnotesize\ttfamily \label{namespacechatbot_1_1logic_a0ed4e2f8e000198b8a3a99d46f6e0b84} 
+chatbot.\+logic.\+PASTA\+\_\+\+HISTORICOS = os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), "{}.."{}, "{}historico"{})}
+

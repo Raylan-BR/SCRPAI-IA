@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file settings.py
 @brief Configuração de variáveis de ambiente e chaves de API
 @author Seu Nome <seu.email@exemplo.com>

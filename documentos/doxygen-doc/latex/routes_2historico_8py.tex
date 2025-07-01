@@ -1,0 +1,46 @@
+\doxysection{codigo/backend/routes/historico.py File Reference}
+\hypertarget{routes_2historico_8py}{}\label{routes_2historico_8py}\index{codigo/backend/routes/historico.py@{codigo/backend/routes/historico.py}}
+
+
+Rotas para gerenciamento de histórico de compras.  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacehistorico}{historico}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacehistorico_a0c11ca1b19b35ec0a7bb72f22be70167}{historico.\+historico\+\_\+html}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para servir a página HTML do histórico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacehistorico_aa7598511ae6b41748477c88ec74ce211}{historico.\+historico\+\_\+css}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para servir o CSS do histórico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacehistorico_ac504a986152a932912a9ad5fb6be48cd}{historico.\+historico\+\_\+js}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para servir o Java\+Script do histórico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacehistorico_a8c389fa8c3ebb888c9e40cb060cb3b23}{historico.\+salvar\+\_\+compra}} (user\+\_\+email, origin, destination, travel\+\_\+date, total\+\_\+price, purchase\+\_\+source, details, receipt\+\_\+url=None)
+\begin{DoxyCompactList}\small\item\em Armazena uma nova compra no banco de dados. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacehistorico_ac495e519aebad4fd28ef10c415aa9d90}{historico.\+salvar\+\_\+compra\+\_\+route}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para registro de novas compras via POST. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacehistorico_a41c2c10dec570703c4d620000ab7deb1}{historico.\+get\+\_\+historico}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint para consulta de histórico de compras via GET. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacehistorico_a4790cfafc2bdbb818a0d250d17d7d090}{historico.\+BASE\+\_\+\+DIR}} = os.\+path.\+abspath(os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \textquotesingle{}..\textquotesingle{}, \textquotesingle{}..\textquotesingle{}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Rotas para gerenciamento de histórico de compras. 
+
+\begin{DoxyAuthor}{Author}
+Seu Nome \href{mailto:seu.email@exemplo.com}{\texttt{seu.\+email@exemplo.\+com}}
+\end{DoxyAuthor}
+Módulo responsável por\+:
+\begin{DoxyItemize}
+\item Servir páginas do frontend relacionadas ao histórico
+\item Registrar novas compras no banco de dados
+\item Recuperar histórico de compras por usuário 
+\end{DoxyItemize}

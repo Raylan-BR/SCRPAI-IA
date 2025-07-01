@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file auth.py
 @brief Blueprint de autenticação para a API de viagens
 @author Seu Nome <seu.email@exemplo.com>

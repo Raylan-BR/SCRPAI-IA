@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file api.py
 @brief Aplicação principal da API de gerenciamento de viagens
 @author Seu Nome <seu.email@exemplo.com>
@@ -39,7 +42,7 @@ app.register_blueprint(historico_bp)
 """
 
 app.register_blueprint(reserva_bp)
-"""@var reserva_bp
+"""var reserva_bp
 @brief Blueprint de reservas
 @details Gerencia rotas relacionadas a reservas de passagens e hospedagens.
 """

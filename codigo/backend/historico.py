@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """@file historico.py
 @brief Blueprint para gerenciamento de histórico de compras
 @author Seu Nome <seu.email@exemplo.com>
