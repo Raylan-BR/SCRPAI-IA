@@ -1,0 +1,431 @@
+\doxysection{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}
+\hypertarget{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{}\label{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}Cria um card visual para exibir informações do voo @function criar\+Card\+Voo.
+
+Cria um card visual para exibir informações do voo @function criar\+Card\+Voo
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & voo -\/ Dados completos do voo \\
+\hline
+{\em \{number\}} & index -\/ Índice do voo na lista \\
+\hline
+{\em \{string\}} & \mbox{[}tipo="{}ida"{}\mbox{]} -\/ Tipo do voo (\textquotesingle{}ida\textquotesingle{} ou \textquotesingle{}volta\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{HTMLElement\} Elemento HTML do card de voo
+\end{DoxyReturn}
+const card = criar\+Card\+Voo(voo\+Data, 0, \textquotesingle{}ida\textquotesingle{}); document.\+body.\+append\+Child(card);
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ CONFIGURAÇÃO\ INICIAL\ E\ ELEMENTOS\ DA\ INTERFACE}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{busca__form_8js_a2267fd6d80998093d2b8354ce585bb53}{idaBolinha}}\ =\ document.getElementById(\textcolor{stringliteral}{'ida'});}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{busca__form_8js_ad57b82b1afe1cd3947b906b2ca5377a3}{idaVoltaBolinha}}\ =\ document.getElementById(\textcolor{stringliteral}{'ida-\/e-\/volta'});}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{busca__form_8js_a6156b07b18c0cd57b6e627c62bad4418}{dataVoltaDiv}}\ =\ document.getElementById(\textcolor{stringliteral}{'data-\/volta-\/div'});}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{busca__form_8js_abee6f2ce657f4d195d24d068ac8762e6}{dataVoltaInput}}\ =\ document.getElementById(\textcolor{stringliteral}{'data-\/volta'});}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{busca__form_8js_ab76e6d63e3286857093d5b4fb795f8b0}{containerVolta}}\ =\ document.getElementById(\textcolor{stringliteral}{'container-\/volta'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ EVENT\ LISTENERS\ PARA\ CONTROLE\ DE\ INTERFACE}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{busca__form_8js_a2267fd6d80998093d2b8354ce585bb53}{idaBolinha}}.addEventListener(\textcolor{stringliteral}{'change'},\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{busca__form_8js_a6156b07b18c0cd57b6e627c62bad4418}{dataVoltaDiv}}.classList.add(\textcolor{stringliteral}{'escondido'});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{busca__form_8js_abee6f2ce657f4d195d24d068ac8762e6}{dataVoltaInput}}.removeAttribute(\textcolor{stringliteral}{'required'});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{busca__form_8js_ab76e6d63e3286857093d5b4fb795f8b0}{containerVolta}}.style.display\ =\ \textcolor{stringliteral}{'none'};}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{busca__form_8js_ad57b82b1afe1cd3947b906b2ca5377a3}{idaVoltaBolinha}}.addEventListener(\textcolor{stringliteral}{'change'},\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{busca__form_8js_a6156b07b18c0cd57b6e627c62bad4418}{dataVoltaDiv}}.classList.remove(\textcolor{stringliteral}{'escondido'});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{busca__form_8js_abee6f2ce657f4d195d24d068ac8762e6}{dataVoltaInput}}.setAttribute(\textcolor{stringliteral}{'required'},\ \textcolor{stringliteral}{''});}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ FUNÇÕES\ PRINCIPAIS}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{function}\ \mbox{\hyperlink{busca__form_8js_a7602c44cee64b331704c1405050258ab}{criarCardVoo}}(voo,\ index,\ tipo\ =\ \textcolor{stringliteral}{"{}ida"{}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Atribui\ um\ ID\ único\ ao\ voo}}
+\DoxyCodeLine{\ \ \ \ voo.id\ =\ \`{}\$\{tipo\}-\/\$\{index\}\`{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Cria\ a\ estrutura\ HTML\ do\ card}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ div\ =\ document.createElement(\textcolor{stringliteral}{"{}div"{}});}
+\DoxyCodeLine{\ \ \ \ div.className\ =\ \textcolor{stringliteral}{"{}voo"{}};}
+\DoxyCodeLine{\ \ \ \ div.innerHTML\ =\ \`{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}info-\/principal"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <p\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}companhia"{}}>\$\{voo.companhia\}</p>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <p\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}aeronave"{}}>Aeronave:\ \$\{voo.aeronave\}</p>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <p\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}assentos"{}}>Assentos\ disponíveis:\ \$\{voo.assentosDisponiveis\}</p>\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}detalhes-\/voo"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}trecho"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <strong>\$\{voo.partida\}</strong>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}linha-\/icone"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <span>\$\{voo.origem\}</span>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <img\ src=\textcolor{stringliteral}{"{}./img/localizacao.png"{}}\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}icon"{}}\ alt=\textcolor{stringliteral}{"{}Localização"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}trecho\ duracao"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}linha-\/icone"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <strong>\$\{voo.duracao\}</strong>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <img\ src=\textcolor{stringliteral}{"{}./img/relogio.png"{}}\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}icon"{}}\ alt=\textcolor{stringliteral}{"{}Duração"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <span>\$\{voo.escalas\}</span>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}trecho"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <strong>\$\{voo.chegada\}</strong>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}linha-\/icone"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <span>\$\{voo.destino\}</span>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <img\ src=\textcolor{stringliteral}{"{}./img/localizacao.png"{}}\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}icon"{}}\ alt=\textcolor{stringliteral}{"{}Localização"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}acao"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <div\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}preco"{}}>R\$\ \$\{voo.preco.toLocaleString(\textcolor{stringliteral}{'pt-\/BR'})\}<small>\ por\ pessoa</small></div>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <button\ \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}selecionar"{}}>Selecionar</button>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ </div>}
+\DoxyCodeLine{\ \ \ \ \`{};}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configura\ o\ botão\ de\ seleção}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ btnSelecionar\ =\ div.querySelector(\textcolor{stringliteral}{'.selecionar'});}
+\DoxyCodeLine{\ \ \ \ btnSelecionar.addEventListener(\textcolor{stringliteral}{'click'},\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Salva\ o\ voo\ selecionado\ no\ localStorage}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ localStorage.setItem(\textcolor{stringliteral}{'voo\_selecionado'},\ JSON.stringify(voo));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Redireciona\ para\ a\ página\ de\ reserva}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ window.location.href\ =\ \textcolor{stringliteral}{'./pages/compra/reserva.html'};}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ div;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}São\ Paulo"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/23.55,\ lng:\ -\/46.63\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Rio\ de\ Janeiro"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/22.91,\ lng:\ -\/43.20\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Belo\ Horizonte"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/19.92,\ lng:\ -\/43.94\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Brasília"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/15.78,\ lng:\ -\/47.93\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Salvador"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/12.97,\ lng:\ -\/38.50\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Fortaleza"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/3.73,\ lng:\ -\/38.52\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Recife"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/8.05,\ lng:\ -\/34.90\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Manaus"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/3.10,\ lng:\ -\/60.02\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}São\ Luís"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/2.53,\ lng:\ -\/44.30\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Londres"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Reino\ Unido"{}},\ lat:\ 51.51,\ lng:\ -\/0.13\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Paris"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}França"{}},\ lat:\ 48.86,\ lng:\ 2.35\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Nova\ York"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}EUA"{}},\ lat:\ 40.71,\ lng:\ -\/74.01\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Miami"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}EUA"{}},\ lat:\ 25.76,\ lng:\ -\/80.19\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Lisboa"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Portugal"{}},\ lat:\ 38.72,\ lng:\ -\/9.14\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Madrid"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Espanha"{}},\ lat:\ 40.42,\ lng:\ -\/3.70\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Buenos\ Aires"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Argentina"{}},\ lat:\ -\/34.60,\ lng:\ -\/58.38\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Santiago"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Chile"{}},\ lat:\ -\/33.45,\ lng:\ -\/70.67\ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{function}\ \mbox{\hyperlink{busca__form_8js_a47226e9c585e103773e707883d8cd675}{calcularDistancia}}(cidade1,\ cidade2)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Retorna\ valor\ padrão\ se\ cidade\ não\ existir\ no\ banco\ de\ dados}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}[cidade1]\ ||\ !\mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}[cidade2])\ \textcolor{keywordflow}{return}\ 1000;}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Converte\ coordenadas\ para\ radianos}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ lat1\ =\ \mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}[cidade1].lat;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ lng1\ =\ \mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}[cidade1].lng;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ lat2\ =\ \mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}[cidade2].lat;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ lng2\ =\ \mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}[cidade2].lng;}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ R\ =\ 6371;\ \textcolor{comment}{//\ Raio\ da\ Terra\ em\ km}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ dLat\ =\ (lat2\ -\/\ lat1)\ *\ Math.PI\ /\ 180;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ dLng\ =\ (lng2\ -\/\ lng1)\ *\ Math.PI\ /\ 180;}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Aplica\ fórmula\ de\ Haversine}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ a\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Math.sin(dLat/2)\ *\ Math.sin(dLat/2)\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Math.cos(lat1\ *\ Math.PI\ /\ 180)\ *\ Math.cos(lat2\ *\ Math.PI\ /\ 180)\ *\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Math.sin(dLng/2)\ *\ Math.sin(dLng/2);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ c\ =\ 2\ *\ Math.atan2(Math.sqrt(a),\ Math.sqrt(1-\/a));}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ R\ *\ c;\ \textcolor{comment}{//\ Distância\ em\ km}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{function}\ \mbox{\hyperlink{busca__form_8js_a1918846e44528416b860c8931a7a1739}{gerarVoosMock}}(origem,\ destino,\ data,\ adultos)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Companhias\ aéreas\ disponíveis}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ companhias\ =\ [\textcolor{stringliteral}{"{}LATAM"{}},\ \textcolor{stringliteral}{"{}Gol"{}},\ \textcolor{stringliteral}{"{}Azul"{}},\ \textcolor{stringliteral}{"{}Voepass"{}}];}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Modelos\ de\ aeronaves\ por\ tipo}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ aeronavesNacionais\ =\ [\textcolor{stringliteral}{"{}Embraer\ 195"{}},\ \textcolor{stringliteral}{"{}Embraer\ 190"{}},\ \textcolor{stringliteral}{"{}Boeing\ 737"{}},\ \textcolor{stringliteral}{"{}Airbus\ A320"{}}];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ aeronavesInternacionais\ =\ [\textcolor{stringliteral}{"{}Boeing\ 787"{}},\ \textcolor{stringliteral}{"{}Airbus\ A330"{}},\ \textcolor{stringliteral}{"{}Boeing\ 777"{}},\ \textcolor{stringliteral}{"{}Airbus\ A350"{}}];}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Determina\ se\ é\ um\ voo\ internacional}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ isInternacional\ =\ \mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}[origem]?.pais\ !==\ \mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}[destino]?.pais;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ distancia\ =\ \mbox{\hyperlink{busca__form_8js_a47226e9c585e103773e707883d8cd675}{calcularDistancia}}(origem,\ destino);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{function}\ gerarHorarioPartida()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Voos\ internacionais\ geralmente\ saem\ à\ noite}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ hora\ =\ Math.floor(18\ +\ Math.random()\ *\ 6);\ \textcolor{comment}{//\ Entre\ 18h\ e\ 23h59}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ minuto\ =\ Math.floor(Math.random()\ *\ 60);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \`{}\$\{hora.toString().padStart(2,\ \textcolor{charliteral}{'0'})\}:\$\{minuto.toString().padStart(2,\ \textcolor{charliteral}{'0'})\}\`{};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Voos\ nacionais\ têm\ horários\ mais\ distribuídos}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ hora\ =\ Math.floor(Math.random()\ *\ 24);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ minuto\ =\ Math.floor(Math.random()\ *\ 60);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \`{}\$\{hora.toString().padStart(2,\ \textcolor{charliteral}{'0'})\}:\$\{minuto.toString().padStart(2,\ \textcolor{charliteral}{'0'})\}\`{};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{function}\ calcularHorarioChegada(partida,\ duracaoMinutos)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ [horaPartida,\ minutoPartida]\ =\ partida.split(\textcolor{charliteral}{':'}).map(Number);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ let\ horaChegada\ =\ horaPartida\ +\ Math.floor(duracaoMinutos\ /\ 60);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ let\ minutoChegada\ =\ minutoPartida\ +\ (duracaoMinutos\ \%\ 60);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ajuste\ de\ minutos\ e\ horas}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (minutoChegada\ >=\ 60)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ minutoChegada\ -\/=\ 60;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ horaChegada\ +=\ 1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (horaChegada\ >=\ 24)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ horaChegada\ -\/=\ 24;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \`{}\$\{horaChegada.toString().padStart(2,\ \textcolor{charliteral}{'0'})\}:\$\{minutoChegada.toString().padStart(2,\ \textcolor{charliteral}{'0'})\}\`{};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{function}\ gerarDuracao(distancia)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Velocidade\ média\ de\ 800\ km/h\ +\ tempo\ adicional\ para\ decolagem/aterrissagem}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ horasVoo\ =\ distancia\ /\ 800;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ horasAdicionais\ =\ isInternacional\ ?\ 0.5\ :\ 0.2;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Adiciona\ variação\ aleatória\ de\ ±15\%\ na\ duração}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ variacao\ =\ 0.85\ +\ Math.random()\ *\ 0.3;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ minutosTotais\ =\ Math.round((horasVoo\ +\ horasAdicionais)\ *\ 60\ *\ variacao);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Garante\ duração\ mínima\ de\ 30\ minutos}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ minutosAjustados\ =\ Math.max(minutosTotais,\ 30);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ horas\ =\ Math.floor(minutosAjustados\ /\ 60);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ minutos\ =\ minutosAjustados\ \%\ 60;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ texto:\ \`{}\$\{horas\}h\ \$\{minutos.toString().padStart(2,\ \textcolor{charliteral}{'0'})\}m\`{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ minutos:\ minutosAjustados}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{function}\ gerarEscalas(distancia,\ isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Voos\ curtos\ (até\ 500km)\ -\/\ quase\ sempre\ diretos}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distancia\ <=\ 500)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Math.random()\ >\ 0.9\ ?\ \textcolor{stringliteral}{"{}1\ escala"{}}\ :\ \textcolor{stringliteral}{"{}Direto"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Voos\ médios\ (500-\/1500km)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distancia\ <=\ 1500)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Math.random()\ >\ 0.7\ ?\ \textcolor{stringliteral}{"{}1\ escala"{}}\ :\ \textcolor{stringliteral}{"{}Direto"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Math.random()\ >\ 0.85\ ?\ \textcolor{stringliteral}{"{}1\ escala"{}}\ :\ \textcolor{stringliteral}{"{}Direto"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Voos\ longos\ nacionais\ (1500-\/3000km)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Math.random()\ >\ 0.6\ ?\ \textcolor{stringliteral}{"{}1\ escala"{}}\ :\ \textcolor{stringliteral}{"{}Direto"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Voos\ internacionais\ longos\ (3000-\/7000km)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distancia\ <=\ 7000)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ rand\ =\ Math.random();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rand\ >\ 0.7\ ?\ \textcolor{stringliteral}{"{}Direto"{}}\ :\ rand\ >\ 0.3\ ?\ \textcolor{stringliteral}{"{}1\ escala"{}}\ :\ \textcolor{stringliteral}{"{}2\ escalas"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Voos\ intercontinentais\ (acima\ de\ 7000km)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ rand\ =\ Math.random();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rand\ >\ 0.6\ ?\ \textcolor{stringliteral}{"{}1\ escala"{}}\ :\ rand\ >\ 0.2\ ?\ \textcolor{stringliteral}{"{}2\ escalas"{}}\ :\ \textcolor{stringliteral}{"{}3\ escalas"{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{function}\ gerarPreco(distancia,\ isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fatores\ que\ influenciam\ o\ preço}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ temporada\ =\ 0.8\ +\ Math.random()\ *\ 0.6;\ \textcolor{comment}{//\ Variação\ sazonal}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ demanda\ =\ 0.9\ +\ Math.random()\ *\ 0.3;\ \textcolor{comment}{//\ Variação\ por\ demanda}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ companhiaPremium\ =\ Math.random()\ >\ 0.7\ ?\ 1.3\ :\ 1;\ \textcolor{comment}{//\ Companhias\ premium}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Preço\ base\ por\ km\ (varia\ por\ faixa\ de\ distância)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ let\ precoBasePorKm;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distancia\ <\ 500)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ precoBasePorKm\ =\ 0.8;\ \textcolor{comment}{//\ Voos\ curtos\ são\ mais\ caros\ por\ km}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (distancia\ <\ 2000)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ precoBasePorKm\ =\ 0.5;\ \textcolor{comment}{//\ Voos\ médios}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ precoBasePorKm\ =\ 0.3;\ \textcolor{comment}{//\ Voos\ longos\ são\ mais\ baratos\ por\ km}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ajuste\ para\ voos\ internacionais}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ precoBasePorKm\ *=\ 1.5;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Taxa\ adicional\ para\ voos\ intercontinentais}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distancia\ >\ 5000)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ precoBasePorKm\ *=\ 1.2;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cálculo\ do\ preço\ base}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ let\ preco\ =\ distancia\ *\ precoBasePorKm;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aplica\ variações}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ preco\ =\ preco\ *\ temporada\ *\ demanda\ *\ companhiaPremium;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arredonda\ para\ múltiplo\ de\ 10}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ preco\ =\ Math.round(preco\ /\ 10)\ *\ 10;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Garante\ preços\ mínimos\ realistas}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ preco\ =\ Math.max(preco,\ 1000);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ preco\ =\ Math.max(preco,\ 200);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Adiciona\ pequena\ variação\ final\ (±R\$50)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ preco\ +=\ (Math.random()\ >\ 0.5\ ?\ 1\ :\ -\/1)\ *\ Math.floor(Math.random()\ *\ 50);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ preco;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{function}\ selecionarAeronave(isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isInternacional)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ aeronavesInternacionais[Math.floor(Math.random()\ *\ aeronavesInternacionais.length)];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ aeronavesNacionais[Math.floor(Math.random()\ *\ aeronavesNacionais.length)];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Gera\ entre\ 3\ e\ 5\ voos}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacereserva_abc78bb5b5a22cbc8748d4623f5e1b253}{voos}}\ =\ [];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ numVoos\ =\ Math.floor(3\ +\ Math.random()\ *\ 3);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (let\ i\ =\ 0;\ i\ <\ numVoos;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ companhia\ =\ companhias[Math.floor(Math.random()\ *\ companhias.length)];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ aeronave\ =\ selecionarAeronave(isInternacional);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ partida\ =\ gerarHorarioPartida();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ duracao\ =\ gerarDuracao(distancia);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ chegada\ =\ calcularHorarioChegada(partida,\ duracao.minutos);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ escalas\ =\ gerarEscalas(distancia,\ isInternacional);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacereserva_abc78bb5b5a22cbc8748d4623f5e1b253}{voos}}.push(\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ companhia,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ aeronave,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ assentosDisponiveis:\ Math.floor(1\ +\ Math.random()\ *\ 30),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ partida,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ chegada,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ origem,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ destino,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ duracao:\ duracao.texto,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ escalas,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ preco:\ gerarPreco(distancia,\ isInternacional),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ moeda:\ \textcolor{stringliteral}{"{}BRL"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Ordena\ voos\ por\ horário\ de\ partida}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacereserva_abc78bb5b5a22cbc8748d4623f5e1b253}{voos}}.sort((a,\ b)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ [horaA,\ minutoA]\ =\ a.partida.split(\textcolor{charliteral}{':'}).map(Number);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ [horaB,\ minutoB]\ =\ b.partida.split(\textcolor{charliteral}{':'}).map(Number);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ horaA\ -\/\ horaB\ ||\ minutoA\ -\/\ minutoB;}
+\DoxyCodeLine{\ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacereserva_abc78bb5b5a22cbc8748d4623f5e1b253}{voos}};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ FUNÇÃO\ PRINCIPAL\ DE\ BUSCA\ DE\ VOOS}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{autenticacao_8js_a4874d3099b3ca54f264a573cd2cc1b2a}{async}}\ \textcolor{keyword}{function}\ \mbox{\hyperlink{busca__form_8js_a2252e310f17766e45ece26155391c379}{buscarVoos}}(\mbox{\hyperlink{busca__chat_8js_a44496511cf798ffcd9ca0740253067c3}{event}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{event}.preventDefault();}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Mostra\ container\ de\ resultados}}
+\DoxyCodeLine{\ \ \ \ document.getElementById(\textcolor{stringliteral}{"{}container-\/ida"{}}).classList.remove(\textcolor{stringliteral}{"{}escondido"{}});}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Obtém\ valores\ do\ formulário}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ origem\ =\ document.getElementById(\textcolor{stringliteral}{"{}origem"{}}).value;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ destino\ =\ document.getElementById(\textcolor{stringliteral}{"{}destino"{}}).value;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ dataIda\ =\ document.getElementById(\textcolor{stringliteral}{"{}dataIda"{}}).value;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ adultos\ =\ document.getElementById(\textcolor{stringliteral}{"{}adultos"{}}).value;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ isIdaVolta\ =\ document.getElementById(\textcolor{stringliteral}{"{}ida-\/e-\/volta"{}}).checked;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ dataVolta\ =\ isIdaVolta\ ?\ document.getElementById(\textcolor{stringliteral}{"{}data-\/volta"{}}).value\ :\ \textcolor{keyword}{null};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Elementos\ de\ UI\ para\ resultados}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ rotaInfo\ =\ document.getElementById(\textcolor{stringliteral}{"{}rota-\/info"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ contadorVoos\ =\ document.getElementById(\textcolor{stringliteral}{"{}contador-\/voos"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ listaVoos\ =\ document.getElementById(\textcolor{stringliteral}{"{}lista-\/voos"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ rotaInfoVolta\ =\ document.getElementById(\textcolor{stringliteral}{"{}rota-\/info-\/volta"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ contadorVoosVolta\ =\ document.getElementById(\textcolor{stringliteral}{"{}contador-\/voos-\/volta"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ listaVoosVolta\ =\ document.getElementById(\textcolor{stringliteral}{"{}lista-\/voos-\/volta"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Atualiza\ UI\ com\ informações\ da\ rota}}
+\DoxyCodeLine{\ \ \ \ rotaInfo.textContent\ =\ \`{}\$\{origem\}\ ⮕\ \$\{destino\}\`{};}
+\DoxyCodeLine{\ \ \ \ listaVoos.innerHTML\ =\ \textcolor{stringliteral}{"{}<p>Buscando\ voos\ de\ ida...</p>"{}};}
+\DoxyCodeLine{\ \ \ \ contadorVoos.textContent\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configura\ exibição\ para\ viagens\ de\ ida\ e\ volta}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (isIdaVolta)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{busca__form_8js_ab76e6d63e3286857093d5b4fb795f8b0}{containerVolta}}.style.display\ =\ \textcolor{stringliteral}{'block'};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ rotaInfoVolta.textContent\ =\ \`{}\$\{destino\}\ ⮕\ \$\{origem\}\`{};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ listaVoosVolta.innerHTML\ =\ \textcolor{stringliteral}{"{}<p>Buscando\ voos\ de\ volta...</p>"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ contadorVoosVolta.textContent\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{busca__form_8js_ab76e6d63e3286857093d5b4fb795f8b0}{containerVolta}}.style.display\ =\ \textcolor{stringliteral}{'none'};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Gera\ voos\ mockados\ para\ ida}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ voosIda\ =\ \mbox{\hyperlink{busca__form_8js_a1918846e44528416b860c8931a7a1739}{gerarVoosMock}}(origem,\ destino,\ dataIda,\ adultos);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ listaVoos.innerHTML\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!voosIda.length)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ listaVoos.innerHTML\ =\ \textcolor{stringliteral}{"{}<p>Nenhum\ voo\ de\ ida\ encontrado.</p>"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ contadorVoos.textContent\ =\ \`{}Foram\ encontradas\ \$\{voosIda.length\}\ opções\ de\ ida\`{};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ voosIda.forEach(voo\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaVoos.appendChild(\mbox{\hyperlink{busca__form_8js_a7602c44cee64b331704c1405050258ab}{criarCardVoo}}(voo));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Gera\ voos\ mockados\ para\ volta\ (se\ aplicável)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isIdaVolta\ \&\&\ dataVolta)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ voosVolta\ =\ \mbox{\hyperlink{busca__form_8js_a1918846e44528416b860c8931a7a1739}{gerarVoosMock}}(destino,\ origem,\ dataVolta,\ adultos);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ listaVoosVolta.innerHTML\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!voosVolta.length)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaVoosVolta.innerHTML\ =\ \textcolor{stringliteral}{"{}<p>Nenhum\ voo\ de\ volta\ encontrado.</p>"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ contadorVoosVolta.textContent\ =\ \`{}Foram\ encontradas\ \$\{voosVolta.length\}\ opções\ de\ volta\`{};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ voosVolta.forEach(voo\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaVoosVolta.appendChild(\mbox{\hyperlink{busca__form_8js_a7602c44cee64b331704c1405050258ab}{criarCardVoo}}(voo));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Armazena\ resultados\ no\ localStorage}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ localStorage.setItem(\textcolor{stringliteral}{'voos\_disponiveis'},\ JSON.stringify(\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ voosIda,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ voosVolta:\ isIdaVolta\ \&\&\ dataVolta\ ?\ voosVolta\ :\ []}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (erro)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.error(\textcolor{stringliteral}{"{}Erro\ na\ busca\ de\ voos:"{}},\ erro);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Exibe\ mensagens\ de\ erro}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ listaVoos.innerHTML\ =\ \`{}<p\ style=\textcolor{stringliteral}{"{}color:\ red;"{}}>Erro\ na\ busca.\ <br><small>\$\{erro.message\}</small></p>\`{};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isIdaVolta)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ listaVoosVolta.innerHTML\ =\ \`{}<p\ style=\textcolor{stringliteral}{"{}color:\ red;"{}}>Erro\ ao\ buscar\ \mbox{\hyperlink{namespacereserva_abc78bb5b5a22cbc8748d4623f5e1b253}{voos}}\ de\ volta.</p>\`{};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{\textcolor{comment}{//\ CONFIGURAÇÃO\ INICIAL}}
+\DoxyCodeLine{\textcolor{comment}{//\ =============================================}}
+\DoxyCodeLine{}
+\DoxyCodeLine{document.querySelector(\textcolor{stringliteral}{'.form'}).addEventListener(\textcolor{stringliteral}{'submit'},\ \mbox{\hyperlink{busca__form_8js_a2252e310f17766e45ece26155391c379}{buscarVoos}});}
+
+\end{DoxyCodeInclude}
+ 

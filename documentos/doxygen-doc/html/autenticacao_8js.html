@@ -92,345 +92,112 @@ $(function(){initNavTree('autenticacao_8js.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Manipulação do chat interativo e exibição de passagens aéreas.  
+<p>Manipuladores de autenticação (login, cadastro, recuperação)  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aec73008ddbb0a8ec29440803bafaa42b" id="r_aec73008ddbb0a8ec29440803bafaa42b"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec73008ddbb0a8ec29440803bafaa42b">abrirChatbot</a> ()</td></tr>
-<tr class="memdesc:aec73008ddbb0a8ec29440803bafaa42b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alterna o estado de abertura/fechamento do chat @function abrirChatbot.  <br /></td></tr>
-<tr class="memitem:a8d1b2a5b46cd0c83115461dec7129c37" id="r_a8d1b2a5b46cd0c83115461dec7129c37"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d1b2a5b46cd0c83115461dec7129c37">dataEnvioMensagem</a> ()</td></tr>
-<tr class="memdesc:a8d1b2a5b46cd0c83115461dec7129c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formata a data atual para exibição nas mensagens @function dataEnvioMensagem.  <br /></td></tr>
-<tr class="memitem:ace43271686857a1de91fa798a14c7f40" id="r_ace43271686857a1de91fa798a14c7f40"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace43271686857a1de91fa798a14c7f40">gerarMinhaMensagem</a> (mensagem)</td></tr>
-<tr class="memdesc:ace43271686857a1de91fa798a14c7f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exibe a mensagem do usuário no histórico do chat @function gerarMinhaMensagem.  <br /></td></tr>
-<tr class="memitem:aaedcdd3fc7ce31305490b99423ad452d" id="r_aaedcdd3fc7ce31305490b99423ad452d"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaedcdd3fc7ce31305490b99423ad452d">gerarMensagemChatbot</a> (resposta)</td></tr>
-<tr class="memdesc:aaedcdd3fc7ce31305490b99423ad452d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exibe a mensagem do chatbot no histórico do chat @function gerarMensagemChatbot.  <br /></td></tr>
-<tr class="memitem:a9355f84fc18b7aea2f477a3c3e3ff37f" id="r_a9355f84fc18b7aea2f477a3c3e3ff37f"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9355f84fc18b7aea2f477a3c3e3ff37f">enviarServidor</a> (mensagem)</td></tr>
-<tr class="memdesc:a9355f84fc18b7aea2f477a3c3e3ff37f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia mensagem para o servidor e obtém resposta @function enviarServidor.  <br /></td></tr>
-<tr class="memitem:a27a90277a1dedf309de4566d48a48c11" id="r_a27a90277a1dedf309de4566d48a48c11"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27a90277a1dedf309de4566d48a48c11">enviar</a> ()</td></tr>
-<tr class="memdesc:a27a90277a1dedf309de4566d48a48c11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processa o envio de mensagem e valida campo vazio @function enviar.  <br /></td></tr>
-<tr class="memitem:a5afefe056663788728527c3985540f1e" id="r_a5afefe056663788728527c3985540f1e"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5afefe056663788728527c3985540f1e">tratarResultado</a> (resultado)</td></tr>
-<tr class="memdesc:a5afefe056663788728527c3985540f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processa a resposta do servidor e direciona para a função adequada @function tratarResultado.  <br /></td></tr>
-<tr class="memitem:a273cc60fa33168e348d48a0f3fa2713c" id="r_a273cc60fa33168e348d48a0f3fa2713c"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a273cc60fa33168e348d48a0f3fa2713c">renderizarPassagens</a> (passagens)</td></tr>
-<tr class="memdesc:a273cc60fa33168e348d48a0f3fa2713c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza a lista de passagens aéreas disponíveis @function renderizarPassagens.  <br /></td></tr>
-<tr class="memitem:a460dd22625e80de083783cd5beedc665" id="r_a460dd22625e80de083783cd5beedc665"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a460dd22625e80de083783cd5beedc665">renderizarConversas</a> (conversas)</td></tr>
-<tr class="memdesc:a460dd22625e80de083783cd5beedc665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza o histórico de conversas anteriores @function renderizarConversas.  <br /></td></tr>
-<tr class="memitem:a66e3f7b2131a5757b4952f942cc71121" id="r_a66e3f7b2131a5757b4952f942cc71121"><td class="memItemLeft" align="right" valign="top">function async&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66e3f7b2131a5757b4952f942cc71121">cardSelecionado</a> (id)</td></tr>
-<tr class="memdesc:a66e3f7b2131a5757b4952f942cc71121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processa a seleção de um voo específico @function cardSelecionado.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a4a217001c3ce25fe90bbe23b9ed4badb" id="r_a4a217001c3ce25fe90bbe23b9ed4badb"><td class="memItemLeft" align="right" valign="top">let&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a217001c3ce25fe90bbe23b9ed4badb">chatAberto</a> = false</td></tr>
+<tr class="memitem:a77d47da9400302067f0fc5d40d19883b" id="r_a77d47da9400302067f0fc5d40d19883b"><td class="memItemLeft" align="right" valign="top">document&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77d47da9400302067f0fc5d40d19883b">getElementById</a> ('loginForm')?.addEventListener('submit'</td></tr>
+<tr class="memdesc:a77d47da9400302067f0fc5d40d19883b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manipulador de evento para formulário de login manual @listens document#loginForm:submit.  <br /></td></tr>
+<tr class="memitem:a4874d3099b3ca54f264a573cd2cc1b2a" id="r_a4874d3099b3ca54f264a573cd2cc1b2a"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4874d3099b3ca54f264a573cd2cc1b2a">async</a> (<a class="el" href="reserva_8js.html#a2c038346d47955cbe2cb91e338edd7e1">e</a>)</td></tr>
+<tr class="memitem:a5b4c1785e387fe8ae95ad778799f5f88" id="r_a5b4c1785e387fe8ae95ad778799f5f88"><td class="memItemLeft" align="right" valign="top">document&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b4c1785e387fe8ae95ad778799f5f88">querySelector</a> ('.google-login')?.addEventListener('click'</td></tr>
+<tr class="memdesc:a5b4c1785e387fe8ae95ad778799f5f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manipulador de evento para login com Google @listens .google-login:click @fires fetch#google-login.  <br /></td></tr>
+<tr class="memitem:adfa61cdb3c58a1055b127a6a5559df3f" id="r_adfa61cdb3c58a1055b127a6a5559df3f"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfa61cdb3c58a1055b127a6a5559df3f">async</a> ()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manipulação do chat interativo e exibição de passagens aéreas. </p>
+<div class="textblock"><p>Manipuladores de autenticação (login, cadastro, recuperação) </p>
 <dl class="section author"><dt>Author</dt><dd>LILIA ROSA COELHO MOURA <a href="#" onclick="location.href='mai'+'lto:'+'lil'+'ia'+'.ro'+'sa'+'@di'+'sc'+'ent'+'e.'+'ufm'+'a.'+'br'; return false;">lilia<span class="obfuscator">.nosp@m.</span>.ros<span class="obfuscator">.nosp@m.</span>a@dis<span class="obfuscator">.nosp@m.</span>cent<span class="obfuscator">.nosp@m.</span>e.ufm<span class="obfuscator">.nosp@m.</span>a.br</a> </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="aec73008ddbb0a8ec29440803bafaa42b" name="aec73008ddbb0a8ec29440803bafaa42b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec73008ddbb0a8ec29440803bafaa42b">&#9670;&#160;</a></span>abrirChatbot()</h2>
+<a id="adfa61cdb3c58a1055b127a6a5559df3f" name="adfa61cdb3c58a1055b127a6a5559df3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfa61cdb3c58a1055b127a6a5559df3f">&#9670;&#160;</a></span>async() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">function abrirChatbot </td>
+          <td class="memname">function async </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Alterna o estado de abertura/fechamento do chat @function abrirChatbot. </p>
-
-</div>
-</div>
-<a id="a66e3f7b2131a5757b4952f942cc71121" name="a66e3f7b2131a5757b4952f942cc71121"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66e3f7b2131a5757b4952f942cc71121">&#9670;&#160;</a></span>cardSelecionado()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">function async cardSelecionado </td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Processa a seleção de um voo específico @function cardSelecionado. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{number}</td><td>id - ID do voo selecionado @async </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8d1b2a5b46cd0c83115461dec7129c37" name="a8d1b2a5b46cd0c83115461dec7129c37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d1b2a5b46cd0c83115461dec7129c37">&#9670;&#160;</a></span>dataEnvioMensagem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">function dataEnvioMensagem </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Formata a data atual para exibição nas mensagens @function dataEnvioMensagem. </p>
-<dl class="section return"><dt>Returns</dt><dd>{string} Data formatada no padrão DD/MM/AA </dd></dl>
 <div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><!-- SVG 0 --></div>
 </div>
 
 </div>
 </div>
-<a id="a27a90277a1dedf309de4566d48a48c11" name="a27a90277a1dedf309de4566d48a48c11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27a90277a1dedf309de4566d48a48c11">&#9670;&#160;</a></span>enviar()</h2>
+<a id="a4874d3099b3ca54f264a573cd2cc1b2a" name="a4874d3099b3ca54f264a573cd2cc1b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4874d3099b3ca54f264a573cd2cc1b2a">&#9670;&#160;</a></span>async() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">function enviar </td>
+          <td class="memname">function async </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Processa o envio de mensagem e valida campo vazio @function enviar. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#_a9">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>, and <a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015.html#_a7">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/historico.js</a>.</dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><!-- SVG 1 --></div>
 </div>
-
-</div>
-</div>
-<a id="a9355f84fc18b7aea2f477a3c3e3ff37f" name="a9355f84fc18b7aea2f477a3c3e3ff37f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9355f84fc18b7aea2f477a3c3e3ff37f">&#9670;&#160;</a></span>enviarServidor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">function enviarServidor </td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mensagem</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Envia mensagem para o servidor e obtém resposta @function enviarServidor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{string}</td><td>mensagem - Mensagem do usuário para processamento </td></tr>
-  </table>
-  </dd>
-</dl>
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><!-- SVG 2 --></div>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 3 --></div>
-</div>
 
 </div>
 </div>
-<a id="aaedcdd3fc7ce31305490b99423ad452d" name="aaedcdd3fc7ce31305490b99423ad452d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaedcdd3fc7ce31305490b99423ad452d">&#9670;&#160;</a></span>gerarMensagemChatbot()</h2>
+<a id="a77d47da9400302067f0fc5d40d19883b" name="a77d47da9400302067f0fc5d40d19883b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77d47da9400302067f0fc5d40d19883b">&#9670;&#160;</a></span>getElementById()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">function gerarMensagemChatbot </td>
+          <td class="memname">document getElementById </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>resposta</em></span></td><td>)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>'reosetPasswordFrm'</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Exibe a mensagem do chatbot no histórico do chat @function gerarMensagemChatbot. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{string}</td><td>resposta - Texto da resposta do chatbot </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 4 --></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 5 --></div>
-</div>
+<p>Manipulador de evento para formulário de login manual @listens document#loginForm:submit. </p>
+<p>Aplica máscara de telefone ((00) 00000-0000) @event telefone#input @listens telefone#input.</p>
+<p>Manipulador de evento para recuperação de senha @listens document#reosetPasswordFrm:submit.</p>
+<p>Manipulador de evento para formulário de cadastro @listens document#registerForm:submit.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo</a></b></dt><dd>Corrigir typo no ID do formulário (reosetPasswordFrm) </dd></dl>
 
 </div>
 </div>
-<a id="ace43271686857a1de91fa798a14c7f40" name="ace43271686857a1de91fa798a14c7f40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace43271686857a1de91fa798a14c7f40">&#9670;&#160;</a></span>gerarMinhaMensagem()</h2>
+<a id="a5b4c1785e387fe8ae95ad778799f5f88" name="a5b4c1785e387fe8ae95ad778799f5f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b4c1785e387fe8ae95ad778799f5f88">&#9670;&#160;</a></span>querySelector()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">function gerarMinhaMensagem </td>
+          <td class="memname">document querySelector </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mensagem</em></span></td><td>)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>'.google-login'</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Exibe a mensagem do usuário no histórico do chat @function gerarMinhaMensagem. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{string}</td><td>mensagem - Texto da mensagem do usuário </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 6 --></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 7 --></div>
-</div>
-
-</div>
-</div>
-<a id="a460dd22625e80de083783cd5beedc665" name="a460dd22625e80de083783cd5beedc665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a460dd22625e80de083783cd5beedc665">&#9670;&#160;</a></span>renderizarConversas()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">function renderizarConversas </td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>conversas</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Renderiza o histórico de conversas anteriores @function renderizarConversas. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{Array}</td><td>conversas - Lista de mensagens históricas </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 8 --></div>
-</div>
-
-</div>
-</div>
-<a id="a273cc60fa33168e348d48a0f3fa2713c" name="a273cc60fa33168e348d48a0f3fa2713c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a273cc60fa33168e348d48a0f3fa2713c">&#9670;&#160;</a></span>renderizarPassagens()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">function renderizarPassagens </td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>passagens</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Renderiza a lista de passagens aéreas disponíveis @function renderizarPassagens. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{Array}</td><td>passagens - Lista de voos disponíveis </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 9 --></div>
-</div>
-
-</div>
-</div>
-<a id="a5afefe056663788728527c3985540f1e" name="a5afefe056663788728527c3985540f1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5afefe056663788728527c3985540f1e">&#9670;&#160;</a></span>tratarResultado()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">function tratarResultado </td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>resultado</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Processa a resposta do servidor e direciona para a função adequada @function tratarResultado. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{Object}</td><td>resultado - Resposta do servidor </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 10 --></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><!-- SVG 11 --></div>
-</div>
-
-</div>
-</div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a4a217001c3ce25fe90bbe23b9ed4badb" name="a4a217001c3ce25fe90bbe23b9ed4badb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a217001c3ce25fe90bbe23b9ed4badb">&#9670;&#160;</a></span>chatAberto</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">let chatAberto = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Manipulador de evento para login com Google @listens .google-login:click @fires fetch#google-login. </p>
 
 </div>
 </div>

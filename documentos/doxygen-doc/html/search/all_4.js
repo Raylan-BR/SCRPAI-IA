@@ -2,7 +2,7 @@ var searchData=
 [
   ['database_0',['database',['../namespacedatabase.html',1,'']]],
   ['database_2epy_1',['database.py',['../database_8py.html',1,'']]],
-  ['dataenviomensagem_2',['dataEnvioMensagem',['../autenticacao_8js.html#a8d1b2a5b46cd0c83115461dec7129c37',1,'dataEnvioMensagem():&#160;autenticacao.js'],['../busca__chat_8js.html#a8d1b2a5b46cd0c83115461dec7129c37',1,'dataEnvioMensagem():&#160;busca_chat.js']]],
+  ['dataenviomensagem_2',['dataEnvioMensagem',['../busca__chat_8js.html#a8d1b2a5b46cd0c83115461dec7129c37',1,'busca_chat.js']]],
   ['dataservice_3',['DataService',['../class_data_service.html',1,'']]],
   ['dataservice_2ejs_4',['dataService.js',['../data_service_8js.html',1,'']]],
   ['datavoltadiv_5',['dataVoltaDiv',['../busca__form_8js.html#a6156b07b18c0cd57b6e627c62bad4418',1,'busca_form.js']]],

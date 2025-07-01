@@ -1,14 +1,7 @@
 var autenticacao_8js =
 [
-    [ "abrirChatbot", "autenticacao_8js.html#aec73008ddbb0a8ec29440803bafaa42b", null ],
-    [ "cardSelecionado", "autenticacao_8js.html#a66e3f7b2131a5757b4952f942cc71121", null ],
-    [ "dataEnvioMensagem", "autenticacao_8js.html#a8d1b2a5b46cd0c83115461dec7129c37", null ],
-    [ "enviar", "autenticacao_8js.html#a27a90277a1dedf309de4566d48a48c11", null ],
-    [ "enviarServidor", "autenticacao_8js.html#a9355f84fc18b7aea2f477a3c3e3ff37f", null ],
-    [ "gerarMensagemChatbot", "autenticacao_8js.html#aaedcdd3fc7ce31305490b99423ad452d", null ],
-    [ "gerarMinhaMensagem", "autenticacao_8js.html#ace43271686857a1de91fa798a14c7f40", null ],
-    [ "renderizarConversas", "autenticacao_8js.html#a460dd22625e80de083783cd5beedc665", null ],
-    [ "renderizarPassagens", "autenticacao_8js.html#a273cc60fa33168e348d48a0f3fa2713c", null ],
-    [ "tratarResultado", "autenticacao_8js.html#a5afefe056663788728527c3985540f1e", null ],
-    [ "chatAberto", "autenticacao_8js.html#a4a217001c3ce25fe90bbe23b9ed4badb", null ]
+    [ "async", "autenticacao_8js.html#adfa61cdb3c58a1055b127a6a5559df3f", null ],
+    [ "async", "autenticacao_8js.html#a4874d3099b3ca54f264a573cd2cc1b2a", null ],
+    [ "getElementById", "autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b", null ],
+    [ "querySelector", "autenticacao_8js.html#a5b4c1785e387fe8ae95ad778799f5f88", null ]
 ];

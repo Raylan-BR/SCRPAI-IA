@@ -1,8 +1,8 @@
 var searchData=
 [
   ['register_0',['register',['../namespaceauth.html#ad01e6349933b8fb8409229c64c993686',1,'auth']]],
-  ['renderizarconversas_1',['renderizarConversas',['../autenticacao_8js.html#a460dd22625e80de083783cd5beedc665',1,'renderizarConversas(conversas):&#160;autenticacao.js'],['../busca__chat_8js.html#a460dd22625e80de083783cd5beedc665',1,'renderizarConversas(conversas):&#160;busca_chat.js']]],
-  ['renderizarpassagens_2',['renderizarPassagens',['../autenticacao_8js.html#a273cc60fa33168e348d48a0f3fa2713c',1,'renderizarPassagens(passagens):&#160;autenticacao.js'],['../busca__chat_8js.html#a273cc60fa33168e348d48a0f3fa2713c',1,'renderizarPassagens(passagens):&#160;busca_chat.js']]],
+  ['renderizarconversas_1',['renderizarConversas',['../busca__chat_8js.html#a460dd22625e80de083783cd5beedc665',1,'busca_chat.js']]],
+  ['renderizarpassagens_2',['renderizarPassagens',['../busca__chat_8js.html#a273cc60fa33168e348d48a0f3fa2713c',1,'busca_chat.js']]],
   ['reserva_3',['reserva',['../namespacereserva.html',1,'']]],
   ['reserva_2ejs_4',['reserva.js',['../reserva_8js.html',1,'']]],
   ['reserva_2epy_5',['reserva.py',['../reserva_8py.html',1,'(Global Namespace)'],['../routes_2reserva_8py.html',1,'(Global Namespace)']]],

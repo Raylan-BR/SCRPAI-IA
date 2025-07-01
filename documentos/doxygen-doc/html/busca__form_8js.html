@@ -91,37 +91,28 @@ $(function(){initNavTree('busca__form_8js.html','',''); });
   <div class="headertitle"><div class="title">busca_form.js File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Script para busca e exibição de voos.  
-<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7602c44cee64b331704c1405050258ab" id="r_a7602c44cee64b331704c1405050258ab"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7602c44cee64b331704c1405050258ab">criarCardVoo</a> (voo, index, tipo=&quot;ida&quot;)</td></tr>
-<tr class="memdesc:a7602c44cee64b331704c1405050258ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um card de voo para exibição @function criarCardVoo.  <br /></td></tr>
 <tr class="memitem:a47226e9c585e103773e707883d8cd675" id="r_a47226e9c585e103773e707883d8cd675"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47226e9c585e103773e707883d8cd675">calcularDistancia</a> (cidade1, cidade2)</td></tr>
-<tr class="memdesc:a47226e9c585e103773e707883d8cd675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula distância entre duas cidades em km @function calcularDistancia.  <br /></td></tr>
 <tr class="memitem:a1918846e44528416b860c8931a7a1739" id="r_a1918846e44528416b860c8931a7a1739"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1918846e44528416b860c8931a7a1739">gerarVoosMock</a> (origem, destino, data, adultos)</td></tr>
-<tr class="memdesc:a1918846e44528416b860c8931a7a1739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gera dados mockados de voos realistas @function gerarVoosMock.  <br /></td></tr>
-<tr class="memitem:a195840110c22307347bbc6459bbbca41" id="r_a195840110c22307347bbc6459bbbca41"><td class="memItemLeft" align="right" valign="top">function async&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a195840110c22307347bbc6459bbbca41">buscarVoos</a> (<a class="el" href="busca__chat_8js.html#a44496511cf798ffcd9ca0740253067c3">event</a>)</td></tr>
-<tr class="memdesc:a195840110c22307347bbc6459bbbca41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a busca de voos (função principal) @async @function buscarVoos.  <br /></td></tr>
+<tr class="memitem:a195840110c22307347bbc6459bbbca41" id="r_a195840110c22307347bbc6459bbbca41"><td class="memItemLeft" align="right" valign="top">function <a class="el" href="autenticacao_8js.html#a4874d3099b3ca54f264a573cd2cc1b2a">async</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a195840110c22307347bbc6459bbbca41">buscarVoos</a> (<a class="el" href="busca__chat_8js.html#a44496511cf798ffcd9ca0740253067c3">event</a>)</td></tr>
 <tr class="memitem:a4c80e668efef0efc3cb5874af389260e" id="r_a4c80e668efef0efc3cb5874af389260e"><td class="memItemLeft" align="right" valign="top">document&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c80e668efef0efc3cb5874af389260e">querySelector</a> ('.form').addEventListener('submit'</td></tr>
+<tr class="memdesc:a4c80e668efef0efc3cb5874af389260e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona listener para o evento de submit do formulário @listens form#submit.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a2267fd6d80998093d2b8354ce585bb53" id="r_a2267fd6d80998093d2b8354ce585bb53"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2267fd6d80998093d2b8354ce585bb53">idaBolinha</a> = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('ida')</td></tr>
-<tr class="memitem:ad57b82b1afe1cd3947b906b2ca5377a3" id="r_ad57b82b1afe1cd3947b906b2ca5377a3"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad57b82b1afe1cd3947b906b2ca5377a3">idaVoltaBolinha</a> = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('ida-<a class="el" href="reserva_8js.html#a2c038346d47955cbe2cb91e338edd7e1">e</a>-volta')</td></tr>
-<tr class="memitem:a6156b07b18c0cd57b6e627c62bad4418" id="r_a6156b07b18c0cd57b6e627c62bad4418"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6156b07b18c0cd57b6e627c62bad4418">dataVoltaDiv</a> = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('data-volta-div')</td></tr>
-<tr class="memitem:abee6f2ce657f4d195d24d068ac8762e6" id="r_abee6f2ce657f4d195d24d068ac8762e6"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abee6f2ce657f4d195d24d068ac8762e6">dataVoltaInput</a> = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('data-volta')</td></tr>
-<tr class="memitem:ab76e6d63e3286857093d5b4fb795f8b0" id="r_ab76e6d63e3286857093d5b4fb795f8b0"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab76e6d63e3286857093d5b4fb795f8b0">containerVolta</a> = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('container-volta')</td></tr>
+<tr class="memitem:a2267fd6d80998093d2b8354ce585bb53" id="r_a2267fd6d80998093d2b8354ce585bb53"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2267fd6d80998093d2b8354ce585bb53">idaBolinha</a> = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('ida')</td></tr>
+<tr class="memdesc:a2267fd6d80998093d2b8354ce585bb53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elementos do formulário de busca @const {HTMLElement} idaBolinha - Radio button para viagem só de ida @const {HTMLElement} idaVoltaBolinha - Radio button para viagem ida e volta @const {HTMLElement} dataVoltaDiv - Div que contém o campo de data de volta @const {HTMLElement} dataVoltaInput - Input para data de volta @const {HTMLElement} containerVolta - Container dos resultados de voos de volta.  <br /></td></tr>
+<tr class="memitem:ad57b82b1afe1cd3947b906b2ca5377a3" id="r_ad57b82b1afe1cd3947b906b2ca5377a3"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad57b82b1afe1cd3947b906b2ca5377a3">idaVoltaBolinha</a> = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('ida-<a class="el" href="reserva_8js.html#a2c038346d47955cbe2cb91e338edd7e1">e</a>-volta')</td></tr>
+<tr class="memitem:a6156b07b18c0cd57b6e627c62bad4418" id="r_a6156b07b18c0cd57b6e627c62bad4418"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6156b07b18c0cd57b6e627c62bad4418">dataVoltaDiv</a> = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('data-volta-div')</td></tr>
+<tr class="memitem:abee6f2ce657f4d195d24d068ac8762e6" id="r_abee6f2ce657f4d195d24d068ac8762e6"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abee6f2ce657f4d195d24d068ac8762e6">dataVoltaInput</a> = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('data-volta')</td></tr>
+<tr class="memitem:ab76e6d63e3286857093d5b4fb795f8b0" id="r_ab76e6d63e3286857093d5b4fb795f8b0"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab76e6d63e3286857093d5b4fb795f8b0">containerVolta</a> = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('container-volta')</td></tr>
 <tr class="memitem:a284392afde7c4977f56dd2ac3ef4dff9" id="r_a284392afde7c4977f56dd2ac3ef4dff9"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a284392afde7c4977f56dd2ac3ef4dff9">cidades</a></td></tr>
-<tr class="memdesc:a284392afde7c4977f56dd2ac3ef4dff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Banco de dados de cidades com coordenadas @const {Object} cidades.  <br /></td></tr>
 <tr class="memitem:a2252e310f17766e45ece26155391c379" id="r_a2252e310f17766e45ece26155391c379"><td class="memItemLeft" align="right" valign="top">document&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2252e310f17766e45ece26155391c379">buscarVoos</a></td></tr>
 </table>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Script para busca e exibição de voos. </p>
-<dl class="section author"><dt>Author</dt><dd>KAUAN GUILHERME ALVES PINHEIRO SANTOS <a href="#" onclick="location.href='mai'+'lto:'+'kau'+'an'+'.sa'+'nt'+'os@'+'di'+'sce'+'nt'+'e.u'+'fm'+'a.b'+'r'; return false;">kauan<span class="obfuscator">.nosp@m.</span>.san<span class="obfuscator">.nosp@m.</span>tos@d<span class="obfuscator">.nosp@m.</span>isce<span class="obfuscator">.nosp@m.</span>nte.u<span class="obfuscator">.nosp@m.</span>fma.<span class="obfuscator">.nosp@m.</span>br</a> </dd></dl>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a195840110c22307347bbc6459bbbca41" name="a195840110c22307347bbc6459bbbca41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a195840110c22307347bbc6459bbbca41">&#9670;&#160;</a></span>buscarVoos()</h2>
 
@@ -129,21 +120,13 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">function async buscarVoos </td>
+          <td class="memname">function <a class="el" href="autenticacao_8js.html#a4874d3099b3ca54f264a573cd2cc1b2a">async</a> buscarVoos </td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Realiza a busca de voos (função principal) @async @function buscarVoos. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{Event}</td><td>event - Evento de submit do formulário </td></tr>
-  </table>
-  </dd>
-</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -170,16 +153,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Calcula distância entre duas cidades em km @function calcularDistancia. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{string}</td><td>cidade1 - Nome da cidade de origem </td></tr>
-    <tr><td class="paramname">{string}</td><td>cidade2 - Nome da cidade de destino </td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#a7">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>{number} Distância em quilômetros </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -211,17 +186,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Cria um card de voo para exibição @function criarCardVoo. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">{Object}</td><td>voo - Dados do voo </td></tr>
-    <tr><td class="paramname">{number}</td><td>index - Índice do voo </td></tr>
-    <tr><td class="paramname">{string}</td><td>[tipo="ida"] - Tipo do voo (ida/volta) </td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#a5">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>{HTMLElement} Elemento HTML do card de voo </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -258,18 +224,47 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Gera dados mockados de voos realistas @function gerarVoosMock. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Gera horário de partida realista baseado no tipo de voo @function gerarHorarioPartida </p><dl class="section return"><dt>Returns</dt><dd>{string} Horário no formato HH:MM</dd></dl>
+<p>Calcula horário de chegada baseado na partida e duração @function calcularHorarioChegada </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">{string}</td><td>origem - Cidade de origem </td></tr>
-    <tr><td class="paramname">{string}</td><td>destino - Cidade de destino </td></tr>
-    <tr><td class="paramname">{string}</td><td>data - Data do voo </td></tr>
-    <tr><td class="paramname">{number}</td><td>adultos - Número de passageiros </td></tr>
+    <tr><td class="paramname">{string}</td><td>partida - Horário de partida (HH:MM) </td></tr>
+    <tr><td class="paramname">{number}</td><td>duracaoMinutos - Duração do voo em minutos </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>{Array} Lista de voos gerados </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>{string} Horário de chegada no formato HH:MM</dd></dl>
+<p>Gera duração realista para o voo baseado na distância @function gerarDuracao </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{number}</td><td>distancia - Distância em km </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Object} Objeto com texto formatado e valor em minutos</dd></dl>
+<p>Determina número de escalas baseado na distância e tipo de voo @function gerarEscalas </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{number}</td><td>distancia - Distância em km </td></tr>
+    <tr><td class="paramname">{boolean}</td><td>isInternacional - Se é voo internacional </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{string} Descrição das escalas</dd></dl>
+<p>Calcula preço realista baseado em múltiplos fatores @function gerarPreco </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{number}</td><td>distancia - Distância em km </td></tr>
+    <tr><td class="paramname">{boolean}</td><td>isInternacional - Se é voo internacional </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{number} Preço calculado</dd></dl>
+<p>Seleciona aeronave apropriada para o tipo de voo @function selecionarAeronave </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{boolean}</td><td>isInternacional - Se é voo internacional </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{string} Modelo da aeronave</dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#a8">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -298,6 +293,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Adiciona listener para o evento de submit do formulário @listens form#submit. </p>
+
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
@@ -312,6 +309,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#a10">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -328,10 +327,25 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
 <div class="line">    <span class="stringliteral">&quot;São Paulo&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -23.55, lng: -46.63 },</div>
-<div class="line">    </div>
+<div class="line">    <span class="stringliteral">&quot;Rio de Janeiro&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -22.91, lng: -43.20 },</div>
+<div class="line">    <span class="stringliteral">&quot;Belo Horizonte&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -19.92, lng: -43.94 },</div>
+<div class="line">    <span class="stringliteral">&quot;Brasília&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -15.78, lng: -47.93 },</div>
+<div class="line">    <span class="stringliteral">&quot;Salvador&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -12.97, lng: -38.50 },</div>
+<div class="line">    <span class="stringliteral">&quot;Fortaleza&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -3.73, lng: -38.52 },</div>
+<div class="line">    <span class="stringliteral">&quot;Recife&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -8.05, lng: -34.90 },</div>
+<div class="line">    <span class="stringliteral">&quot;Manaus&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -3.10, lng: -60.02 },</div>
+<div class="line">    <span class="stringliteral">&quot;São Luís&quot;</span>: { pais: <span class="stringliteral">&quot;Brasil&quot;</span>, lat: -2.53, lng: -44.30 },</div>
+<div class="line">    <span class="stringliteral">&quot;Londres&quot;</span>: { pais: <span class="stringliteral">&quot;Reino Unido&quot;</span>, lat: 51.51, lng: -0.13 },</div>
+<div class="line">    <span class="stringliteral">&quot;Paris&quot;</span>: { pais: <span class="stringliteral">&quot;França&quot;</span>, lat: 48.86, lng: 2.35 },</div>
+<div class="line">    <span class="stringliteral">&quot;Nova York&quot;</span>: { pais: <span class="stringliteral">&quot;EUA&quot;</span>, lat: 40.71, lng: -74.01 },</div>
+<div class="line">    <span class="stringliteral">&quot;Miami&quot;</span>: { pais: <span class="stringliteral">&quot;EUA&quot;</span>, lat: 25.76, lng: -80.19 },</div>
+<div class="line">    <span class="stringliteral">&quot;Lisboa&quot;</span>: { pais: <span class="stringliteral">&quot;Portugal&quot;</span>, lat: 38.72, lng: -9.14 },</div>
+<div class="line">    <span class="stringliteral">&quot;Madrid&quot;</span>: { pais: <span class="stringliteral">&quot;Espanha&quot;</span>, lat: 40.42, lng: -3.70 },</div>
+<div class="line">    <span class="stringliteral">&quot;Buenos Aires&quot;</span>: { pais: <span class="stringliteral">&quot;Argentina&quot;</span>, lat: -34.60, lng: -58.38 },</div>
+<div class="line">    <span class="stringliteral">&quot;Santiago&quot;</span>: { pais: <span class="stringliteral">&quot;Chile&quot;</span>, lat: -33.45, lng: -70.67 }</div>
 <div class="line">}</div>
-</div><!-- fragment -->
-<p>Banco de dados de cidades com coordenadas @const {Object} cidades. </p>
+</div><!-- fragment --><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#_a6">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -342,10 +356,12 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const containerVolta = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('container-volta')</td>
+          <td class="memname">const containerVolta = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('container-volta')</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#_a4">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -356,10 +372,12 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const dataVoltaDiv = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('data-volta-div')</td>
+          <td class="memname">const dataVoltaDiv = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('data-volta-div')</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#_a2">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -370,10 +388,12 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const dataVoltaInput = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('data-volta')</td>
+          <td class="memname">const dataVoltaInput = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('data-volta')</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#_a3">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -384,10 +404,14 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const idaBolinha = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('ida')</td>
+          <td class="memname">const idaBolinha = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('ida')</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Elementos do formulário de busca @const {HTMLElement} idaBolinha - Radio button para viagem só de ida @const {HTMLElement} idaVoltaBolinha - Radio button para viagem ida e volta @const {HTMLElement} dataVoltaDiv - Div que contém o campo de data de volta @const {HTMLElement} dataVoltaInput - Input para data de volta @const {HTMLElement} containerVolta - Container dos resultados de voos de volta. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#_a0">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -398,10 +422,12 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const idaVoltaBolinha = <a class="el" href="busca__chat_8js.html#a89d354d28003a468dda1fc1af44bfff2">document.getElementById</a>('ida-<a class="el" href="reserva_8js.html#a2c038346d47955cbe2cb91e338edd7e1">e</a>-volta')</td>
+          <td class="memname">const idaVoltaBolinha = <a class="el" href="autenticacao_8js.html#a77d47da9400302067f0fc5d40d19883b">document.getElementById</a>('ida-<a class="el" href="reserva_8js.html#a2c038346d47955cbe2cb91e338edd7e1">e</a>-volta')</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642.html#_a1">C:/Users/CLIENTE/Documents/programacao/faculdade/SCRPAI-IA/codigo/frontend/js/busca_form.js</a>.</dd>
+</dl>
 
 </div>
 </div>

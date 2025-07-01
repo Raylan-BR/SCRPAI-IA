@@ -1,48 +1,35 @@
 \doxysection{codigo/frontend/js/busca\+\_\+form.js File Reference}
 \hypertarget{busca__form_8js}{}\label{busca__form_8js}\index{codigo/frontend/js/busca\_form.js@{codigo/frontend/js/busca\_form.js}}
-
-
-Script para busca e exibição de voos.  
-
-
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 function \mbox{\hyperlink{busca__form_8js_a7602c44cee64b331704c1405050258ab}{criar\+Card\+Voo}} (voo, index, tipo="{}ida"{})
-\begin{DoxyCompactList}\small\item\em Cria um card de voo para exibição @function criar\+Card\+Voo. \end{DoxyCompactList}\item 
+\item 
 function \mbox{\hyperlink{busca__form_8js_a47226e9c585e103773e707883d8cd675}{calcular\+Distancia}} (cidade1, cidade2)
-\begin{DoxyCompactList}\small\item\em Calcula distância entre duas cidades em km @function calcular\+Distancia. \end{DoxyCompactList}\item 
+\item 
 function \mbox{\hyperlink{busca__form_8js_a1918846e44528416b860c8931a7a1739}{gerar\+Voos\+Mock}} (origem, destino, data, adultos)
-\begin{DoxyCompactList}\small\item\em Gera dados mockados de voos realistas @function gerar\+Voos\+Mock. \end{DoxyCompactList}\item 
-function async \mbox{\hyperlink{busca__form_8js_a195840110c22307347bbc6459bbbca41}{buscar\+Voos}} (\mbox{\hyperlink{busca__chat_8js_a44496511cf798ffcd9ca0740253067c3}{event}})
-\begin{DoxyCompactList}\small\item\em Realiza a busca de voos (função principal) @async @function buscar\+Voos. \end{DoxyCompactList}\item 
+\item 
+function \mbox{\hyperlink{autenticacao_8js_a4874d3099b3ca54f264a573cd2cc1b2a}{async}} \mbox{\hyperlink{busca__form_8js_a195840110c22307347bbc6459bbbca41}{buscar\+Voos}} (\mbox{\hyperlink{busca__chat_8js_a44496511cf798ffcd9ca0740253067c3}{event}})
+\item 
 document \mbox{\hyperlink{busca__form_8js_a4c80e668efef0efc3cb5874af389260e}{query\+Selector}} (\textquotesingle{}.form\textquotesingle{}).add\+Event\+Listener(\textquotesingle{}submit\textquotesingle{}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Adiciona listener para o evento de submit do formulário @listens form\#submit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const \mbox{\hyperlink{busca__form_8js_a2267fd6d80998093d2b8354ce585bb53}{ida\+Bolinha}} = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}ida\textquotesingle{})
+const \mbox{\hyperlink{busca__form_8js_a2267fd6d80998093d2b8354ce585bb53}{ida\+Bolinha}} = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}ida\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Elementos do formulário de busca @const \{HTMLElement\} ida\+Bolinha -\/ Radio button para viagem só de ida @const \{HTMLElement\} ida\+Volta\+Bolinha -\/ Radio button para viagem ida e volta @const \{HTMLElement\} data\+Volta\+Div -\/ Div que contém o campo de data de volta @const \{HTMLElement\} data\+Volta\+Input -\/ Input para data de volta @const \{HTMLElement\} container\+Volta -\/ Container dos resultados de voos de volta. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{busca__form_8js_ad57b82b1afe1cd3947b906b2ca5377a3}{ida\+Volta\+Bolinha}} = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}ida-\/\mbox{\hyperlink{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}}-\/volta\textquotesingle{})
 \item 
-const \mbox{\hyperlink{busca__form_8js_ad57b82b1afe1cd3947b906b2ca5377a3}{ida\+Volta\+Bolinha}} = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}ida-\/\mbox{\hyperlink{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}}-\/volta\textquotesingle{})
+const \mbox{\hyperlink{busca__form_8js_a6156b07b18c0cd57b6e627c62bad4418}{data\+Volta\+Div}} = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}data-\/volta-\/div\textquotesingle{})
 \item 
-const \mbox{\hyperlink{busca__form_8js_a6156b07b18c0cd57b6e627c62bad4418}{data\+Volta\+Div}} = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}data-\/volta-\/div\textquotesingle{})
+const \mbox{\hyperlink{busca__form_8js_abee6f2ce657f4d195d24d068ac8762e6}{data\+Volta\+Input}} = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}data-\/volta\textquotesingle{})
 \item 
-const \mbox{\hyperlink{busca__form_8js_abee6f2ce657f4d195d24d068ac8762e6}{data\+Volta\+Input}} = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}data-\/volta\textquotesingle{})
-\item 
-const \mbox{\hyperlink{busca__form_8js_ab76e6d63e3286857093d5b4fb795f8b0}{container\+Volta}} = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}container-\/volta\textquotesingle{})
+const \mbox{\hyperlink{busca__form_8js_ab76e6d63e3286857093d5b4fb795f8b0}{container\+Volta}} = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}container-\/volta\textquotesingle{})
 \item 
 const \mbox{\hyperlink{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}{cidades}}
-\begin{DoxyCompactList}\small\item\em Banco de dados de cidades com coordenadas @const \{Object\} cidades. \end{DoxyCompactList}\item 
+\item 
 document \mbox{\hyperlink{busca__form_8js_a2252e310f17766e45ece26155391c379}{buscar\+Voos}}
 \end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-Script para busca e exibição de voos. 
-
-\begin{DoxyAuthor}{Author}
-KAUAN GUILHERME ALVES PINHEIRO SANTOS \href{mailto:kauan.santos@discente.ufma.br}{\texttt{kauan.\+santos@discente.\+ufma.\+br}} 
-\end{DoxyAuthor}
 
 
 \label{doc-func-members}
@@ -52,17 +39,8 @@ KAUAN GUILHERME ALVES PINHEIRO SANTOS \href{mailto:kauan.santos@discente.ufma.br
 \index{buscarVoos@{buscarVoos}!busca\_form.js@{busca\_form.js}}
 \doxysubsubsection{\texorpdfstring{buscarVoos()}{buscarVoos()}}
 {\footnotesize\ttfamily \label{busca__form_8js_a195840110c22307347bbc6459bbbca41} 
-function async buscar\+Voos (\begin{DoxyParamCaption}\item[{}]{event}{}\end{DoxyParamCaption})}
+function \mbox{\hyperlink{autenticacao_8js_a4874d3099b3ca54f264a573cd2cc1b2a}{async}} buscar\+Voos (\begin{DoxyParamCaption}\item[{}]{event}{}\end{DoxyParamCaption})}
 
-
-
-Realiza a busca de voos (função principal) @async @function buscar\+Voos. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \{\+Event\}} & event -\/ Evento de submit do formulário \\
-\hline
-\end{DoxyParams}
 Here is the call graph for this function\+:
 % FIG 0
 \Hypertarget{busca__form_8js_a47226e9c585e103773e707883d8cd675}\index{busca\_form.js@{busca\_form.js}!calcularDistancia@{calcularDistancia}}
@@ -71,20 +49,9 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{busca__form_8js_a47226e9c585e103773e707883d8cd675} 
 function calcular\+Distancia (\begin{DoxyParamCaption}\item[{}]{cidade1}{, }\item[{}]{cidade2}{}\end{DoxyParamCaption})}
 
-
-
-Calcula distância entre duas cidades em km @function calcular\+Distancia. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \{string\}} & cidade1 -\/ Nome da cidade de origem \\
-\hline
-{\em \{string\}} & cidade2 -\/ Nome da cidade de destino \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\{number\} Distância em quilômetros 
-\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 Here is the caller graph for this function\+:
 % FIG 1
 \Hypertarget{busca__form_8js_a7602c44cee64b331704c1405050258ab}\index{busca\_form.js@{busca\_form.js}!criarCardVoo@{criarCardVoo}}
@@ -93,22 +60,9 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{busca__form_8js_a7602c44cee64b331704c1405050258ab} 
 function criar\+Card\+Voo (\begin{DoxyParamCaption}\item[{}]{voo}{, }\item[{}]{index}{, }\item[{}]{tipo}{ = {\ttfamily "{}ida"{}}}\end{DoxyParamCaption})}
 
-
-
-Cria um card de voo para exibição @function criar\+Card\+Voo. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \{\+Object\}} & voo -\/ Dados do voo \\
-\hline
-{\em \{number\}} & index -\/ Índice do voo \\
-\hline
-{\em \{string\}} & \mbox{[}tipo="{}ida"{}\mbox{]} -\/ Tipo do voo (ida/volta) \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\{HTMLElement\} Elemento HTML do card de voo 
-\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 Here is the caller graph for this function\+:
 % FIG 2
 \Hypertarget{busca__form_8js_a1918846e44528416b860c8931a7a1739}\index{busca\_form.js@{busca\_form.js}!gerarVoosMock@{gerarVoosMock}}
@@ -117,24 +71,58 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{busca__form_8js_a1918846e44528416b860c8931a7a1739} 
 function gerar\+Voos\+Mock (\begin{DoxyParamCaption}\item[{}]{origem}{, }\item[{}]{destino}{, }\item[{}]{data}{, }\item[{}]{adultos}{}\end{DoxyParamCaption})}
 
-
-
-Gera dados mockados de voos realistas @function gerar\+Voos\+Mock. 
-
-
+Gera horário de partida realista baseado no tipo de voo @function gerar\+Horario\+Partida \begin{DoxyReturn}{Returns}
+\{string\} Horário no formato HH\+:MM
+\end{DoxyReturn}
+Calcula horário de chegada baseado na partida e duração @function calcular\+Horario\+Chegada 
 \begin{DoxyParams}{Parameters}
-{\em \{string\}} & origem -\/ Cidade de origem \\
+{\em \{string\}} & partida -\/ Horário de partida (HH\+:MM) \\
 \hline
-{\em \{string\}} & destino -\/ Cidade de destino \\
-\hline
-{\em \{string\}} & data -\/ Data do voo \\
-\hline
-{\em \{number\}} & adultos -\/ Número de passageiros \\
+{\em \{number\}} & duracao\+Minutos -\/ Duração do voo em minutos \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\{Array\} Lista de voos gerados 
+\{string\} Horário de chegada no formato HH\+:MM
 \end{DoxyReturn}
+Gera duração realista para o voo baseado na distância @function gerar\+Duracao 
+\begin{DoxyParams}{Parameters}
+{\em \{number\}} & distancia -\/ Distância em km \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Object\} Objeto com texto formatado e valor em minutos
+\end{DoxyReturn}
+Determina número de escalas baseado na distância e tipo de voo @function gerar\+Escalas 
+\begin{DoxyParams}{Parameters}
+{\em \{number\}} & distancia -\/ Distância em km \\
+\hline
+{\em \{boolean\}} & is\+Internacional -\/ Se é voo internacional \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{string\} Descrição das escalas
+\end{DoxyReturn}
+Calcula preço realista baseado em múltiplos fatores @function gerar\+Preco 
+\begin{DoxyParams}{Parameters}
+{\em \{number\}} & distancia -\/ Distância em km \\
+\hline
+{\em \{boolean\}} & is\+Internacional -\/ Se é voo internacional \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{number\} Preço calculado
+\end{DoxyReturn}
+Seleciona aeronave apropriada para o tipo de voo @function selecionar\+Aeronave 
+\begin{DoxyParams}{Parameters}
+{\em \{boolean\}} & is\+Internacional -\/ Se é voo internacional \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{string\} Modelo da aeronave
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 Here is the call graph for this function\+:
 % FIG 3
 Here is the caller graph for this function\+:
@@ -147,6 +135,10 @@ document query\+Selector (\begin{DoxyParamCaption}\item[{}]{\textquotesingle{}.\
 
 
 
+Adiciona listener para o evento de submit do formulário @listens form\#submit. 
+
+
+
 \label{doc-var-members}
 \Hypertarget{busca__form_8js_doc-var-members}
 \doxysubsection{Variable Documentation}
@@ -156,6 +148,9 @@ document query\+Selector (\begin{DoxyParamCaption}\item[{}]{\textquotesingle{}.\
 {\footnotesize\ttfamily \label{busca__form_8js_a2252e310f17766e45ece26155391c379} 
 document buscar\+Voos}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 \Hypertarget{busca__form_8js_a284392afde7c4977f56dd2ac3ef4dff9}\index{busca\_form.js@{busca\_form.js}!cidades@{cidades}}
 \index{cidades@{cidades}!busca\_form.js@{busca\_form.js}}
 \doxysubsubsection{\texorpdfstring{cidades}{cidades}}
@@ -166,41 +161,74 @@ const cidades}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}São\ Paulo"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/23.55,\ lng:\ -\/46.63\ \},}
-\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Rio\ de\ Janeiro"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/22.91,\ lng:\ -\/43.20\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Belo\ Horizonte"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/19.92,\ lng:\ -\/43.94\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Brasília"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/15.78,\ lng:\ -\/47.93\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Salvador"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/12.97,\ lng:\ -\/38.50\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Fortaleza"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/3.73,\ lng:\ -\/38.52\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Recife"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/8.05,\ lng:\ -\/34.90\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Manaus"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/3.10,\ lng:\ -\/60.02\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}São\ Luís"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Brasil"{}},\ lat:\ -\/2.53,\ lng:\ -\/44.30\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Londres"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Reino\ Unido"{}},\ lat:\ 51.51,\ lng:\ -\/0.13\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Paris"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}França"{}},\ lat:\ 48.86,\ lng:\ 2.35\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Nova\ York"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}EUA"{}},\ lat:\ 40.71,\ lng:\ -\/74.01\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Miami"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}EUA"{}},\ lat:\ 25.76,\ lng:\ -\/80.19\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Lisboa"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Portugal"{}},\ lat:\ 38.72,\ lng:\ -\/9.14\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Madrid"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Espanha"{}},\ lat:\ 40.42,\ lng:\ -\/3.70\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Buenos\ Aires"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Argentina"{}},\ lat:\ -\/34.60,\ lng:\ -\/58.38\ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Santiago"{}}:\ \{\ pais:\ \textcolor{stringliteral}{"{}Chile"{}},\ lat:\ -\/33.45,\ lng:\ -\/70.67\ \}}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-
-
-Banco de dados de cidades com coordenadas @const \{Object\} cidades. 
-
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 \Hypertarget{busca__form_8js_ab76e6d63e3286857093d5b4fb795f8b0}\index{busca\_form.js@{busca\_form.js}!containerVolta@{containerVolta}}
 \index{containerVolta@{containerVolta}!busca\_form.js@{busca\_form.js}}
 \doxysubsubsection{\texorpdfstring{containerVolta}{containerVolta}}
 {\footnotesize\ttfamily \label{busca__form_8js_ab76e6d63e3286857093d5b4fb795f8b0} 
-const container\+Volta = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}container-\/volta\textquotesingle{})}
+const container\+Volta = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}container-\/volta\textquotesingle{})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 \Hypertarget{busca__form_8js_a6156b07b18c0cd57b6e627c62bad4418}\index{busca\_form.js@{busca\_form.js}!dataVoltaDiv@{dataVoltaDiv}}
 \index{dataVoltaDiv@{dataVoltaDiv}!busca\_form.js@{busca\_form.js}}
 \doxysubsubsection{\texorpdfstring{dataVoltaDiv}{dataVoltaDiv}}
 {\footnotesize\ttfamily \label{busca__form_8js_a6156b07b18c0cd57b6e627c62bad4418} 
-const data\+Volta\+Div = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}data-\/volta-\/div\textquotesingle{})}
+const data\+Volta\+Div = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}data-\/volta-\/div\textquotesingle{})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 \Hypertarget{busca__form_8js_abee6f2ce657f4d195d24d068ac8762e6}\index{busca\_form.js@{busca\_form.js}!dataVoltaInput@{dataVoltaInput}}
 \index{dataVoltaInput@{dataVoltaInput}!busca\_form.js@{busca\_form.js}}
 \doxysubsubsection{\texorpdfstring{dataVoltaInput}{dataVoltaInput}}
 {\footnotesize\ttfamily \label{busca__form_8js_abee6f2ce657f4d195d24d068ac8762e6} 
-const data\+Volta\+Input = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}data-\/volta\textquotesingle{})}
+const data\+Volta\+Input = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}data-\/volta\textquotesingle{})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 \Hypertarget{busca__form_8js_a2267fd6d80998093d2b8354ce585bb53}\index{busca\_form.js@{busca\_form.js}!idaBolinha@{idaBolinha}}
 \index{idaBolinha@{idaBolinha}!busca\_form.js@{busca\_form.js}}
 \doxysubsubsection{\texorpdfstring{idaBolinha}{idaBolinha}}
 {\footnotesize\ttfamily \label{busca__form_8js_a2267fd6d80998093d2b8354ce585bb53} 
-const ida\+Bolinha = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}ida\textquotesingle{})}
+const ida\+Bolinha = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}ida\textquotesingle{})}
 
+
+
+Elementos do formulário de busca @const \{HTMLElement\} ida\+Bolinha -\/ Radio button para viagem só de ida @const \{HTMLElement\} ida\+Volta\+Bolinha -\/ Radio button para viagem ida e volta @const \{HTMLElement\} data\+Volta\+Div -\/ Div que contém o campo de data de volta @const \{HTMLElement\} data\+Volta\+Input -\/ Input para data de volta @const \{HTMLElement\} container\+Volta -\/ Container dos resultados de voos de volta. 
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
 \Hypertarget{busca__form_8js_ad57b82b1afe1cd3947b906b2ca5377a3}\index{busca\_form.js@{busca\_form.js}!idaVoltaBolinha@{idaVoltaBolinha}}
 \index{idaVoltaBolinha@{idaVoltaBolinha}!busca\_form.js@{busca\_form.js}}
 \doxysubsubsection{\texorpdfstring{idaVoltaBolinha}{idaVoltaBolinha}}
 {\footnotesize\ttfamily \label{busca__form_8js_ad57b82b1afe1cd3947b906b2ca5377a3} 
-const ida\+Volta\+Bolinha = \mbox{\hyperlink{busca__chat_8js_a89d354d28003a468dda1fc1af44bfff2}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}ida-\/\mbox{\hyperlink{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}}-\/volta\textquotesingle{})}
+const ida\+Volta\+Bolinha = \mbox{\hyperlink{autenticacao_8js_a77d47da9400302067f0fc5d40d19883b}{document.\+get\+Element\+By\+Id}}(\textquotesingle{}ida-\/\mbox{\hyperlink{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}}-\/volta\textquotesingle{})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2frodbcddea75495a0021e22dbe600bca642}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/busca\+\_\+form.\+js}}.\end{Desc}
