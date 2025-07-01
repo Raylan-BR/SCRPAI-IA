@@ -1,0 +1,14 @@
+digraph "chatbot.logic.salvar_historico"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="chatbot.logic.salvar\l_historico",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Salva o histórico de conversas em um arquivo JSON."];
+  Node1 -> Node2 [id="edge3_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="chatbot.logic.caminho\l_do_historico",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacechatbot_1_1logic.html#a8b8c40e4f34009c7f7af36296252363c",tooltip="Retorna o caminho completo do arquivo de histórico."];
+  Node2 -> Node3 [id="edge4_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="chatbot.logic.gerar\l_id_email",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacechatbot_1_1logic.html#a44dd94ce0a5dbd577cfe540bc664a27d",tooltip="Gera um ID de arquivo válido a partir de um e-mail."];
+}

@@ -1,0 +1,14 @@
+digraph "historico.salvar_compra"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="historico.salvar_compra",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Armazena uma nova compra no banco de dados."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="historico.historico_js",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacehistorico.html#ac504a986152a932912a9ad5fb6be48cd",tooltip="Endpoint para servir o JavaScript do histórico."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="historico.salvar_compra\l_route",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacehistorico.html#ac495e519aebad4fd28ef10c415aa9d90",tooltip="Endpoint para registro de novas compras via POST."];
+}

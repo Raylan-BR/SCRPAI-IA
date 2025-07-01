@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""@file auth.py
+@brief Blueprint de autenticação para a API de viagens
+@author Seu Nome <seu.email@exemplo.com>
+
+Módulo responsável por todas as operações de autenticação:
+- Cadastro tradicional
+- Login tradicional
+- Login com Google
+- Recuperação de senha
+- Servir páginas de autenticação
+"""
+
 from flask import Blueprint, request, jsonify, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
 from pymongo import MongoClient
@@ -6,21 +21,56 @@ from dotenv import load_dotenv
 import firebase_admin
 from firebase_admin import credentials, auth as firebase_auth
 
+# Carrega variáveis de ambiente
 load_dotenv()
 
+# Cria blueprint para rotas de autenticação
 auth_bp = Blueprint('auth', __name__)
+"""@var auth_bp
+@brief Blueprint principal para rotas de autenticação
+@details Agrupa todos os endpoints relacionados a:
+- Registro de usuários
+- Autenticação
+- Gerenciamento de contas
+"""
+
+# Configuração do MongoDB
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client.scrpai_ia
 users = db.users
+"""@var users
+@brief Coleção MongoDB para armazenamento de usuários
+@details Armazena:
+- Credenciais de acesso
+- Informações de perfil
+- Método de autenticação utilizado
+"""
 
-# Inicializa o Firebase Admin SDK
+# Configuração do Firebase Admin SDK
 cred_path = os.getenv("FIREBASE_ADMIN_CREDENTIALS_PATH")
 cred = credentials.Certificate(cred_path)
 firebase_admin.initialize_app(cred)
+"""@brief Inicializa o SDK do Firebase para autenticação com Google
+@details Utilizado para:
+- Verificar tokens de autenticação do Google
+- Gerenciar login social
+"""
 
-# Cadastro tradicional
 @auth_bp.route('/register', methods=['POST'])
 def register():
+    """Endpoint para cadastro tradicional de usuários.
+    
+    :return: JSON com resultado da operação
+    :rtype: flask.Response
+    :raises HTTPException: 409 se email já estiver cadastrado
+    
+    Estrutura do JSON esperado:
+    {
+        "name": "Nome do usuário",
+        "email": "email@exemplo.com",
+        "password": "senha_secreta"
+    }
+    """
     data = request.json
     if users.find_one({"email": data['email']}):
         return jsonify({"error": "Email já cadastrado"}), 409
@@ -39,9 +89,20 @@ def register():
         "user_name": user_data["name"]
     })
 
-# Login tradicional
 @auth_bp.route('/login', methods=['POST'])
 def login():
+    """Endpoint para login tradicional com email e senha.
+    
+    :return: JSON com dados do usuário autenticado
+    :rtype: flask.Response
+    :raises HTTPException: 401 se credenciais forem inválidas
+    
+    Estrutura do JSON esperado:
+    {
+        "email": "email@exemplo.com",
+        "password": "senha_secreta"
+    }
+    """
     data = request.json
     user = users.find_one({"email": data['email']})
     
@@ -54,9 +115,21 @@ def login():
         "user_email": user['email']
     })
 
-# Login com Google
 @auth_bp.route('/google-login', methods=['POST'])
 def google_login():
+    """Endpoint para autenticação com conta Google.
+    
+    :return: JSON com dados do usuário
+    :rtype: flask.Response
+    :raises HTTPException: 
+        - 400 se token não for fornecido
+        - 401 se token for inválido
+    
+    Estrutura do JSON esperado:
+    {
+        "token": "token_jwt_do_firebase"
+    }
+    """
     token = request.json.get('token')
     if not token:
         return jsonify({"error": "Token não fornecido"}), 400
@@ -64,7 +137,7 @@ def google_login():
     try:
         decoded_token = firebase_auth.verify_id_token(token)
         email = decoded_token.get('email')
-        name = decoded_token.get('name') or "Usuário"  # Fallback caso name seja None
+        name = decoded_token.get('name') or "Usuário"
         
         if not email:
             return jsonify({"error": "Token inválido, email não encontrado"}), 401
@@ -79,7 +152,6 @@ def google_login():
             }
             users.insert_one(user_data)
         else:
-            # Atualiza o nome caso o usuário já exista mas não tenha nome
             if not user.get('name'):
                 users.update_one(
                     {"email": email},
@@ -96,9 +168,22 @@ def google_login():
         print(f"Erro ao verificar token Firebase: {e}")
         return jsonify({"error": "Token inválido"}), 401
     
-# Esqueceu senha
 @auth_bp.route('/reset-password', methods=['POST'])
 def reset_password():
+    """Endpoint para redefinição de senha.
+    
+    :return: JSON com resultado da operação
+    :rtype: flask.Response
+    :raises HTTPException:
+        - 400 se dados estiverem incompletos
+        - 404 se usuário não for encontrado
+    
+    Estrutura do JSON esperado:
+    {
+        "email": "email@exemplo.com",
+        "new_password": "nova_senha_secreta"
+    }
+    """
     data = request.json
     email = data.get('email')
     new_password = data.get('new_password')
@@ -118,27 +203,49 @@ def reset_password():
 
     return jsonify({"message": "Senha atualizada com sucesso"}), 200
 
-
-#renderizar as páginas html do login e do cadastro
+# Configuração de caminhos para arquivos estáticos
 BASE_DIRETORIO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+"""@var BASE_DIRETORIO
+@brief Caminho base para acessar arquivos estáticos
+@details Utilizado para servir páginas HTML, CSS e JS
+"""
 
-#renderizar login pagina
 @auth_bp.route('/pages/autenticacao/login.html')
 def login_html():
+    """Serve a página HTML de login.
+    
+    :return: Arquivo HTML renderizado
+    :rtype: flask.Response
+    """
     caminho_html = os.path.join(BASE_DIRETORIO, 'frontend', 'pages', 'autenticacao')
     return send_from_directory(caminho_html, 'login.html')
-#renderizar cadastro pagina
+
 @auth_bp.route('/render-cadastro')
 def cadastro_html():
+    """Serve a página HTML de cadastro.
+    
+    :return: Arquivo HTML renderizado
+    :rtype: flask.Response
+    """
     caminho_html = os.path.join(BASE_DIRETORIO, 'frontend', 'pages', 'autenticacao')
     return send_from_directory(caminho_html, 'cadastro.html')
-# Rota para o CSS
+
 @auth_bp.route('/frontend/css/autenticacao.css')
 def login_css():
+    """Serve o arquivo CSS para páginas de autenticação.
+    
+    :return: Arquivo CSS
+    :rtype: flask.Response
+    """
     caminho_css = os.path.join(BASE_DIRETORIO, 'frontend', 'css')
     return send_from_directory(caminho_css, 'autenticacao.css')
-# Rota para o JS
+
 @auth_bp.route('/frontend/js/autenticacao.js')
 def login_js():
+    """Serve o arquivo JavaScript para páginas de autenticação.
+    
+    :return: Arquivo JS
+    :rtype: flask.Response
+    """
     caminho_js = os.path.join(BASE_DIRETORIO, 'frontend', 'js')
     return send_from_directory(caminho_js, 'autenticacao.js')

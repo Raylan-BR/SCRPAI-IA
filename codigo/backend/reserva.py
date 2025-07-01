@@ -1,3 +1,13 @@
+"""@file reserva.py
+@brief Blueprint para gerenciamento de reservas de voos
+@author Seu Nome <seu.email@exemplo.com>
+
+Módulo responsável por todas as operações relacionadas a reservas de voos:
+- Consulta de detalhes de voos
+- Criação de novas reservas
+- Gerenciamento de assentos
+"""
+
 from flask import Blueprint, request, jsonify
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -6,21 +16,62 @@ import os
 import random
 from dotenv import load_dotenv
 
+# Carrega variáveis de ambiente
 load_dotenv()
 
+# Configuração do Blueprint para rotas de reserva
 reserva_bp = Blueprint('reserva', __name__)
+"""@var reserva_bp
+@brief Blueprint principal para rotas de reservas
+@details Agrupa endpoints relacionados a:
+- Consulta de voos
+- Reserva de assentos
+- Gerenciamento de bagagens
+"""
+
+# Conexão com o MongoDB
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client.scrpai_ia
 voos = db.voos
+"""@var voos
+@brief Coleção de voos disponíveis
+@details Armazena todos os voos com:
+- Rotas
+- Horários
+- Disponibilidade
+"""
+
 reservas = db.reservas
+"""@var reservas
+@brief Coleção de reservas realizadas
+@details Registra todas as reservas com:
+- Dados do passageiro
+- Assentos selecionados
+- Status de pagamento
+"""
 
 @reserva_bp.route('/detalhes-voo/<voo_id>', methods=['GET'])
 def detalhes_voo(voo_id):
+    """Endpoint para consulta de detalhes de um voo específico.
+    
+    :param voo_id: ID do voo no MongoDB
+    :return: JSON com detalhes completos do voo
+    :rtype: flask.Response
+    :raises HTTPException: 
+        - 404 se voo não for encontrado
+        - 500 em caso de erro interno
+    
+    Retorna:
+    - Informações básicas do voo
+    - Mapa de assentos com disponibilidade
+    - Opções de bagagem com preços
+    """
     try:
         voo = voos.find_one({"_id": ObjectId(voo_id)})
         if not voo:
             return jsonify({"error": "Voo não encontrado"}), 404
         
+        # Gera mapa de assentos aleatório (simulação)
         fileiras = ['A', 'B', 'C', 'D', 'E', 'F']
         mapa_assentos = []
         assentos_disponiveis = voo.get('assentos_disponiveis', 180)
@@ -66,6 +117,23 @@ def detalhes_voo(voo_id):
 
 @reserva_bp.route('/criar-reserva', methods=['POST'])
 def criar_reserva():
+    """Endpoint para criação de novas reservas.
+    
+    :return: JSON com resultado da operação
+    :rtype: flask.Response
+    :raises HTTPException: 
+        - 400 se dados estiverem incompletos
+        - 404 se voo não for encontrado
+        - 500 em caso de erro interno
+    
+    Estrutura esperada:
+    {
+        "voo_id": "ID_DO_VOO",
+        "assentos": ["1A", "2B"],
+        "bagagem": "1 Mala de 23kg",
+        "usuario_email": "email@exemplo.com"
+    }
+    """
     try:
         data = request.json
         voo_id = data.get('voo_id')
@@ -73,13 +141,16 @@ def criar_reserva():
         bagagem = data.get('bagagem')
         usuario_email = data.get('usuario_email', 'anonimo@example.com')
 
+        # Validação dos dados obrigatórios
         if not voo_id or not assentos:
             return jsonify({"error": "Dados incompletos"}), 400
 
+        # Consulta o voo no banco de dados
         voo = voos.find_one({"_id": ObjectId(voo_id)})
         if not voo:
             return jsonify({"error": "Voo não encontrado"}), 404
 
+        # Calcula preço total com bagagem
         bagagens_opcoes = [
             {"tipo": "Sem bagagem despachada", "preco": 0},
             {"tipo": "1 Mala de 23kg", "preco": 100},
@@ -94,6 +165,7 @@ def criar_reserva():
 
         preco_total = (voo['preco'] * len(assentos)) + preco_bagagem
 
+        # Cria documento da reserva
         reserva = {
             "voo_id": ObjectId(voo_id),
             "usuario_email": usuario_email,
@@ -112,8 +184,10 @@ def criar_reserva():
             }
         }
 
+        # Insere reserva no banco de dados
         result = reservas.insert_one(reserva)
 
+        # Atualiza disponibilidade de assentos
         voos.update_one(
             {"_id": ObjectId(voo_id)},
             {"$inc": {"assentos_disponiveis": -len(assentos)}}

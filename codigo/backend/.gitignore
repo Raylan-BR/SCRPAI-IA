@@ -12,3 +12,5 @@ chatbot/__pycache__/
 mock/__pycache__/
 gemini_api/__pycache__/
 .env
+__pycache__/
+*.pyc
