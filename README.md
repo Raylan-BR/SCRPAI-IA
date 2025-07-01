@@ -1,4 +1,57 @@
-# Reconhecimentos e Direitos Autorais
+# ✈️ Sistema de Compra de Passagens Aéreas com Chatbot
+
+## 🧩 Problema
+
+Comprar passagens aéreas em plataformas tradicionais pode ser um processo demorado e confuso. Os usuários precisam preencher muitos campos, comparar diferentes opções e entender detalhes técnicos dos voos. Isso pode dificultar a experiência, especialmente para pessoas com menos familiaridade com tecnologia ou que buscam praticidade.
+
+---
+
+## 💡 Solução
+
+Desenvolvemos um site de compra de passagens aéreas que integra um **chatbot inteligente** com a tradicional pesquisa por formulário. O sistema oferece:
+
+* 🔍 Busca de passagens via **formulário tradicional** com origem, destino e data.
+* 💬 Um **chatbot com IA** que interpreta comandos em linguagem natural (ex: "Quero um voo para Salvador dia 10 de julho").
+* 🧠 Identificação do **perfil da viagem** (turismo ou trabalho) para personalizar as recomendações.
+* 📂 Cadastro e login de usuários com conta Google (OAuth).
+* 🕓 Histórico de viagens compradas.
+* 📱 Interface responsiva e fácil de usar.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+### 🔹 Frontend
+* **HTML, CSS, JavaScript** — estrutura básica da aplicação
+### 🔹 Backend
+* **Flask (Python)** — servidor da API REST
+* **Flask-CORS** — suporte a requisições entre domínios (frontend/backend)
+* **Google Generative AI** — integração do chatbot com IA generativa
+* **Pymongo** — driver de comunicação com o MongoDB
+
+### 🔹 Banco de Dados
+* **MongoDB Atlas** — banco NoSQL em nuvem para armazenar:
+  - Dados dos usuários
+  - Históricos de compras
+
+### 🔹 Autenticação
+* **Firebase Authentication** — login seguro via conta Google (OAuth2)
+* **Firebase Admin SDK** — validação de tokens e controle de acesso no backend
+### 🔹 Outras Dependências
+* **dotenv** — gerenciamento de variáveis de ambiente
+* **Requests** — requisições HTTP no backend
+
+---
+
+## 🚀 Funcionalidades Futuras (Ideias)
+* Integração com APIs reais de companhias aéreas (Amadeus, Skyscanner, etc)
+* Pagamento online com cartão e PIX
+* Sistema de notificações por e-mail ou WhatsApp
+* Tradução automática (multi-idioma)
+
+---
+
+## Reconhecimentos e Direitos Autorais
  
 **@autor**: Kauan Guilherme Alves Pinheiro Santos,  Lilia Rosa Coelho Moura, Raylan Bruno Santana Carvalho, Virginia Maria Mondego Ferreira, Yasmin Cantanhede Santos.
 
