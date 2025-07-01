@@ -7,6 +7,8 @@ historico
 
 firebase-adminsdk.json
 
-chatbot/__pycache__
-
-mock/__pycache__
+__pycache__
+chatbot/__pycache__/
+mock/__pycache__/
+gemini_api/__pycache__/
+.env

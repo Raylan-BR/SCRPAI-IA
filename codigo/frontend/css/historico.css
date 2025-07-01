@@ -126,6 +126,7 @@ nav {
   background-color: #005792;
   width: 100vw;
   justify-content: space-between;
+  align-items: center;
   padding: 6px;
 }
 
@@ -149,11 +150,12 @@ nav {
   flex-direction: row;
   align-items: center;
 }
-
-.menu_navegacao li {
+.menu_navegacao ul {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  gap: 12px; /* espaço entre botões */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menu_navegacao a {
@@ -171,28 +173,6 @@ nav {
   width: 100%;
 }
 
-.lang {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background-color: #ffffff20;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 16px;
-  min-width: 80px;
-  cursor: pointer;
-  color: white;
-}
-
-.lang img {
-  width: 24px;
-  height: auto;
-}
-
-.lang:hover {
-  background-color: #ffffff40;
-}
-
 .dropdown-icon {
   font-size: 12px;
 }
@@ -206,6 +186,13 @@ nav {
 
 .header nav a:hover {
   text-decoration: underline;
+}
+
+.menu-direita {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  gap: 12px; /* espaço entre nome e botão hamburguer */
 }
 
 @media (max-width: 768px) {
@@ -280,6 +267,124 @@ nav {
   line-height: 1.5
 }
 
+
+.perfil-btn {
+  background-color: #ffffff20;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  width: 120px;
+
+  /* Truncar texto que excede o limite */
+  white-space: nowrap;
+  overflow: hidden;
+}
+.perfil-btn:hover {
+  background-color: #ffffff40;
+}
+
+
+/* Modal fundo escurecido */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Caixa de conteúdo do modal */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* Botão de fechar (X) */
+.modal .close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal .close:hover {
+  color: #000;
+}
+
+/* Estilo do <pre> */
+#detalhes-compra {
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  margin-top: 20px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu_navegacao {
+    display: none;
+    flex-direction: column;
+    background-color: #005792;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  .menu_navegacao.ativo {
+    display: flex;
+  }
+
+  .menu_navegacao a {
+    font-size: 1.2rem;
+    color: white;
+  }
+  .menu_navegacao ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .menu_navegacao li {
+    display: block;
+  }
+
+  .header-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+  }
+}
+
 /* Responsivo para tablets e celulares */
 @media (max-width: 768px) {
   .header {
@@ -345,3 +450,66 @@ nav {
     font-size: 13px;
   }
 }
+
+@media (max-width: 768px) {
+  .menu_navegacao {
+    align-items: center;
+  }
+
+
+  .header-right {
+    align-items: center !important;
+    text-align: center;
+    width: 100%;
+  }
+
+  .perfil-btn {
+    margin: 0 auto;
+  }
+  #userNameDisplay {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+  }
+}
+.user-name-top {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+}
+
+/* Para telas pequenas (celular/tablet), organizar nav */
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .user-name-top {
+    order: 1; /* faz o nome aparecer primeiro */
+  }
+  .menu-toggle {
+    order: 2; /* hambúrguer depois do nome */
+  }
+}
+.menu-btn {
+  background-color: #ffffff20;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-btn:hover {
+  background-color: #ffffff40;
+}
+
+

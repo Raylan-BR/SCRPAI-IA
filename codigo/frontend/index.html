@@ -30,31 +30,29 @@
 <body>
   
   <!-- CABEÇALHO -->
-   <header>
-        <nav>
-            <div class="conteudo_projeto">
-                <img src="img/logo_aviao.png" alt="logo de um avião">
-                <h1>SkAI</h1>
-            </div>
-            <div class="menu_navegacao">
-                <li>
-                    <ul><a href="/index.html">Inicio</a></ul>
-                    <ul><a href="/historico.html">Histórico</a></ul>
-                </li>
-                <div class="header-right">
-                    <div class="lang">
-                        <img src="img/bandeira.png" alt="Bandeira Brasil" />
-                        <span>PT | BR</span>
-                        <div class="dropdown-icon">▼</div>
-                    </div>
-                    <div class="perfil">
-  <span id="userNameDisplay">Entrar</span>
-  <button id="logoutBtn" class="perfil-btn" style="display: none; margin-left: 10px;">Sair</button>
-</div>
-                </div>
-              </div>
-        </nav>
-    </header>
+ <header>
+  <nav>
+    <div class="conteudo_projeto">
+      <img src="img/logo_aviao.png" alt="logo de um avião">
+      <h1>SkAI</h1>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="menu_navegacao" id="menu">
+      <div class="header-right">
+        <div class="perfil-wrapper" style="display: flex; align-items: center; gap: 10px;">
+          <span id="userNameDisplay" class="perfil-btn">Entrar</span>
+
+          <!-- Botão "Histórico" com o mesmo estilo de logout-btn -->
+          <a href="/historico.html" id="historicoLink" class="logout-btn" style="display: none;">Histórico</a>
+
+          <button id="logoutBtn" class="logout-btn" style="display: none;">Sair</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
   <!-- CONTEÚDO -->
   <main class="main-content">
      <div class="inicio-text">
@@ -183,28 +181,44 @@
     </div>
   </footer>
 
-  <script>
+ <script>
 firebase.auth().onAuthStateChanged(function(user) {
-    const userName = localStorage.getItem('userName');
     const userNameDisplay = document.getElementById('userNameDisplay');
     const logoutBtn = document.getElementById('logoutBtn');
+    const historicoLink = document.getElementById('historicoLink');
 
-    if (user || userName) {
-        // Mostra o nome do usuário
-        userNameDisplay.textContent = userName || user.displayName || 'Usuário';
+    let userName = 'Usuário';
+
+    // Se o usuário estiver logado pelo Firebase com displayName
+    if (user && user.displayName) {
+        userName = user.displayName;
+    }
+
+    // Se tiver nome salvo no localStorage (login manual)
+    const nomeSalvo = localStorage.getItem('userName');
+    if (nomeSalvo) {
+        userName = nomeSalvo;
+    }
+
+    // Pega os dois primeiros nomes
+    const nomeFormatado = userName.split(' ').slice(0, 2).join(' ');
+
+    if (user || nomeSalvo) {
+        userNameDisplay.textContent = nomeFormatado;
         userNameDisplay.style.cursor = 'default';
+        userNameDisplay.style.color = 'white';
+        logoutBtn.style.display = 'inline-block';
         userNameDisplay.onclick = null;
 
-        // Mostra botão de sair
-        logoutBtn.style.display = 'inline-block';
+        if (historicoLink) historicoLink.style.display = 'inline-block';
     } else {
-        // Usuário não logado
         userNameDisplay.textContent = 'Entrar';
         userNameDisplay.style.cursor = 'pointer';
+        userNameDisplay.style.color = 'white';
         userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
-
-        // Esconde botão de sair
         logoutBtn.style.display = 'none';
+
+        if (historicoLink) historicoLink.style.display = 'none';
     }
 });
 
@@ -221,7 +235,17 @@ document.getElementById('logoutBtn')?.addEventListener('click', () => {
 });
 </script>
 
+
+
 <script src="./js/busca_chat.js"></script>
 <script src="./js/busca_form.js"></script>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("show");
+    }
+</script>
+
 </body>
 </html>

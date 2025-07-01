@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Histórico de Compras - SkAI</title>
   <link rel="stylesheet" href="../css/historico.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -18,6 +19,15 @@
         <h1>Histórico de Compras</h1>
         <input class="filter-button" type="text" id="filtroDestino" placeholder="Filtrar por destino">
       </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE DETALHES -->
+  <div id="modal-detalhes" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span id="fecharModal" class="close">&times;</span>
+      <h2>Detalhes da Compra</h2>
+      <pre id="detalhes-compra"></pre>
     </div>
   </div>
 
@@ -60,5 +70,73 @@
   <!-- SCRIPTS -->
   <script src="../js/header.js"></script>
   <script src="../js/historico.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAlhgKReGb2X2CIQpy5M95hs0RRVJzbD20",
+      authDomain: "scrpai-ia.firebaseapp.com",
+      projectId: "scrpai-ia",
+      storageBucket: "scrpai-ia.appspot.com",
+      messagingSenderId: "1030430015808",
+      appId: "1:1030430015808:web:0cdac65a5607825e68faa5"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const historicoLink = document.getElementById('historicoLink');
+
+    let userName = 'Usuário';
+
+    // Se o usuário estiver logado pelo Firebase com displayName
+    if (user && user.displayName) {
+        userName = user.displayName;
+    }
+
+    // Se tiver nome salvo no localStorage (login manual)
+    const nomeSalvo = localStorage.getItem('userName');
+    if (nomeSalvo) {
+        userName = nomeSalvo;
+    }
+
+    // Pega os dois primeiros nomes
+    const nomeFormatado = userName.split(' ').slice(0, 2).join(' ');
+
+    if (user || nomeSalvo) {
+        userNameDisplay.textContent = nomeFormatado;
+        userNameDisplay.style.cursor = 'default';
+        userNameDisplay.style.color = 'white';
+        logoutBtn.style.display = 'inline-block';
+        userNameDisplay.onclick = null;
+
+        if (historicoLink) historicoLink.style.display = 'inline-block';
+    } else {
+        userNameDisplay.textContent = 'Entrar';
+        userNameDisplay.style.cursor = 'pointer';
+        userNameDisplay.style.color = 'white';
+        userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
+        logoutBtn.style.display = 'none';
+
+        if (historicoLink) historicoLink.style.display = 'none';
+    }
+});
+
+// Botão de logout
+document.getElementById('logoutBtn')?.addEventListener('click', () => {
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+
+    if (firebase?.auth().currentUser) {
+        firebase.auth().signOut();
+    }
+
+    window.location.href = '/pages/autenticacao/login.html';
+});
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>

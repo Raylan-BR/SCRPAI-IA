@@ -37,17 +37,48 @@ nav {
 .conteudo_projeto h1 {
   color: white;
 }
+.menu-direita {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espaço entre nome e menu */
+}
+.user-name-top {
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/*menu hamburguer*/
+.menu-toggle {
+  display: none; /* Oculto no desktop */
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
 
 .menu_navegacao {
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 15px;
+}
+
+.menu_navegacao ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px; /* espaço entre os <li> */
 }
 
 .menu_navegacao li {
   display: flex;
   flex-direction: row;
-  gap: 10px;
 }
 
 .menu_navegacao a {
@@ -210,6 +241,7 @@ main.content {
   gap: 20px;
   margin-bottom: 20px;
 }
+
 
 .botoes.oculto {
   display: none;
@@ -488,4 +520,78 @@ input.invalido {
 .processar-btn:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+}
+
+
+
+.perfil-btn {
+  background-color: #ffffff20;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  width: 120px;
+  margin-right: 15px;
+
+  /* Truncar texto que excede o limite */
+  white-space: nowrap;
+  overflow: hidden;
+}
+.perfil-btn:hover {
+  background-color: #ffffff40;
+}
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  /* Mostrar o botão de menu hambúrguer */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Esconder menu principal por padrão */
+  .menu_navegacao {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* ajuste para ficar abaixo do nav */
+    right: 0;
+    background-color: #005792;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  /* Quando menu estiver ativo (classe 'ativo' adicionada via JS) */
+  .menu_navegacao.ativo {
+    display: flex;
+  }
+
+  /* Alinhar botões na coluna com espaço */
+  .menu_navegacao ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu_navegacao li {
+    justify-content: center;
+  }
+
+  /* Alinhar o nome do usuário e menu-toggle no responsivo */
+  .menu-direita {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .user-name-top {
+    order: 1;
+  }
+
+  .menu-toggle {
+    order: 2;
+  }
 }

@@ -459,29 +459,22 @@ nav {
   min-width: 300px;
 }
 
-/* Botão de idioma */
-.lang {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #ffffff20;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-}
-
 
 .menu_navegacao{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+.menu_navegacao ul {
+  display: flex;
+  gap: 12px;              /* Espaço entre os botões */
+  list-style: none;       /* Remove marcadores */
+  padding: 0;
+  margin: 0;
+}
+
 .menu_navegacao li{
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
+    display: block;
 }
 .menu_navegacao a{
     color: white;
@@ -521,6 +514,32 @@ nav {
   background-color: #ffffff40;
 }
 
+/*para menu em desktop*/
+.menu-direita {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* espaço entre nome, menu e botões */
+}
+
+/* menu normal: horizontal */
+.menu_navegacao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu_navegacao ul {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+.menu-toggle {
+  display: none;
+}
+
+
 /* Responsivo */
 @media (max-width: 768px) {
   nav {
@@ -530,8 +549,15 @@ nav {
   }
 
   .menu_navegacao {
+    display: none;
     flex-direction: column;
-    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #005792;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
   }
 
   .nav-links {
@@ -543,6 +569,26 @@ nav {
   .header-right {
     flex-direction: column;
     gap: 10px;
+  }
+  .menu_navegacao.ativo {
+    display: flex;
+  }
+
+  .menu_navegacao ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu-direita {
+    flex-direction: row;
+  }
+  .user-name-top {
+    order: 1;
+    margin-right: 8px;
+  }
+
+  .menu-toggle {
+    order: 2;
   }
 }
 
@@ -558,8 +604,11 @@ nav {
 .classes-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
   margin-top: 15px;
 }
+
 
 .classe-option {
   flex: 1;
@@ -657,3 +706,42 @@ nav {
 input[placeholder] {
     font-size: 14px;
 }
+
+
+.perfil-btn {
+  background-color: #ffffff20;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Alinhar ao topo do nav */
+  align-self: flex-start;
+  margin-top: 4px; /* Ajuste fino opcional */
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .classes-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .classe-option {
+    margin: 0;
+    width: 100%;
+  }
+}
+

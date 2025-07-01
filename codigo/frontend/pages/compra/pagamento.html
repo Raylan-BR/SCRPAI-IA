@@ -13,7 +13,13 @@
 <body>
   <div id="header-container"></div>
 
+ 
   <main class="content">
+     <div class="etapas">
+    <span class="etapa ativa">1. Escolha do voo</span>
+    <span class="etapa ativa">→ 2. Reserva</span>
+    <span class="etapa">→ 3. Pagamento</span>
+  </div>
     <h2>SUA COMPRA ESTÁ QUASE FINALIZADA!</h2>
     <!-- <p class="destino">São Luís → Rio de Janeiro</p> -->
     <h3 id="metodo-pagamento-titulo">ESCOLHA SEU MÉTODO DE PAGAMENTO:</h3>
@@ -76,7 +82,7 @@
       <p id="expira-em">Expira em: <span id="tempo">02:00</span></p>
     </div>
   </div>
-</div>
+
   </main>
 
   <div id="modal-sucesso" class="modal" style="display: none;">
@@ -137,5 +143,37 @@
   <script src="../../js/header.js"></script>
   <script src="https://unpkg.com/imask"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Script para controlar o botão "Sair" -->
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAlhgKReGb2X2CIQpy5M95hs0RRVJzbD20",
+    authDomain: "scrpai-ia.firebaseapp.com",
+    projectId: "scrpai-ia",
+    storageBucket: "scrpai-ia.appspot.com",
+    messagingSenderId: "1030430015808",
+    appId: "1:1030430015808:web:0cdac65a5607825e68faa5"
+  };
+  firebase.initializeApp(firebaseConfig);
+firebase.auth().onAuthStateChanged(function(user) {
+    const userName = localStorage.getItem('userName') || user?.displayName || 'Usuário';
+    const primeiroNome = userName.split(' ')[0]; // Pegando só o primeiro nome
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (user || userName) {
+        userNameDisplay.textContent = primeiroNome;
+        userNameDisplay.style.cursor = 'default';
+        userNameDisplay.style.color = 'white'; // Força a cor branca
+        logoutBtn.style.display = 'inline-block';
+    } else {
+        userNameDisplay.textContent = 'Entrar';
+        userNameDisplay.style.cursor = 'pointer';
+        userNameDisplay.onclick = () => window.location.href = '/pages/autenticacao/login.html';
+        logoutBtn.style.display = 'none';
+    }
+});
+</script>
 </body>
 </html>
