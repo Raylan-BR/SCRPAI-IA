@@ -1,197 +1,165 @@
 /**
  * @file autenticacao.js
- * @brief Manipulação do chat interativo e exibição de passagens aéreas
+ * @brief Manipuladores de autenticação (login, cadastro, recuperação)
  * @author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
  */
 
-/** @var {boolean} chatAberto - Controla o estado de abertura/fechamento do chat */
-let chatAberto = false;
-
+/* ===================== LOGIN MANUAL ===================== */
 /**
- * Alterna o estado de abertura/fechamento do chat
- * @function abrirChatbot
+ * Manipulador de evento para formulário de login manual
+ * @listens document#loginForm:submit
  */
-function abrirChatbot() {
-    console.log("chat aberto")
-    const conversa = document.getElementById("conteudo_historico");
-    if (chatAberto) {
-        conversa.style.height = "0px"; // fecha
-    } else {
-        conversa.style.height = "300px"; // abre
+document.getElementById('loginForm')?.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(data.message);
+            // Armazena os dados do usuário
+            localStorage.setItem('userName', data.user_name);
+            localStorage.setItem('userEmail', data.user_email);
+            window.location.href = '../../index.html'; 
+        } else {
+            alert(data.error || "Erro no login.");
+        }
+    } catch (err) {
+        console.error("Erro detalhado:", err);
+        alert("Erro de conexão com o servidor.");
     }
-    chatAberto = !chatAberto; // inverte o estado
-}
-
-/**
- * Formata a data atual para exibição nas mensagens
- * @function dataEnvioMensagem
- * @return {string} Data formatada no padrão DD/MM/AA
- */
-function dataEnvioMensagem() {
-    const hoje = new Date();
-    const dia = String(hoje.getDate()).padStart(2, "0");
-    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
-    const ano = String(hoje.getFullYear()).slice(-2);
-    return `${dia}/${mes}/${ano}`;
-}
-
-/**
- * Exibe a mensagem do usuário no histórico do chat
- * @function gerarMinhaMensagem
- * @param {string} mensagem - Texto da mensagem do usuário
- */
-function gerarMinhaMensagem(mensagem) {
-    const conversa = document.getElementById("conteudo_historico");
-    var caixaMensagem = document.createElement('div');
-    caixaMensagem.className = 'minhaMensagem';
-    var dadoMensagem = document.createElement('p');
-    caixaMensagem.appendChild(dadoMensagem);
-    conversa.appendChild(caixaMensagem);
-    dadoMensagem.innerHTML = `${mensagem}<span>${dataEnvioMensagem()}</span>`;
-    conversa.scrollTop = conversa.scrollHeight;
-}
-
-/**
- * Exibe a mensagem do chatbot no histórico do chat
- * @function gerarMensagemChatbot
- * @param {string} resposta - Texto da resposta do chatbot
- */
-function gerarMensagemChatbot(resposta) {
-    const conversa = document.getElementById("conteudo_historico");
-    var caixaMensagem = document.createElement('div');
-    caixaMensagem.className = 'chatbotMensagem';
-    var dadoMensagem = document.createElement('p');
-    caixaMensagem.appendChild(dadoMensagem);
-    conversa.appendChild(caixaMensagem);
-    dadoMensagem.innerHTML = `${resposta}<span>${dataEnvioMensagem()}</span>`;
-    conversa.scrollTop = conversa.scrollHeight;
-}
-
-/**
- * Envia mensagem para o servidor e obtém resposta
- * @function enviarServidor
- * @param {string} mensagem - Mensagem do usuário para processamento
- */
-function enviarServidor(mensagem) {
-    let userEmail = localStorage.getItem('userEmail') || "";
-    console.log("mensagem enviada pro chat");
-    fetch("/chat", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ message: mensagem, email: userEmail})
-    })
-    .then(res => res.json())
-    .then(data => {
-        tratarResultado(data)
-    });
-}
-
-/**
- * Processa o envio de mensagem e valida campo vazio
- * @function enviar
- */
-function enviar() {
-    var conteudo_campo = document.getElementById("conteudo_campo");
-    
-    if(conteudo_campo.value) {
-        conteudo_campo.style.border = "";
-        enviarServidor(conteudo_campo.value);
-        gerarMinhaMensagem(conteudo_campo.value);
-        conteudo_campo.value = '';
-    } else {
-        conteudo_campo.style.border = "2px solid red";
-        console.log("digite alguma mensagem");
-    }
-}
-
-/**
- * Processa a resposta do servidor e direciona para a função adequada
- * @function tratarResultado
- * @param {Object} resultado - Resposta do servidor
- */
-function tratarResultado(resultado) {
-    if(resultado.tipo == 1) {
-        gerarMensagemChatbot(resultado.motivo);
-        renderizarPassagens(resultado.voo)
-    } else if(resultado.tipo == 0) {
-        gerarMensagemChatbot(resultado.response);
-    } else {
-        console.error("erro na resposta do servidor");
-    }
-}
-
-/**
- * Renderiza a lista de passagens aéreas disponíveis
- * @function renderizarPassagens
- * @param {Array} passagens - Lista de voos disponíveis
- */
-function renderizarPassagens(passagens) {
-    const container = document.querySelector("#lista-voos");
-    container.innerHTML = '';
-    document.querySelector(".container-result").classList.remove("escondido");
-
-    passagens.forEach((voo,index) => {
-        const card = document.createElement("div");
-        card.className = "voo";
-        card.innerHTML = `
-            <div class="info-principal">
-                <p class="companhia">${voo.companhia}</p>
-                <p class="aeronave">Aeronave: ${voo.aeronave}</p>
-                <p class="assentos">Assentos disponíveis: ${voo.assentosDisponiveis}</p>    
-            </div>
-            <!-- Restante do template HTML -->
-        `;
-        container.appendChild(card);
-    });
-}
-
-/**
- * Carrega o histórico de conversas ao iniciar a página
- * @event DOMContentLoaded
- */
-document.addEventListener('DOMContentLoaded', () => {
-    const email = localStorage.getItem("userEmail");
-    fetch(`/conversa_chat?email=${encodeURIComponent(email)}`)
-        .then(response => response.json())
-        .then(conversas => renderizarConversas(conversas))
-        .catch(error => console.error("Erro ao carregar conversa:", error));
 });
 
+/* ===================== CADASTRO ===================== */
 /**
- * Renderiza o histórico de conversas anteriores
- * @function renderizarConversas
- * @param {Array} conversas - Lista de mensagens históricas
+ * Manipulador de evento para formulário de cadastro
+ * @listens document#registerForm:submit
  */
-function renderizarConversas(conversas) {
-    conversas.slice(1).forEach(mensagem => {
-        const texto = mensagem.parts.map(p => p.text);
-        if (mensagem.role === "user") {
-            gerarMinhaMensagem(texto);
-        } else {
-            gerarMensagemChatbot(texto);
-        }
-    });
-}
+document.getElementById('registerForm')?.addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-/**
- * Processa a seleção de um voo específico
- * @function cardSelecionado
- * @param {number} id - ID do voo selecionado
- * @async
- */
-async function cardSelecionado(id) {
+    const userData = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+    };
+
     try {
-        const resposta = await fetch(`/card-selecionado/${id}`);
-        if (!resposta.ok) {
-            throw new Error("Erro ao buscar voo no backend");
+        const response = await fetch("http://localhost:5000/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Cadastro realizado com sucesso! Logando...");
+
+            // Loga o usuário automaticamente após cadastro
+            const loginResponse = await fetch("http://localhost:5000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    email: userData.email, 
+                    password: userData.password 
+                })
+            });
+
+            const loginData = await loginResponse.json();
+
+            if (loginResponse.ok) {
+                localStorage.setItem('userName', loginData.user_name);
+                localStorage.setItem('userEmail', loginData.user_email);
+                window.location.href = '../../index.html';
+            } else {
+                alert("Cadastro feito, mas não foi possível logar automaticamente. Faça login manualmente.");
+                window.location.href = 'login.html';
+            }
+
+        } else {
+            alert(data.error || "Erro ao cadastrar.");
         }
-        const dados = await resposta.json();
-        localStorage.setItem('voo_selecionado', JSON.stringify(dados));
-        window.location.href = './pages/compra/reserva.html';
-        console.log("Voo selecionado salvo com sucesso:", dados);
-    } catch (erro) {
-        console.error("Erro ao selecionar voo:", erro);
+    } catch (err) {
+        console.error("Erro detalhado:", err);
+        alert("Erro de conexão com o servidor.");
     }
-}
+});
+
+/* ===================== LOGIN COM GOOGLE ===================== */
+/**
+ * Manipulador de evento para login com Google
+ * @listens .google-login:click
+ * @fires fetch#google-login
+ */
+document.querySelector('.google-login')?.addEventListener('click', async function () {
+    try {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const result = await firebase.auth().signInWithPopup(provider);
+        const idToken = await result.user.getIdToken();
+
+        const response = await fetch("http://localhost:5000/google-login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token: idToken })
+        });
+        
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(data.message);
+            // Armazena os dados do usuário
+            localStorage.setItem('userName', data.user_name);
+            localStorage.setItem('userEmail', data.user_email);
+            window.location.href = '../../index.html';
+        } else {
+            alert(data.error || "Erro ao autenticar com o Google");
+        }
+    } catch (error) {
+        console.error("Erro detalhado:", error);
+        alert("Erro ao fazer login com o Google: " + error.message);
+    }
+});
+
+/* ===================== LINKS E RECUPERAÇÃO ===================== */
+/**
+ * Manipulador de evento para recuperação de senha
+ * @listens document#reosetPasswordFrm:submit
+ * @todo Corrigir typo no ID do formulário (reosetPasswordFrm)
+ */
+document.getElementById('reosetPasswordFrm')?.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const novaSenha = document.getElementById('novaSenha').value;
+
+    try {
+        const response = await fetch("http://localhost:5000/reset-password", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, new_password: novaSenha })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(data.message || 'Senha atualizada com sucesso!');
+            setTimeout(() => window.location.href = 'login.html', 1500);
+        } else {
+            alert(data.error || 'Erro ao atualizar a senha.');
+        }
+    } catch (err) {
+        console.error("Erro ao atualizar a senha:", err);
+        alert("Erro de conexão com o servidor.");
+    }
+});
