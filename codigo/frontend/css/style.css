@@ -17,6 +17,11 @@ body {
     align-items: center;
 }
 
+
+#historicoLink {
+  display: none;
+}
+
 nav {
     display: flex;
     flex-direction: row;
@@ -80,8 +85,33 @@ nav {
     font-size: 12px;
 }
 
+.perfil-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.logout-btn {
+  background-color: #ffffff20;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  background-color: #ffffff40;
+}
+
+
+
 .perfil-btn {
-    background-color: #ffffff20;
+   
     border: none;
     color: white;
     padding: 12px 30px;
@@ -94,12 +124,6 @@ nav {
     overflow: hidden;
 }
 
-.perfil-btn:hover {
-    background-color: #ffffff40;
-}
-.historico-link {
-  display: none;
-}
 
 
 .lang {
