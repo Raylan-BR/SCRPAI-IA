@@ -3,7 +3,7 @@
 
 """@file main.py
 @brief Aplicação principal da API de gerenciamento de viagens
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 
 Módulo principal que configura e inicializa a aplicação Flask com todos os blueprints:
 - Autenticação (auth_bp)

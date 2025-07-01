@@ -1,6 +1,6 @@
 """@file reserva.py
 @brief Blueprint para gerenciamento de reservas de voos
-@author Seu Nome <seu.email@exemplo.com>
+@author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
 
 Módulo responsável por todas as operações relacionadas a reservas de voos:
 - Consulta de detalhes de voos

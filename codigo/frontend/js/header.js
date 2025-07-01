@@ -1,4 +1,19 @@
+/**
+ * @file header.js
+ * @brief Script de controle do cabeçalho dinâmico
+ * @description Gerencia a renderização do header e funcionalidades de login/logout
+ * @author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
+ * @author VIRGINIA MARIA MONDEGO FERREIRA <virginia.mondego@discente.ufma.br>
+ * @author YASMIN CANTANHEDE SANTOS <yasmin.cantanhede@discente.ufma.br>
+ */
+
+/**
+ * @event DOMContentLoaded
+ * @description Executa quando o DOM está totalmente carregado
+ * @listens document#DOMContentLoaded
+ */
 document.addEventListener('DOMContentLoaded', () => {
+  // Obtém dados do usuário do localStorage
   const userName = localStorage.getItem('userName');
   const userEmail = localStorage.getItem('userEmail');
   const isLoggedIn = !!userEmail;
@@ -6,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Extrair o primeiro nome ou mostrar "Entrar"
   const primeiroNome = userName ? userName.split(' ')[0] : 'Entrar';
 
+  /**
+   * Template HTML do header
+   * @type {string}
+   */
   const headerHTML = `
     <header>
       <nav>
@@ -54,28 +73,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const userNameDisplay = document.getElementById('userNameDisplay');
   const logoutBtn = document.getElementById('logoutBtn');
 
+  // Redireciona para login se não estiver logado
   if (!isLoggedIn && userNameDisplay) {
     userNameDisplay.addEventListener('click', () => {
       window.location.href = '/pages/autenticacao/login.html';
     });
   }
 
-  // Botão sair
+  /**
+   * @event logoutBtn#click
+   * @description Realiza logout do usuário
+   * @listens logoutBtn#click
+   */
   logoutBtn?.addEventListener('click', () => {
     localStorage.removeItem('userName');
     localStorage.removeItem('userEmail');
 
+    // Faz logout do Firebase se estiver autenticado
     if (firebase?.auth().currentUser) {
       firebase.auth().signOut();
     }
 
     window.location.href = '/pages/autenticacao/login.html';
   });
-  // Essa função mostra ou esconde o menu quando o botão ☰ é clicado
+});
+
+/**
+ * @function toggleMenu
+ * @description Alterna a visibilidade do menu de navegação
+ * @global
+ */
 window.toggleMenu = function () {
   const menu = document.getElementById('menu');
   if (menu) {
     menu.classList.toggle('ativo');
   }
 };
-});

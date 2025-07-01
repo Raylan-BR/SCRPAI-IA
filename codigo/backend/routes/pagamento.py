@@ -3,7 +3,7 @@
 
 """@file pagamento.py
 @brief Rotas para o módulo de pagamento
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 
 Módulo responsável por servir os recursos estáticos relacionados ao processo de pagamento:
 - Página HTML do pagamento

@@ -3,7 +3,7 @@
 
 """@file reserva.py
 @brief Rotas para o módulo de reservas
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 
 Módulo responsável por servir os recursos estáticos relacionados à interface de reservas:
 - Página HTML de reservas

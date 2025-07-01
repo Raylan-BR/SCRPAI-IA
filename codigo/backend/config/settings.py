@@ -3,7 +3,7 @@
 
 """@file settings.py
 @brief Configuração de variáveis de ambiente e chaves de API
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 """
 
 import os

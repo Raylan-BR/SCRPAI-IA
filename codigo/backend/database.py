@@ -3,7 +3,7 @@
 
 """@file database.py
 @brief Configuração da conexão com o banco de dados MongoDB
-@author Seu Nome <seu.email@exemplo.com>
+@author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
 
 Módulo responsável por estabelecer a conexão com o banco de dados MongoDB
 e disponibilizar a instância do banco de dados para outros módulos da aplicação.

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['chatbot_5froute_2epy_0',['chatbot_route.py',['../chatbot__route_8py.html',1,'']]],
-  ['client_2epy_1',['client.py',['../client_8py.html',1,'']]]
+  ['busca_5fchat_2ejs_0',['busca_chat.js',['../busca__chat_8js.html',1,'']]],
+  ['busca_5fform_2ejs_1',['busca_form.js',['../busca__form_8js.html',1,'']]]
 ];

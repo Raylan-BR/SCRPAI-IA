@@ -3,7 +3,7 @@
 
 """@file perfil.py
 @brief Rotas para o módulo de perfil do usuário
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 
 Módulo responsável por servir os recursos estáticos relacionados à página de perfil do usuário:
 - Página HTML do perfil

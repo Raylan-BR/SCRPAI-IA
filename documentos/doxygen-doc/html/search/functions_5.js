@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['gerar_5fid_5femail_0',['gerar_id_email',['../namespacechatbot_1_1logic.html#a44dd94ce0a5dbd577cfe540bc664a27d',1,'chatbot::logic']]],
-  ['gerar_5fpassagens_5fmock_1',['gerar_passagens_mock',['../namespacepassagens__mock.html#a3262690bad1cb5eea771e3af5d37c5d2',1,'passagens_mock']]],
-  ['get_5fhistorico_2',['get_historico',['../namespacehistorico.html#a41c2c10dec570703c4d620000ab7deb1',1,'historico']]],
-  ['google_5flogin_3',['google_login',['../namespaceauth.html#a790c3d6fafbeadb2f278331676f1566d',1,'auth']]]
+  ['fecharmodal_0',['fecharModal',['../historico_8js.html#ab9be62a64890f8bc0e93b7eb3fde1d1a',1,'historico.js']]],
+  ['filtrar_5fpara_5fcorporativos_1',['filtrar_para_corporativos',['../namespacechatbot_1_1logic.html#a6403be83574b55358901b8728414663c',1,'chatbot::logic']]],
+  ['filtrar_5fpara_5fturistas_2',['filtrar_para_turistas',['../namespacechatbot_1_1logic.html#a200917bb6607f33f62fbad338dcbe40f',1,'chatbot::logic']]],
+  ['formatardata_3',['formatarData',['../historico_8js.html#a9a7957b364a4f38677405d6598bba2c0',1,'historico.js']]]
 ];

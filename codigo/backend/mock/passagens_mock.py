@@ -3,7 +3,7 @@
 
 """@file passagens_mock.py
 @brief Gerador de dados mock para passagens aéreas
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 """
 
 import random

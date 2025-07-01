@@ -3,7 +3,7 @@
 
 """@file client.py
 @brief Configuração do modelo generativo Gemini para aplicações de IA
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 """
 
 import google.generativeai as genai

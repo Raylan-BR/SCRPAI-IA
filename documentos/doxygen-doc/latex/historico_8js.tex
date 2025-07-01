@@ -1,0 +1,152 @@
+\doxysection{codigo/frontend/js/historico.js File Reference}
+\hypertarget{historico_8js}{}\label{historico_8js}\index{codigo/frontend/js/historico.js@{codigo/frontend/js/historico.js}}
+
+
+Gerenciamento do histórico de compras de viagens @description Controla a exibição do histórico de compras, filtragem e geração de comprovantes.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{historico_8js_aab8998fc9051a10dc5ba9150e88d5fce}{if}} (!\mbox{\hyperlink{historico_8js_ac1c73c35c198cc9fbc15ab9e90095ea9}{user\+Email}})
+\item 
+function \mbox{\hyperlink{historico_8js_a9a7957b364a4f38677405d6598bba2c0}{formatar\+Data}} (data\+Str)
+\item 
+function \mbox{\hyperlink{historico_8js_af39470f7e54165108e08713c7c555031}{abrir\+Modal}} (detalhes)
+\begin{DoxyCompactList}\small\item\em Abre o modal com os detalhes da compra @function abrir\+Modal. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{historico_8js_ab9be62a64890f8bc0e93b7eb3fde1d1a}{fechar\+Modal}} ()
+\begin{DoxyCompactList}\small\item\em Fecha o modal de detalhes @function fechar\+Modal. \end{DoxyCompactList}\item 
+document \mbox{\hyperlink{historico_8js_a3a4ee60efa619ca8f8cd27680af4b840}{get\+Element\+By\+Id}} ("{}filtro\+Destino"{})?.add\+Event\+Listener("{}input"{}
+\begin{DoxyCompactList}\small\item\em Filtra as compras por destino @event filtro\+Destino\#input @listens filtro\+Destino\#input. \end{DoxyCompactList}\item 
+function async \mbox{\hyperlink{historico_8js_af8aff663c6e7373604e50eafc324ea69}{carregar\+Historico}} ()
+\begin{DoxyCompactList}\small\item\em Carrega o histórico de compras do usuário @async @function carregar\+Historico @description Busca no servidor e renderiza o histórico de compras do usuário logado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{historico_8js_ac1c73c35c198cc9fbc15ab9e90095ea9}{user\+Email}} = local\+Storage.\+get\+Item(\textquotesingle{}user\+Email\textquotesingle{})
+\item 
+function const \mbox{\hyperlink{historico_8js_a9a04cba12667169ca6125473926cf034}{cards}} = document.\+query\+Selector\+All("{}.card"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gerenciamento do histórico de compras de viagens @description Controla a exibição do histórico de compras, filtragem e geração de comprovantes. 
+
+\begin{DoxyAuthor}{Author}
+LILIA ROSA COELHO MOURA \href{mailto:lilia.rosa@discente.ufma.br}{\texttt{lilia.\+rosa@discente.\+ufma.\+br}} 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{historico_8js_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{historico_8js_af39470f7e54165108e08713c7c555031}\index{historico.js@{historico.js}!abrirModal@{abrirModal}}
+\index{abrirModal@{abrirModal}!historico.js@{historico.js}}
+\doxysubsubsection{\texorpdfstring{abrirModal()}{abrirModal()}}
+{\footnotesize\ttfamily \label{historico_8js_af39470f7e54165108e08713c7c555031} 
+function abrir\+Modal (\begin{DoxyParamCaption}\item[{}]{detalhes}{}\end{DoxyParamCaption})}
+
+
+
+Abre o modal com os detalhes da compra @function abrir\+Modal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{string\}} & detalhes -\/ Texto com os detalhes da compra \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/historico.\+js}}.\end{Desc}
+Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{historico_8js_af8aff663c6e7373604e50eafc324ea69}\index{historico.js@{historico.js}!carregarHistorico@{carregarHistorico}}
+\index{carregarHistorico@{carregarHistorico}!historico.js@{historico.js}}
+\doxysubsubsection{\texorpdfstring{carregarHistorico()}{carregarHistorico()}}
+{\footnotesize\ttfamily \label{historico_8js_af8aff663c6e7373604e50eafc324ea69} 
+function async carregar\+Historico (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carrega o histórico de compras do usuário @async @function carregar\+Historico @description Busca no servidor e renderiza o histórico de compras do usuário logado. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Lança erro se a requisição falhar \\
+\hline
+\end{DoxyExceptions}
+Mostra detalhes da compra no modal @event details-\/button\#click @listens details-\/button\#click
+
+Gera PDF do comprovante @event download-\/button\#click @listens download-\/button\#click\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/historico.\+js}}.\end{Desc}
+Here is the call graph for this function\+:
+% FIG 1
+\Hypertarget{historico_8js_ab9be62a64890f8bc0e93b7eb3fde1d1a}\index{historico.js@{historico.js}!fecharModal@{fecharModal}}
+\index{fecharModal@{fecharModal}!historico.js@{historico.js}}
+\doxysubsubsection{\texorpdfstring{fecharModal()}{fecharModal()}}
+{\footnotesize\ttfamily \label{historico_8js_ab9be62a64890f8bc0e93b7eb3fde1d1a} 
+function fechar\+Modal (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Fecha o modal de detalhes @function fechar\+Modal. 
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/historico.\+js}}.\end{Desc}
+\Hypertarget{historico_8js_a9a7957b364a4f38677405d6598bba2c0}\index{historico.js@{historico.js}!formatarData@{formatarData}}
+\index{formatarData@{formatarData}!historico.js@{historico.js}}
+\doxysubsubsection{\texorpdfstring{formatarData()}{formatarData()}}
+{\footnotesize\ttfamily \label{historico_8js_a9a7957b364a4f38677405d6598bba2c0} 
+function formatar\+Data (\begin{DoxyParamCaption}\item[{}]{data\+Str}{}\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/historico.\+js}}.\end{Desc}
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{historico_8js_a3a4ee60efa619ca8f8cd27680af4b840}\index{historico.js@{historico.js}!getElementById@{getElementById}}
+\index{getElementById@{getElementById}!historico.js@{historico.js}}
+\doxysubsubsection{\texorpdfstring{getElementById()}{getElementById()}}
+{\footnotesize\ttfamily \label{historico_8js_a3a4ee60efa619ca8f8cd27680af4b840} 
+document get\+Element\+By\+Id (\begin{DoxyParamCaption}\item[{}]{"{}filtro\+Destino"{}}{}\end{DoxyParamCaption})}
+
+
+
+Filtra as compras por destino @event filtro\+Destino\#input @listens filtro\+Destino\#input. 
+
+\Hypertarget{historico_8js_aab8998fc9051a10dc5ba9150e88d5fce}\index{historico.js@{historico.js}!if@{if}}
+\index{if@{if}!historico.js@{historico.js}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}}
+{\footnotesize\ttfamily \label{historico_8js_aab8998fc9051a10dc5ba9150e88d5fce} 
+if (\begin{DoxyParamCaption}\item[{!}]{user\+Email}{}\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/historico.\+js}}.\end{Desc}
+Here is the caller graph for this function\+:
+% FIG 3
+
+
+\label{doc-var-members}
+\Hypertarget{historico_8js_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{historico_8js_a9a04cba12667169ca6125473926cf034}\index{historico.js@{historico.js}!cards@{cards}}
+\index{cards@{cards}!historico.js@{historico.js}}
+\doxysubsubsection{\texorpdfstring{cards}{cards}}
+{\footnotesize\ttfamily \label{historico_8js_a9a04cba12667169ca6125473926cf034} 
+function const cards = document.\+query\+Selector\+All("{}.card"{})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/historico.\+js}}.\end{Desc}
+\Hypertarget{historico_8js_ac1c73c35c198cc9fbc15ab9e90095ea9}\index{historico.js@{historico.js}!userEmail@{userEmail}}
+\index{userEmail@{userEmail}!historico.js@{historico.js}}
+\doxysubsubsection{\texorpdfstring{userEmail}{userEmail}}
+{\footnotesize\ttfamily \label{historico_8js_ac1c73c35c198cc9fbc15ab9e90095ea9} 
+const user\+Email = local\+Storage.\+get\+Item(\textquotesingle{}user\+Email\textquotesingle{})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/historico.\+js}}.\end{Desc}

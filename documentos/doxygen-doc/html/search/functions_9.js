@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['register_0',['register',['../namespaceauth.html#ad01e6349933b8fb8409229c64c993686',1,'auth']]],
-  ['reserva_5fcss_1',['reserva_css',['../namespacereserva.html#a86cd8f85df2066a3d7685a92d4923077',1,'reserva']]],
-  ['reserva_5fhtml_2',['reserva_html',['../namespacereserva.html#a8fa8ca964dea48639e09ce11d23da8de',1,'reserva']]],
-  ['reserva_5fjs_3',['reserva_js',['../namespacereserva.html#a27521bbfdd055ca9320a3e5218c5f93b',1,'reserva']]],
-  ['reset_5fpassword_4',['reset_password',['../namespaceauth.html#a03616d96df05749ce36da4554cb7ce11',1,'auth']]],
-  ['responder_5',['responder',['../namespacechatbot_1_1logic.html#a535af3aea2404c35b1db63613a7233e3',1,'chatbot::logic']]]
+  ['login_0',['login',['../namespaceauth.html#ae2d8675ca6590793f1739608712a0e1c',1,'auth']]],
+  ['login_5fcss_1',['login_css',['../namespaceauth.html#aa1db855c8feff2c1bc93d301ef54a010',1,'auth']]],
+  ['login_5fhtml_2',['login_html',['../namespaceauth.html#a94d6f43517ae042c613c5ce54e6fdb5e',1,'auth']]],
+  ['login_5fjs_3',['login_js',['../namespaceauth.html#aba44641f60abfd90f83c0636dced4ce8',1,'auth']]]
 ];

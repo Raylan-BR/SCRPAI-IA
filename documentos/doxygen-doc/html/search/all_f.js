@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['verificar_5fresposta_5fmodelo_0',['verificar_resposta_modelo',['../namespacechatbot_1_1logic.html#a3d8dc9ba49b9cedd84e67ae85ec0bda4',1,'chatbot::logic']]],
-  ['voos_1',['voos',['../namespacereserva.html#abc78bb5b5a22cbc8748d4623f5e1b253',1,'reserva']]]
+  ['salvar_5fcompra_0',['salvar_compra',['../namespacehistorico.html#a8c389fa8c3ebb888c9e40cb060cb3b23',1,'historico']]],
+  ['salvar_5fcompra_5froute_1',['salvar_compra_route',['../namespacehistorico.html#ac495e519aebad4fd28ef10c415aa9d90',1,'historico']]],
+  ['salvar_5fhistorico_2',['salvar_historico',['../namespacechatbot_1_1logic.html#ac4bfe979a0e5711fb4573f6e079bf413',1,'chatbot::logic']]],
+  ['salvar_5fpassagens_5fem_5fjson_3',['salvar_passagens_em_json',['../namespacechatbot_1_1logic.html#aff7fa65af85f775a76ee192ed97824a1',1,'chatbot::logic']]],
+  ['salvarreserva_4',['salvarReserva',['../class_data_service.html#a2212b002db941570cfb2de70a27f2c17',1,'DataService']]],
+  ['selecionarclasse_5',['selecionarClasse',['../reserva_8js.html#a442648fca810a7a6b87ee08ce57cdbbf',1,'reserva.js']]],
+  ['settings_6',['settings',['../namespacesettings.html',1,'']]],
+  ['settings_2epy_7',['settings.py',['../settings_8py.html',1,'']]]
 ];

@@ -1,33 +1,67 @@
-const userEmail = localStorage.getItem('userEmail');
+/**
+ * @file historico.js
+ * @brief Gerenciamento do histórico de compras de viagens
+ * @description Controla a exibição do histórico de compras, filtragem e geração de comprovantes
+ * @author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
+ */
 
+// Verificação de autenticação
+const userEmail = localStorage.getItem('userEmail');
 if (!userEmail) {
   alert('Usuário não está logado. Por favor, faça login.');
   window.location.href = 'login.html';
 }
 
+/**
+ * Formata uma data string para o formato brasileiro
+ * @function formatarData
+ * @param {string} dataStr - Data em formato string
+ * @return {string} Data formatada ou "Data inválida"
+ * @example
+ * formatarData("2023-12-25") → "25 de dezembro de 2023"
+ */
 function formatarData(dataStr) {
   const data = new Date(Date.parse(dataStr));
   if (isNaN(data.getTime())) return "Data inválida";
   return data.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
 }
 
-// MODAL
+// Controle do Modal de Detalhes
+/**
+ * Abre o modal com os detalhes da compra
+ * @function abrirModal
+ * @param {string} detalhes - Texto com os detalhes da compra
+ */
 function abrirModal(detalhes) {
   document.getElementById("detalhes-compra").textContent = detalhes;
   document.getElementById("modal-detalhes").style.display = "flex";
 }
 
+/**
+ * Fecha o modal de detalhes
+ * @function fecharModal
+ */
 function fecharModal() {
   document.getElementById("modal-detalhes").style.display = "none";
 }
 
-// INICIALIZAÇÃO DO MODAL
+// Inicialização quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById("fecharModal")?.addEventListener("click", fecharModal);
   carregarHistorico();
+  
+  // Esconde o botão de Histórico no menu
+  const historicoBtn = document.querySelector('a[href="/historico.html"] > button.perfil-btn');
+  if (historicoBtn) {
+    historicoBtn.style.display = 'none';
+  }
 });
 
-// FILTRO POR DESTINO
+/**
+ * Filtra as compras por destino
+ * @event filtroDestino#input
+ * @listens filtroDestino#input
+ */
 document.getElementById("filtroDestino")?.addEventListener("input", function () {
   const termo = this.value.toLowerCase();
   const cards = document.querySelectorAll(".card");
@@ -38,7 +72,13 @@ document.getElementById("filtroDestino")?.addEventListener("input", function () 
   });
 });
 
-// CARREGAR HISTÓRICO DE COMPRAS
+/**
+ * Carrega o histórico de compras do usuário
+ * @async
+ * @function carregarHistorico
+ * @description Busca no servidor e renderiza o histórico de compras do usuário logado
+ * @throws {Error} Lança erro se a requisição falhar
+ */
 async function carregarHistorico() {
   try {
     const response = await fetch(`http://localhost:5000/loadHistorico?email=${encodeURIComponent(userEmail)}`);
@@ -70,7 +110,11 @@ async function carregarHistorico() {
         </div>
       `;
 
-      // ABRIR MODAL COM DETALHES
+      /**
+       * Mostra detalhes da compra no modal
+       * @event details-button#click
+       * @listens details-button#click
+       */
       card.querySelector('.details-button').addEventListener('click', () => {
         const detalhes = `
 Origem: ${compra.origin}
@@ -84,14 +128,20 @@ Tipo de Pagamento: ${compra.details?.payment_type ?? 'N/A'}
         abrirModal(detalhes);
       });
 
-      // GERAR PDF
+      /**
+       * Gera PDF do comprovante
+       * @event download-button#click
+       * @listens download-button#click
+       */
       card.querySelector('.download-button').addEventListener('click', () => {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
+        // Configuração do documento PDF
         doc.setFontSize(14);
         doc.text("Comprovante de Compra - SkAI", 20, 20);
 
+        // Conteúdo do comprovante
         doc.setFontSize(12);
         doc.text(`Nome: ${localStorage.getItem("userName") || "Usuário"}`, 20, 35);
         doc.text(`Email: ${userEmail}`, 20, 45);
@@ -115,14 +165,3 @@ Tipo de Pagamento: ${compra.details?.payment_type ?? 'N/A'}
     alert('Erro ao carregar histórico. Tente novamente.');
   }
 }
-document.addEventListener('DOMContentLoaded', () => {
-  // Seu código atual:
-  document.getElementById("fecharModal")?.addEventListener("click", fecharModal);
-  carregarHistorico();
-
-  // NOVO: esconder botão "Histórico" no menu
-  const historicoBtn = document.querySelector('a[href="/historico.html"] > button.perfil-btn');
-  if (historicoBtn) {
-    historicoBtn.style.display = 'none';
-  }
-});

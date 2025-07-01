@@ -14,9 +14,5 @@ var namespacechatbot =
       [ "verificar_resposta_modelo", "namespacechatbot_1_1logic.html#a3d8dc9ba49b9cedd84e67ae85ec0bda4", null ],
       [ "exist_ok", "namespacechatbot_1_1logic.html#aa9738bb47e9fa0ad112d9a9ffed39595", null ],
       [ "PASTA_HISTORICOS", "namespacechatbot_1_1logic.html#a0ed4e2f8e000198b8a3a99d46f6e0b84", null ]
-    ] ],
-    [ "mainChat", "namespacechatbot_1_1main_chat.html", [
-      [ "Chat", "namespacechatbot_1_1main_chat.html#a4ac5f64c10d7da96ab210696dc71a804", null ],
-      [ "hoje", "namespacechatbot_1_1main_chat.html#aa66b6a2264cf00818928df007add67c9", null ]
     ] ]
 ];

@@ -1,26 +1,45 @@
+/**
+ * @file busca_chat.js
+ * @brief Script para controle do chatbot e exibição de passagens aéreas
+ * @author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
+ */
+
+/** @var {boolean} chatAberto - Controla o estado de abertura do chat */
 let chatAberto = false;
 
+/**
+ * Alterna o estado de abertura/fechamento do chat
+ * @function abrirChatbot
+ */
 function abrirChatbot(){
     console.log("chat aberto")
     const conversa = document.getElementById("conteudo_historico");
     if (chatAberto) {
         conversa.style.height = "0px"; // fecha
-  } else {
+    } else {
         conversa.style.height = "300px"; // abre
-  }
-
-  chatAberto = !chatAberto; // inverte o estado
+    }
+    chatAberto = !chatAberto; // inverte o estado
 }
+
+/**
+ * Formata a data atual para exibição nas mensagens
+ * @function dataEnvioMensagem
+ * @return {string} Data formatada no padrão DD/MM/AA
+ */
 function dataEnvioMensagem(){
     const hoje = new Date();
-
-  const dia = String(hoje.getDate()).padStart(2, "0");
-  const mes = String(hoje.getMonth() + 1).padStart(2, "0"); // mês começa do zero
-  const ano = String(hoje.getFullYear()).slice(-2); // pega só os dois últimos dígitos
-
-  return `${dia}/${mes}/${ano}`;
+    const dia = String(hoje.getDate()).padStart(2, "0");
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0"); // mês começa do zero
+    const ano = String(hoje.getFullYear()).slice(-2); // pega só os dois últimos dígitos
+    return `${dia}/${mes}/${ano}`;
 }
-//gerar mensagem do usuario na tela
+
+/**
+ * Exibe a mensagem do usuário no chat
+ * @function gerarMinhaMensagem
+ * @param {string} mensagem - Texto da mensagem do usuário
+ */
 function gerarMinhaMensagem(mensagem){
     const conversa = document.getElementById("conteudo_historico");
 
@@ -38,7 +57,12 @@ function gerarMinhaMensagem(mensagem){
 
     conversa.scrollTop = conversa.scrollHeight;
 }
-//gerar a mensagem do chatbot na tela
+
+/**
+ * Exibe a mensagem do chatbot no chat
+ * @function gerarMensagemChatbot
+ * @param {string} resposta - Texto da resposta do chatbot
+ */
 function gerarMensagemChatbot(resposta){
     const conversa = document.getElementById("conteudo_historico");
 
@@ -55,14 +79,19 @@ function gerarMensagemChatbot(resposta){
     dadoMensagem.innerHTML = `${resposta}<span>${dataEnvioMensagem()}</span>`;
     conversa.scrollTop = conversa.scrollHeight;
 }
-//requisição para servidor
+
+/**
+ * Envia mensagem para o servidor do chatbot
+ * @function enviarServidor
+ * @param {string} mensagem - Mensagem do usuário a ser enviada
+ */
 function enviarServidor(mensagem) {
     let userEmail = localStorage.getItem('userEmail') || "";
     console.log("mensagem enviada pro chat");
     fetch("/chat", {
         method: "POST",
         headers: {
-        "Content-Type": "application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({ message: mensagem, email: userEmail})
     })
@@ -71,6 +100,11 @@ function enviarServidor(mensagem) {
         tratarResultado(data)
     });
 }
+
+/**
+ * Processa o envio de mensagem pelo usuário
+ * @function enviar
+ */
 function enviar(){
     var conteudo_campo = document.getElementById("conteudo_campo");
     
@@ -88,12 +122,23 @@ function enviar(){
         console.log("digite alguma mensagem");
     }
 }
+
+/**
+ * Listener para envio de mensagem com tecla Enter
+ * @event conteudo_campo#keydown
+ */
 document.getElementById('conteudo_campo').addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') {
-    event.preventDefault(); // evita quebra de linha se for textarea
-    enviar();
-  }
+    if (event.key === 'Enter') {
+        event.preventDefault(); // evita quebra de linha se for textarea
+        enviar();
+    }
 });
+
+/**
+ * Processa a resposta do servidor do chatbot
+ * @function tratarResultado
+ * @param {Object} resultado - Resposta do servidor
+ */
 function tratarResultado(resultado){
     if(resultado.tipo ==1){
         gerarMensagemChatbot(resultado.motivo);
@@ -105,6 +150,12 @@ function tratarResultado(resultado){
         console.error("erro na resposta do servidor");
     }
 }
+
+/**
+ * Renderiza a lista de passagens aéreas
+ * @function renderizarPassagens
+ * @param {Array} passagens - Lista de voos disponíveis
+ */
 function renderizarPassagens(passagens) {
     // Limpa o conteúdo anterior
     const container = document.querySelector("#lista-voos");
@@ -160,43 +211,52 @@ function renderizarPassagens(passagens) {
         container.appendChild(card);
     });
 }
-//renderizar histórico de conversas no chatbot
-document.addEventListener('DOMContentLoaded', () => {
-  // Supondo que o email está no localStorage
-const email = localStorage.getItem("userEmail");
 
-fetch(`/conversa_chat?email=${encodeURIComponent(email)}`)
-  .then(response => response.json())
-  .then(conversas => renderizarConversas(conversas))
-  .catch(error => console.error("Erro ao carregar conversa:", error));
+/**
+ * Carrega o histórico de conversas ao iniciar a página
+ * @event DOMContentLoaded
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const email = localStorage.getItem("userEmail");
+    fetch(`/conversa_chat?email=${encodeURIComponent(email)}`)
+        .then(response => response.json())
+        .then(conversas => renderizarConversas(conversas))
+        .catch(error => console.error("Erro ao carregar conversa:", error));
 });
+
+/**
+ * Renderiza o histórico de conversas anteriores
+ * @function renderizarConversas
+ * @param {Array} conversas - Lista de mensagens históricas
+ */
 function renderizarConversas(conversas) {
-  conversas.slice(1).forEach(mensagem => {
-    const texto = mensagem.parts.map(p => p.text);
-    if (mensagem.role === "user") {
-      gerarMinhaMensagem(texto);
-    } else {
-      gerarMensagemChatbot(texto);
-    }
-  });
+    conversas.slice(1).forEach(mensagem => {
+        const texto = mensagem.parts.map(p => p.text);
+        if (mensagem.role === "user") {
+            gerarMinhaMensagem(texto);
+        } else {
+            gerarMensagemChatbot(texto);
+        }
+    });
 }
 
+/**
+ * Processa a seleção de um voo específico
+ * @function cardSelecionado
+ * @param {number} id - ID do voo selecionado
+ * @async
+ */
 async function cardSelecionado(id) {
-  try {
-    const resposta = await fetch(`/card-selecionado/${id}`);
-
-    if (!resposta.ok) {
-      throw new Error("Erro ao buscar voo no backend");
+    try {
+        const resposta = await fetch(`/card-selecionado/${id}`);
+        if (!resposta.ok) {
+            throw new Error("Erro ao buscar voo no backend");
+        }
+        const dados = await resposta.json();
+        localStorage.setItem('voo_selecionado', JSON.stringify(dados));
+        window.location.href = './pages/compra/reserva.html';
+        console.log("Voo selecionado salvo com sucesso:", dados);
+    } catch (erro) {
+        console.error("Erro ao selecionar voo:", erro);
     }
-
-    const dados = await resposta.json();
-
-    // Salva no localStorage como string
-    localStorage.setItem('voo_selecionado', JSON.stringify(dados));
-    window.location.href = './pages/compra/reserva.html';
-
-    console.log("Voo selecionado salvo com sucesso:", dados);
-  } catch (erro) {
-    console.error("Erro ao selecionar voo:", erro);
-  }
 }

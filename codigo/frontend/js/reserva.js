@@ -1,3 +1,11 @@
+/**
+ * @file reserva.js
+ * @brief Script de reserva de passagens aéreas
+ * @description Gerencia o processo de seleção de assentos, bagagem e dados do passageiro
+ * @author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
+ * @author KAUAN GUILHERME ALVES PINHEIRO SANTOS <kauan.santos@discente.ufma.br>
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Obter elementos do DOM
     const formReserva = document.querySelector('.form-reserva');
@@ -109,7 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
     selectBagagem.disabled = false;
     btnProsseguir.disabled = false;
 
-    // 7. Função para atualizar resumo
+    /**
+     * Atualiza o resumo da reserva com assentos selecionados e valores
+     * @function atualizarResumo
+     */
     function atualizarResumo() {
         const assentosSelecionados = Array.from(document.querySelectorAll('.assento.selecionado'))
             .map(assento => assento.dataset.numero);
@@ -248,7 +259,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Função para selecionar a classe
+/**
+ * Seleciona a classe de voo (Econômica, Executiva, Premium)
+ * @function selecionarClasse
+ * @param {HTMLElement} elemento - Elemento HTML clicado
+ */
 function selecionarClasse(elemento) {
     // Remove a classe 'selecionada' de todas as opções
     document.querySelectorAll('.classe-option').forEach(opt => {
@@ -261,9 +276,6 @@ function selecionarClasse(elemento) {
     // Atualiza o campo hidden com o valor selecionado
     document.getElementById('classe-selecionada').value = elemento.getAttribute('data-classe');
 
-    // Aqui você pode adicionar lógica para atualizar o preço total, etc.
-    console.log('Classe selecionada:', elemento.getAttribute('data-classe'));
-
     // Forçar a exibição do resumo e atualizá-lo
     const resumoDiv = document.getElementById('resumo-reserva');
     resumoDiv.style.display = 'block';
@@ -272,7 +284,11 @@ function selecionarClasse(elemento) {
     atualizarResumo();
 }
 
-// Máscaras para CPF e Telefone
+/**
+ * Aplica máscara de CPF (000.000.000-00)
+ * @event cpf#input
+ * @listens cpf#input
+ */
 document.getElementById('cpf').addEventListener('input', function(e) {
     let value = e.target.value.replace(/\D/g, '');
     
@@ -289,6 +305,11 @@ document.getElementById('cpf').addEventListener('input', function(e) {
     e.target.value = value.substring(0, 14);
 });
 
+/**
+ * Aplica máscara de telefone ((00) 00000-0000)
+ * @event telefone#input
+ * @listens telefone#input
+ */
 document.getElementById('telefone').addEventListener('input', function(e) {
     let value = e.target.value.replace(/\D/g, '');
     

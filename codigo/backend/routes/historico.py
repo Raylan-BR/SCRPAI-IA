@@ -3,7 +3,7 @@
 
 """@file historico.py
 @brief Rotas para gerenciamento de histórico de compras
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 
 Módulo responsável por:
 - Servir páginas do frontend relacionadas ao histórico

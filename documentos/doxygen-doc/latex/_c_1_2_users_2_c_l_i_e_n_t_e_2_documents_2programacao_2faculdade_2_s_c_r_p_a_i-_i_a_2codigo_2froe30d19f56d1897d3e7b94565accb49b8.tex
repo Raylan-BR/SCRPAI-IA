@@ -1,0 +1,48 @@
+\doxysection{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/data\+Service.\+js}
+\hypertarget{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2froe30d19f56d1897d3e7b94565accb49b8}{}\label{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2froe30d19f56d1897d3e7b94565accb49b8}@method get\+Voos\+Disponiveis
+
+@method get\+Voos\+Disponiveis\+Recupera os voos disponíveis armazenados @description Obtém do local\+Storage a lista completa de voos de ida e volta disponíveis \begin{DoxyReturn}{Returns}
+\{Object\} Retorna um objeto contendo dois arrays\+: \{voos\+Ida\+: Array$<$\+Voo$>$, voos\+Volta\+: Array$<$\+Voo$>$\}
+\end{DoxyReturn}
+const voos = \doxylink{class_data_service_a7d988c47ec0e2b5e375c44f379a5f79c}{Data\+Service.\+get\+Voos\+Disponiveis()}; console.\+log(voos.\+voos\+Ida); // Lista de voos de ida
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_service}{DataService}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_data_service_a7d988c47ec0e2b5e375c44f379a5f79c}{getVoosDisponiveis}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ JSON.parse(localStorage.getItem(\textcolor{stringliteral}{'voos\_disponiveis'}))\ ||\ \{\ voosIda:\ [],\ voosVolta:\ []\ \};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_data_service_ac5e8088bb6a2950df2f09520d3eb6ee4}{getVooSelecionado}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ JSON.parse(localStorage.getItem(\textcolor{stringliteral}{'voo\_selecionado'}));}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_data_service_a2212b002db941570cfb2de70a27f2c17}{salvarReserva}}(reserva)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacereserva_ade192a5df401472d552f2051b4284e92}{reservas}}\ =\ JSON.parse(localStorage.getItem(\textcolor{stringliteral}{'reservas'}))\ ||\ [];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacereserva_ade192a5df401472d552f2051b4284e92}{reservas}}.push(reserva);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ localStorage.setItem(\textcolor{stringliteral}{'reservas'},\ JSON.stringify(\mbox{\hyperlink{namespacereserva_ade192a5df401472d552f2051b4284e92}{reservas}}));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reserva;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_data_service_a2b241fe682618f3729ef340175dfd884}{getReservasUsuario}}(email)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacereserva_ade192a5df401472d552f2051b4284e92}{reservas}}\ =\ JSON.parse(localStorage.getItem(\textcolor{stringliteral}{'reservas'}))\ ||\ [];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacereserva_ade192a5df401472d552f2051b4284e92}{reservas}}.filter(r\ =>\ r.usuario\_email\ ===\ email);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_data_service_af942e0223a074ec57996c1df3f6b7ed7}{exportarDados}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ voos\_disponiveis:\ this.\mbox{\hyperlink{class_data_service_a7d988c47ec0e2b5e375c44f379a5f79c}{getVoosDisponiveis}}(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacereserva_ade192a5df401472d552f2051b4284e92}{reservas}}:\ JSON.parse(localStorage.getItem(\textcolor{stringliteral}{'reservas'}))\ ||\ []}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_data_service_afac98b8269839095920e3c2024b595c1}{importarDados}}(dados)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ localStorage.setItem(\textcolor{stringliteral}{'voos\_disponiveis'},\ JSON.stringify(dados.voos\_disponiveis));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ localStorage.setItem(\textcolor{stringliteral}{'reservas'},\ JSON.stringify(dados.reservas));}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

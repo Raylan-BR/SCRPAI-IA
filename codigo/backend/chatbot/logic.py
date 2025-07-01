@@ -3,7 +3,7 @@
 
 """@file logic.py
 @brief Módulo principal do Assistente de Viagens - Gerencia histórico de conversas, busca de voos e filtros personalizados
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 """
 
 from gemini_api.client import model

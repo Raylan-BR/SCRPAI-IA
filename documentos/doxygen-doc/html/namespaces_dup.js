@@ -1,10 +1,5 @@
 var namespaces_dup =
 [
-    [ "api", "namespaceapi.html", [
-      [ "home", "namespaceapi.html#a8fd2d4efd65a5a353d888baed08e55e8", null ],
-      [ "app", "namespaceapi.html#a484bbf20571943d1aceb9cfc79748b48", null ],
-      [ "debug", "namespaceapi.html#a60996cc7d3a0d24700f1516d00d24db5", null ]
-    ] ],
     [ "auth", "namespaceauth.html", [
       [ "cadastro_html", "namespaceauth.html#a28f382be1096bbe064b189743e28c08a", null ],
       [ "google_login", "namespaceauth.html#a790c3d6fafbeadb2f278331676f1566d", null ],

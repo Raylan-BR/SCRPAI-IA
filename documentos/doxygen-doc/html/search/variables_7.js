@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['model_0',['model',['../namespacegemini__api_1_1client.html#af7a6f175a4aa6f426690b235d6af5d66',1,'gemini_api::client']]]
+  ['idabolinha_0',['idaBolinha',['../busca__form_8js.html#a2267fd6d80998093d2b8354ce585bb53',1,'busca_form.js']]],
+  ['idavoltabolinha_1',['idaVoltaBolinha',['../busca__form_8js.html#ad57b82b1afe1cd3947b906b2ca5377a3',1,'busca_form.js']]]
 ];

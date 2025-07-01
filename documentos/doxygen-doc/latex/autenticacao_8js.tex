@@ -1,0 +1,221 @@
+\doxysection{codigo/frontend/js/autenticacao.js File Reference}
+\hypertarget{autenticacao_8js}{}\label{autenticacao_8js}\index{codigo/frontend/js/autenticacao.js@{codigo/frontend/js/autenticacao.js}}
+
+
+Manipulação do chat interativo e exibição de passagens aéreas.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{autenticacao_8js_aec73008ddbb0a8ec29440803bafaa42b}{abrir\+Chatbot}} ()
+\begin{DoxyCompactList}\small\item\em Alterna o estado de abertura/fechamento do chat @function abrir\+Chatbot. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{autenticacao_8js_a8d1b2a5b46cd0c83115461dec7129c37}{data\+Envio\+Mensagem}} ()
+\begin{DoxyCompactList}\small\item\em Formata a data atual para exibição nas mensagens @function data\+Envio\+Mensagem. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{autenticacao_8js_ace43271686857a1de91fa798a14c7f40}{gerar\+Minha\+Mensagem}} (mensagem)
+\begin{DoxyCompactList}\small\item\em Exibe a mensagem do usuário no histórico do chat @function gerar\+Minha\+Mensagem. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{autenticacao_8js_aaedcdd3fc7ce31305490b99423ad452d}{gerar\+Mensagem\+Chatbot}} (resposta)
+\begin{DoxyCompactList}\small\item\em Exibe a mensagem do chatbot no histórico do chat @function gerar\+Mensagem\+Chatbot. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{autenticacao_8js_a9355f84fc18b7aea2f477a3c3e3ff37f}{enviar\+Servidor}} (mensagem)
+\begin{DoxyCompactList}\small\item\em Envia mensagem para o servidor e obtém resposta @function enviar\+Servidor. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{autenticacao_8js_a27a90277a1dedf309de4566d48a48c11}{enviar}} ()
+\begin{DoxyCompactList}\small\item\em Processa o envio de mensagem e valida campo vazio @function enviar. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{autenticacao_8js_a5afefe056663788728527c3985540f1e}{tratar\+Resultado}} (resultado)
+\begin{DoxyCompactList}\small\item\em Processa a resposta do servidor e direciona para a função adequada @function tratar\+Resultado. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{autenticacao_8js_a273cc60fa33168e348d48a0f3fa2713c}{renderizar\+Passagens}} (passagens)
+\begin{DoxyCompactList}\small\item\em Renderiza a lista de passagens aéreas disponíveis @function renderizar\+Passagens. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{autenticacao_8js_a460dd22625e80de083783cd5beedc665}{renderizar\+Conversas}} (conversas)
+\begin{DoxyCompactList}\small\item\em Renderiza o histórico de conversas anteriores @function renderizar\+Conversas. \end{DoxyCompactList}\item 
+function async \mbox{\hyperlink{autenticacao_8js_a66e3f7b2131a5757b4952f942cc71121}{card\+Selecionado}} (id)
+\begin{DoxyCompactList}\small\item\em Processa a seleção de um voo específico @function card\+Selecionado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+let \mbox{\hyperlink{autenticacao_8js_a4a217001c3ce25fe90bbe23b9ed4badb}{chat\+Aberto}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manipulação do chat interativo e exibição de passagens aéreas. 
+
+\begin{DoxyAuthor}{Author}
+LILIA ROSA COELHO MOURA \href{mailto:lilia.rosa@discente.ufma.br}{\texttt{lilia.\+rosa@discente.\+ufma.\+br}} 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{autenticacao_8js_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{autenticacao_8js_aec73008ddbb0a8ec29440803bafaa42b}\index{autenticacao.js@{autenticacao.js}!abrirChatbot@{abrirChatbot}}
+\index{abrirChatbot@{abrirChatbot}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{abrirChatbot()}{abrirChatbot()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_aec73008ddbb0a8ec29440803bafaa42b} 
+function abrir\+Chatbot (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Alterna o estado de abertura/fechamento do chat @function abrir\+Chatbot. 
+
+\Hypertarget{autenticacao_8js_a66e3f7b2131a5757b4952f942cc71121}\index{autenticacao.js@{autenticacao.js}!cardSelecionado@{cardSelecionado}}
+\index{cardSelecionado@{cardSelecionado}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{cardSelecionado()}{cardSelecionado()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_a66e3f7b2131a5757b4952f942cc71121} 
+function async card\+Selecionado (\begin{DoxyParamCaption}\item[{}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Processa a seleção de um voo específico @function card\+Selecionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{number\}} & id -\/ ID do voo selecionado @async \\
+\hline
+\end{DoxyParams}
+\Hypertarget{autenticacao_8js_a8d1b2a5b46cd0c83115461dec7129c37}\index{autenticacao.js@{autenticacao.js}!dataEnvioMensagem@{dataEnvioMensagem}}
+\index{dataEnvioMensagem@{dataEnvioMensagem}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{dataEnvioMensagem()}{dataEnvioMensagem()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_a8d1b2a5b46cd0c83115461dec7129c37} 
+function data\+Envio\+Mensagem (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Formata a data atual para exibição nas mensagens @function data\+Envio\+Mensagem. 
+
+\begin{DoxyReturn}{Returns}
+\{string\} Data formatada no padrão DD/\+MM/\+AA 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{autenticacao_8js_a27a90277a1dedf309de4566d48a48c11}\index{autenticacao.js@{autenticacao.js}!enviar@{enviar}}
+\index{enviar@{enviar}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{enviar()}{enviar()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_a27a90277a1dedf309de4566d48a48c11} 
+function enviar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Processa o envio de mensagem e valida campo vazio @function enviar. 
+
+Here is the call graph for this function\+:
+% FIG 1
+\Hypertarget{autenticacao_8js_a9355f84fc18b7aea2f477a3c3e3ff37f}\index{autenticacao.js@{autenticacao.js}!enviarServidor@{enviarServidor}}
+\index{enviarServidor@{enviarServidor}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{enviarServidor()}{enviarServidor()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_a9355f84fc18b7aea2f477a3c3e3ff37f} 
+function enviar\+Servidor (\begin{DoxyParamCaption}\item[{}]{mensagem}{}\end{DoxyParamCaption})}
+
+
+
+Envia mensagem para o servidor e obtém resposta @function enviar\+Servidor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{string\}} & mensagem -\/ Mensagem do usuário para processamento \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{autenticacao_8js_aaedcdd3fc7ce31305490b99423ad452d}\index{autenticacao.js@{autenticacao.js}!gerarMensagemChatbot@{gerarMensagemChatbot}}
+\index{gerarMensagemChatbot@{gerarMensagemChatbot}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{gerarMensagemChatbot()}{gerarMensagemChatbot()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_aaedcdd3fc7ce31305490b99423ad452d} 
+function gerar\+Mensagem\+Chatbot (\begin{DoxyParamCaption}\item[{}]{resposta}{}\end{DoxyParamCaption})}
+
+
+
+Exibe a mensagem do chatbot no histórico do chat @function gerar\+Mensagem\+Chatbot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{string\}} & resposta -\/ Texto da resposta do chatbot \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{autenticacao_8js_ace43271686857a1de91fa798a14c7f40}\index{autenticacao.js@{autenticacao.js}!gerarMinhaMensagem@{gerarMinhaMensagem}}
+\index{gerarMinhaMensagem@{gerarMinhaMensagem}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{gerarMinhaMensagem()}{gerarMinhaMensagem()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_ace43271686857a1de91fa798a14c7f40} 
+function gerar\+Minha\+Mensagem (\begin{DoxyParamCaption}\item[{}]{mensagem}{}\end{DoxyParamCaption})}
+
+
+
+Exibe a mensagem do usuário no histórico do chat @function gerar\+Minha\+Mensagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{string\}} & mensagem -\/ Texto da mensagem do usuário \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\Hypertarget{autenticacao_8js_a460dd22625e80de083783cd5beedc665}\index{autenticacao.js@{autenticacao.js}!renderizarConversas@{renderizarConversas}}
+\index{renderizarConversas@{renderizarConversas}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{renderizarConversas()}{renderizarConversas()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_a460dd22625e80de083783cd5beedc665} 
+function renderizar\+Conversas (\begin{DoxyParamCaption}\item[{}]{conversas}{}\end{DoxyParamCaption})}
+
+
+
+Renderiza o histórico de conversas anteriores @function renderizar\+Conversas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Array\}} & conversas -\/ Lista de mensagens históricas \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 8
+\Hypertarget{autenticacao_8js_a273cc60fa33168e348d48a0f3fa2713c}\index{autenticacao.js@{autenticacao.js}!renderizarPassagens@{renderizarPassagens}}
+\index{renderizarPassagens@{renderizarPassagens}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{renderizarPassagens()}{renderizarPassagens()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_a273cc60fa33168e348d48a0f3fa2713c} 
+function renderizar\+Passagens (\begin{DoxyParamCaption}\item[{}]{passagens}{}\end{DoxyParamCaption})}
+
+
+
+Renderiza a lista de passagens aéreas disponíveis @function renderizar\+Passagens. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Array\}} & passagens -\/ Lista de voos disponíveis \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 9
+\Hypertarget{autenticacao_8js_a5afefe056663788728527c3985540f1e}\index{autenticacao.js@{autenticacao.js}!tratarResultado@{tratarResultado}}
+\index{tratarResultado@{tratarResultado}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{tratarResultado()}{tratarResultado()}}
+{\footnotesize\ttfamily \label{autenticacao_8js_a5afefe056663788728527c3985540f1e} 
+function tratar\+Resultado (\begin{DoxyParamCaption}\item[{}]{resultado}{}\end{DoxyParamCaption})}
+
+
+
+Processa a resposta do servidor e direciona para a função adequada @function tratar\+Resultado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & resultado -\/ Resposta do servidor \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+
+
+\label{doc-var-members}
+\Hypertarget{autenticacao_8js_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{autenticacao_8js_a4a217001c3ce25fe90bbe23b9ed4badb}\index{autenticacao.js@{autenticacao.js}!chatAberto@{chatAberto}}
+\index{chatAberto@{chatAberto}!autenticacao.js@{autenticacao.js}}
+\doxysubsubsection{\texorpdfstring{chatAberto}{chatAberto}}
+{\footnotesize\ttfamily \label{autenticacao_8js_a4a217001c3ce25fe90bbe23b9ed4badb} 
+let chat\+Aberto = false}
+

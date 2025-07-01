@@ -3,7 +3,7 @@
 
 """@file chatbot_route.py
 @brief Rotas para o chatbot de viagens
-@author Seu Nome <seu.email@exemplo.com>
+@author RAYLAN BRUNO SANTANA CARVALHO <raylan.bruno@discente.ufma.br>
 
 Módulo responsável por todas as operações do chatbot:
 - Servir arquivos estáticos (HTML, CSS, JS, imagens)

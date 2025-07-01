@@ -1,0 +1,95 @@
+\doxysection{codigo/frontend/js/reserva.js File Reference}
+\hypertarget{reserva_8js}{}\label{reserva_8js}\index{codigo/frontend/js/reserva.js@{codigo/frontend/js/reserva.js}}
+
+
+Script de reserva de passagens aéreas @description Gerencia o processo de seleção de assentos, bagagem e dados do passageiro.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{reserva_8js_a442648fca810a7a6b87ee08ce57cdbbf}{selecionar\+Classe}} (elemento)
+\begin{DoxyCompactList}\small\item\em Seleciona a classe de voo (Econômica, Executiva, Premium) @function selecionar\+Classe. \end{DoxyCompactList}\item 
+document \mbox{\hyperlink{reserva_8js_a98e295dbe09d54d09e0eba985f625366}{get\+Element\+By\+Id}} (\textquotesingle{}cpf\textquotesingle{}).add\+Event\+Listener(\textquotesingle{}input\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Aplica máscara de CPF (000.\+000.\+000-\/00) @event cpf\#input @listens cpf\#input. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{reserva_8js_aa152482f5ea443e62abf8c4c83b5c05c}{if}} (value.\+length $>$ 3)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}}
+\item 
+\mbox{\hyperlink{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}} target \mbox{\hyperlink{reserva_8js_ae136c364d224ec869afb2c44d3cee4ad}{value}} = value.\+substring(0, 14)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Script de reserva de passagens aéreas @description Gerencia o processo de seleção de assentos, bagagem e dados do passageiro. 
+
+\begin{DoxyAuthor}{Author}
+LILIA ROSA COELHO MOURA \href{mailto:lilia.rosa@discente.ufma.br}{\texttt{lilia.\+rosa@discente.\+ufma.\+br}} 
+
+KAUAN GUILHERME ALVES PINHEIRO SANTOS \href{mailto:kauan.santos@discente.ufma.br}{\texttt{kauan.\+santos@discente.\+ufma.\+br}} 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{reserva_8js_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{reserva_8js_a98e295dbe09d54d09e0eba985f625366}\index{reserva.js@{reserva.js}!getElementById@{getElementById}}
+\index{getElementById@{getElementById}!reserva.js@{reserva.js}}
+\doxysubsubsection{\texorpdfstring{getElementById()}{getElementById()}}
+{\footnotesize\ttfamily \label{reserva_8js_a98e295dbe09d54d09e0eba985f625366} 
+document get\+Element\+By\+Id (\begin{DoxyParamCaption}\item[{}]{\textquotesingle{}cpf\textquotesingle{}}{}\end{DoxyParamCaption})}
+
+
+
+Aplica máscara de CPF (000.\+000.\+000-\/00) @event cpf\#input @listens cpf\#input. 
+
+Aplica máscara de telefone ((00) 00000-\/0000) @event telefone\#input @listens telefone\#input. \Hypertarget{reserva_8js_aa152482f5ea443e62abf8c4c83b5c05c}\index{reserva.js@{reserva.js}!if@{if}}
+\index{if@{if}!reserva.js@{reserva.js}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}}
+{\footnotesize\ttfamily \label{reserva_8js_aa152482f5ea443e62abf8c4c83b5c05c} 
+if (\begin{DoxyParamCaption}\item[{value.}]{length}{, }\item[{}]{3}{}\end{DoxyParamCaption})}
+
+\Hypertarget{reserva_8js_a442648fca810a7a6b87ee08ce57cdbbf}\index{reserva.js@{reserva.js}!selecionarClasse@{selecionarClasse}}
+\index{selecionarClasse@{selecionarClasse}!reserva.js@{reserva.js}}
+\doxysubsubsection{\texorpdfstring{selecionarClasse()}{selecionarClasse()}}
+{\footnotesize\ttfamily \label{reserva_8js_a442648fca810a7a6b87ee08ce57cdbbf} 
+function selecionar\+Classe (\begin{DoxyParamCaption}\item[{}]{elemento}{}\end{DoxyParamCaption})}
+
+
+
+Seleciona a classe de voo (Econômica, Executiva, Premium) @function selecionar\+Classe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+HTMLElement\}} & elemento -\/ Elemento HTML clicado \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-var-members}
+\Hypertarget{reserva_8js_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}\index{reserva.js@{reserva.js}!e@{e}}
+\index{e@{e}!reserva.js@{reserva.js}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily \label{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1} 
+function e}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ let\ \mbox{\hyperlink{reserva_8js_ae136c364d224ec869afb2c44d3cee4ad}{value}}\ =\ \mbox{\hyperlink{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}}.target.value.replace(/\(\backslash\)D/g,\ \textcolor{stringliteral}{''})}
+
+\end{DoxyCode}
+\Hypertarget{reserva_8js_ae136c364d224ec869afb2c44d3cee4ad}\index{reserva.js@{reserva.js}!value@{value}}
+\index{value@{value}!reserva.js@{reserva.js}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{reserva_8js_ae136c364d224ec869afb2c44d3cee4ad} 
+\mbox{\hyperlink{reserva_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}} target value = value.\+substring(0, 14)}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2_c_l_i_e_n_t_e_2_documents_2programacao_2faculdade_2_s_c_r_p_a_i-_i_a_2codigo_2fro40815851b1461fb89d0360f182c06015}{C\+:/\+Users/\+CLIENTE/\+Documents/programacao/faculdade/\+SCRPAI-\/\+IA/codigo/frontend/js/historico.\+js}}.\end{Desc}

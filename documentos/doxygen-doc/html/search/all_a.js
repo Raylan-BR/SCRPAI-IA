@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['main_0',['main',['../namespacemain.html',1,'']]],
-  ['main_2epy_1',['main.py',['../main_8py.html',1,'']]],
-  ['mainchat_2epy_2',['mainChat.py',['../main_chat_8py.html',1,'']]],
-  ['model_3',['model',['../namespacegemini__api_1_1client.html#af7a6f175a4aa6f426690b235d6af5d66',1,'gemini_api::client']]]
+  ['logic_2epy_0',['logic.py',['../logic_8py.html',1,'']]],
+  ['login_1',['login',['../namespaceauth.html#ae2d8675ca6590793f1739608712a0e1c',1,'auth']]],
+  ['login_5fcss_2',['login_css',['../namespaceauth.html#aa1db855c8feff2c1bc93d301ef54a010',1,'auth']]],
+  ['login_5fhtml_3',['login_html',['../namespaceauth.html#a94d6f43517ae042c613c5ce54e6fdb5e',1,'auth']]],
+  ['login_5fjs_4',['login_js',['../namespaceauth.html#aba44641f60abfd90f83c0636dced4ce8',1,'auth']]]
 ];

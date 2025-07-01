@@ -1,0 +1,12 @@
+digraph "gerarMinhaMensagem"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="gerarMinhaMensagem",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Exibe a mensagem do usuário no histórico do chat @function gerarMinhaMensagem."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="dataEnvioMensagem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$autenticacao_8js.html#a8d1b2a5b46cd0c83115461dec7129c37",tooltip="Formata a data atual para exibição nas mensagens @function dataEnvioMensagem."];
+}

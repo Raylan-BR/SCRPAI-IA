@@ -3,7 +3,7 @@
 
 """@file auth.py
 @brief Blueprint de autenticação para a API de viagens
-@author Seu Nome <seu.email@exemplo.com>
+@author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
 
 Módulo responsável por todas as operações de autenticação:
 - Cadastro tradicional

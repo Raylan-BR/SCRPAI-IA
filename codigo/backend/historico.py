@@ -3,7 +3,7 @@
 
 """@file historico.py
 @brief Blueprint para gerenciamento de histórico de compras
-@author Seu Nome <seu.email@exemplo.com>
+@author LILIA ROSA COELHO MOURA <lilia.rosa@discente.ufma.br>
 
 Módulo responsável por operações relacionadas ao histórico de compras de viagens:
 - Armazenamento de novas compras
