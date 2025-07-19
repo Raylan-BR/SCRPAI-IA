@@ -1,0 +1,72 @@
+[
+    {
+        "companhia": "Delta",
+        "aeronave": "Airbus A320",
+        "assentosDisponiveis": 28,
+        "partida": "07:45",
+        "chegada": "09:45",
+        "origem": "Sao Luis",
+        "destino": "Recife",
+        "duracao": "2h00min",
+        "escalas": 0,
+        "preco": 509.97,
+        "moeda": "BRL",
+        "classe": "Executiva"
+    },
+    {
+        "companhia": "Iberia",
+        "aeronave": "Boeing 787",
+        "assentosDisponiveis": 27,
+        "partida": "21:30",
+        "chegada": "00:00",
+        "origem": "Sao Luis",
+        "destino": "Recife",
+        "duracao": "2h30min",
+        "escalas": 0,
+        "preco": 558.44,
+        "moeda": "BRL",
+        "classe": "Executiva"
+    },
+    {
+        "companhia": "Delta",
+        "aeronave": "Airbus A320",
+        "assentosDisponiveis": 29,
+        "partida": "00:30",
+        "chegada": "04:30",
+        "origem": "Sao Luis",
+        "destino": "Recife",
+        "duracao": "4h00min",
+        "escalas": 0,
+        "preco": 800.25,
+        "moeda": "BRL",
+        "classe": "Executiva"
+    },
+    {
+        "companhia": "Latam",
+        "aeronave": "Airbus A320",
+        "assentosDisponiveis": 7,
+        "partida": "06:00",
+        "chegada": "10:00",
+        "origem": "Sao Luis",
+        "destino": "Recife",
+        "duracao": "4h00min",
+        "escalas": 0,
+        "preco": 793.89,
+        "moeda": "BRL",
+        "classe": "Executiva"
+    },
+    {
+        "companhia": "Latam",
+        "aeronave": "Boeing 737",
+        "assentosDisponiveis": 22,
+        "partida": "13:00",
+        "chegada": "17:00",
+        "origem": "Sao Luis",
+        "destino": "Recife",
+        "duracao": "4h00min",
+        "escalas": 0,
+        "preco": 447.39,
+        "moeda": "BRL",
+        "classe": "Executiva"
+    }
+]
