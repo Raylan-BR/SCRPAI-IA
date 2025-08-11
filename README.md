@@ -1,5 +1,7 @@
 # ✈️ Sistema de Compra de Passagens Aéreas com Chatbot
 
+[Guia de instalação](https://guia-de-instalacao-skai.onrender.com/)
+
 ## 🧩 Problema
 
 Comprar passagens aéreas em plataformas tradicionais pode ser um processo demorado e confuso. Os usuários precisam preencher muitos campos, comparar diferentes opções e entender detalhes técnicos dos voos. Isso pode dificultar a experiência, especialmente para pessoas com menos familiaridade com tecnologia ou que buscam praticidade.
